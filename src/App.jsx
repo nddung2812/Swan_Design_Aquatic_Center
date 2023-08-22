@@ -1,13 +1,32 @@
+import { useState } from 'react';
 import ReactHowler from 'react-howler'
 import './App.css'
 import WaterWave from 'react-water-wave';
-import KoiFish from './assets/Koifish.mp4'
+import Ocean from './assets/Ocean.jpg'
+import KoiFish from './assets/Koifish.mp4';
 import BlueDream from './assets/BlueDream.mp3';
 import DuckweedSm from './assets/duckweedsmall.png';
 import DuckweedMd from './assets/duckweedmedium.png';
-import SwanDesignLogo from './assets/SwanDesignLogo.png'
+import SwanDesignLogo from './assets/SwanDesignLogo.png';
+
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const handleLoadedData = () => {
+    setIsLoading(false);
+  };
+
   return (
+    <>
+    {isLoading && <WaterWave
+        imageUrl={Ocean}
+        style={{ width: '100%', height: '100%', backgroundSize: 'contain' }}
+        dropRadius={30}
+        perturbance={0.05}
+    >
+      {({ pause, play }) => (
+        <div className="container"></div>
+      )}
+      </WaterWave>}
     <WaterWave
       dropRadius={60}
       perturbance={0.05}
@@ -16,7 +35,14 @@ function App() {
     >
       {({ pause, play }) => (
         <div className="container">
-          <video src={KoiFish} autoPlay muted loop/>
+          <video 
+            src={KoiFish} 
+            autoPlay 
+            muted 
+            loop
+            onLoadedData={handleLoadedData}
+            style={{ display: isLoading ? "none" : "block" }}
+          />
           <ReactHowler src={BlueDream} playing={true} volume={0.05} loop={true}/>
           <img className='duckWeedSm' src={DuckweedSm}/> 
           <img className='duckWeedMd weedmd1' src={DuckweedMd}/> 
@@ -42,6 +68,7 @@ function App() {
         </div>
       )}
     </WaterWave>
+    </>
   );
 }
 
