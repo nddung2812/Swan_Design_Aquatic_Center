@@ -1,6 +1,7 @@
 *, *::before, *::after {
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .container {
@@ -9,7 +10,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 .container video {
@@ -73,7 +73,7 @@
   object-fit: contain;   
   width: 100px;
   height: 100px; 
-  animation: moveOppositeAndSpin 400s linear infinite;
+  animation: moveNoSpin 400s linear infinite;
   z-index: 1;
 }
 .weedmd1 {
@@ -86,28 +86,41 @@
   right: 60vw;
 }
 
-@keyframes moveOppositeAndSpin {
+@keyframes moveNoSpin {
   0% {
-      transform: translateX(10vw) translateY(55vh) rotate(0deg);
+      transform: translateX(10vw) translateY(55vh);
   }
   25% {
-      transform: translateX(80vw) translateY(80vh) rotate(180deg);
+      transform: translateX(80vw) translateY(80vh);
   }
   50% {
-      transform: translateX(20vw) translateY(20vh) rotate(180deg);
+      transform: translateX(20vw) translateY(20vh);
   }
   75% {
-      transform: translateX(60vw) translateY(60vh) rotate(270deg);
+      transform: translateX(60vw) translateY(60vh);
   }
   100% {
-      transform: translateX(0) translateY(0) rotate(360deg);
+      transform: translateX(0) translateY(0);
   }
 }
 
 .navbar {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
+  position: fixed;
+  top: 20px;
+}
+
+.navbar-items-ctn {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.navbar-logo {
+  padding-left: 20px;
 }
 
 .navbar-item {

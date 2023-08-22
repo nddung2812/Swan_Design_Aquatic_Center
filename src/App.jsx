@@ -5,7 +5,7 @@ import KoiFish from './assets/Koifish.mp4'
 import BlueDream from './assets/BlueDream.mp3';
 import DuckweedSm from './assets/duckweedsmall.png';
 import DuckweedMd from './assets/duckweedmedium.png';
-
+import SwanDesignLogo from './assets/SwanDesignLogo.png'
 function App() {
   return (
     <WaterWave
@@ -25,10 +25,15 @@ function App() {
           <img className='duckWeedSm weed2' src={DuckweedSm}/> 
           <img className='duckWeedSm weed3' src={DuckweedSm}/>
           <div className='navbar'>
-            <div className="navbar-item">Home</div>
-            <div className="navbar-item">Blogs</div>
-            <div className="navbar-item">Exhibition</div>
-            <div className="navbar-item">Contact</div>
+            <div className="navbar-logo">
+              <img src={SwanDesignLogo}/>
+            </div>
+            <div className="navbar-items-ctn">
+              <div className="navbar-item">Home</div>
+              <div className="navbar-item">Blogs</div>
+              <div className="navbar-item">Exhibition</div>
+              <div className="navbar-item">Contact</div>
+            </div>
           </div>
           <div className="banner-home">
 
