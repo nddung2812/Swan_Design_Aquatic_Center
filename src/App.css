@@ -130,3 +130,23 @@
   font-size: 1.5rem;
   font-weight: 400;
 }
+
+@media (max-width: 768px) {
+  .navbar-items-ctn {
+    padding-right: 10px;
+  }
+
+  .navbar-item {
+    color: #f6f6f9;
+    margin: 0 0.4rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  .navbar-logo {
+    padding-left: 10px;
+  }
+
+  .navbar-logo img {
+    width: 40px;
+  }
+}
