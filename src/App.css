@@ -35,9 +35,19 @@
   z-index: 1;
 }
 
-.duckWeedSm:nth-last-child() {
-  top:20px;
-  position: absolute;
+.weed1 {
+  top: 40vh;
+  left: 20vw;
+}
+
+.weed2 {
+  top: 90vh;
+  right: 20vw;
+}
+
+.weed3 {
+  top: 10vh;
+  left: 30vw;
 }
 
 @keyframes moveAndSpin {
@@ -60,17 +70,25 @@
 
 .duckWeedMd {
   position: absolute;
-  top: 20px;
   object-fit: contain;   
   width: 100px;
   height: 100px; 
-  animation: moveOppositeAndSpin 500s linear infinite;
+  animation: moveOppositeAndSpin 400s linear infinite;
   z-index: 1;
+}
+.weedmd1 {
+  top: -10vh;
+  left: 1vw;
+}
+
+.weedmd2 {
+  top: 30vh;
+  right: 60vw;
 }
 
 @keyframes moveOppositeAndSpin {
   0% {
-      transform: translateX(40vw) translateY(55vh) rotate(0deg);
+      transform: translateX(10vw) translateY(55vh) rotate(0deg);
   }
   25% {
       transform: translateX(80vw) translateY(80vh) rotate(180deg);
@@ -84,4 +102,17 @@
   100% {
       transform: translateX(0) translateY(0) rotate(360deg);
   }
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.navbar-item {
+  color: #f6f6f9;
+  margin: 0 1rem;
+  font-size: 2rem;
+  font-weight: 500;
 }

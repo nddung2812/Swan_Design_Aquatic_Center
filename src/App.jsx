@@ -19,16 +19,16 @@ function App() {
           <video src={KoiFish} autoPlay muted loop/>
           <ReactHowler src={BlueDream} playing={true} volume={0.05} loop={true}/>
           <img className='duckWeedSm' src={DuckweedSm}/> 
-          <img className='duckWeedMd' src={DuckweedMd}/> 
-          <img className='duckWeedSm1' src={DuckweedSm}/> 
-          <img className='duckWeedMd' src={DuckweedMd}/> 
-          <img className='duckWeedSm' src={DuckweedSm}/> 
-          <img className='duckWeedSm' src={DuckweedSm}/>
+          <img className='duckWeedMd weedmd1' src={DuckweedMd}/> 
+          <img className='duckWeedSm weed1' src={DuckweedSm}/> 
+          <img className='duckWeedMd weedmd2' src={DuckweedMd}/> 
+          <img className='duckWeedSm weed2' src={DuckweedSm}/> 
+          <img className='duckWeedSm weed3' src={DuckweedSm}/>
           <div className='navbar'>
-            <div className="navbar-home">Home</div>
-            <div className="navbar-home">Blogs</div>
-            <div className="navbar-home">Home</div>
-            <div className="navbar-home">Home</div>
+            <div className="navbar-item">Home</div>
+            <div className="navbar-item">Blogs</div>
+            <div className="navbar-item">Exhibition</div>
+            <div className="navbar-item">Contact</div>
           </div>
           <div className="banner-home">
 
