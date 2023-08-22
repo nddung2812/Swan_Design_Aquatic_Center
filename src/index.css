@@ -3,6 +3,7 @@
 }
 
 body {
+  max-width: 2560px;
   margin: 0;
   padding: 0;
 }

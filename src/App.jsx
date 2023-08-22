@@ -1,14 +1,12 @@
 import './App.css'
 import WaterWave from 'react-water-wave';
-import test from './assets/ocean.mp4'
 import KoiFish from './assets/Koifish.mp4'
-// import testImage from './assets/test.jpg'
-
+import BlueDream from './assets/BlueDream.mp3'
+import ReactHowler from 'react-howler'
 function App() {
   return (
     <WaterWave
-      // imageUrl={test}
-      // style={{ width: '100%', height: '100%', backgroundSize: 'cover' }}
+
       dropRadius={60}
       perturbance={0.05}
       interactive={true}
@@ -17,6 +15,7 @@ function App() {
       {({ pause, play }) => (
         <div className="container">
           <video src={KoiFish} autoPlay muted loop/>
+          <ReactHowler src={BlueDream} playing={true} volume={0.05} loop={true}/> 
         </div>
       )}
     </WaterWave>
