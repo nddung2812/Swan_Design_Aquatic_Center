@@ -1,5 +1,5 @@
 import SwanDesignLogo from '../assets/SwanDesignLogo.png';
-import './Navbar.css'
+import '../styles/Navbar.css'
 const Navbar = () => {
   return (
     <div className='navbar'>
@@ -9,6 +9,7 @@ const Navbar = () => {
     <div className="navbar-items-ctn">
         <div className="navbar-item">Home</div>
         <div className="navbar-item">Blogs</div>
+        <div className="navbar-item">Tips</div>
         <div className="navbar-item">Exhibition</div>
         <div className="navbar-item">Contact</div>
         <button className="navbar-btn">Products</button>

@@ -1,7 +1,7 @@
 import { useEffect } from "react"
-import "./Preloader.css";
-import { preLoaderAnim } from "../../animations/preloaderAnimation";
-import SwanLogo from "../../assets/SwanDesignLogo.png"
+import "../styles/Preloader.css"
+import { preLoaderAnim } from "../animations/preloaderAnimation";
+import SwanLogo from "../assets/SwanDesignLogo.png"
 
 export const Preloader = () => {
   

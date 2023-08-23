@@ -1,4 +1,4 @@
-import './Duckweeds.css'
+import '../styles/Duckweeds.css'
 import DuckweedSm from '../assets/duckweedsmall.png';
 import DuckweedMd from '../assets/duckweedmedium.png';
 import Duckweedsm2 from '../assets/duckweedsmall2.png';

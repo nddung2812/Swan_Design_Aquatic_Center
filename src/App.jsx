@@ -8,7 +8,7 @@ import BlueDream from './assets/BlueDream.mp3';
 import Navbar from './components/Navbar';
 import Duckweeds from './components/Duckweeds';
 import Footer from './components/Footer';
-import { Preloader } from './components/Preloader/Preloader';
+import { Preloader } from './components/Preloader';
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const handleLoadedData = () => {

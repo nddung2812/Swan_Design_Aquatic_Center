@@ -1,8 +1,8 @@
-import './Homebanner.css'
+import '../styles/HomeBanner.css'
 
 const HomeBanner = () => {
   return (
-    <div>HomeBanner</div>
+    <div className='homebanner-ctn'>HomeBanner</div>
   )
 }
 
