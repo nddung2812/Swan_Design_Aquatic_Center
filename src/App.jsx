@@ -5,9 +5,9 @@ import WaterWave from 'react-water-wave';
 import Ocean from './assets/Ocean.jpg'
 import KoiFish from './assets/Koifish.mp4';
 import BlueDream from './assets/BlueDream.mp3';
-import DuckweedSm from './assets/duckweedsmall.png';
-import DuckweedMd from './assets/duckweedmedium.png';
-import SwanDesignLogo from './assets/SwanDesignLogo.png';
+import Navbar from './components/Navbar';
+import Duckweeds from './components/Duckweeds';
+import Footer from './components/Footer';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -44,27 +44,12 @@ function App() {
             style={{ display: isLoading ? "none" : "block" }}
           />
           <ReactHowler src={BlueDream} playing={true} volume={0.05} loop={true}/>
-          <img className='duckWeedSm' src={DuckweedSm}/> 
-          <img className='duckWeedMd weedmd1' src={DuckweedMd}/> 
-          <img className='duckWeedSm weed1' src={DuckweedSm}/> 
-          <img className='duckWeedMd weedmd2' src={DuckweedMd}/> 
-          <img className='duckWeedSm weed2' src={DuckweedSm}/> 
-          <img className='duckWeedSm weed3' src={DuckweedSm}/>
-          <div className='navbar'>
-            <div className="navbar-logo">
-              <img src={SwanDesignLogo}/>
-            </div>
-            <div className="navbar-items-ctn">
-              <div className="navbar-item">Home</div>
-              <div className="navbar-item">Blogs</div>
-              <div className="navbar-item">Exhibition</div>
-              <div className="navbar-item">Contact</div>
-            </div>
-          </div>
+          <Duckweeds />
+          <Navbar />
           <div className="banner-home">
 
           </div>
-
+          <Footer />
         </div>
       )}
     </WaterWave>
