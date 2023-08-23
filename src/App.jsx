@@ -8,7 +8,7 @@ import BlueDream from './assets/BlueDream.mp3';
 import Navbar from './components/Navbar';
 import Duckweeds from './components/Duckweeds';
 import Footer from './components/Footer';
-
+import { Preloader } from './components/Preloader/Preloader';
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const handleLoadedData = () => {
@@ -17,9 +17,10 @@ function App() {
 
   return (
     <>
+    <Preloader />
     {isLoading && <WaterWave
         imageUrl={Ocean}
-        style={{ width: '100%', height: '100%', backgroundSize: 'contain' }}
+        style={{ width: '100%', height: '100%', backgroundSize: 'cover' }}
         dropRadius={30}
         perturbance={0.05}
     >

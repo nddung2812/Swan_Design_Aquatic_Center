@@ -1,7 +1,7 @@
 .duckWeedSm {
     top:0;
     left:0 ;
-    width: 50px;
+    width: 20px;
     height: 50px;
     object-fit: contain;    
     position: absolute;
@@ -12,16 +12,20 @@
   .weed1 {
     top: 40vh;
     left: 20vw;
+    width: 30px;
   }
   
   .weed2 {
     top: 90vh;
+    width: 40px;
     right: 20vw;
+    transform: rotate(3.142rad);
   }
   
   .weed3 {
     top: 10vh;
     left: 30vw;
+    width: 18px;
   }
   
   @keyframes moveAndSpin {
@@ -45,7 +49,7 @@
   .duckWeedMd {
     position: absolute;
     object-fit: contain;   
-    width: 100px;
+    width: 70px;
     height: 100px; 
     animation: moveNoSpin 400s linear infinite;
     z-index: 1;
@@ -53,6 +57,7 @@
   .weedmd1 {
     top: -10vh;
     left: 1vw;
+    width: 63px;
   }
   
   .weedmd2 {
@@ -68,7 +73,7 @@
         transform: translateX(80vw) translateY(80vh);
     }
     50% {
-        transform: translateX(20vw) translateY(20vh);
+        transform: translateX(20vw) translateY(40vh);
     }
     75% {
         transform: translateX(60vw) translateY(60vh);
