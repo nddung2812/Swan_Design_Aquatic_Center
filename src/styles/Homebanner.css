@@ -1,5 +1,19 @@
-.homebaner-ctn {
+.homebanner-ctn {
+  width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 2rem 4rem;
+  min-height: 50rem;
+}
+
+.homebanner-ctn h1 {
+  font-size: 4rem;
+  color: #f6f6f9;
+}
+
+.homebanner-ctn p {
+  color: #f6f6f9;
+  width: 60%;
 }/*# sourceMappingURL=Homebanner.css.map */

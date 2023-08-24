@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import Duckweeds from './components/Duckweeds';
 import Footer from './components/Footer';
 import { Preloader } from './components/Preloader';
+import HomeBanner from './components/HomeBanner';
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const handleLoadedData = () => {
@@ -47,9 +48,7 @@ function App() {
           <ReactHowler src={BlueDream} playing={true} volume={0.05} loop={true}/>
           <Duckweeds />
           <Navbar />
-          <div className="banner-home">
-
-          </div>
+          <HomeBanner />
           <Footer />
         </div>
       )}
