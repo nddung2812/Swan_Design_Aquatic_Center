@@ -5,7 +5,7 @@
   justify-content: center;
   padding: 2rem 4rem;
   min-height: 24rem;
-  margin: 10rem 0;
+  margin: 12rem 0;
   background: rgba(58, 53, 53, 0.2);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(18px);
@@ -35,7 +35,6 @@
   padding: 0.8rem 1.6rem;
   border-radius: 4rem;
   margin-top: 2rem;
-  border: 1px solid #f5ab1e;
   font-family: "Cabin", sans-serif;
   font-weight: 700;
   text-decoration: none;
