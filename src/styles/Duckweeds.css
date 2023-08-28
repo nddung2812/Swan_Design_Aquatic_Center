@@ -11,20 +11,20 @@
 }
 
 .weed1 {
-  top: 40vh;
+  top: 20vh;
   left: 20vw;
   width: 30px;
 }
 
 .weed2 {
-  top: 90vh;
+  top: 35vh;
   width: 40px;
   right: 20vw;
   transform: rotate(3.142rad);
 }
 
 .weed3 {
-  top: 10vh;
+  top: 40vh;
   left: 30vw;
   width: 18px;
 }
@@ -34,13 +34,13 @@
     transform: translateX(0) translateY(0) rotate(0deg);
   }
   25% {
-    transform: translateX(80vw) translateY(80vh) rotate(180deg);
+    transform: translateX(20vw) translateY(10vh) rotate(180deg);
   }
   50% {
     transform: translateX(20vw) translateY(20vh) rotate(180deg);
   }
   75% {
-    transform: translateX(60vw) translateY(60vh) rotate(270deg);
+    transform: translateX(60vw) translateY(30vh) rotate(270deg);
   }
   100% {
     transform: translateX(0) translateY(0) rotate(360deg);
@@ -69,16 +69,16 @@
 
 @keyframes moveNoSpin {
   0% {
-    transform: translateX(10vw) translateY(55vh);
+    transform: translateX(10vw) translateY(23vh);
   }
   25% {
-    transform: translateX(80vw) translateY(80vh);
+    transform: translateX(80vw) translateY(10vh);
   }
   50% {
     transform: translateX(20vw) translateY(40vh);
   }
   75% {
-    transform: translateX(60vw) translateY(60vh);
+    transform: translateX(60vw) translateY(5vh);
   }
   100% {
     transform: translateX(0) translateY(0);
