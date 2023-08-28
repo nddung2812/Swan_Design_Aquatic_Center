@@ -10,10 +10,41 @@
 
 .homebanner-ctn h1 {
   font-size: 4rem;
+  color: #f5ab1e;
+}
+
+.homebanner-ctn h2 {
   color: #f6f6f9;
+  font-size: 2rem;
 }
 
 .homebanner-ctn p {
+  color: rgba(246, 246, 249, 0.9058823529);
+}
+
+.homebanner-cta-ctn {
+  display: flex;
+  padding: 2rem 4rem;
+}
+
+.cta-card {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.cta-card:nth-child(1) {
+  background: radial-gradient(166.72% 161.79% at 10% -6.74%, #8044e2 0%, #0f172a 100%), #1e293b;
+}
+
+.cta-card:nth-child(2) {
+  background: radial-gradient(166.72% 161.79% at 10% -6.74%, #10a9d6 0%, #0f172a 100%), #1e293b;
+}
+
+.cta-card:nth-child(3) {
+  background: radial-gradient(166.72% 161.79% at 10% -6.74%, #506ef8 0%, #0f172a 100%), #1e293b;
+}
+
+.cta-card h2 {
   color: #f6f6f9;
-  width: 60%;
 }/*# sourceMappingURL=Homebanner.css.map */

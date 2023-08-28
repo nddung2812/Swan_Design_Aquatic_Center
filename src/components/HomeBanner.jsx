@@ -3,8 +3,26 @@ import '../styles/Homebanner.css'
 const HomeBanner = () => {
   return (
     <div className='homebanner-ctn'>
-      <h1>Aquarium Plant Enthusiasts</h1>
-      <p>Established in 2021 by a collective of avid aquarium enthusiasts hailing from Brisbane, Aquatic Swan Design was born out of an unwavering passion. With a shared commitment to nurturing newcomers, the ASD Team firmly believes in rekindling the growth of the industry, as it should have flourished years ago. While our primary focus revolves around introducing novices to the world of domestic aquariums, our true forte lies in our remarkable expertise.</p>
+      <h1>Aquatic Plants and Fish</h1>
+      <h2>Bringing the Ocean to You</h2>
+      <p>Your Source for Healthy Aquarium Fish and Lush Plants</p>
+      <div className="checkout">
+        <a href="">Who we are</a>
+      </div>
+      <div className="homebanner-cta-ctn">
+        <div className="cta-card">
+          <h2>Bucephandraa</h2>
+          <p>Discover all products</p>
+        </div>
+        <div className="cta-card">
+          <h2>Bucephandraa</h2>
+          <p>Discover all products</p>
+        </div>
+        <div className="cta-card">
+          <h2>Bucephandraa</h2>
+          <p>Discover all products</p>
+        </div>
+      </div>
     </div>
   )
 }
