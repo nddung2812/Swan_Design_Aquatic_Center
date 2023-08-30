@@ -1,12 +1,33 @@
+import '../styles/HamburgerMenu.css';
+import { useState } from 'react';
 
 const HamburgerMenu = () => {
+  const [menuToggle, setMenuToggle] = useState(false);
+  const handleMenuClick = () => {
+    setMenuToggle(!menuToggle)
+  }
   return (
-    <div className="menu-toggle">
-      <div className="line"></div>
-      <div className="line"></div>
-      <div className="line"></div>
-  </div>
-  )
-}
+    <>
+      {!menuToggle ? (
+        <div className="menu-toggle" onClick={handleMenuClick}>
+          <div className="line"></div>
+          <div className="line"></div>
+          <div className="line"></div>
+        </div>
+      ) : (
+        <>
+          <div className="navbar-item">Home</div>
+          <div className="navbar-item">Blogs</div>
+          <div className="navbar-item">D.I.Y Tips</div>
+          <div className="navbar-item">Exhibition</div>
+          <div className="navbar-item">Contact</div>
+        </>
+      )}
+    </>
+  );
+};
 
-export default HamburgerMenu
+export default HamburgerMenu;
+
+
+
