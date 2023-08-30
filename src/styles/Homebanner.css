@@ -16,7 +16,7 @@
 
 .homebanner-ctn h1 {
   font-size: 4rem;
-  color: #0dc167;
+  color: #5ec10d;
 }
 
 .homebanner-ctn h2 {
@@ -73,4 +73,30 @@
 
 .cta-card h2 {
   color: #f6f6f9;
+}
+
+@media (max-width: 768px) {
+  .homebanner-ctn {
+    width: 100%;
+    text-align: center;
+    margin: 14rem 0 4rem;
+  }
+  .homebanner-ctn h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .homebanner-ctn h2 {
+    margin-bottom: 1rem;
+  }
+  .homebanner-ctn p {
+    font-style: italic;
+  }
+  .homebanner-cta-ctn {
+    flex-direction: column;
+    padding: 2rem 0rem;
+    width: 100%;
+  }
+  .cta-card {
+    margin: 0.5rem 1rem;
+  }
 }/*# sourceMappingURL=Homebanner.css.map */

@@ -3,31 +3,31 @@
     left:0 ;
     width: 20px;
     height: 50px;
-    object-fit: contain;    
+    object-fit: contain;
     position: absolute;
     animation: moveAndSpin 500s linear infinite;
-    z-index: 1;
+    z-index: 10;
   }
-  
+
   .weed1 {
     top: 20vh;
     left: 20vw;
     width: 30px;
   }
-  
+
   .weed2 {
     top: 35vh;
     width: 40px;
     right: 20vw;
     transform: rotate(3.142rad);
   }
-  
+
   .weed3 {
     top: 40vh;
     left: 30vw;
     width: 18px;
   }
-  
+
   @keyframes moveAndSpin {
     0% {
         transform: translateX(0) translateY(0) rotate(0deg);
@@ -45,26 +45,26 @@
         transform: translateX(0) translateY(0) rotate(360deg);
     }
   }
-  
+
   .duckWeedMd {
     position: absolute;
-    object-fit: contain;   
+    object-fit: contain;
     width: 70px;
-    height: 100px; 
+    height: 100px;
     animation: moveNoSpin 400s linear infinite;
-    z-index: 1;
+    z-index: 10;
   }
   .weedmd1 {
     top: -10vh;
     left: 1vw;
     width: 63px;
   }
-  
+
   .weedmd2 {
     top: 30vh;
     right: 60vw;
   }
-  
+
   @keyframes moveNoSpin {
     0% {
         transform: translateX(10vw) translateY(23vh);

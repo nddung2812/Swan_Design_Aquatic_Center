@@ -63,3 +63,18 @@
     align-items: center;
     justify-content: center;
 }
+
+@media (max-width: 768px) {
+    .footer-top-item {
+        width: 30%;
+        margin: 0 0.5rem 0 0;
+    }
+
+    .footer-bottom-ctn {
+        flex-direction: column;
+    }
+
+    .footer-social-medias {
+        margin: 0.5rem 4rem;
+    }
+}
