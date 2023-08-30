@@ -1,11 +1,15 @@
 import SwanDesignLogo from '../assets/SwanDesignLogo.png';
+import { useState } from 'react';
 import '../styles/Navbar.css'
+import HamburgerMenu from './HamburgerMenu.jsx';
 const Navbar = () => {
+  const [menuToggle, setMenuToggle] = useState(false)
   return (
     <div className='navbar'>
       <div className="navbar-logo">
         <img src={SwanDesignLogo} />
       </div>
+      <HamburgerMenu />
       <div className="navbar-items-ctn">
         <div className="navbar-item">Home</div>
         <div className="navbar-item">Blogs</div>
