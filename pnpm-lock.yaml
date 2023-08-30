@@ -1,4 +1,4 @@
-lockfileVersion: 5.4
+lockfileVersion: 5.3
 
 specifiers:
   '@types/react': ^18.2.21
@@ -22,7 +22,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-howler: 5.2.0
   react-icons: 4.10.1_react@18.2.0
-  react-water-wave: 2.0.1_biqbaboplfbrettd7655fr4n2y
+  react-water-wave: 2.0.1
 
 devDependencies:
   '@types/react': 18.2.21
@@ -1838,11 +1838,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react-water-wave/2.0.1_biqbaboplfbrettd7655fr4n2y:
+  /react-water-wave/2.0.1:
     resolution: {integrity: sha512-+iu4pUzDebh2cIQbupzckCSAMok+dYx6hTOziVdLt2gIbB4erceMmlnzF2TmUg7FZDvFW7NJYWXEbfi7gzOsfA==}
-    peerDependencies:
-      react: ^16 | ^17 | ^18
-      react-dom: ^16 | ^17 | ^18
     dependencies:
       jquery: 3.7.0
       jquery.ripples: 0.6.3_jquery@3.7.0

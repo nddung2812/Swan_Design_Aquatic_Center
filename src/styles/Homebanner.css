@@ -9,7 +9,9 @@
   background: rgba(58, 53, 53, 0.2);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(230, 229, 229, 0.116);
   border-radius: 2px;
+  z-index: 9;
 }
 
 .homebanner-ctn h1 {
@@ -57,15 +59,15 @@
   min-width: 12rem;
 }
 
-.cta-card:nth-child(1) {
+.cta-btn1 {
   background: radial-gradient(166.72% 161.79% at 10% -6.74%, #8044e2 0%, #0f172a 100%), #1e293b;
 }
 
-.cta-card:nth-child(2) {
+.cta-btn2 {
   background: radial-gradient(166.72% 161.79% at 10% -6.74%, #10a9d6 0%, #0f172a 100%), #1e293b;
 }
 
-.cta-card:nth-child(3) {
+.cta-btn3 {
   background: radial-gradient(166.72% 161.79% at 10% -6.74%, #506ef8 0%, #0f172a 100%), #1e293b;
 }
 

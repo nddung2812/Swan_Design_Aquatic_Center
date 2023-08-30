@@ -12,7 +12,9 @@ const Navbar = () => {
         <div className="navbar-item">D.I.Y Tips</div>
         <div className="navbar-item">Exhibition</div>
         <div className="navbar-item">Contact</div>
-        <button className="navbar-btn">Products</button>
+        <a target="_blank" href="https://duckaroo.com.au" rel="noreferrer">
+          <button className="navbar-btn">Products</button>
+        </a>
       </div>
     </div>
   )

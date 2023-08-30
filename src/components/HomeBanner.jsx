@@ -12,18 +12,24 @@ const HomeBanner = () => {
         </div>
       </a>
       <div className="homebanner-cta-ctn">
-        <div className="cta-card">
-          <h2>Bucephalandra</h2>
-          <p>Discover all products</p>
-        </div>
-        <div className="cta-card">
-          <h2>D.I.Y Projects</h2>
-          <p>Discover all products</p>
-        </div>
-        <div className="cta-card">
-          <h2>Probiotics</h2>
-          <p>Discover all products</p>
-        </div>
+        <a target="_blank" href='https://duckaroo.com.au/collections/aquarium-plants' rel="noreferrer">
+          <div className="cta-card cta-btn1">
+            <h2>Bucephalandra</h2>
+            <p>Discover rare variants</p>
+          </div>
+        </a>
+        <a target="_blank" href="https://duckaroo.com.au/collections/accessories" rel="noreferrer">
+          <div className="cta-card cta-btn2">
+            <h2>D.I.Y Projects</h2>
+            <p>Checkout top-quality items</p>
+          </div>
+        </a>
+        <a target="_blank" href="https://duckaroo.com.au/collections/aquarium-probiotics" rel="noreferrer">
+          <div className="cta-card cta-btn3">
+            <h2>Probiotics</h2>
+            <p>Powered by Koika</p>
+          </div>
+        </a>
       </div>
     </div>
   )

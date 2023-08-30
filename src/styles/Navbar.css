@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: space-between;
   position: fixed;
+  z-index: 10;
   top: 0px;
   padding: 0.5rem 0;
   backdrop-filter: blur(10px);
@@ -37,7 +38,7 @@
   font-size: 1.3rem;
   background: radial-gradient(166.72% 161.79% at 10% -6.74%, #8044e2 0%, #0f172a 100%), #1e293b;
   color: #f6f6f9;
-  border-radius: 2px;
+  border-radius: 4px;
   margin-left: 0.5rem;
   font-weight: 300 !important;
   cursor: pointer;
