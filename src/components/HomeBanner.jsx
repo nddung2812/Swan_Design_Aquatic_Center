@@ -18,7 +18,7 @@ const HomeBanner = () => {
             <p>Discover rare variants</p>
           </div>
         </a>
-        <a target="_blank" href="https://duckaroo.com.au/collections/accessories" rel="noreferrer">
+        <a target="_blank" href="https://duckaroo.com.au/pages/our-services" rel="noreferrer">
           <div className="cta-card cta-btn2">
             <h2>D.I.Y Projects</h2>
             <p>Checkout top-quality items</p>
