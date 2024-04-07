@@ -1,0 +1,230 @@
+/*!**************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./app/styles/HamburgerMenu.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************/
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 1px;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  display: none;
+  margin: 0.2rem 0;
+}
+
+.line {
+  width: 30px;
+  height: 3px;
+  background-color: #ffffff;
+  margin: 4px 0;
+  transition: transform 0.4s ease;
+}
+
+.navbar-mobile-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.navbar-close-btn {
+  margin-top: 2px;
+  color: #f6f6f9;
+  padding: 2px;
+  border: 1px solid rgba(229, 229, 229, 0.4);
+  width: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+}/*# sourceMappingURL=HamburgerMenu.css.map */
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./app/styles/Footer.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+.footer-ctn {
+  color: #f6f6f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(230, 229, 229, 0.116);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.726);
+  width: 100%;
+}
+
+.footer-top-ctn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.footer-top-item {
+  min-width: 10%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 4rem;
+}
+
+.footer-top-item a {
+  text-decoration: none;
+  color: #f6f6f9;
+  font-weight: 400 !important;
+  margin: 0.2rem 0;
+}
+
+.footer-bottom-ctn {
+  width: 100%;
+  background-color: rgba(245, 170, 30, 0.2862745098);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0.4rem;
+}
+
+.subfooter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1920px;
+}
+
+.footer-social-medias {
+  display: flex;
+  align-items: center;
+  margin: 0 8rem;
+}
+
+.footer-social-medias h3 {
+  margin: 0 0.4rem;
+  padding: 0.2rem 0.3rem;
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.377);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .footer-top-item {
+    width: 30%;
+    margin: 0 0.5rem 0 0;
+  }
+  .footer-social-medias {
+    margin: 0.5rem 4rem;
+  }
+  .subfooter {
+    flex-direction: column;
+  }
+}/*# sourceMappingURL=Footer.css.map */
+/*!*********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./app/service/service.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************/
+.service-ctn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #030303;
+}
+
+main {
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}/*# sourceMappingURL=service.css.map */
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[12].use[3]!./app/styles/Navbar.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 10;
+  top: 0px;
+  padding: 0.5rem 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(230, 229, 229, 0.116);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.726);
+}
+
+.navbar-items-ctn {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.navbar-logo {
+  padding-left: 20px;
+}
+
+.navbar-logo-img {
+  width: 3rem;
+  height: 3.2rem;
+}
+
+.navbar-item {
+  color: #f6f6f9;
+  margin: 0 1rem;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+.navbar-btn {
+  padding: 0.5rem 1.6rem;
+  font-size: 1.3rem;
+  background: radial-gradient(166.72% 161.79% at 10% -6.74%, #8044e2 0%, #0f172a 100%), #1e293b;
+  color: #f6f6f9;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  font-weight: 300 !important;
+  cursor: pointer;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-desktop {
+    display: none;
+  }
+  .navbar {
+    width: 100%;
+    padding: 0;
+  }
+  .navbar-items-ctn {
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 10px;
+  }
+  .navbar-item {
+    color: #f6f6f9;
+    margin: 0.2rem 0;
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  .navbar-logo {
+    padding: 6px;
+    width: 100px;
+  }
+  .navbar-logo-img {
+    width: 3.8rem;
+    height: 4rem;
+  }
+  .navbar-btn {
+    margin: 0.2rem 0;
+    font-size: 1rem;
+    font-weight: 300;
+    padding: 0.4rem 1.2rem;
+  }
+}/*# sourceMappingURL=Navbar.css.map */
