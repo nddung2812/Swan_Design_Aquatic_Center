@@ -1,0 +1,87 @@
+.duckWeedSm {
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 50px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: absolute;
+  animation: moveAndSpin 500s linear infinite;
+  z-index: 10;
+  overflow-x: hidden;
+}
+
+.weed1 {
+  top: 20vh;
+  left: 20vw;
+  width: 30px;
+}
+
+.weed2 {
+  top: 35vh;
+  width: 40px;
+  right: 20vw;
+  transform: rotate(3.142rad);
+}
+
+.weed3 {
+  top: 40vh;
+  left: 30vw;
+  width: 18px;
+}
+
+@keyframes moveAndSpin {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(20vw) translateY(10vh) rotate(180deg);
+  }
+  50% {
+    transform: translateX(20vw) translateY(20vh) rotate(180deg);
+  }
+  75% {
+    transform: translateX(60vw) translateY(30vh) rotate(270deg);
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(360deg);
+  }
+}
+.duckWeedMd {
+  position: absolute;
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 70px;
+  height: 100px;
+  animation: moveNoSpin 400s linear infinite;
+  z-index: 10;
+}
+
+.weedmd1 {
+  top: -10vh;
+  left: 1vw;
+  width: 63px;
+}
+
+.weedmd2 {
+  top: 30vh;
+  right: 60vw;
+}
+
+@keyframes moveNoSpin {
+  0% {
+    transform: translateX(10vw) translateY(23vh);
+  }
+  25% {
+    transform: translateX(80vw) translateY(10vh);
+  }
+  50% {
+    transform: translateX(20vw) translateY(40vh);
+  }
+  75% {
+    transform: translateX(60vw) translateY(5vh);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}/*# sourceMappingURL=Duckweeds.css.map */

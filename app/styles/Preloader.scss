@@ -1,0 +1,88 @@
+@import '../variables/variables.scss';
+
+.preloader {
+    height: 100vh;
+    width: 100%;
+    background-color: #030303;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.preloader .texts-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5.6rem;
+    font-size: 5.5rem;
+    font-weight: 800;
+    color: $primaryText;
+    overflow: hidden;
+    font-family: 'Work Sans', sans-serif;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0008);
+    letter-spacing: 3px;
+    outline: none;
+}
+
+.preload-img-ctn {
+    width: 7.8rem;
+    height: 8.2rem;
+    margin-right: 1rem;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.texts-container sup {
+    font-size: 1.8rem;
+    margin-left: 0.2rem;
+    position: relative;
+    top: -0.5rem;
+}
+
+
+@media(max-width: 1350px) and (min-width: 769px) { 
+    .preloader .texts-container {
+        font-size: 3rem;
+        height: 2.8rem;
+    }
+    .preload-img-ctn {
+        margin-right: 0.5rem;
+        height: 4rem;
+        width: 3.6rem;
+    }
+
+    .texts-container sup {
+        font-size: 1rem;
+        margin-left: 0.2rem;
+        top: -0.5rem;
+    }
+    
+}
+
+@media(max-width: 768px) { 
+    .preloader .texts-container {
+        font-size: 2.8rem;
+        height: 2.5rem;
+        letter-spacing: 1px;
+    }
+    .preload-img-ctn {
+        height: 3.5rem;
+        width: 3.2rem;
+        margin-right: 0.4rem;
+    }
+
+    .texts-container sup {
+        font-size: 1rem;
+        margin-left: 0.1rem;
+        top: 0;
+    }
+}
+

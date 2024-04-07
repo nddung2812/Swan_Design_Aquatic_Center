@@ -1,0 +1,27 @@
+.home-page-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1a1a1a17;
+}
+
+.home-page-container video {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -10;
+}
+
+
+@media (max-width: 768px) {
+  .home-page-container {
+    height: 100%;
+  }
+}
