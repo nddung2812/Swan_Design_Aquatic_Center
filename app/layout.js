@@ -10,7 +10,7 @@ export const metadata = {
   icons: {
     icon: "/swan-favicon.png",
   },
-  metaImage: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fsearch%3Fk%3Dmarine%2Bplants&psig=AOvVaw0L1G-1dftganWc1D8GNIN0&ust=1712558886658000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOCdy4DBr4UDFQAAAAAdAAAAABAE"
+  image: "https://firebasestorage.googleapis.com/v0/b/aquatic-swan-design.appspot.com/o/oceanBlue.jfif?alt=media&token=578048fa-cd06-4601-9ce5-9763001a79b9"
 };
 
 export default function RootLayout({ children }) {
