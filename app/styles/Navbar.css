@@ -5,7 +5,7 @@
   position: fixed;
   z-index: 10;
   top: 0px;
-  padding: 0.5rem 0;
+  padding: 0.125rem 0;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(230, 229, 229, 0.116);
@@ -23,15 +23,22 @@
 }
 
 .navbar-logo-img {
-  width: 3rem;
-  height: 3.2rem;
+  width: 5.2rem;
+  height: 5.2rem;
 }
 
 .navbar-item {
   color: #f6f6f9;
   margin: 0 1rem;
   font-size: 1.3rem;
+  transition: 400ms;
   font-weight: 300;
+}
+
+.navbar-item:hover {
+  color: #8044e2;
+  font-size: 1.4rem;
+  transition: 400ms;
 }
 
 .navbar-btn {
@@ -44,6 +51,13 @@
   font-weight: 300 !important;
   cursor: pointer;
   border: none;
+  transition: 400ms;
+}
+
+.navbar-btn:hover {
+  background: radial-gradient(166.72% 161.79% at 10% -6.74%, #506ef8 0%, #0f172a 100%), #1e293b;
+  font-size: 1.4rem;
+  transition: 400ms;
 }
 
 .navbar-main-CTAs {

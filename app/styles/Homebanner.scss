@@ -37,9 +37,9 @@
 }
 
 .homebanner-main-cta-btn {
+    margin-top: 2.5rem;
     padding: 1rem 1.8rem;
     border-radius: 4rem;
-    margin-top: 2.5rem;
     font-family: "Cabin",sans-serif;
     font-weight: 700;
     text-decoration: none;
@@ -48,6 +48,24 @@
     background-clip: border-box;
     transition: .25s ease;
     cursor: pointer;
+}
+
+.music-controal-ctn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.music-btn {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(166.72% 161.79% at 10% -6.74%, #5ec10d 0%,#a77f63 100%),#d6dcd2;
+    border-radius: 100%;
+    cursor: pointer;
+    margin-right: 0.5rem;
 }
 
 .homebanner-cta-ctn {

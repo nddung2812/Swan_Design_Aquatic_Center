@@ -27,8 +27,8 @@ const Footer = () => {
         <div className='subfooter'>
           <div className="footer-copyright">Copyright &copy; 2023 - Aquatic Swan Design</div>
           <div className="footer-social-medias">
-            <Link href='https://www.youtube.com/@aquaticswandesigntv1518'><TfiYoutube /></Link>
             <Link href='https://www.facebook.com/aquaticswandesign'><TfiFacebook /></Link>
+            <Link href='https://www.youtube.com/@aquaticswandesigntv1518'><TfiYoutube /></Link>
             <Link href={`https://www.instagram.com/__duckaroo__/`}><TfiInstagram /></Link>
             <Link href='mailto:aquaticswandesign@gmail.com'><TfiEmail/></Link>
           </div>

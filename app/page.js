@@ -1,4 +1,5 @@
 'use client'
+import { useState } from 'react';
 import ReactHowler from 'react-howler'
 import './page.css';
 import Duckweeds from './components/Duckweeds';
@@ -18,12 +19,12 @@ const WaterWaveNoSSr = dynamic(
 )
 
 const Home = () => {
-
+  const [music, setMusic] = useState(true)
   return (
     <>
     <Preloader />
     <WaterWaveNoSSr
-      dropRadius={60}
+      dropRadius={30}
       perturbance={0.05}
       interactive={true}
       resolution={512}
@@ -40,10 +41,10 @@ const Home = () => {
             >
             <source src="https://znjf1ip6migqhqsx.public.blob.vercel-storage.com/Koifish-yTANtUJgMxz90jG7i5JvODHDj2RVQO.mp4" type="video/mp4" />
           </video>
-          <ReactHowler src="https://znjf1ip6migqhqsx.public.blob.vercel-storage.com/BlueDream-3zIGmjQ2jnpCR09dSO0k2olRfYnEEO.mp3" playing={true} volume={0.5} loop={true}/>
+          <ReactHowler src="https://znjf1ip6migqhqsx.public.blob.vercel-storage.com/BlueDream-3zIGmjQ2jnpCR09dSO0k2olRfYnEEO.mp3" playing={music} volume={0.5} loop={true}/>
           <Duckweeds />
           <NavbarWithNoSSR />
-          <HomeBanner />
+          <HomeBanner setMusic={setMusic} music={music} />
           <Footer />
         </main>
       )}

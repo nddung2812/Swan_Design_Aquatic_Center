@@ -13,13 +13,13 @@ const Navbar = () => {
         <HamburgerMenu />
         <>
             <Link href="/" rel="noreferrer" className="navbar-item navbar-desktop">Home</Link>
-            <div className="navbar-item navbar-desktop">Blogs</div>
+            <Link href="https://duckaroo.com.au/blogs/news" rel="noreferrer" className="navbar-item navbar-desktop">Blogs</Link>
             {/* <div className="navbar-item navbar-desktop">D.I.Y Tips</div> */}
-            <div className="navbar-item navbar-desktop">Exhibition</div>
-            <div className="navbar-item navbar-desktop">Contact</div>
+            <Link href="https://duckaroo.com.au/collections/aquarium-designs" rel="noreferrer" className="navbar-item navbar-desktop">Exhibition</Link>
+            <Link href="https://duckaroo.com.au/pages/contact-us" rel="noreferrer" className="navbar-item navbar-desktop">Contact</Link>
         </>
         <div className='navbar-main-CTAs'>
-          <Link target="_blank" href="https://duckaroo.com.au" rel="noreferrer">
+          <Link target="_blank" href="https://duckaroo.com.au/collections/all" rel="noreferrer">
             <button className="navbar-btn">Products</button>
           </Link>
           <Link target="_blank" href="/service" rel="noreferrer">
