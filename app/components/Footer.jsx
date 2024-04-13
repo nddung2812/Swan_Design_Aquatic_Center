@@ -1,35 +1,36 @@
 import '../styles/Footer.css'
-import { TfiYoutube, TfiFacebook, TfiInstagram, TfiMusic } from "react-icons/tfi";
+import { TfiYoutube, TfiFacebook, TfiInstagram, TfiEmail } from "react-icons/tfi";
 import payment from '../../public/payment.png'
 import Image from "next/image";
+import Link from 'next/link'
 
 const Footer = () => {
   return (
     <div className='footer-ctn'>
       <div className="footer-top-ctn">
         <div className="footer-top-item">
-          <a href="">About Us</a>
-          <a href="">Blogs</a>
-          <a href="">D.I.Y Tips</a>
+          <Link href='https://duckaroo.com.au/collections/all'>Shop With Us</Link>
+          <Link href='https://duckaroo.com.au/pages/contact-us'>Contact Us</Link>
         </div>
         <div className="footer-top-item">
-          <a href=''>Products</a>
+          <Link href='https://duckaroo.com.au/collections/all'>Products</Link>
           <a href=''>Exhibition</a>
-          <a href=''>Rare Bucephalandra - Anubias</a>
+          <Link href='https://duckaroo.com.au/collections/bucephalandra-anubias'>Rare Bucephalandra - Anubias</Link>
         </div>
         <div className="footer-top-item">
-          <a href=''>Contact Us</a>
-          <a href=''>Shop With Us</a>
+          <Link href="https://duckaroo.com.au/pages/about-us">About Us</Link>
+          <Link href="https://duckaroo.com.au/blogs/news">Blogs</Link>
+          <Link href="https://duckaroo.com.au/collections/accessories">Other Accessories</Link>
         </div>
       </div>
       <div className="footer-bottom-ctn">
         <div className='subfooter'>
           <div className="footer-copyright">Copyright &copy; 2023 - Aquatic Swan Design</div>
           <div className="footer-social-medias">
-            <h3><TfiYoutube /></h3>
-            <h3><TfiFacebook /></h3>
-            <h3><TfiInstagram /></h3>
-            <h3><TfiMusic /></h3>
+            <Link href='https://www.youtube.com/@aquaticswandesigntv1518'><TfiYoutube /></Link>
+            <Link href='https://www.facebook.com/aquaticswandesign'><TfiFacebook /></Link>
+            <Link href={`https://www.instagram.com/__duckaroo__/`}><TfiInstagram /></Link>
+            <Link href='mailto:aquaticswandesign@gmail.com'><TfiEmail/></Link>
           </div>
           <div className='footer-payment'>
             <Image src={payment} alt="payment" />
