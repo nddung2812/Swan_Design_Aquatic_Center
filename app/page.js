@@ -29,7 +29,7 @@ const Home = () => {
       resolution={512}
     >
       {() => (
-        <div className="home-page-container">
+        <main className="home-page-container">
           <video 
             autoPlay="autoplay" 
             muted
@@ -45,7 +45,7 @@ const Home = () => {
           <NavbarWithNoSSR />
           <HomeBanner />
           <Footer />
-        </div>
+        </main>
       )}
     </WaterWaveNoSSr>
     </>

@@ -2,7 +2,7 @@ import '../styles/Homebanner.css'
 
 const HomeBanner = () => {
   return (
-    <div className='homebanner-ctn'>
+    <main className='homebanner-ctn'>
       <h1>Aquatic Plants and Fish</h1>
       <h2>Bringing the ocean to you by Aquatic Swan Design</h2>
       <p>Your Source for Healthy Aquarium Fish and Lush Plants</p>
@@ -31,7 +31,7 @@ const HomeBanner = () => {
           </div>
         </a>
       </div>
-    </div>
+    </main>
   )
 }
 
