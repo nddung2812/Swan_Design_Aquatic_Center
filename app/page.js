@@ -36,6 +36,7 @@ const Home = () => {
               playsInline
               loop="loop"
               preload="auto"
+              stop
             >
               <source
                 src="https://znjf1ip6migqhqsx.public.blob.vercel-storage.com/Koifish-yTANtUJgMxz90jG7i5JvODHDj2RVQO.mp4"
