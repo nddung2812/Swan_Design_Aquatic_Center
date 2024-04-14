@@ -1,135 +1,160 @@
-@import '../variables/variables.scss';
+@import "../variables/variables.scss";
 .homebanner-ctn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem 4rem;
-    min-height: 24rem;
-    margin: 12rem 10rem 6rem;
-    background: rgba(58, 53, 53, 0.2);
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 18px );
-    border: 1px solid rgba(230, 229, 229, 0.116);
-    border-radius: 2px;
-    z-index: 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 4rem;
+  min-height: 24rem;
+  margin: 12rem 10rem 6rem;
+  background: rgba(58, 53, 53, 0.2);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(230, 229, 229, 0.116);
+  border-radius: 2px;
+  z-index: 9;
 }
 
 .homebanner-ctn h1 {
-    font-size: 4rem;
-    color: #5ec10d;
-    margin-bottom: 1rem;
+  font-size: 4rem;
+  color: #5ec10d;
+  margin-bottom: 1rem;
 }
 
 .homebanner-ctn h2 {
-    color:$primaryText;
-    font-size: 1.8rem;
-    margin-bottom: 0.8rem;
+  color: $primaryText;
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
 }
 
 .homebanner-ctn p {
-    color: #f6f6f9e7;
+  color: #f6f6f9e7;
 }
 
 .homebanner-ctn a {
-    text-decoration: none;
-    color: $primaryText;
+  text-decoration: none;
+  color: $primaryText;
 }
 
 .homebanner-main-cta-btn {
-    margin-top: 2.5rem;
-    padding: 1rem 1.8rem;
-    border-radius: 4rem;
-    font-family: "Cabin",sans-serif;
-    font-weight: 700;
-    text-decoration: none;
-    white-space: nowrap;
-    background: radial-gradient(166.72% 161.79% at 10% -6.74%, $primary 0%,#0f172a 100%),#1e293b;
-    background-clip: border-box;
-    transition: .25s ease;
-    cursor: pointer;
+  margin-top: 2.5rem;
+  padding: 1rem 1.8rem;
+  border-radius: 4rem;
+  font-family: "Cabin", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  background: radial-gradient(
+      166.72% 161.79% at 10% -6.74%,
+      $primary 0%,
+      #0f172a 100%
+    ),
+    #1e293b;
+  background-clip: border-box;
+  transition: 0.25s ease;
+  cursor: pointer;
 }
 
 .music-controal-ctn {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: end;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .music-btn {
-    width: 30px;
-    height: 30px;
-    display: grid;
-    place-items: center;
-    background: radial-gradient(166.72% 161.79% at 10% -6.74%, #5ec10d 0%,#a77f63 100%),#d6dcd2;
-    border-radius: 100%;
-    cursor: pointer;
-    margin-right: 0.5rem;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(
+      166.72% 161.79% at 10% -6.74%,
+      #5ec10d 0%,
+      #a77f63 100%
+    ),
+    #d6dcd2;
+  border-radius: 100%;
+  cursor: pointer;
+  margin-right: 0.5rem;
 }
 
 .homebanner-cta-ctn {
-    display: flex;
-    padding: 2rem 4rem;
+  display: flex;
+  padding: 2rem 4rem;
 }
 
 .cta-card {
-    margin: 1rem 1.5rem;
-    padding: 1rem;
-    border-radius: 4px;
-    min-width: 15rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  margin: 1rem 1.5rem;
+  padding: 1rem;
+  border-radius: 4px;
+  min-width: 15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .cta-btn1 {
-    background: radial-gradient(166.72% 161.79% at 10% -6.74%,#8044e2 0%,#0f172a 100%),#1e293b;
+  background: radial-gradient(
+      166.72% 161.79% at 10% -6.74%,
+      #8044e2 0%,
+      #0f172a 100%
+    ),
+    #1e293b;
 }
 
 .cta-btn2 {
-    background: radial-gradient(166.72% 161.79% at 10% -6.74%,#10a9d6 0%,#0f172a 100%),#1e293b;
+  background: radial-gradient(
+      166.72% 161.79% at 10% -6.74%,
+      #10a9d6 0%,
+      #0f172a 100%
+    ),
+    #1e293b;
 }
 
 .cta-btn3 {
-    background: radial-gradient(166.72% 161.79% at 10% -6.74%,#506ef8 0%,#0f172a 100%),#1e293b;
+  background: radial-gradient(
+      166.72% 161.79% at 10% -6.74%,
+      #506ef8 0%,
+      #0f172a 100%
+    ),
+    #1e293b;
 }
 
 .cta-card h2 {
-    color: $primaryText;
+  color: $primaryText;
 }
 
 @media (max-width: 768px) {
-    .homebanner-ctn {
-        width: 100%;
-        text-align: center;
-        margin: 14rem 0 4rem;
-        background: none;
-        border: none;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: blur( 0px );
-    }
+  .homebanner-ctn {
+    width: 100%;
+    text-align: center;
+    margin: 14rem 0 4rem;
+    background: none;
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: blur(0px);
+  }
 
-    .homebanner-ctn h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-    }
+  .homebanner-ctn h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
 
-    .homebanner-ctn h2 {
-        margin-bottom: 1rem;
-    }
+  .homebanner-ctn h2 {
+    margin-bottom: 1rem;
+  }
 
-    .homebanner-ctn p {
-        font-style: italic;
-    }
+  .homebanner-ctn p {
+    font-style: italic;
+  }
 
-    .homebanner-cta-ctn {
-        flex-direction: column;
-        align-items: center;
-    }
-    .cta-card {
-        margin: 0.5rem 1rem;
-        width: 90vw;
-    }
+  .homebanner-cta-ctn {
+    flex-direction: column;
+    align-items: center;
+  }
+  .cta-card {
+    margin: 0.5rem 1rem;
+    width: 90vw;
+  }
 }

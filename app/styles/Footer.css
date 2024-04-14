@@ -26,9 +26,13 @@
 
 .footer-top-item a {
   text-decoration: none;
-  color: #f6f6f9;
-  font-weight: 400 !important;
+  color: #fff;
+  font-weight: 300 !important;
   margin: 0.2rem 0;
+}
+
+.footer-top-item:hover {
+  color: #506ef8;
 }
 
 .footer-bottom-ctn {
@@ -62,6 +66,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.footer-social-medias a:hover {
+  color: #506ef8;
+}
+
+.footer-copyright {
+  font-size: 0.75rem;
 }
 
 @media (max-width: 768px) {
