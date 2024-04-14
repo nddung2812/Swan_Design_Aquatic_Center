@@ -5,13 +5,13 @@
   align-items: center;
   justify-content: center;
   padding: 2rem 4rem;
-  min-height: 24rem;
-  margin: 12rem 10rem 6rem;
+  // min-height: 24rem;
+  margin: 10rem 10rem 4rem;
   background: rgba(58, 53, 53, 0.2);
   backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(230, 229, 229, 0.116);
-  border-radius: 2px;
+  // -webkit-backdrop-filter: blur(18px);
+  // border: 1px solid rgba(230, 229, 229, 0.116);
+  // border-radius: 2px;
   z-index: 9;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .homebanner-main-cta-btn {
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   padding: 1rem 1.8rem;
   border-radius: 4rem;
   font-family: "Cabin", sans-serif;
@@ -80,7 +80,7 @@
 
 .homebanner-cta-ctn {
   display: flex;
-  padding: 2rem 4rem;
+  padding: 1rem 2rem;
 }
 
 .cta-card {
@@ -130,6 +130,7 @@
     width: 100%;
     text-align: center;
     margin: 14rem 0 4rem;
+    padding: 1rem;
     background: none;
     border: none;
     backdrop-filter: none;

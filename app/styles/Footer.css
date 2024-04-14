@@ -30,6 +30,9 @@
   font-weight: 300 !important;
   margin: 0.2rem 0;
 }
+.footer-top-item a:hover {
+  color: #506ef8;
+}
 
 .footer-top-item:hover {
   color: #506ef8;
@@ -79,6 +82,9 @@
   .footer-top-item {
     width: 30%;
     margin: 0 0.5rem 0 0;
+  }
+  .footer-top-item a {
+    font-size: 14px;
   }
   .footer-social-medias {
     margin: 0.5rem 4rem;
