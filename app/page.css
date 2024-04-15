@@ -9,7 +9,7 @@
 }
 
 .home-page-container video {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   -o-object-fit: cover;
      object-fit: cover;
