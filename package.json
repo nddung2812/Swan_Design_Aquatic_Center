@@ -17,7 +17,8 @@
     "react-dom": "^18",
     "react-howler": "^5.2.0",
     "react-icons": "^4.10.1",
-    "react-water-wave": "^2.0.1"
+    "react-water-wave": "^2.0.1",
+    "sass": "^1.75.0"
   },
   "devDependencies": {
     "eslint": "^8",

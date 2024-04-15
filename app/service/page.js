@@ -1,8 +1,14 @@
+'use-client'
 import dynamic from "next/dynamic";
 import Footer from "../components/Footer";
-import Image from "next/image";
-import "./service.css";
+import ServiceBanner from "./serviceComponents/banner"
+import styles from './service.module.scss'
+import { Metadata } from 'next';
 
+export const metadata = {
+  title: 'Service | Professional Fish Tank Cleaning, Pond & Maintenance Brisbane',
+  description: 'Professional Fish Tank Cleaning, We provide complete Aquarium Pond and fish tank Maintenance. Create or maintain your aquarium or pond.',
+};
 const NavbarWithNoSSR = dynamic(() => import("../components/Navbar"), {
   ssr: false,
 });
@@ -10,16 +16,10 @@ const NavbarWithNoSSR = dynamic(() => import("../components/Navbar"), {
 export default function Service() {
   return (
     <>
-      <main>
-        <div className="service-ctn">
+      <main className={styles.main}>
+        <div className={styles.serviceCtn}>
           <NavbarWithNoSSR />
-          Service
-          <Image
-            src="https://firebasestorage.googleapis.com/v0/b/aquatic-swan-design.appspot.com/o/oceanBlue.jfif?alt=media&token=578048fa-cd06-4601-9ce5-9763001a79b9"
-            width={500}
-            height={500}
-            alt="ocean"
-          />
+          <ServiceBanner />
           <Footer />
         </div>
       </main>

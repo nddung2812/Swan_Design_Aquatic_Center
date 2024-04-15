@@ -5,7 +5,7 @@
   align-items: center;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(230, 229, 229, 0.116);
+  border-top: 1px solid rgba(230, 229, 229, 0.116);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.726);
   width: 100%;
 }
