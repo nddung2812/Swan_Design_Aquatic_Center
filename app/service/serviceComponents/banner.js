@@ -1,14 +1,20 @@
-import Image from "next/image.js"
-import styles from './ServiceBanner.module.scss'
+import Image from "next/image.js";
+import styles from "./ServiceBanner.module.scss";
 const ServiceBanner = () => {
   return (
     <div className={styles.BannerCtn}>
-      <div className={styles.ServiceContent}>
-        <h1>Fish Tank & Pond Cleaning Maintenance Services</h1>
-        <p>Whether you need aquarium or pond cleaning and maintenance, a new set-up, modifications and equipment installation, or the relocation of aquariums of any size, Aquarium & Pond Solutions can help you out!</p>
+      <div className={styles.BannerContentContainer}>
+        <div className={styles.ServiceContent}>
+          <h1>Expert Fish Tank & Pond Cleaning Maintenance Services</h1>
+          <p>
+            Whether you require aquarium or pond cleaning, maintenance, new
+            setups, equipment installations, modifications, or aquarium
+            relocation of any size, Aquatic Swan Design is here to assist you!
+          </p>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ServiceBanner
+export default ServiceBanner;

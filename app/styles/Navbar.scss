@@ -12,6 +12,7 @@
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(230, 229, 229, 0.116);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.726);
+  width: 100vw;
 }
 
 .navbar-items-ctn {
@@ -101,8 +102,8 @@
   }
 
   .navbar-logo {
-    padding: 6px;
     width: 100px;
+    padding-left: 0;
   }
 
   .navbar-logo-img {
@@ -111,17 +112,10 @@
   }
 
   .navbar-btn {
-    margin: 0.2rem;
+    margin: 0.25rem;
     min-width: 100px;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 300;
-    padding: 0.4rem 1rem;
-  }
-
-  .navbar-main-CTAs {
-    height: inherit;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: end;
+    padding: 0.6rem 1.2rem;
   }
 }
