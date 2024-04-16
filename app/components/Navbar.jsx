@@ -47,14 +47,10 @@ const Navbar = () => {
           </Link>
         </>
         <div className="navbar-main-CTAs">
-          <Link
-            target="_blank"
-            href="https://duckaroo.com.au/collections/all"
-            rel="noreferrer"
-          >
+          <Link href="https://duckaroo.com.au/collections/all" rel="noreferrer">
             <button className="navbar-btn">Products</button>
           </Link>
-          <Link target="_blank" href="/service" rel="noreferrer">
+          <Link href="/service" rel="noreferrer">
             <button className="navbar-btn">Services</button>
           </Link>
         </div>
