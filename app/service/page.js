@@ -6,9 +6,9 @@ import styles from "./service.module.scss";
 
 export const metadata = {
   title:
-    "Service | Professional Fish Tank Cleaning, Pond & Maintenance in Brisbane area",
+    "Service | Professional Fish Tank Cleaning, Pond & Maintenance Brisbane",
   description:
-    "Professional Fish Tank Cleaning, We are located in Brisbane and provide complete aquarium pond and fish tank setup or maintenance.  We look after your aquarium or pond.",
+    "Professional Fish Tank Cleaning, We provide complete Aquarium Pond and fish tank Maintenance. Create or maintain your aquarium or pond.",
 };
 const NavbarWithNoSSR = dynamic(() => import("../components/Navbar"), {
   ssr: false,

@@ -21,7 +21,7 @@ export const metadata = {
   ),
   openGraph: {
     ...openGraphImage,
-    title: "Duckaroo | Aquatic Swan Design | Tank Service",
+    title: "Home | Aquatic Swan Design | Duckaroo | Tank Service",
   },
 };
 
