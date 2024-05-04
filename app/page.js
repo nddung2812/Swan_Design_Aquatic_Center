@@ -38,7 +38,7 @@ const Home = () => {
               stop
             >
               <source
-                src='https://firebasestorage.googleapis.com/v0/b/aquatic-swan-design.appspot.com/o/tinywow_Koifish_52130439.mp4?alt=media&token=8c1f6c99-1e67-4241-9f83-04e724c932d7'
+                src='/koifish.mp4'
                 type="video/mp4"
               />
             </video>
