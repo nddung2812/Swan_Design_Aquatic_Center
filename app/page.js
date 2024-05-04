@@ -17,10 +17,6 @@ const WaterWaveNoSSr = dynamic(() => import("react-water-wave"), {
 
 const Home = () => {
   const [music, setMusic] = useState(true);
-  const [isLoading, setIsLoading] = useState(true);
-  const handleLoadedData = () => {
-    setIsLoading(false);
-  };
   return (
     <>
       <Preloader />
@@ -32,10 +28,6 @@ const Home = () => {
       >
         {() => (
           <main className="home-page-container">
-                {isLoading && <div className="corp-video-loader-ctn">
-            <div className="corp-video-loader"></div>
-            <div className="corp-video-textloader">Loading...</div>
-          </div>}
             <video
               autoPlay="autoplay"
               muted
@@ -44,7 +36,6 @@ const Home = () => {
               loop="loop"
               preload="auto"
               onLoadedData={handleLoadedData}
-              style={{ display: isLoading ? "none" : "block" }}
               stop
             >
               <source
