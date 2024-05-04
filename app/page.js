@@ -35,7 +35,6 @@ const Home = () => {
               playsInline
               loop="loop"
               preload="auto"
-              onLoadedData={handleLoadedData}
               stop
             >
               <source
