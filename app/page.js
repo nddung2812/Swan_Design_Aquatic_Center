@@ -43,7 +43,7 @@ const Home = () => {
               />
             </video>
             <ReactHowler
-              src="https://firebasestorage.googleapis.com/v0/b/aquatic-swan-design.appspot.com/o/Blue%20Dream%20-%20Cheel.mp3?alt=media&token=2cc7a283-16a3-4494-a9fe-6e79e867ed81"
+              src="./bluedream.mp3"
               playing={music}
               volume={0.4}
               loop={true}
