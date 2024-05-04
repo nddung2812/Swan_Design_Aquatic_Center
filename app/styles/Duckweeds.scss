@@ -6,7 +6,7 @@
     object-fit: contain;
     position: absolute;
     animation: moveAndSpin 500s linear infinite;
-    z-index: 10;
+    z-index: 12;
     overflow-x: hidden;
   }
 
@@ -53,7 +53,7 @@
     width: 70px;
     height: 100px;
     animation: moveNoSpin 400s linear infinite;
-    z-index: 10;
+    z-index: 12;
   }
   .weedmd1 {
     top: -10vh;
