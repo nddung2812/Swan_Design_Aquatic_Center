@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import Footer from "../components/Footer";
 import ServiceBanner from "./serviceComponents/banner";
 import styles from "./service.module.scss";
-import { runtime } from "../page.js";
 
 export const metadata = {
   title:
