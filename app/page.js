@@ -40,10 +40,14 @@ const Home = () => {
               preload="auto"
               stop
             >
-              <source src="/koifish.mp4" type="video/mp4" />
+              <source
+                src="https://res.cloudinary.com/dhvj8x2nq/video/upload/q_auto/v1739712678/koifish_feh63y.mp4"
+                type="video/mp4"
+              />
             </video>
             <ReactHowler
-              src="./bluedream.mp3"
+              src="https://res.cloudinary.com/dhvj8x2nq/video/upload/v1739712674/bluedream_hjtsse.mp3"
+              preload={true}
               playing={music}
               volume={0.4}
               loop={true}

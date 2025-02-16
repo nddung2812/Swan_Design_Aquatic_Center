@@ -1,8 +1,7 @@
-'use client'
-import { useLayoutEffect } from "react"
-import "../styles/Preloader.css"
-import SwanLogo from "../../public/swan-logo-transparent.png"
-import Image from "next/image"
+"use client";
+import { useLayoutEffect } from "react";
+import "../styles/Preloader.css";
+import Image from "next/image";
 import gsap from "gsap";
 
 const tl = gsap.timeline();
@@ -49,21 +48,25 @@ const preLoaderAnim = () => {
 };
 
 export const Preloader = () => {
-
   useLayoutEffect(() => {
-    preLoaderAnim()
-  }, [])
-
+    preLoaderAnim();
+  }, []);
 
   return (
     <div className="preloader">
       <div className="texts-container">
         <span className="preload-img-ctn">
-          <Image src={SwanLogo} alt="Aquatic Swan Design" fill />
+          <Image
+            src="https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1739712659/swan-logo-transparent_rphcfl"
+            alt="Aquatic Swan Design"
+            fill
+          />
         </span>
         <span>Duckaroo</span>
-        <span><sup className="preload-trademark">™</sup></span>
+        <span>
+          <sup className="preload-trademark">™</sup>
+        </span>
       </div>
     </div>
-  )
-}
+  );
+};

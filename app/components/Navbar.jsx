@@ -1,4 +1,3 @@
-import SwanDesignLogo from "../../public/swan-logo-transparent.png";
 import "../styles/Navbar.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,9 +7,11 @@ const Navbar = () => {
       <div className="navbar-logo">
         <Link href={"/"}>
           <Image
-            src={SwanDesignLogo}
+            src="https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1739712659/swan-logo-transparent_rphcfl"
             alt="swan logo"
             className="navbar-logo-img"
+            width={84}
+            height={84}
           />
         </Link>
       </div>

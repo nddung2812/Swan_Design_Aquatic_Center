@@ -5,7 +5,6 @@ import {
   TfiInstagram,
   TfiEmail,
 } from "react-icons/tfi";
-import payment from "../../public/payment.png";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -56,7 +55,12 @@ const Footer = () => {
             </Link>
           </div>
           <div className="footer-payment">
-            <Image src={payment} alt="payment" />
+            <Image
+              src="https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1739712660/payment_cewxih"
+              alt="payment"
+              width={201}
+              height={22}
+            />
           </div>
         </div>
       </div>

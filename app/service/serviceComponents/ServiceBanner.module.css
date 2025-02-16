@@ -2,7 +2,7 @@
   width: 100vw;
   height: 850px;
   position: relative;
-  background-image: url("https://firebasestorage.googleapis.com/v0/b/aquatic-swan-design.appspot.com/o/ServiceBannerWebp.webp?alt=media&token=86a94d5b-cc0b-43d9-97d6-286fe698f433");
+  background-image: url("https://res.cloudinary.com/dhvj8x2nq/image/upload/q_auto,f_auto/v1739712662/Ocean_sgzsjx.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -11,7 +11,11 @@
 }
 
 .BannerCtn::after {
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 50%, #050724 100%);
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.4) 50%,
+    #050724 100%
+  );
   content: "";
   display: block;
   position: absolute;
@@ -75,4 +79,4 @@
   .ServiceContent {
     width: 100%;
   }
-}/*# sourceMappingURL=ServiceBanner.module.css.map */
+} /*# sourceMappingURL=ServiceBanner.module.css.map */
