@@ -3,13 +3,13 @@ export default function sitemap() {
     {
       url: "https://aquaticswandesign.com.au",
       lastModified: new Date(),
-      changeFrequency: "yearly",
+      changeFrequency: "daily",
       priority: 1,
     },
     {
       url: "https://aquaticswandesign.com.au/service",
       lastModified: new Date(),
-      changeFrequency: "monthly",
+      changeFrequency: "weekly",
       priority: 0.8,
     },
     {

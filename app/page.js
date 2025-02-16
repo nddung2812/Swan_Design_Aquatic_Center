@@ -7,6 +7,9 @@ import Footer from "./components/Footer";
 import HomeBanner from "./components/HomeBanner";
 import { Preloader } from "./components/Preloader.jsx";
 import dynamic from "next/dynamic";
+
+export const runtime = "edge";
+
 const NavbarWithNoSSR = dynamic(() => import("./components/Navbar"), {
   ssr: false,
 });
@@ -37,10 +40,7 @@ const Home = () => {
               preload="auto"
               stop
             >
-              <source
-                src='/koifish.mp4'
-                type="video/mp4"
-              />
+              <source src="/koifish.mp4" type="video/mp4" />
             </video>
             <ReactHowler
               src="./bluedream.mp3"
