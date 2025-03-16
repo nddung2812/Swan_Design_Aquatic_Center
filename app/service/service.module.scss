@@ -2,15 +2,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   background-color: #030303;
+  overflow-x: hidden;
+  padding-top: 0rem;
 }
 
 .main {
-  min-height: 500px;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+  .serviceCtn {
+    padding-top: 0rem;
+  }
 }

@@ -10,6 +10,7 @@
     "pages:build": "npx @cloudflare/next-on-pages"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@next/third-parties": "^14.1.4",
     "@types/react-howler": "^5.2.3",
     "gsap": "^3.12.2",

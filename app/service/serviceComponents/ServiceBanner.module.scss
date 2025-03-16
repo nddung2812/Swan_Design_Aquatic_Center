@@ -1,13 +1,14 @@
 .BannerCtn {
   width: 100vw;
-  height: 850px;
+  min-height: 850px;
   position: relative;
   background-image: url("https://firebasestorage.googleapis.com/v0/b/aquatic-swan-design.appspot.com/o/ServiceBannerWebp.webp?alt=media&token=86a94d5b-cc0b-43d9-97d6-286fe698f433");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   display: flex;
-  align-items: center;
-  padding: 3rem 5rem;
+  align-items: flex-start;
+  padding: 10rem 5rem 3rem 5rem;
 }
 
 .BannerCtn::after {
@@ -28,22 +29,26 @@
 
 .BannerContentContainer {
   max-width: 1440px;
-  width: 90rem;
+  width: 100%;
   margin: 0 auto;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .ServiceContent {
-  width: 650px;
+  flex: 1;
+  max-width: 650px;
+  position: relative;
+  z-index: 1;
 }
 
 .ServiceContent h1 {
-  position: relative;
-  z-index: 1;
   color: #f2f2f2;
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1.4;
   letter-spacing: 0px;
   font-weight: 500;
@@ -53,32 +58,51 @@
 }
 
 .ServiceContent p {
-  position: relative;
-  z-index: 1;
   color: #f2f2f2;
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.25rem);
   line-height: 1.4;
   font-weight: 400;
   font-style: normal;
   text-transform: none;
 }
 
+@media (max-width: 1024px) {
+  .BannerContentContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ServiceContent {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .BannerCtn {
-    padding: 5rem 2rem 0;
-    min-height: 400px;
-    height: 100%;
+    padding: 2rem 1rem;
+    min-height: auto;
+  }
+
+  .BannerContentContainer {
+    padding: 6rem 1rem 5rem 1rem;
+  }
+
+  .ServiceContent {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .BannerCtn {
+    padding: 1rem 0.5rem;
   }
 
   .ServiceContent h1 {
-    font-size: 2rem;
-    line-height: 1.4;
+    font-size: 1.75rem;
   }
 
   .ServiceContent p {
     font-size: 1rem;
-  }
-  .ServiceContent {
-    width: 100%;
   }
 }

@@ -1,0 +1,140 @@
+.formContainer {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0;
+  color: #f2f2f2;
+  position: relative;
+  z-index: 1;
+
+  h2 {
+    text-align: center;
+    margin-bottom: clamp(1.5rem, 3vw, 2rem);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: #5ec10d;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  width: 100%;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+
+  label {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    color: #f2f2f2;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: clamp(0.5rem, 1.5vw, 0.75rem);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #f2f2f2;
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #5ec10d;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    &::placeholder {
+      color: rgba(242, 242, 242, 0.5);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+}
+
+.submitButton {
+  background: #5ec10d;
+  color: #fff;
+  padding: clamp(0.75rem, 1.5vw, 1rem);
+  border: none;
+  border-radius: 4px;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+
+  &:hover {
+    background: darken(#5ec10d, 10%);
+  }
+
+  &:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+.error {
+  color: #ff4444;
+  font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+  margin-top: 0.25rem;
+}
+
+.statusMessage {
+  margin-top: 1rem;
+  padding: clamp(0.75rem, 1.5vw, 1rem);
+  border-radius: 4px;
+  text-align: center;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+
+  &.success {
+    background: rgba(94, 193, 13, 0.2);
+    color: #5ec10d;
+  }
+
+  &.error {
+    background: rgba(255, 68, 68, 0.2);
+    color: #ff4444;
+  }
+}
+
+@media (max-width: 768px) {
+  .formContainer {
+    border-radius: 0;
+    max-width: 100%;
+    margin: 0;
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .formContainer {
+    padding: 1rem;
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .form {
+    gap: 1rem;
+  }
+
+  .formGroup {
+    gap: 0.25rem;
+  }
+}
