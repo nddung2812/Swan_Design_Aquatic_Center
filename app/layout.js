@@ -1,27 +1,41 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
+import { Inter } from "next/font/google";
 import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
-export const openGraphImage = {
-  images: [
-    "https://firebasestorage.googleapis.com/v0/b/aquatic-swan-design.appspot.com/o/oceanBlue.jfif?alt=media&token=578048fa-cd06-4601-9ce5-9763001a79b9",
-  ],
-};
 
 export const metadata = {
-  title: "Duckaroo | Aquatic Swan Design | Tank Service",
+  title:
+    "Duckaroo - Brisbane's Premier Aquatic Service | Fish Tank & Pond Cleaning",
   description:
-    "Discover Bucephranda's premier tank services, featuring Australia Wide Shipping for Aquatic Rare & Rarer Plants. Enjoy our Live Arrival Guarantee and 100% Customer Satisfaction Guarantee. Explore our exclusive Aquatic Swan Design selection, offering unique Brisbane aquarium online rare plants. Let us assist you with maintenance, custom aquariums, plants, fish, and more!",
-  icons: {
-    icon: "/swan-favicon.png",
-  },
-  metadataBase: new URL(
-    "https://firebasestorage.googleapis.com/v0/b/aquatic-swan-design.appspot.com/o/oceanBlue.jfif?alt=media&token=578048fa-cd06-4601-9ce5-9763001a79b9"
-  ),
+    "Professional aquarium and pond cleaning services in Brisbane. Expert fish tank maintenance, pond setup, and aquatic consultations. Trusted by 1000+ Brisbane families.",
+  keywords:
+    "fish tank cleaning Brisbane, pond cleaning Brisbane, aquarium maintenance, aquatic services Brisbane, fish tank setup, pond maintenance",
   openGraph: {
-    ...openGraphImage,
-    title: "Home | Aquatic Swan Design | Duckaroo | Tank Service",
+    title: "Duckaroo - Brisbane's Premier Aquatic Service",
+    description:
+      "Professional aquarium and pond cleaning services in Brisbane. Expert maintenance and setup services.",
+    url: "https://duckaroo.com.au",
+    siteName: "Duckaroo",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1739712678/duckaroo-og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Duckaroo - Brisbane Aquatic Services",
+      },
+    ],
+    locale: "en_AU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Duckaroo - Brisbane's Premier Aquatic Service",
+    description:
+      "Professional aquarium and pond cleaning services in Brisbane.",
+    images: [
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1739712678/duckaroo-og-image.jpg",
+    ],
   },
 };
 
