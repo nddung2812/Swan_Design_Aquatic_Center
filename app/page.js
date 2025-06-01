@@ -101,7 +101,7 @@ const Home = () => {
 
             {/* Video Play Button for Mobile */}
             {showPlayButton && (
-              <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40">
+              <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 md:hidden">
                 <Button
                   onClick={handleVideoPlay}
                   size="lg"

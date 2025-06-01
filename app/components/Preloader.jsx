@@ -86,18 +86,6 @@ export const Preloader = () => {
           />
         </span>
         <span>Duckaroo</span>
-        <span>
-          <sup
-            className="text-[1rem] ml-[0.1rem] relative -top-[0.3rem]
-                         sm:text-[1.1rem] sm:ml-[0.12rem] sm:-top-[0.4rem]
-                         md:text-[1.3rem] md:ml-[0.13rem] md:-top-[0.4rem]
-                         lg:text-[1.6rem] lg:ml-[0.2rem] lg:-top-[0.5rem]
-                         xl:text-[2rem] xl:ml-[0.24rem] xl:-top-[0.6rem]
-                         2xl:text-[2.34rem] 2xl:ml-[0.26rem] 2xl:-top-[0.65rem]"
-          >
-            ™
-          </sup>
-        </span>
       </div>
     </div>
   );
