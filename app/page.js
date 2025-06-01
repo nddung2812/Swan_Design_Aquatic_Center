@@ -65,14 +65,8 @@ const Home = () => {
       >
         {() => (
           <div className="min-h-screen relative overflow-hidden w-full max-w-[2560px] mx-auto">
-            {/* Fallback Background Image */}
-            <div
-              className="fixed top-0 left-0 w-screen h-screen bg-cover bg-center bg-no-repeat -z-30"
-              style={{
-                backgroundImage:
-                  "url('https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1739712678/aquarium-background-fallback.jpg')",
-              }}
-            />
+            {/* Fallback Dark Background */}
+            <div className="fixed top-0 left-0 w-screen h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 -z-30" />
 
             {/* Full Screen Background Video */}
             <video
