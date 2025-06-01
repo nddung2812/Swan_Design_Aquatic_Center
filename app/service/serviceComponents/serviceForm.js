@@ -2,7 +2,20 @@
 import { useForm } from "react-hook-form";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import styles from "./ServiceForm.module.scss";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
+import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 
 export default function ServiceForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -13,6 +26,7 @@ export default function ServiceForm() {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm();
 
@@ -46,105 +60,193 @@ export default function ServiceForm() {
   };
 
   return (
-    <div className={styles.formContainer}>
-      <h2>Book a Service</h2>
-      <form
-        ref={form}
-        onSubmit={handleSubmit(onSubmit)}
-        className={styles.form}
-      >
-        <div className={styles.formGroup}>
-          <label htmlFor="name">Full Name *</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            {...register("name", { required: "Name is required" })}
-          />
-          {errors.name && (
-            <span className={styles.error}>{errors.name.message}</span>
-          )}
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="email">Email *</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            {...register("email", {
-              required: "Email is required",
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "Invalid email address",
-              },
-            })}
-          />
-          {errors.email && (
-            <span className={styles.error}>{errors.email.message}</span>
-          )}
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="phone">Phone Number *</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            {...register("phone", { required: "Phone number is required" })}
-          />
-          {errors.phone && (
-            <span className={styles.error}>{errors.phone.message}</span>
-          )}
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="service">Service Type *</label>
-          <select
-            id="service"
-            name="service"
-            {...register("service", { required: "Please select a service" })}
-          >
-            <option value="">Select a service</option>
-            <option value="tank_cleaning">Fish Tank Cleaning</option>
-            <option value="pond_cleaning">Pond Cleaning</option>
-            <option value="tank_setup">New Tank Setup</option>
-            <option value="pond_setup">New Pond Setup</option>
-            <option value="maintenance">Regular Maintenance</option>
-            <option value="consultation">Consultation</option>
-          </select>
-          {errors.service && (
-            <span className={styles.error}>{errors.service.message}</span>
-          )}
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="message">Additional Details</label>
-          <textarea
-            id="message"
-            name="message"
-            {...register("message")}
-            rows="4"
-            placeholder="Please provide any additional details about your service request..."
-          />
-        </div>
-
-        <button
-          type="submit"
-          className={styles.submitButton}
-          disabled={isSubmitting}
+    <Card className="bg-black/60 backdrop-blur-lg border-2 border-white/50 text-white shadow-2xl ring-1 ring-white/20 mt-8">
+      <CardHeader className="text-center">
+        <CardTitle className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg">
+          Book a Service
+        </CardTitle>
+        <p className="text-white/90 font-medium">
+          Get a personalized quote for your aquatic needs
+        </p>
+      </CardHeader>
+      <CardContent>
+        <form
+          ref={form}
+          onSubmit={handleSubmit(onSubmit)}
+          className="space-y-6"
         >
-          {isSubmitting ? "Sending..." : "Book Service"}
-        </button>
-
-        {submitStatus.message && (
-          <div
-            className={`${styles.statusMessage} ${styles[submitStatus.type]}`}
-          >
-            {submitStatus.message}
+          <div className="space-y-2">
+            <Label htmlFor="name" className="text-white font-semibold">
+              Full Name *
+            </Label>
+            <Input
+              type="text"
+              id="name"
+              name="name"
+              className="bg-white/25 border-2 border-white/40 text-white placeholder:text-white/70 focus:border-emerald-400 focus:bg-white/30 focus:ring-2 focus:ring-emerald-400/50"
+              placeholder="Enter your full name"
+              {...register("name", { required: "Name is required" })}
+            />
+            {errors.name && (
+              <p className="text-red-400 text-sm flex items-center gap-1 font-medium">
+                <AlertCircle className="w-4 h-4" />
+                {errors.name.message}
+              </p>
+            )}
           </div>
-        )}
-      </form>
-    </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="email" className="text-white font-semibold">
+              Email *
+            </Label>
+            <Input
+              type="email"
+              id="email"
+              name="email"
+              className="bg-white/25 border-2 border-white/40 text-white placeholder:text-white/70 focus:border-emerald-400 focus:bg-white/30 focus:ring-2 focus:ring-emerald-400/50"
+              placeholder="Enter your email address"
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Invalid email address",
+                },
+              })}
+            />
+            {errors.email && (
+              <p className="text-red-400 text-sm flex items-center gap-1 font-medium">
+                <AlertCircle className="w-4 h-4" />
+                {errors.email.message}
+              </p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="phone" className="text-white font-semibold">
+              Phone Number *
+            </Label>
+            <Input
+              type="tel"
+              id="phone"
+              name="phone"
+              className="bg-white/25 border-2 border-white/40 text-white placeholder:text-white/70 focus:border-emerald-400 focus:bg-white/30 focus:ring-2 focus:ring-emerald-400/50"
+              placeholder="Enter your phone number"
+              {...register("phone", { required: "Phone number is required" })}
+            />
+            {errors.phone && (
+              <p className="text-red-400 text-sm flex items-center gap-1 font-medium">
+                <AlertCircle className="w-4 h-4" />
+                {errors.phone.message}
+              </p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="service" className="text-white font-semibold">
+              Service Type *
+            </Label>
+            <Select onValueChange={(value) => setValue("service", value)}>
+              <SelectTrigger className="bg-white/25 border-2 border-white/40 text-white focus:border-emerald-400 focus:bg-white/30 focus:ring-2 focus:ring-emerald-400/50">
+                <SelectValue placeholder="Select a service" />
+              </SelectTrigger>
+              <SelectContent className="bg-white/95 border-2 border-gray-300 backdrop-blur-lg shadow-2xl">
+                <SelectItem
+                  value="tank_cleaning"
+                  className="text-gray-900 hover:bg-emerald-100 focus:bg-emerald-100 cursor-pointer"
+                >
+                  Fish Tank Cleaning
+                </SelectItem>
+                <SelectItem
+                  value="pond_cleaning"
+                  className="text-gray-900 hover:bg-emerald-100 focus:bg-emerald-100 cursor-pointer"
+                >
+                  Pond Cleaning
+                </SelectItem>
+                <SelectItem
+                  value="tank_setup"
+                  className="text-gray-900 hover:bg-emerald-100 focus:bg-emerald-100 cursor-pointer"
+                >
+                  New Tank Setup
+                </SelectItem>
+                <SelectItem
+                  value="pond_setup"
+                  className="text-gray-900 hover:bg-emerald-100 focus:bg-emerald-100 cursor-pointer"
+                >
+                  New Pond Setup
+                </SelectItem>
+                <SelectItem
+                  value="maintenance"
+                  className="text-gray-900 hover:bg-emerald-100 focus:bg-emerald-100 cursor-pointer"
+                >
+                  Regular Maintenance
+                </SelectItem>
+                <SelectItem
+                  value="consultation"
+                  className="text-gray-900 hover:bg-emerald-100 focus:bg-emerald-100 cursor-pointer"
+                >
+                  Consultation
+                </SelectItem>
+              </SelectContent>
+            </Select>
+            <input
+              type="hidden"
+              name="service"
+              {...register("service", { required: "Please select a service" })}
+            />
+            {errors.service && (
+              <p className="text-red-400 text-sm flex items-center gap-1 font-medium">
+                <AlertCircle className="w-4 h-4" />
+                {errors.service.message}
+              </p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="message" className="text-white font-semibold">
+              Additional Details
+            </Label>
+            <Textarea
+              id="message"
+              name="message"
+              className="bg-white/25 border-2 border-white/40 text-white placeholder:text-white/70 focus:border-emerald-400 focus:bg-white/30 focus:ring-2 focus:ring-emerald-400/50 min-h-[100px]"
+              placeholder="Please provide any additional details about your service request..."
+              {...register("message")}
+            />
+          </div>
+
+          <Button
+            type="submit"
+            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-6 text-lg font-bold shadow-2xl ring-2 ring-emerald-400/30 hover:ring-emerald-400/50 transition-all duration-300"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              <>
+                <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                Sending...
+              </>
+            ) : (
+              "Book Service"
+            )}
+          </Button>
+
+          {submitStatus.message && (
+            <div
+              className={`p-4 rounded-lg flex items-center gap-2 font-medium shadow-lg ${
+                submitStatus.type === "success"
+                  ? "bg-emerald-500/40 border-2 border-emerald-400 text-emerald-200"
+                  : "bg-red-500/40 border-2 border-red-400 text-red-200"
+              }`}
+            >
+              {submitStatus.type === "success" ? (
+                <CheckCircle className="w-5 h-5" />
+              ) : (
+                <AlertCircle className="w-5 h-5" />
+              )}
+              {submitStatus.message}
+            </div>
+          )}
+        </form>
+      </CardContent>
+    </Card>
   );
 }
