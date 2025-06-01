@@ -225,7 +225,7 @@ export default function ServiceForm() {
                 Sending...
               </>
             ) : (
-              "Book Service"
+              "Book A Service"
             )}
           </Button>
 

@@ -497,7 +497,7 @@ const ServiceBookingSection = () => {
                         Sending Your Request...
                       </>
                     ) : (
-                      <>🎯 Get FREE Quote - Brisbane&apos;s #1 Service</>
+                      <>Book A Service</>
                     )}
                   </Button>
 
