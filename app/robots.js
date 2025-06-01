@@ -2,34 +2,35 @@ export default function robots() {
   return {
     rules: [
       {
+        userAgent: "*",
+        allow: "/",
+        disallow: [
+          "/admin/",
+          "/private/",
+          "/api/",
+          "/_next/",
+          "/static/",
+          "*.json",
+          "/search?",
+          "/thank-you",
+          "/404",
+        ],
+      },
+      {
         userAgent: "Googlebot",
-        allow: ["/"],
+        allow: "/",
+        disallow: ["/admin/", "/private/", "/api/"],
       },
       {
-        userAgent: ["Applebot", "Bingbot"],
-        allow: ["/"],
-      },
-      {
-        userAgent: "Nutch",
-        disallow: ["/"],
-      },
-      {
-        userAgent: "AhrefsSiteAudit",
-        crawlDelay: 10,
-      },
-      {
-        userAgent: "AhrefsBot",
-        crawlDelay: 10,
-      },
-      {
-        userAgent: "MJ12bot",
-        crawlDelay: 10,
-      },
-      {
-        userAgent: "Pinterest",
-        crawlDelay: 1,
+        userAgent: "Bingbot",
+        allow: "/",
+        disallow: ["/admin/", "/private/", "/api/"],
       },
     ],
-    sitemap: "https://aquaticswandesign.com.au/sitemap.xml",
+    sitemap: [
+      "https://duckaroo.com.au/sitemap.xml",
+      "https://duckaroo.com.au/sitemap-0.xml",
+    ],
+    host: "https://duckaroo.com.au",
   };
 }
