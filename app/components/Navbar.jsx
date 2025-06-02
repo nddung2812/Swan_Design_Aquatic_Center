@@ -13,6 +13,7 @@ import { Menu } from "lucide-react";
 const Navbar = () => {
   const navItems = [
     { href: "/", label: "Home" },
+    { href: "/about-us", label: "About" },
     { href: "https://duckaroo.com.au/blogs/news", label: "Blog" },
     {
       href: "https://duckaroo.com.au/collections/aquarium-designs",
@@ -23,7 +24,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
-      <div className="w-full max-w-[2560px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[2560px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
