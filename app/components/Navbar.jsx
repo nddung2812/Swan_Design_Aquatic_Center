@@ -1,7 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 
 const Navbar = () => {
@@ -75,16 +81,32 @@ const Navbar = () => {
           {/* Mobile Menu */}
           <Sheet>
             <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" className="text-white">
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetTrigger asChild className="hidden md:block lg:hidden">
-              <Button variant="ghost" size="icon" className="text-white">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-white w-12 h-12 border border-white/30 hover:border-white/50 hover:bg-white/10 transition-all duration-200"
+              >
                 <Menu className="h-7 w-7" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-black/95 border-white/10">
+            <SheetTrigger asChild className="hidden md:block lg:hidden">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-white w-12 h-12 border border-white/30 hover:border-white/50 hover:bg-white/10 transition-all duration-200"
+              >
+                <Menu className="h-8 w-8" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent
+              side="right"
+              className="bg-black/95 border-white/10 [&>button]:text-white [&>button]:hover:text-white/80"
+            >
+              <SheetHeader>
+                <SheetTitle className="text-white text-left">
+                  Navigation Menu
+                </SheetTitle>
+              </SheetHeader>
               <div className="flex flex-col space-y-6 mt-8">
                 {navItems.map((item) => (
                   <Link

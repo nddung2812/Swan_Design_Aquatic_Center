@@ -46,18 +46,18 @@ const HomeBanner = ({ music, setMusic }) => {
           nature into your home or office
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-sm sm:max-w-2xl mx-auto">
           <Button
             asChild
             size="lg"
-            className="bg-gradient-to-br from-[#8044e2] to-[#0f172a] text-white hover:bg-gradient-to-br hover:from-[#506ef8] hover:to-[#0f172a] border-none px-8 py-6 text-lg"
+            className="w-full max-w-xs sm:w-auto sm:max-w-none bg-gradient-to-br from-[#8044e2] to-[#0f172a] text-white hover:bg-gradient-to-br hover:from-[#506ef8] hover:to-[#0f172a] border-none px-4 sm:px-8 py-6 text-base sm:text-lg"
           >
             <Link href="/service">Get Free Consultation</Link>
           </Button>
           <Button
             asChild
             size="lg"
-            className="bg-gradient-to-br from-[#10b981] to-[#0f172a] text-white hover:bg-gradient-to-br hover:from-[#34d399] hover:to-[#0f172a] border-none px-8 py-6 text-lg"
+            className="w-full max-w-xs sm:w-auto sm:max-w-none bg-gradient-to-br from-[#10b981] to-[#0f172a] text-white hover:bg-gradient-to-br hover:from-[#34d399] hover:to-[#0f172a] border-none px-4 sm:px-8 py-6 text-base sm:text-lg"
           >
             <Link
               href="https://duckaroo.com.au/pages/about-us"
