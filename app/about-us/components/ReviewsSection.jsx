@@ -52,7 +52,7 @@ const ReviewsSection = () => {
       rating: 5,
       date: "1 week ago",
       review:
-        "Incredible aquascaping work! They transformed our boring tank into a stunning underwater landscape. The plants are thriving and it's become the centerpiece of our living room.",
+        "Incredible aquascaping work! They transformed our boring tank into a stunning underwater landscape. The plants are thriving and it&apos;s become the centerpiece of our living room.",
       service: "Aquascaping Design",
     },
     {
@@ -144,7 +144,7 @@ const ReviewsSection = () => {
     }, 5000); // Change slide every 5 seconds
 
     return () => clearInterval(interval);
-  }, [currentSlide, isAutoPlaying]);
+  }, [currentSlide, isAutoPlaying, nextSlide]);
 
   const getCurrentReviews = () => {
     const startIndex = currentSlide * reviewsPerSlide;
@@ -182,7 +182,7 @@ const ReviewsSection = () => {
           </h2>
 
           <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-4xl mx-auto leading-relaxed">
-            Don't just take our word for it - see why Brisbane families and
+            Don&apos;t just take our word for it - see why Brisbane families and
             businesses trust Duckaroo for all their{" "}
             <strong>aquarium cleaning</strong> and maintenance needs.
           </p>
@@ -298,9 +298,9 @@ const ReviewsSection = () => {
                 Ready to Join Our Happy Customers?
               </h3>
               <p className="text-white/80 mb-6 leading-relaxed">
-                Experience Brisbane's #1 rated aquarium service. Get your free
-                quote today and see why over 1000+ customers trust Duckaroo for
-                their aquatic needs.
+                Experience Brisbane&apos;s #1 rated aquarium service. Get your
+                free quote today and see why over 1000+ customers trust Duckaroo
+                for their aquatic needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-lg mx-auto">
                 <Button
