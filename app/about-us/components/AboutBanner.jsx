@@ -98,7 +98,9 @@ const AboutBanner = () => {
           </div>
           <div className="flex items-center gap-2">
             <MapPin className="w-5 h-5 text-emerald-400" />
-            <span className="font-semibold">Servicing All Brisbane & QLD</span>
+            <span className="font-semibold">
+              Servicing All Brisbane & Surrounding Areas
+            </span>
           </div>
         </div>
 

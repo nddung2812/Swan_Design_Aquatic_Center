@@ -21,6 +21,7 @@ import {
 } from "@/data/blogs";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
+import ShareButton from "./ShareButton";
 
 // Generate static params for all blog posts
 export async function generateStaticParams() {
@@ -177,14 +178,7 @@ export default function BlogPost({ params }) {
                   <Clock className="w-4 h-4" />
                   <span>{blog.readTime}</span>
                 </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="flex items-center gap-2"
-                >
-                  <Share2 className="w-4 h-4" />
-                  Share
-                </Button>
+                <ShareButton blog={blog} />
               </div>
             </div>
 

@@ -35,7 +35,7 @@ const Footer = () => {
     ],
     company: [
       { label: "About Us", href: "/about-us" },
-      { label: "Blog", href: "https://duckaroo.com.au/blogs/news" },
+      { label: "Blogs", href: "/blogs" },
       {
         label: "Gallery",
         href: "https://duckaroo.com.au/collections/aquarium-designs",
@@ -67,7 +67,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full bg-black/40 backdrop-blur-sm border-t border-white/10 text-white">
+    <footer className="w-full bg-slate-950/95 backdrop-blur-md border-t border-white/10 text-white">
       <div className="max-w-[2560px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
