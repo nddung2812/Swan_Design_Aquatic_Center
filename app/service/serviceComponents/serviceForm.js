@@ -36,10 +36,10 @@ export default function ServiceForm() {
 
     try {
       const result = await emailjs.sendForm(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+        "service_nyo9717", // EmailJS service ID
+        "template_lqh6rse", // EmailJS template ID
         form.current,
-        "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
+        "PlnxkEthyMpuKG_kJ" // EmailJS public key
       );
 
       if (result.text === "OK") {
@@ -137,6 +137,28 @@ export default function ServiceForm() {
               <p className="text-red-400 text-sm flex items-center gap-1 font-medium">
                 <AlertCircle className="w-4 h-4" />
                 {errors.phone.message}
+              </p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="location" className="text-white font-semibold">
+              Brisbane Location *
+            </Label>
+            <Input
+              type="text"
+              id="location"
+              name="location"
+              className="bg-white/25 border-2 border-white/40 text-white placeholder:text-white/70 focus:border-emerald-400 focus:bg-white/30 focus:ring-2 focus:ring-emerald-400/50"
+              placeholder="e.g. Southside Brisbane, CBD, Gold Coast"
+              {...register("location", {
+                required: "Location is required for service quote",
+              })}
+            />
+            {errors.location && (
+              <p className="text-red-400 text-sm flex items-center gap-1 font-medium">
+                <AlertCircle className="w-4 h-4" />
+                {errors.location.message}
               </p>
             )}
           </div>

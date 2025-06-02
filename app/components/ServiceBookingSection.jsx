@@ -48,10 +48,10 @@ const ServiceBookingSection = () => {
 
     try {
       const result = await emailjs.sendForm(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+        "service_nyo9717", // EmailJS service ID
+        "template_lqh6rse", // EmailJS template ID
         form.current,
-        "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
+        "PlnxkEthyMpuKG_kJ" // EmailJS public key
       );
 
       if (result.text === "OK") {
