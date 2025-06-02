@@ -82,9 +82,9 @@ const ServiceBookingSection = () => {
     },
     {
       icon: <Award className="w-6 h-6" />,
-      title: "Certified Aquarium Technicians",
+      title: "Experienced Aquarium Specialists",
       description:
-        "Licensed Queensland aquatic specialists with 15+ years experience in Brisbane conditions",
+        "Passionate Queensland aquatic experts with 15+ years experience in Brisbane conditions",
     },
     {
       icon: <Clock className="w-6 h-6" />,
@@ -251,7 +251,7 @@ const ServiceBookingSection = () => {
                   <p>
                     <strong>Duckaroo</strong> has been Brisbane&apos;s trusted{" "}
                     <strong>fish tank cleaning service</strong> since 2020. Our
-                    certified aquarium technicians specialize in{" "}
+                    experienced aquarium specialists specialize in{" "}
                     <strong>professional aquarium maintenance</strong>,
                     <strong>pond cleaning</strong>, and{" "}
                     <strong>fish tank setup</strong> across Brisbane, Gold

@@ -81,7 +81,7 @@ const AboutBanner = () => {
             From <strong>professional aquarium cleaning</strong> in Brisbane CBD
             to
             <strong> pond maintenance</strong> in Southside Brisbane, our
-            certified aquatic technicians deliver exceptional service with
+            experienced aquatic specialists deliver exceptional service with
             same-day availability and 100% satisfaction guarantee.
           </p>
         </div>
@@ -170,7 +170,7 @@ const AboutBanner = () => {
               in between.
             </p>
             <p>
-              Our team of certified aquatic technicians combines 15+ years of
+              Our team of experienced aquatic specialists combines 15+ years of
               experience with cutting-edge techniques to deliver exceptional{" "}
               <strong>aquarium cleaning</strong>, maintenance, and design
               services that exceed expectations every time.
@@ -225,10 +225,10 @@ const AboutBanner = () => {
                   aquatic needs.
                 </p>
                 <p>
-                  <strong>Certified Professionals:</strong> Our team holds
-                  industry certifications and undergoes continuous training to
-                  stay current with the latest aquarium maintenance techniques
-                  and technologies.
+                  <strong>Experienced Professionals:</strong> Our team has
+                  extensive experience and undergoes continuous learning to stay
+                  current with the latest aquarium maintenance techniques and
+                  technologies.
                 </p>
               </div>
               <div className="space-y-4">
