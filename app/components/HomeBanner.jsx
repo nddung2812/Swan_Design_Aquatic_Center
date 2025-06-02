@@ -59,13 +59,7 @@ const HomeBanner = ({ music, setMusic }) => {
             size="lg"
             className="w-full max-w-xs sm:w-auto sm:max-w-none bg-gradient-to-br from-[#10b981] to-[#0f172a] text-white hover:bg-gradient-to-br hover:from-[#34d399] hover:to-[#0f172a] border-none px-4 sm:px-8 py-6 text-base sm:text-lg"
           >
-            <Link
-              href="https://duckaroo.com.au/pages/about-us"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Discover Our Story
-            </Link>
+            <Link href="/about-us">Discover Our Story</Link>
           </Button>
         </div>
       </div>

@@ -25,6 +25,21 @@ const nextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
+  // Add redirects configuration
+  async redirects() {
+    return [
+      {
+        source: "/pages/about-us",
+        destination: "/about-us",
+        permanent: true, // 301 redirect for SEO
+      },
+      {
+        source: "/pages/about",
+        destination: "/about-us",
+        permanent: true,
+      },
+    ];
+  },
   experimental: {
     optimizeCss: false,
   },

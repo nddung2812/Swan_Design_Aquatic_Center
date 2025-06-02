@@ -34,7 +34,7 @@ const Footer = () => {
       },
     ],
     company: [
-      { label: "About Us", href: "https://duckaroo.com.au/pages/about-us" },
+      { label: "About Us", href: "/about-us" },
       { label: "Blog", href: "https://duckaroo.com.au/blogs/news" },
       {
         label: "Gallery",

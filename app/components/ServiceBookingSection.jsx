@@ -102,7 +102,7 @@ const ServiceBookingSection = () => {
       icon: <Users className="w-6 h-6" />,
       title: "1000+ Happy Brisbane Families",
       description:
-        "Trusted by Brisbane residents, businesses & aquarium enthusiasts since 2010",
+        "Trusted by Brisbane residents, businesses & aquarium enthusiasts since 2020",
     },
     {
       icon: <MapPin className="w-6 h-6" />,
@@ -163,7 +163,7 @@ const ServiceBookingSection = () => {
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-5 h-5 text-emerald-400" />
-              <span className="font-semibold">info@duckaroo.com.au</span>
+              <span className="font-semibold">aquaticswandesign@gmail.com</span>
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="w-5 h-5 text-emerald-400" />
@@ -250,7 +250,7 @@ const ServiceBookingSection = () => {
                 <div className="text-white/80 text-sm space-y-3 leading-relaxed">
                   <p>
                     <strong>Duckaroo</strong> has been Brisbane&apos;s trusted{" "}
-                    <strong>fish tank cleaning service</strong> since 2010. Our
+                    <strong>fish tank cleaning service</strong> since 2020. Our
                     certified aquarium technicians specialize in{" "}
                     <strong>professional aquarium maintenance</strong>,
                     <strong>pond cleaning</strong>, and{" "}

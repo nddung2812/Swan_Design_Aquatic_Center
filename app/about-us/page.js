@@ -1,23 +1,19 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import ReactHowler from "react-howler";
-import Duckweeds from "./components/Duckweeds";
-import Footer from "./components/Footer";
-import HomeBanner from "./components/HomeBanner";
-import ServiceBookingSection from "./components/ServiceBookingSection";
-import { Preloader } from "./components/Preloader.jsx";
-import Navbar from "./components/Navbar";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import AboutBanner from "./components/AboutBanner";
+import ReviewsSection from "./components/ReviewsSection";
 import { Button } from "@/components/ui/button";
 import { Volume2, VolumeX, Play } from "lucide-react";
 import dynamic from "next/dynamic";
-
-export const runtime = "edge";
 
 const WaterWaveNoSSr = dynamic(() => import("react-water-wave"), {
   ssr: false,
 });
 
-const Home = () => {
+export default function AboutUs() {
   const [music, setMusic] = useState(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [showPlayButton, setShowPlayButton] = useState(false);
@@ -56,7 +52,6 @@ const Home = () => {
 
   return (
     <>
-      <Preloader />
       <WaterWaveNoSSr
         imageUrl=""
         dropRadius="3"
@@ -84,6 +79,7 @@ const Home = () => {
               preload="metadata"
               onLoadedData={() => setVideoLoaded(true)}
               onError={() => setShowPlayButton(true)}
+              aria-label="Background video of aquarium fish swimming"
             >
               {/* Mobile-optimized smaller video */}
               <source
@@ -130,6 +126,9 @@ const Home = () => {
                 onClick={handleMusic}
                 size="icon"
                 className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white shadow-lg"
+                aria-label={
+                  music ? "Mute background music" : "Unmute background music"
+                }
               >
                 {music ? (
                   <Volume2 className="h-6 w-6" />
@@ -139,16 +138,13 @@ const Home = () => {
               </Button>
             </div>
 
-            {/* Floating Elements */}
-            <Duckweeds />
-
             {/* Navigation */}
             <Navbar />
 
             {/* Main Content */}
             <main className="relative z-10 w-full">
-              <HomeBanner setMusic={setMusic} music={music} />
-              <ServiceBookingSection />
+              <AboutBanner />
+              <ReviewsSection />
             </main>
 
             {/* Footer */}
@@ -158,6 +154,4 @@ const Home = () => {
       </WaterWaveNoSSr>
     </>
   );
-};
-
-export default Home;
+}

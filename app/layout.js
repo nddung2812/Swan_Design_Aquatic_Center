@@ -156,7 +156,7 @@ export default function RootLayout({ children }) {
                 "Brisbane's premier fish tank cleaning and aquarium maintenance service. Professional pond cleaning, tank setup, and aquatic consultations across Brisbane, Gold Coast, and Queensland.",
               url: "https://duckaroo.com.au",
               telephone: "(04) 57663939",
-              email: "info@duckaroo.com.au",
+              email: "aquaticswandesign@gmail.com",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Your Street Address",
