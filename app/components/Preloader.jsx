@@ -5,7 +5,7 @@ import gsap from "gsap";
 
 const tl = gsap.timeline();
 // Preloader Animation
-const preLoaderAnim = () => {
+const preLoaderAnim = (onComplete) => {
   tl.to("body", {
     duration: 0,
     css: { overflowY: "hidden" },
@@ -43,13 +43,19 @@ const preLoaderAnim = () => {
     .to(".preloader", {
       duration: 1,
       css: { display: "none" },
+      onComplete: () => {
+        // Re-enable body scroll
+        gsap.set("body", { css: { overflowY: "auto" } });
+        // Call the completion callback if provided
+        if (onComplete) onComplete();
+      },
     });
 };
 
-export const Preloader = () => {
+export const Preloader = ({ onComplete }) => {
   useLayoutEffect(() => {
-    preLoaderAnim();
-  }, []);
+    preLoaderAnim(onComplete);
+  }, [onComplete]);
 
   return (
     <div className="preloader h-screen w-full bg-[#030303] fixed bottom-0 left-0 right-0 z-[99] flex items-center justify-center overflow-hidden">

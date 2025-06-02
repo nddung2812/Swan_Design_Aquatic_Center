@@ -11,13 +11,13 @@ const ReviewsSection = () => {
 
   const reviews = [
     {
-      name: "Sarah Mitchell",
+      name: "Sarah M.",
       location: "Brisbane CBD",
       rating: 5,
       date: "2 weeks ago",
       review:
-        "Absolutely fantastic service! The team cleaned our office aquarium and it looks incredible. Professional, punctual, and the fish are so much happier. Highly recommend for any Brisbane business.",
-      service: "Office Aquarium Cleaning",
+        "Just got my Bucephalandra from these guys and WOW! The quality is insane. Been growing aquatic plants for 3 years and this is hands down the best I&apos;ve seen. Already showing new growth after a week!",
+      service: "Bucephalandra Plants",
     },
     {
       name: "David Chen",
@@ -25,25 +25,25 @@ const ReviewsSection = () => {
       rating: 5,
       date: "1 month ago",
       review:
-        "Best aquarium service in Brisbane! They set up our new 200L tank perfectly and provided excellent ongoing maintenance advice. The attention to detail is outstanding.",
-      service: "New Tank Setup",
+        "Needed emergency help when my filter died over the weekend. They actually answered the phone and came out same day! Saved all my fish. Can&apos;t thank them enough.",
+      service: "Emergency Service",
     },
     {
-      name: "Emma Thompson",
+      name: "Emma T.",
       location: "Gold Coast",
       rating: 5,
       date: "3 weeks ago",
       review:
-        "Emergency call-out service was amazing! Our tank had a major issue on Sunday and they came out the same day. Saved all our fish and got everything running perfectly again.",
-      service: "Emergency Service",
+        "The Anubias varieties here are incredible. Got the Anubias Nana Petite and it&apos;s already pearling like crazy. Owner really knows his stuff about plant care.",
+      service: "Anubias Plants",
     },
     {
-      name: "Michael Rodriguez",
+      name: "Mike Rodriguez",
       location: "Northside Brisbane",
       rating: 5,
       date: "2 months ago",
       review:
-        "Regular maintenance service is top-notch. They've been looking after our pond for over a year now. Always reliable, knowledgeable, and fair pricing. Couldn't be happier!",
+        "Been using their monthly service for my pond for over a year. Always on time, super professional, and my koi have never been healthier. Worth every penny!",
       service: "Pond Maintenance",
     },
     {
@@ -52,16 +52,16 @@ const ReviewsSection = () => {
       rating: 5,
       date: "1 week ago",
       review:
-        "Incredible aquascaping work! They transformed our boring tank into a stunning underwater landscape. The plants are thriving and it&apos;s become the centerpiece of our living room.",
+        "OMG the aquascaping work is next level! They turned my boring tank into something that looks like it belongs in a magazine. Guests always ask about it now 😍",
       service: "Aquascaping Design",
     },
     {
-      name: "James Patterson",
+      name: "James P.",
       location: "Western Brisbane",
       rating: 5,
       date: "3 months ago",
       review:
-        "Professional fish tank cleaning service that actually cares about the fish welfare. They explained everything they were doing and gave great tips for between visits. 5 stars!",
+        "Great service. Clean, professional, and they actually care about fish welfare. Explained everything they were doing. Will definitely use again.",
       service: "Tank Cleaning",
     },
     {
@@ -70,16 +70,16 @@ const ReviewsSection = () => {
       rating: 5,
       date: "2 weeks ago",
       review:
-        "Fantastic consultation service! They helped us choose the right equipment and fish for our family aquarium. Kids love watching the fish and the tank is so easy to maintain now.",
-      service: "Aquarium Consultation",
+        "Bought some rare Bucephalandra species from them - the Kedagang and Brownie Ghost varieties. Absolutely stunning plants and they&apos;re thriving in my low-tech setup. Highly recommend!",
+      service: "Rare Bucephalandra",
     },
     {
-      name: "Tony Nguyen",
+      name: "Tony N.",
       location: "Ipswich",
       rating: 5,
       date: "1 month ago",
       review:
-        "Best decision we made was calling Duckaroo for our restaurant aquarium. Customers always comment on how beautiful it looks. Professional service and great value for money.",
+        "Restaurant aquarium looks amazing thanks to these guys. Customers always comment on it. Good value and they know what they&apos;re doing.",
       service: "Commercial Aquarium",
     },
     {
@@ -88,16 +88,16 @@ const ReviewsSection = () => {
       rating: 5,
       date: "4 weeks ago",
       review:
-        "Amazing pond installation! From design to completion, everything was handled professionally. The pond is now the highlight of our backyard and the fish are thriving.",
+        "The pond installation exceeded all expectations! From design to completion, everything was handled professionally. The fish are loving their new home and it&apos;s become the centerpiece of our backyard.",
       service: "Pond Installation",
     },
     {
-      name: "Chris Johnson",
+      name: "Chris J.",
       location: "Bayside Brisbane",
       rating: 5,
       date: "2 months ago",
       review:
-        "Reliable monthly maintenance keeps our aquarium in perfect condition. The team is knowledgeable, friendly, and always on time. Highly recommend to anyone in Brisbane!",
+        "Solid monthly maintenance. Never had any issues since they started looking after my tank. Reliable and knowledgeable team.",
       service: "Monthly Maintenance",
     },
     {
@@ -106,17 +106,17 @@ const ReviewsSection = () => {
       rating: 5,
       date: "1 week ago",
       review:
-        "Outstanding service from start to finish! They relocated our large marine tank when we moved house. Not a single fish was stressed and the tank looks better than ever. True professionals!",
+        "They relocated our massive 400L marine tank when we moved house. Not a single coral was damaged and the fish didn&apos;t even seem stressed. These guys are pros!",
       service: "Aquarium Relocation",
     },
     {
-      name: "Mark Thompson",
+      name: "Mark T.",
       location: "Springwood",
       rating: 5,
       date: "3 weeks ago",
       review:
-        "Duckaroo saved our koi pond! The water quality was terrible and fish were getting sick. Their team diagnosed the problem quickly and now our pond is crystal clear. Exceptional expertise!",
-      service: "Pond Water Treatment",
+        "My Anubias collection has never looked better! Got some beautiful Anubias Coffeefolia and Barteri from them. Plants arrived in perfect condition and are already showing new leaves.",
+      service: "Anubias Collection",
     },
   ];
 

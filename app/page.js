@@ -21,6 +21,7 @@ const Home = () => {
   const [music, setMusic] = useState(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [showPlayButton, setShowPlayButton] = useState(false);
+  const [showPreloader, setShowPreloader] = useState(false);
   const videoRef = useRef(null);
 
   const handleMusic = () => {
@@ -42,6 +43,15 @@ const Home = () => {
   };
 
   useEffect(() => {
+    // Check if user has already seen the preloader
+    const hasSeenPreloader = localStorage.getItem("duckaroo-preloader-shown");
+
+    if (!hasSeenPreloader) {
+      setShowPreloader(true);
+      // Mark that the preloader has been shown
+      localStorage.setItem("duckaroo-preloader-shown", "true");
+    }
+
     // Try to play video after component mounts
     const timer = setTimeout(() => {
       if (videoRef.current) {
@@ -54,9 +64,14 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Development helper: Uncomment the line below to reset preloader for testing
+  // localStorage.removeItem('duckaroo-preloader-shown');
+
   return (
     <>
-      <Preloader />
+      {showPreloader && (
+        <Preloader onComplete={() => setShowPreloader(false)} />
+      )}
       <WaterWaveNoSSr
         imageUrl=""
         dropRadius="3"

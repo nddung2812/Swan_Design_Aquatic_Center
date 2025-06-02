@@ -37,7 +37,7 @@ const HomeBanner = ({ music, setMusic }) => {
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
           Transform Your Space with
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 block mt-2 pb-2">
-            Aquatic Elegance
+            Duckaroo
           </span>
         </h1>
 
