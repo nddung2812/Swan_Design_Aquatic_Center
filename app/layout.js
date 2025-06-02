@@ -5,61 +5,58 @@ import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title:
-    "Duckaroo - Brisbane's #1 Fish Tank & Aquarium Cleaning Service | Professional Pond Maintenance QLD",
+  title: "Duckaroo Brisbane | #1 Fish Tank Cleaning & Aquarium Service QLD",
   description:
-    "★★★★★ Brisbane's premier fish tank cleaning & aquarium maintenance service. Expert pond cleaning, tank setup & aquatic consultations. Same-day service across Brisbane, Gold Coast & QLD. 1000+ satisfied customers. Call now!",
-  keywords: [
-    // Primary keywords
-    "fish tank cleaning Brisbane",
-    "aquarium cleaning Brisbane",
-    "pond cleaning Brisbane",
-    "tank maintenance Brisbane",
-    "aquarium service Brisbane",
-
-    // Location-based keywords
-    "fish tank cleaning Gold Coast",
-    "aquarium cleaning Southside Brisbane",
-    "pond maintenance Northside Brisbane",
-    "tank cleaning Logan",
-    "aquarium service Ipswich",
-    "fish tank cleaning Bayside",
-
-    // Service-specific keywords
-    "professional aquarium cleaning",
-    "fish tank setup Brisbane",
-    "pond installation Brisbane",
-    "aquatic consultation Brisbane",
-    "emergency tank cleaning",
-    "same day aquarium service",
-
-    // Business keywords
-    "Duckaroo Brisbane",
-    "best tank cleaning Brisbane",
-    "certified aquarium technician",
-    "licensed pond specialist",
-    "Brisbane aquatic experts",
-  ].join(", "),
-
-  authors: [{ name: "Duckaroo Aquatic Services" }],
-  creator: "Duckaroo",
-  publisher: "Duckaroo Aquatic Services",
-
-  icons: {
-    icon: [
-      { url: "/swan-favicon.png", sizes: "32x32", type: "image/png" },
-      { url: "/swan-favicon.png", sizes: "16x16", type: "image/png" },
-    ],
-    shortcut: "/swan-favicon.png",
-    apple: [{ url: "/swan-favicon.png", sizes: "180x180", type: "image/png" }],
-    other: [
+    "Brisbane's premier fish tank cleaning service since 2020. Professional aquarium maintenance, pond cleaning & plant care. Same-day service available. Call (04) 57663939",
+  keywords:
+    "fish tank cleaning Brisbane, aquarium service QLD, pond maintenance, aquarium cleaning, Brisbane aquatic service, fish tank maintenance",
+  authors: [{ name: "Duckaroo Brisbane" }],
+  creator: "Duckaroo Brisbane",
+  publisher: "Duckaroo Brisbane",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL("https://duckaroo.com.au"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Duckaroo Brisbane | #1 Fish Tank Cleaning & Aquarium Service QLD",
+    description:
+      "Brisbane's premier fish tank cleaning service since 2020. Professional aquarium maintenance, pond cleaning & plant care. Same-day service available.",
+    url: "https://duckaroo.com.au",
+    siteName: "Duckaroo Brisbane",
+    images: [
       {
-        rel: "icon",
-        url: "/swan-favicon.png",
+        url: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&h=630&fit=crop&crop=center",
+        width: 1200,
+        height: 630,
+        alt: "Professional Aquarium Cleaning Service Brisbane - Duckaroo",
+      },
+      {
+        url: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=1200&h=630&fit=crop&crop=center",
+        width: 1200,
+        height: 630,
+        alt: "Aquascaping and Plant Care Services Brisbane",
+      },
+    ],
+    locale: "en_AU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Duckaroo Brisbane | #1 Fish Tank Cleaning & Aquarium Service QLD",
+    description:
+      "Brisbane's premier fish tank cleaning service since 2020. Professional aquarium maintenance, pond cleaning & plant care. Same-day service available.",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&h=630&fit=crop&crop=center",
+        alt: "Professional Aquarium Cleaning Service Brisbane - Duckaroo",
       },
     ],
   },
-
   robots: {
     index: true,
     follow: true,
@@ -71,69 +68,47 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-
-  alternates: {
-    canonical: "https://duckaroo.com.au",
-  },
-
-  openGraph: {
-    type: "website",
-    locale: "en_AU",
-    url: "https://duckaroo.com.au",
-    siteName: "Duckaroo - Brisbane's #1 Aquarium & Fish Tank Cleaning Service",
-    title: "Duckaroo - Brisbane's #1 Fish Tank & Aquarium Cleaning Service",
-    description:
-      "★★★★★ Brisbane's premier fish tank cleaning & aquarium maintenance service. Expert pond cleaning, tank setup & aquatic consultations. Same-day service across Brisbane, Gold Coast & QLD. 1000+ satisfied customers.",
-    images: [
-      {
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1739712678/duckaroo-brisbane-aquarium-cleaning.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Duckaroo - Brisbane's Premier Fish Tank & Aquarium Cleaning Service",
-        type: "image/jpeg",
-      },
-      {
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1739712678/duckaroo-pond-cleaning-brisbane.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Professional Pond Cleaning Services Brisbane - Duckaroo",
-        type: "image/jpeg",
-      },
-    ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    site: "@DuckarooBrisbane",
-    creator: "@DuckarooBrisbane",
-    title: "Duckaroo - Brisbane's #1 Fish Tank & Aquarium Cleaning Service",
-    description:
-      "★★★★★ Brisbane's premier fish tank cleaning & aquarium maintenance service. Same-day service across Brisbane, Gold Coast & QLD. 1000+ satisfied customers.",
-    images: {
-      url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1739712678/duckaroo-brisbane-aquarium-cleaning.jpg",
-      alt: "Duckaroo - Brisbane's Premier Fish Tank & Aquarium Cleaning Service",
-    },
-  },
-
   verification: {
     google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    yahoo: "your-yahoo-verification-code",
   },
-
-  category: "Aquarium Services",
-  classification: "Business",
-
   other: {
     "geo.region": "AU-QLD",
     "geo.placename": "Brisbane",
     "geo.position": "-27.4698;153.0251",
     ICBM: "-27.4698, 153.0251",
+  },
+  category: "business",
+  classification: "Aquarium Services",
+  coverage: "Brisbane, Queensland, Australia",
+  distribution: "global",
+  rating: "general",
+  referrer: "origin-when-cross-origin",
+  "apple-mobile-web-app-capable": "yes",
+  "apple-mobile-web-app-status-bar-style": "default",
+  "apple-mobile-web-app-title": "Duckaroo Brisbane",
+  "application-name": "Duckaroo Brisbane",
+  "msapplication-TileColor": "#0f172a",
+  "theme-color": "#0f172a",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
+  // Local Business Schema
+  other: {
+    "business:contact_data:street_address": "Brisbane, QLD",
     "business:contact_data:locality": "Brisbane",
     "business:contact_data:region": "Queensland",
-    "business:contact_data:country_name": "Australia",
     "business:contact_data:postal_code": "4000",
-    "business:contact_data:phone_number": "(04) 57663939",
+    "business:contact_data:country_name": "Australia",
+    "business:contact_data:email": "aquaticswandesign@gmail.com",
+    "business:contact_data:phone_number": "+61457663939",
     "business:contact_data:website": "https://duckaroo.com.au",
   },
 };
@@ -149,20 +124,18 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "@id": "https://duckaroo.com.au/#organization",
-              name: "Duckaroo",
-              alternateName: "Duckaroo Aquatic Services",
+              "@id": "https://duckaroo.com.au/#business",
+              name: "Duckaroo Brisbane",
+              alternateName: "Aquatic Swan Design",
               description:
-                "Brisbane's premier fish tank cleaning and aquarium maintenance service. Professional pond cleaning, tank setup, and aquatic consultations across Brisbane, Gold Coast, and Queensland.",
+                "Brisbane's premier fish tank cleaning and aquarium maintenance service since 2020.",
               url: "https://duckaroo.com.au",
-              telephone: "(04) 57663939",
+              telephone: "+61457663939",
               email: "aquaticswandesign@gmail.com",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "Your Street Address",
                 addressLocality: "Brisbane",
                 addressRegion: "QLD",
-                postalCode: "4000",
                 addressCountry: "AU",
               },
               geo: {
@@ -174,40 +147,28 @@ export default function RootLayout({ children }) {
                 {
                   "@type": "City",
                   name: "Brisbane",
-                  sameAs: "https://en.wikipedia.org/wiki/Brisbane",
-                },
-                {
-                  "@type": "City",
-                  name: "Gold Coast",
-                  sameAs:
-                    "https://en.wikipedia.org/wiki/Gold_Coast,_Queensland",
                 },
                 {
                   "@type": "State",
                   name: "Queensland",
-                  sameAs: "https://en.wikipedia.org/wiki/Queensland",
                 },
               ],
               serviceType: [
                 "Fish Tank Cleaning",
                 "Aquarium Maintenance",
                 "Pond Cleaning",
-                "Aquarium Setup",
-                "Pond Installation",
-                "Aquatic Consultation",
+                "Aquascaping",
+                "Plant Care",
               ],
               priceRange: "$$",
               currenciesAccepted: "AUD",
               paymentAccepted: "Cash, Credit Card, Bank Transfer",
-              openingHours: "Mo-Su 07:00-19:00",
-              image:
-                "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1739712678/duckaroo-brisbane-aquarium-cleaning.jpg",
-              logo: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1739712678/duckaroo-logo.png",
-              sameAs: [
-                "https://www.facebook.com/DuckarooBrisbane",
-                "https://www.instagram.com/duckaroo_brisbane",
-                "https://www.linkedin.com/company/duckaroo",
+              openingHours: "Mo-Su 08:00-18:00",
+              image: [
+                "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&h=630&fit=crop&crop=center",
+                "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=1200&h=630&fit=crop&crop=center",
               ],
+              sameAs: ["https://duckaroo.com.au"],
               aggregateRating: {
                 "@type": "AggregateRating",
                 ratingValue: "4.9",
@@ -218,17 +179,17 @@ export default function RootLayout({ children }) {
               review: [
                 {
                   "@type": "Review",
-                  author: {
-                    "@type": "Person",
-                    name: "Sarah M.",
-                  },
                   reviewRating: {
                     "@type": "Rating",
                     ratingValue: "5",
                     bestRating: "5",
                   },
+                  author: {
+                    "@type": "Person",
+                    name: "Sarah M.",
+                  },
                   reviewBody:
-                    "Duckaroo transformed our dirty fish tank into a crystal clear aquarium. Professional, reliable, and reasonably priced. Highly recommend for anyone in Brisbane!",
+                    "Excellent service! They transformed our tank completely. Professional, reliable, and great value.",
                 },
               ],
             }),
