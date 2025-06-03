@@ -3,10 +3,11 @@ import { useState, useEffect, useRef } from "react";
 import ReactHowler from "react-howler";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import MusicControlButton from "../components/MusicControlButton";
 import AboutBanner from "./components/AboutBanner";
 import ReviewsSection from "./components/ReviewsSection";
 import { Button } from "@/components/ui/button";
-import { Volume2, VolumeX, Play } from "lucide-react";
+import { Play } from "lucide-react";
 import dynamic from "next/dynamic";
 
 const WaterWaveNoSSr = dynamic(() => import("react-water-wave"), {
@@ -121,22 +122,7 @@ export default function AboutUs() {
             />
 
             {/* Music Control Button */}
-            <div className="fixed bottom-8 right-8 z-50">
-              <Button
-                onClick={handleMusic}
-                size="icon"
-                className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white shadow-lg"
-                aria-label={
-                  music ? "Mute background music" : "Unmute background music"
-                }
-              >
-                {music ? (
-                  <Volume2 className="h-6 w-6" />
-                ) : (
-                  <VolumeX className="h-6 w-6" />
-                )}
-              </Button>
-            </div>
+            <MusicControlButton music={music} onToggleMusic={handleMusic} />
 
             {/* Navigation */}
             <Navbar />
