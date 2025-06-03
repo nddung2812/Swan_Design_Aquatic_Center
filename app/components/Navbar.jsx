@@ -14,6 +14,7 @@ const Navbar = () => {
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/about-us", label: "About" },
+    { href: "/products", label: "Products" },
     { href: "/blogs", label: "Blogs" },
     {
       href: "https://duckaroo.com.au/collections/aquarium-designs",

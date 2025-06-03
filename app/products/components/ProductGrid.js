@@ -1,0 +1,244 @@
+import { useState } from "react";
+import Link from "next/link";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ShoppingCart, Eye, Star, ExternalLink } from "lucide-react";
+import ProductModal from "./ProductModal";
+
+export default function ProductGrid({ products, onAddToCart }) {
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleQuickView = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProduct(null);
+  };
+
+  // Get current cart quantity for a specific product
+  const getCurrentCartQuantity = (productId) => {
+    if (typeof window === "undefined") return 0; // Server-side rendering guard
+    const existingCart = JSON.parse(
+      localStorage.getItem("shopping-cart") || "[]"
+    );
+    const existingItem = existingCart.find((item) => item.id === productId);
+    return existingItem ? existingItem.quantity : 0;
+  };
+
+  // Handle add to cart with stock validation
+  const handleAddToCart = (product) => {
+    const currentCartQuantity = getCurrentCartQuantity(product.id);
+    const totalQuantityAfterAdd = currentCartQuantity + 1;
+
+    // Validate if total quantity exceeds stock
+    if (totalQuantityAfterAdd > product.stock) {
+      if (currentCartQuantity >= product.stock) {
+        alert(
+          `This item is already at maximum stock in your cart (${product.stock} available)`
+        );
+        return;
+      } else {
+        const availableToAdd = product.stock - currentCartQuantity;
+        alert(
+          `Only ${availableToAdd} more can be added to cart. Maximum stock: ${product.stock}`
+        );
+        return;
+      }
+    }
+
+    // If validation passes, call the original onAddToCart function
+    onAddToCart(product);
+  };
+
+  // Check if product can be added to cart
+  const canAddToCart = (product) => {
+    if (product.stock === 0) return false;
+    const currentCartQuantity = getCurrentCartQuantity(product.id);
+    return currentCartQuantity < product.stock;
+  };
+
+  // Get button text based on stock status
+  const getAddToCartButtonText = (product) => {
+    if (product.stock === 0) return "Out of Stock";
+    const currentCartQuantity = getCurrentCartQuantity(product.id);
+    if (currentCartQuantity >= product.stock) return "Max in Cart";
+    return "Add to Cart";
+  };
+
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(price);
+  };
+
+  const getCategoryBadgeColor = (category) => {
+    switch (category) {
+      case "plants":
+        return "bg-green-100 text-green-800 hover:bg-green-200";
+      case "probiotics":
+        return "bg-blue-100 text-blue-800 hover:bg-blue-200";
+      case "accessories":
+        return "bg-purple-100 text-purple-800 hover:bg-purple-200";
+      case "equipment":
+        return "bg-orange-100 text-orange-800 hover:bg-orange-200";
+      default:
+        return "bg-gray-100 text-gray-800 hover:bg-gray-200";
+    }
+  };
+
+  if (products.length === 0) {
+    return (
+      <div className="text-center py-12">
+        <div className="text-gray-500 text-lg">
+          No products found matching your criteria
+        </div>
+        <p className="text-gray-400 mt-2">
+          Try adjusting your search or filter options
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {products.map((product) => (
+          <Card
+            key={product.id}
+            className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+          >
+            <CardHeader className="p-0">
+              <div className="relative overflow-hidden rounded-t-lg">
+                <Link href={`/products/${product.slug}`}>
+                  <img
+                    src={
+                      product.images?.[0] ||
+                      "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=400&h=300&fit=crop&crop=center"
+                    }
+                    alt={product.name}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                    onError={(e) => {
+                      e.target.src = `https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=400&h=300&fit=crop&crop=center`;
+                    }}
+                  />
+                </Link>
+                <Badge
+                  className={`absolute top-2 right-2 ${getCategoryBadgeColor(
+                    product.category
+                  )}`}
+                >
+                  {product.category}
+                </Badge>
+                {product.stock < 10 && (
+                  <Badge className="absolute top-2 left-2 bg-red-100 text-red-800">
+                    Low Stock
+                  </Badge>
+                )}
+              </div>
+            </CardHeader>
+
+            <CardContent className="p-4">
+              <Link href={`/products/${product.slug}`}>
+                <CardTitle className="text-lg font-semibold mb-2 line-clamp-2 hover:text-blue-600 transition-colors cursor-pointer">
+                  {product.name}
+                </CardTitle>
+              </Link>
+              <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                {product.description}
+              </p>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-2xl font-bold text-blue-600">
+                  {formatPrice(product.price)}
+                </span>
+                <div className="flex items-center text-yellow-500">
+                  <Star className="w-4 h-4 fill-current" />
+                  <Star className="w-4 h-4 fill-current" />
+                  <Star className="w-4 h-4 fill-current" />
+                  <Star className="w-4 h-4 fill-current" />
+                  <Star className="w-4 h-4 fill-current" />
+                </div>
+              </div>
+              <div className="text-sm text-gray-500 space-y-1">
+                <div>Stock: {product.stock} available</div>
+                {(() => {
+                  const currentCartQuantity = getCurrentCartQuantity(
+                    product.id
+                  );
+                  if (currentCartQuantity > 0) {
+                    return (
+                      <div className="text-blue-600">
+                        In cart: {currentCartQuantity}
+                        {currentCartQuantity >= product.stock && (
+                          <span className="text-red-600 ml-1">
+                            (Max reached)
+                          </span>
+                        )}
+                      </div>
+                    );
+                  }
+                  return null;
+                })()}
+              </div>
+            </CardContent>
+
+            <CardFooter className="flex flex-col p-4 pt-0">
+              {/* Quick View and Add to Cart buttons */}
+              <div className="flex gap-2 w-full mb-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="flex-1"
+                  onClick={() => handleQuickView(product)}
+                >
+                  <Eye className="w-4 h-4 mr-1" />
+                  Quick View
+                </Button>
+                <Button
+                  size="sm"
+                  className="flex-1"
+                  onClick={() => handleAddToCart(product)}
+                  disabled={!canAddToCart(product)}
+                >
+                  <ShoppingCart className="w-4 h-4 mr-1" />
+                  {getAddToCartButtonText(product)}
+                </Button>
+              </div>
+
+              <div className="w-full">
+                <Link href={`/products/${product.slug}`}>
+                  <Button
+                    size="sm"
+                    className="w-full bg-green-600 text-white hover:bg-green-700 border-none"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    View Full Details
+                  </Button>
+                </Link>
+              </div>
+            </CardFooter>
+          </Card>
+        ))}
+      </div>
+
+      {/* Quick View Modal */}
+      <ProductModal
+        product={selectedProduct}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onAddToCart={onAddToCart}
+      />
+    </>
+  );
+}

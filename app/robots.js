@@ -1,4 +1,6 @@
 export default function robots() {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://yourdomain.com";
+
   return {
     rules: [
       {
@@ -14,23 +16,23 @@ export default function robots() {
           "/search?",
           "/thank-you",
           "/404",
+          "/checkout/", // Don't index checkout pages
         ],
       },
       {
         userAgent: "Googlebot",
         allow: "/",
-        disallow: ["/admin/", "/private/", "/api/"],
+        disallow: ["/admin/", "/private/", "/api/", "/checkout/"],
+        crawlDelay: 1,
       },
       {
         userAgent: "Bingbot",
         allow: "/",
-        disallow: ["/admin/", "/private/", "/api/"],
+        disallow: ["/admin/", "/private/", "/api/", "/checkout/"],
+        crawlDelay: 2,
       },
     ],
-    sitemap: [
-      "https://duckaroo.com.au/sitemap.xml",
-      "https://duckaroo.com.au/sitemap-0.xml",
-    ],
-    host: "https://duckaroo.com.au",
+    sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl,
   };
 }
