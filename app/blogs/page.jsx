@@ -29,8 +29,7 @@ import {
   getBlogsByCategory,
   getFeaturedBlogs,
 } from "@/data/blogs";
-import Navbar from "@/app/components/Navbar";
-import Footer from "@/app/components/Footer";
+import Layout from "@/app/components/Layout";
 
 export default function BlogsPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -85,8 +84,7 @@ export default function BlogsPage() {
   };
 
   return (
-    <>
-      <Navbar />
+    <Layout className="bg-gradient-to-br from-slate-950 via-slate-900 to-black">
       <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-black">
         {/* Hero Section */}
         <section className="pt-24 pb-12 px-4 relative">
@@ -246,8 +244,7 @@ export default function BlogsPage() {
           </div>
         </section>
       </div>
-      <Footer />
-    </>
+    </Layout>
   );
 }
 

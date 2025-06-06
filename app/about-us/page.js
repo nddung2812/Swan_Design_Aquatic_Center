@@ -60,7 +60,7 @@ export default function AboutUs() {
         resolution="2048"
       >
         {() => (
-          <div className="min-h-screen relative overflow-hidden w-full max-w-[2560px] mx-auto">
+          <>
             {/* Fallback Dark Background */}
             <div className="fixed top-0 left-0 w-screen h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 -z-30" />
 
@@ -128,14 +128,16 @@ export default function AboutUs() {
             <Navbar />
 
             {/* Main Content */}
-            <main className="relative z-10 w-full">
-              <AboutBanner />
-              <ReviewsSection />
-            </main>
+            <div className="min-h-screen relative overflow-hidden w-full max-w-[2560px] mx-auto">
+              <main className="relative z-10 w-full">
+                <AboutBanner />
+                <ReviewsSection />
+              </main>
+            </div>
 
             {/* Footer */}
             <Footer />
-          </div>
+          </>
         )}
       </WaterWaveNoSSr>
     </>

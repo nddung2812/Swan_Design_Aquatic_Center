@@ -80,7 +80,7 @@ const Home = () => {
         resolution="2048"
       >
         {() => (
-          <div className="min-h-screen relative overflow-hidden w-full max-w-[2560px] mx-auto">
+          <>
             {/* Fallback Dark Background */}
             <div className="fixed top-0 left-0 w-screen h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 -z-30" />
 
@@ -150,14 +150,16 @@ const Home = () => {
             <Navbar />
 
             {/* Main Content */}
-            <main className="relative z-10 w-full">
-              <HomeBanner setMusic={setMusic} music={music} />
-              <ServiceBookingSection />
-            </main>
+            <div className="min-h-screen relative overflow-hidden w-full max-w-[2560px] mx-auto">
+              <main className="relative z-10 w-full">
+                <HomeBanner setMusic={setMusic} music={music} />
+                <ServiceBookingSection />
+              </main>
+            </div>
 
             {/* Footer */}
             <Footer />
-          </div>
+          </>
         )}
       </WaterWaveNoSSr>
     </>
