@@ -89,11 +89,6 @@ export const metadata = {
   "application-name": "Duckaroo Brisbane",
   "msapplication-TileColor": "#0f172a",
   "theme-color": "#0f172a",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
@@ -111,6 +106,12 @@ export const metadata = {
     "business:contact_data:phone_number": "+61457663939",
     "business:contact_data:website": "https://duckaroo.com.au",
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({ children }) {

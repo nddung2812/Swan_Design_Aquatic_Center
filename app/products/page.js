@@ -8,7 +8,7 @@ import Cart from "./components/Cart";
 import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
 import { productsData } from "./data/products";
-import Layout from "@/app/components/Layout";
+import Footer from "@/app/components/Footer";
 
 export default function ProductsPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -99,8 +99,8 @@ export default function ProductsPage() {
   };
 
   return (
-    <Layout>
-      <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen flex flex-col">
+      <div className="flex-grow bg-gray-50 pt-8">
         <div className="container mx-auto px-4 py-8">
           <div className="flex justify-between items-center mb-8">
             <div className="flex items-center gap-4">
@@ -146,6 +146,7 @@ export default function ProductsPage() {
           </div>
         </div>
       </div>
-    </Layout>
+      <Footer />
+    </div>
   );
 }
