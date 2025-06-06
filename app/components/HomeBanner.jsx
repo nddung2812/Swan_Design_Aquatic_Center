@@ -34,12 +34,50 @@ const HomeBanner = ({ music, setMusic }) => {
     <main className="flex flex-col items-center justify-center min-h-screen px-4 py-20 relative z-10">
       {/* Hero Section */}
       <div className="text-center max-w-4xl mx-auto mb-16 mt-16">
-        <h1 className="hero-title text-4xl md:text-6xl lg:text-7xl mb-6">
+        <h1
+          className="hero-title text-4xl md:text-6xl lg:text-7xl mb-6"
+          style={{
+            fontFamily:
+              '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+            fontWeight: 700,
+            lineHeight: 1.1,
+            color: "white",
+            textAlign: "center",
+            fontDisplay: "swap",
+          }}
+        >
           Transform Your Space with
-          <span className="hero-gradient-text">Duckaroo</span>
+          <span
+            className="hero-gradient-text"
+            style={{
+              background: "linear-gradient(to right, #34d399, #14b8a6)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              display: "block",
+              marginTop: "0.5rem",
+              paddingBottom: "0.5rem",
+            }}
+          >
+            Duckaroo
+          </span>
         </h1>
 
-        <p className="hero-subtitle text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+        <p
+          className="hero-subtitle text-xl md:text-2xl mb-8 max-w-2xl mx-auto"
+          style={{
+            fontFamily:
+              '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+            fontWeight: 400,
+            lineHeight: 1.5,
+            color: "rgba(255, 255, 255, 0.8)",
+            textAlign: "center",
+            fontDisplay: "swap",
+            fontSize: "clamp(1.125rem, 4vw, 1.5rem)",
+            maxWidth: "42rem",
+            margin: "0 auto 2rem auto",
+          }}
+        >
           Creating stunning aquatic landscapes that bring the tranquility of
           nature into your home or office
         </p>
