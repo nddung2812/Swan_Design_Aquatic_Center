@@ -399,7 +399,7 @@ const ServiceBookingSection = () => {
 
                   <div className="space-y-2">
                     <Label
-                      htmlFor="service"
+                      htmlFor="service-select"
                       className="text-white font-semibold"
                     >
                       Service Required *
@@ -407,7 +407,11 @@ const ServiceBookingSection = () => {
                     <Select
                       onValueChange={(value) => setValue("service", value)}
                     >
-                      <SelectTrigger className="bg-white/25 border border-white/40 text-white focus:border-emerald-400 focus:bg-white/30 focus:ring-2 focus:ring-emerald-400/50">
+                      <SelectTrigger
+                        id="service-select"
+                        aria-label="Select your aquarium service"
+                        className="bg-white/25 border border-white/40 text-white focus:border-emerald-400 focus:bg-white/30 focus:ring-2 focus:ring-emerald-400/50"
+                      >
                         <SelectValue placeholder="Select your aquarium service" />
                       </SelectTrigger>
                       <SelectContent className="bg-white/95 border border-gray-300 backdrop-blur-lg shadow-2xl">

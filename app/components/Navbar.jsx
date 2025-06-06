@@ -31,7 +31,7 @@ const Navbar = () => {
           <Link href="/" className="flex items-center space-x-2">
             <Image
               src="https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1739712659/swan-logo-transparent_rphcfl"
-              alt="Aquatic Swan Design"
+              alt="Swan logo"
               width={60}
               height={60}
               className="w-14 h-14 md:w-16 md:h-16"
