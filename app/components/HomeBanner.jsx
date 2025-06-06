@@ -34,14 +34,12 @@ const HomeBanner = ({ music, setMusic }) => {
     <main className="flex flex-col items-center justify-center min-h-screen px-4 py-20 relative z-10">
       {/* Hero Section */}
       <div className="text-center max-w-4xl mx-auto mb-16 mt-16">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+        <h1 className="hero-title text-4xl md:text-6xl lg:text-7xl mb-6">
           Transform Your Space with
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 block mt-2 pb-2">
-            Duckaroo
-          </span>
+          <span className="hero-gradient-text">Duckaroo</span>
         </h1>
 
-        <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-2xl mx-auto leading-relaxed">
+        <p className="hero-subtitle text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
           Creating stunning aquatic landscapes that bring the tranquility of
           nature into your home or office
         </p>

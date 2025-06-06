@@ -126,12 +126,43 @@ export default function RootLayout({ children }) {
         {/* Critical font preload */}
         <link
           rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
           as="style"
         />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+        />
+
+        {/* Critical CSS for immediate LCP rendering */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              .hero-title {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+                font-weight: 700 !important;
+                line-height: 1.1 !important;
+                color: white !important;
+                text-align: center !important;
+              }
+              .hero-subtitle {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+                font-weight: 400 !important;
+                line-height: 1.5 !important;
+                color: rgba(255, 255, 255, 0.8) !important;
+                text-align: center !important;
+              }
+              .hero-gradient-text {
+                background: linear-gradient(to right, #34d399, #14b8a6) !important;
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+                background-clip: text !important;
+                display: block !important;
+                margin-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+              }
+            `,
+          }}
         />
         {/* Structured Data for Local Business */}
         <script

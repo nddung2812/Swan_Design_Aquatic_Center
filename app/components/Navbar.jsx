@@ -41,8 +41,8 @@ const Navbar = () => {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation - Only show on XL screens (1280px+) */}
+          <div className="hidden xl:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.label}
@@ -58,8 +58,8 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Desktop CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* Desktop CTA Buttons - Only show on XL screens (1280px+) */}
+          <div className="hidden xl:flex items-center space-x-4">
             <Button
               asChild
               className="bg-gradient-to-br from-[#8044e2] to-[#0f172a] text-white hover:bg-gradient-to-br hover:from-[#506ef8] hover:to-[#0f172a] border-none"
@@ -74,24 +74,15 @@ const Navbar = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu - Show up to XL screens (up to 1279px) */}
           <Sheet>
-            <SheetTrigger asChild className="md:hidden">
+            <SheetTrigger asChild className="xl:hidden">
               <Button
                 variant="ghost"
                 size="icon"
                 className="text-white w-12 h-12 border border-white/30 hover:border-white/50 hover:bg-white/10 transition-all duration-200"
               >
                 <Menu className="h-7 w-7" />
-              </Button>
-            </SheetTrigger>
-            <SheetTrigger asChild className="hidden md:block lg:hidden">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-white w-12 h-12 border border-white/30 hover:border-white/50 hover:bg-white/10 transition-all duration-200"
-              >
-                <Menu className="h-8 w-8" />
               </Button>
             </SheetTrigger>
             <SheetContent
