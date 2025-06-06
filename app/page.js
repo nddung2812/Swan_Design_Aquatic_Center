@@ -5,7 +5,7 @@ import Duckweeds from "./components/Duckweeds";
 import Footer from "./components/Footer";
 import HomeBanner from "./components/HomeBanner";
 import ServiceBookingSection from "./components/ServiceBookingSection";
-import { Preloader } from "./components/Preloader.jsx";
+
 import Navbar from "./components/Navbar";
 import MusicControlButton from "./components/MusicControlButton";
 import { Button } from "@/components/ui/button";
@@ -22,7 +22,7 @@ const Home = () => {
   const [music, setMusic] = useState(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [showPlayButton, setShowPlayButton] = useState(false);
-  const [showPreloader, setShowPreloader] = useState(false);
+
   const videoRef = useRef(null);
 
   const handleMusic = () => {
@@ -44,15 +44,6 @@ const Home = () => {
   };
 
   useEffect(() => {
-    // Check if user has already seen the preloader
-    const hasSeenPreloader = localStorage.getItem("duckaroo-preloader-shown");
-
-    if (!hasSeenPreloader) {
-      setShowPreloader(true);
-      // Mark that the preloader has been shown
-      localStorage.setItem("duckaroo-preloader-shown", "true");
-    }
-
     // Try to play video after component mounts
     const timer = setTimeout(() => {
       if (videoRef.current) {
@@ -65,14 +56,8 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Development helper: Uncomment the line below to reset preloader for testing
-  // localStorage.removeItem('duckaroo-preloader-shown');
-
   return (
     <>
-      {showPreloader && (
-        <Preloader onComplete={() => setShowPreloader(false)} />
-      )}
       <WaterWaveNoSSr
         imageUrl=""
         dropRadius="3"
@@ -82,16 +67,21 @@ const Home = () => {
         {() => (
           <>
             {/* Fallback Dark Background */}
-            <div className="fixed top-0 left-0 w-screen h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 -z-30" />
+            <div
+              className="fixed top-0 left-0 w-full h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 -z-30"
+              style={{ minWidth: "100vw", minHeight: "100vh" }}
+            />
 
             {/* Full Screen Background Video */}
             <video
               ref={videoRef}
-              className="fixed top-0 left-0 w-screen h-screen object-cover -z-20"
+              className="fixed top-0 left-0 w-full h-full object-cover -z-20"
               style={{
-                width: "100vw",
-                height: "100vh",
+                width: "100%",
+                height: "100%",
                 objectFit: "cover",
+                minWidth: "100vw",
+                minHeight: "100vh",
               }}
               autoPlay
               muted
@@ -129,7 +119,10 @@ const Home = () => {
             )}
 
             {/* Dark overlay for better text readability */}
-            <div className="fixed top-0 left-0 w-screen h-screen bg-black/30 -z-10" />
+            <div
+              className="fixed top-0 left-0 w-full h-full bg-black/30 -z-10"
+              style={{ minWidth: "100vw", minHeight: "100vh" }}
+            />
 
             {/* Background Music */}
             <ReactHowler
@@ -150,8 +143,8 @@ const Home = () => {
             <Navbar />
 
             {/* Main Content */}
-            <div className="min-h-screen relative overflow-hidden w-full max-w-[2560px] mx-auto">
-              <main className="relative z-10 w-full">
+            <div className="min-h-screen relative overflow-x-hidden w-full max-w-[2560px] mx-auto">
+              <main className="relative z-10 w-full overflow-x-hidden">
                 <HomeBanner setMusic={setMusic} music={music} />
                 <ServiceBookingSection />
               </main>
