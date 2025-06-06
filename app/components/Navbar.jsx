@@ -64,13 +64,7 @@ const Navbar = () => {
               asChild
               className="bg-gradient-to-br from-[#8044e2] to-[#0f172a] text-white hover:bg-gradient-to-br hover:from-[#506ef8] hover:to-[#0f172a] border-none"
             >
-              <Link
-                href="https://duckaroo.com.au/collections/all"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Shop Plants
-              </Link>
+              <Link href="/products">Shop Plants</Link>
             </Button>
             <Button
               asChild
@@ -128,13 +122,7 @@ const Navbar = () => {
                     asChild
                     className="bg-gradient-to-br from-[#8044e2] to-[#0f172a] text-white hover:bg-gradient-to-br hover:from-[#506ef8] hover:to-[#0f172a] border-none"
                   >
-                    <Link
-                      href="https://duckaroo.com.au/collections/all"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Shop Plants
-                    </Link>
+                    <Link href="/products">Shop Plants</Link>
                   </Button>
                   <Button
                     asChild

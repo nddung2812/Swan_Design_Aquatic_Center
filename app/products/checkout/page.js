@@ -37,7 +37,7 @@ export default function CheckoutPage() {
     city: "",
     state: "",
     zipCode: "",
-    country: "United States",
+    country: "Australia",
   });
 
   const [billingAddress, setBillingAddress] = useState({
@@ -45,7 +45,7 @@ export default function CheckoutPage() {
     city: "",
     state: "",
     zipCode: "",
-    country: "United States",
+    country: "Australia",
     sameAsShipping: true,
   });
 
@@ -85,11 +85,8 @@ export default function CheckoutPage() {
 
   const getTax = () => {
     const subtotal = getSubtotal();
-    // Apply 10% GST for Australia, 8% for other countries
-    if (shippingAddress.country === "Australia") {
-      return subtotal * 0.1; // 10% GST for Australia
-    }
-    return subtotal * 0.08; // 8% tax for other countries
+    // Apply 10% GST (Australia only)
+    return subtotal * 0.1;
   };
 
   const getTotal = () => {
@@ -308,6 +305,7 @@ export default function CheckoutPage() {
                           address: e.target.value,
                         })
                       }
+                      placeholder="Enter your full address"
                     />
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -340,7 +338,7 @@ export default function CheckoutPage() {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="zipCode">ZIP Code</Label>
+                      <Label htmlFor="zipCode">Postcode</Label>
                       <Input
                         id="zipCode"
                         required
@@ -442,7 +440,7 @@ export default function CheckoutPage() {
                       <span>{formatPrice(getShippingCost())}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span>Tax:</span>
+                      <span>GST (10%):</span>
                       <span>{formatPrice(getTax())}</span>
                     </div>
                     <Separator />
