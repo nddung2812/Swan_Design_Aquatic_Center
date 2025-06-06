@@ -170,25 +170,37 @@ export default function ProductGrid({ products, onAddToCart }) {
                   <Star className="w-4 h-4 fill-current" />
                 </div>
               </div>
-              <div className="text-sm text-gray-500 space-y-1">
-                <div>Stock: {product.stock} available</div>
+              <div className="text-sm text-gray-500">
                 {(() => {
                   const currentCartQuantity = getCurrentCartQuantity(
                     product.id
                   );
-                  if (currentCartQuantity > 0) {
-                    return (
+                  const availableStock = product.stock - currentCartQuantity;
+                  const isAtMaxStock = currentCartQuantity >= product.stock;
+
+                  return (
+                    <div className="flex justify-between items-center">
                       <div className="text-blue-600">
-                        In cart: {currentCartQuantity}
-                        {currentCartQuantity >= product.stock && (
-                          <span className="text-red-600 ml-1">
+                        In Cart: {currentCartQuantity}
+                      </div>
+                      <div className="text-right">
+                        <span
+                          className={
+                            availableStock > 0
+                              ? "text-green-600"
+                              : "text-red-600"
+                          }
+                        >
+                          Available: {availableStock}
+                        </span>
+                        {isAtMaxStock && (
+                          <span className="text-red-600 ml-1 block">
                             (Max reached)
                           </span>
                         )}
                       </div>
-                    );
-                  }
-                  return null;
+                    </div>
+                  );
                 })()}
               </div>
             </CardContent>

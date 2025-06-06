@@ -102,30 +102,21 @@ export default function ProductsPage() {
     <div className="min-h-screen flex flex-col">
       <div className="flex-grow bg-gray-50 pt-8">
         <div className="container mx-auto px-4 py-8">
-          <div className="flex justify-between items-center mb-8">
-            <div className="flex items-center gap-4">
-              <Button
-                variant="outline"
-                size="sm"
-                asChild
-                className="flex items-center gap-2 hover:bg-blue-50 hover:border-blue-300"
-              >
-                <Link href="/">
-                  <Home className="w-4 h-4" />
-                  Home
-                </Link>
-              </Button>
-              <h1 className="text-4xl font-bold text-gray-900">
-                Aquatic Products Store
-              </h1>
-            </div>
-            <Cart
-              items={cartItems}
-              onRemove={removeFromCart}
-              onUpdateQuantity={updateCartQuantity}
-              totalItems={getTotalItems()}
-              totalPrice={getTotalPrice()}
-            />
+          <div className="flex items-center gap-4 mb-8">
+            <Button
+              variant="outline"
+              size="sm"
+              asChild
+              className="flex items-center gap-2 hover:bg-blue-50 hover:border-blue-300"
+            >
+              <Link href="/">
+                <Home className="w-4 h-4" />
+                Home
+              </Link>
+            </Button>
+            <h1 className="text-2xl md:text-4xl font-bold text-gray-900">
+              Aquarium Centre
+            </h1>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-6 mb-8">
@@ -147,6 +138,15 @@ export default function ProductsPage() {
         </div>
       </div>
       <Footer />
+
+      {/* Fixed Floating Cart Widget */}
+      <Cart
+        items={cartItems}
+        onRemove={removeFromCart}
+        onUpdateQuantity={updateCartQuantity}
+        totalItems={getTotalItems()}
+        totalPrice={getTotalPrice()}
+      />
     </div>
   );
 }

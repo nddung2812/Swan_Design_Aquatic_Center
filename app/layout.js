@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Duckaroo Brisbane | #1 Fish Tank Cleaning & Aquarium Service QLD",
   description:
-    "Brisbane's premier fish tank cleaning service since 2020. Professional aquarium maintenance, pond cleaning & plant care. Same-day service available. Call (04) 57663939",
+    "Brisbane's premier fish tank cleaning service since 2020. Professional aquarium maintenance, pond cleaning & plant care. Same-day service available. Call (04) 5766 3939",
   keywords:
     "fish tank cleaning Brisbane, aquarium service QLD, pond maintenance, aquarium cleaning, Brisbane aquatic service, fish tank maintenance",
   authors: [{ name: "Duckaroo Brisbane" }],

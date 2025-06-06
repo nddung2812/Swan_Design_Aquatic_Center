@@ -18,6 +18,7 @@ import {
   Eye,
 } from "lucide-react";
 import { getProductBySlug, productsData } from "../data/products";
+import Cart from "../components/Cart";
 
 // JSON-LD structured data component
 function ProductStructuredData({ product }) {
@@ -99,6 +100,8 @@ export default function ProductPage({ params }) {
   const product = getProductBySlug(resolvedParams.slug);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const [cartItems, setCartItems] = useState([]);
+  const [cartLoaded, setCartLoaded] = useState(false);
   const router = useRouter();
 
   // Get related products from the same category (excluding current product)
@@ -112,6 +115,22 @@ export default function ProductPage({ params }) {
   };
 
   const relatedProducts = product ? getRelatedProducts(product) : [];
+
+  // Load cart from localStorage on component mount
+  useEffect(() => {
+    const savedCart = localStorage.getItem("shopping-cart");
+    if (savedCart) {
+      setCartItems(JSON.parse(savedCart));
+    }
+    setCartLoaded(true);
+  }, []);
+
+  // Save cart to localStorage whenever cartItems change (only after initial load)
+  useEffect(() => {
+    if (cartLoaded) {
+      localStorage.setItem("shopping-cart", JSON.stringify(cartItems));
+    }
+  }, [cartItems, cartLoaded]);
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat("en-US", {
@@ -180,6 +199,9 @@ export default function ProductPage({ params }) {
     // Save updated cart to localStorage
     localStorage.setItem("shopping-cart", JSON.stringify(updatedCart));
 
+    // Update cart state
+    setCartItems(updatedCart);
+
     // Show success message
     alert(`Added ${quantity} ${product.name}(s) to cart!`);
   };
@@ -197,6 +219,53 @@ export default function ProductPage({ params }) {
   const currentCartQuantity =
     typeof window !== "undefined" ? getCurrentCartQuantity() : 0;
   const maxSelectableQuantity = product.stock - currentCartQuantity;
+
+  // Cart management functions
+  const addToCartState = (productToAdd) => {
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find(
+        (item) => item.id === productToAdd.id
+      );
+      if (existingItem) {
+        return prevItems.map((item) =>
+          item.id === productToAdd.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        return [...prevItems, { ...productToAdd, quantity: 1 }];
+      }
+    });
+  };
+
+  const removeFromCart = (productId) => {
+    setCartItems((prevItems) =>
+      prevItems.filter((item) => item.id !== productId)
+    );
+  };
+
+  const updateCartQuantity = (productId, newQuantity) => {
+    if (newQuantity === 0) {
+      removeFromCart(productId);
+    } else {
+      setCartItems((prevItems) =>
+        prevItems.map((item) =>
+          item.id === productId ? { ...item, quantity: newQuantity } : item
+        )
+      );
+    }
+  };
+
+  const getTotalItems = () => {
+    return cartItems.reduce((total, item) => total + item.quantity, 0);
+  };
+
+  const getTotalPrice = () => {
+    return cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+  };
 
   // Ensure quantity doesn't exceed available stock
   useEffect(() => {
@@ -410,18 +479,28 @@ export default function ProductPage({ params }) {
                 </div>
 
                 {/* Stock Information */}
-                <div className="text-sm text-gray-600 space-y-1">
-                  <div>Available stock: {product.stock}</div>
-                  {currentCartQuantity > 0 && (
-                    <div>Already in cart: {currentCartQuantity}</div>
-                  )}
-                  {maxSelectableQuantity <= 0 ? (
-                    <div className="text-red-600 font-medium">
-                      Maximum stock already in cart
+                <div className="text-sm text-gray-500">
+                  <div className="flex justify-between items-center">
+                    <div className="text-blue-600">
+                      In Cart: {currentCartQuantity}
                     </div>
-                  ) : (
-                    <div>Can add: {maxSelectableQuantity} more</div>
-                  )}
+                    <div className="text-right">
+                      <span
+                        className={
+                          product.stock - currentCartQuantity > 0
+                            ? "text-green-600"
+                            : "text-red-600"
+                        }
+                      >
+                        Available: {product.stock - currentCartQuantity}
+                      </span>
+                      {maxSelectableQuantity <= 0 && (
+                        <span className="text-red-600 ml-1 block">
+                          (Max reached)
+                        </span>
+                      )}
+                    </div>
+                  </div>
                 </div>
 
                 <Button
@@ -548,6 +627,17 @@ export default function ProductPage({ params }) {
           </div>
         </div>
       </div>
+
+      {/* Fixed Floating Cart Widget */}
+      {product && (
+        <Cart
+          items={cartItems}
+          onRemove={removeFromCart}
+          onUpdateQuantity={updateCartQuantity}
+          totalItems={getTotalItems()}
+          totalPrice={getTotalPrice()}
+        />
+      )}
     </>
   );
 }

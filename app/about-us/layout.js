@@ -107,7 +107,7 @@ export default function AboutUsLayout({ children }) {
               description:
                 "Brisbane's premier fish tank cleaning and aquarium maintenance service since 2010. Serving Brisbane, Gold Coast, and Queensland with professional aquatic services.",
               url: "https://duckaroo.com.au",
-              telephone: "(04) 57663939",
+              telephone: "(04) 5766 3939",
               email: "aquaticswandesign@gmail.com",
               foundingDate: "2010",
               founder: {

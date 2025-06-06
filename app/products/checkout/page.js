@@ -84,7 +84,12 @@ export default function CheckoutPage() {
   };
 
   const getTax = () => {
-    return getSubtotal() * 0.08; // 8% tax
+    const subtotal = getSubtotal();
+    // Apply 10% GST for Australia, 8% for other countries
+    if (shippingAddress.country === "Australia") {
+      return subtotal * 0.1; // 10% GST for Australia
+    }
+    return subtotal * 0.08; // 8% tax for other countries
   };
 
   const getTotal = () => {

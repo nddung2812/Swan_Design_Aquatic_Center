@@ -90,7 +90,7 @@ const AboutBanner = () => {
         <div className="flex flex-wrap justify-center gap-6 mb-8 text-white/90">
           <div className="flex items-center gap-2">
             <Phone className="w-5 h-5 text-emerald-400" />
-            <span className="font-semibold">Call: (04) 57663939</span>
+            <span className="font-semibold">Call: (04) 5766 3939</span>
           </div>
           <div className="flex items-center gap-2">
             <Mail className="w-5 h-5 text-emerald-400" />
