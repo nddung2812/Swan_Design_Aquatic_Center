@@ -119,6 +119,20 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en-AU">
       <head>
+        {/* Critical resource hints for performance */}
+        <link rel="preconnect" href="https://res.cloudinary.com" />
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+
+        {/* Critical font preload */}
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          as="style"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        />
         {/* Structured Data for Local Business */}
         <script
           type="application/ld+json"
