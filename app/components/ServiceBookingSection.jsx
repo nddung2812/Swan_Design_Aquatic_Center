@@ -135,7 +135,7 @@ const ServiceBookingSection = () => {
         <div className="text-center mb-16">
           <Badge
             variant="outline"
-            className="mb-6 bg-emerald-500/20 border-emerald-400 text-emerald-300"
+            className="mb-6 bg-emerald-500/30 border-emerald-400 text-emerald-100"
           >
             Brisbane&apos;s #1 Fish Tank & Aquarium Cleaning Service
           </Badge>
