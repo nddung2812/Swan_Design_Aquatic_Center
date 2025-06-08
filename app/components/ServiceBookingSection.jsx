@@ -58,7 +58,7 @@ const ServiceBookingSection = () => {
         setSubmitStatus({
           type: "success",
           message:
-            "Thank you! Brisbane's #1 aquarium experts will contact you within 2 hours.",
+            "Thank you! Brisbane's #1 aquarium experts will contact you as soon as possible.",
         });
         reset();
       }
@@ -280,7 +280,7 @@ const ServiceBookingSection = () => {
             <Card className="bg-black/60 backdrop-blur-lg border border-white/50 text-white shadow-2xl ring-1 ring-white/20">
               <CardHeader className="text-center">
                 <CardTitle className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg">
-                  Get Your FREE Brisbane Aquarium Quote
+                  Get Your FREE Aquarium Quote
                 </CardTitle>
                 <p className="text-white/90 font-medium">
                   Brisbane&apos;s #1 rated fish tank cleaning experts • Same-day
@@ -501,7 +501,7 @@ const ServiceBookingSection = () => {
                         Sending Your Request...
                       </>
                     ) : (
-                      <>Book A Service</>
+                      <>Get A Quote</>
                     )}
                   </Button>
 

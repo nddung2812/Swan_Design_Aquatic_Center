@@ -88,14 +88,14 @@ const HomeBanner = ({ music, setMusic }) => {
             size="lg"
             className="w-full max-w-xs sm:w-auto sm:max-w-none bg-gradient-to-br from-[#8044e2] to-[#0f172a] text-white hover:bg-gradient-to-br hover:from-[#506ef8] hover:to-[#0f172a] border-none px-4 sm:px-8 py-6 text-base sm:text-lg"
           >
-            <Link href="/service">Get Free Consultation</Link>
+            <Link href="/products">Shop Now</Link>
           </Button>
           <Button
             asChild
             size="lg"
             className="w-full max-w-xs sm:w-auto sm:max-w-none bg-gradient-to-br from-[#10b981] to-[#0f172a] text-white hover:bg-gradient-to-br hover:from-[#34d399] hover:to-[#0f172a] border-none px-4 sm:px-8 py-6 text-base sm:text-lg"
           >
-            <Link href="/about-us">Discover Our Story</Link>
+            <Link href="/service">Get Free Quote</Link>
           </Button>
         </div>
       </div>

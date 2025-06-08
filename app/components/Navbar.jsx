@@ -70,7 +70,7 @@ const Navbar = () => {
               asChild
               className="bg-gradient-to-br from-[#10b981] to-[#0f172a] text-white hover:bg-gradient-to-br hover:from-[#34d399] hover:to-[#0f172a] border-none"
             >
-              <Link href="/service">Get Quote</Link>
+              <Link href="/service">Service</Link>
             </Button>
           </div>
 
@@ -119,7 +119,7 @@ const Navbar = () => {
                     asChild
                     className="bg-gradient-to-br from-[#10b981] to-[#0f172a] text-white hover:bg-gradient-to-br hover:from-[#34d399] hover:to-[#0f172a] border-none"
                   >
-                    <Link href="/service">Get Quote</Link>
+                    <Link href="/service">Service</Link>
                   </Button>
                 </div>
               </div>

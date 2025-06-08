@@ -22,7 +22,7 @@ const Footer = () => {
     products: [
       {
         label: "All Products",
-        href: "https://duckaroo.com.au/collections/all",
+        href: "/products",
       },
       {
         label: "Rare Bucephalandra",
@@ -132,8 +132,10 @@ const Footer = () => {
                   <Link
                     href={link.href}
                     className="text-white/70 hover:text-purple-400 transition-colors duration-200"
-                    target="_blank"
-                    rel="noreferrer"
+                    {...(link.href.startsWith("http") && {
+                      target: "_blank",
+                      rel: "noreferrer",
+                    })}
                   >
                     {link.label}
                   </Link>
