@@ -231,9 +231,8 @@ export default function ProductGrid({ products, onAddToCart }) {
               <div className="w-full">
                 <Link href={`/products/${product.slug}`}>
                   <Button
-                    variant="outline"
                     size="sm"
-                    className="w-full bg-white text-gray-900 border-gray-300 hover:bg-gray-50 hover:text-gray-900"
+                    className="w-full bg-green-600 text-white hover:bg-green-700 border-none"
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     View Full Details
