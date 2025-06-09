@@ -88,8 +88,10 @@ export default function Cart({
               {/* Header */}
               <div className="flex items-center justify-between p-4 border-b bg-white">
                 <div className="flex items-center gap-2">
-                  <ShoppingCart className="w-5 h-5" />
-                  <h2 className="text-lg font-semibold">Shopping Cart</h2>
+                  <ShoppingCart className="w-5 h-5 text-gray-700" />
+                  <h2 className="text-lg font-semibold text-gray-900">
+                    Shopping Cart
+                  </h2>
                   <Badge variant="secondary">{totalItems} items</Badge>
                 </div>
                 <Button
