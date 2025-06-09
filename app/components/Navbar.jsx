@@ -13,14 +13,15 @@ import { Menu } from "lucide-react";
 const Navbar = () => {
   const navItems = [
     { href: "/", label: "Home" },
-    { href: "/about-us", label: "About" },
     { href: "/products", label: "Products" },
+    { href: "/service", label: "Service" },
     { href: "/blogs", label: "Blogs" },
     {
       href: "https://duckaroo.com.au/collections/aquarium-designs",
       label: "Gallery",
     },
     { href: "/contact", label: "Contact" },
+    { href: "/about-us", label: "About" },
   ];
 
   return (

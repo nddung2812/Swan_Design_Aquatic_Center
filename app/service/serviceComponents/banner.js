@@ -33,6 +33,17 @@ const ServiceBanner = () => {
             here to assist you!
           </p>
 
+          {/* Callout Fee Notice */}
+          <div className="bg-emerald-500/20 border border-emerald-400/30 rounded-lg p-4 max-w-2xl">
+            <p className="text-emerald-200 font-semibold text-lg">
+              💰 Service Callout Fee: $70
+            </p>
+            <p className="text-white/80 text-sm mt-1">
+              Professional service callout fee applies to all Brisbane
+              locations. Fee includes travel time and initial assessment.
+            </p>
+          </div>
+
           {/* Service Features */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
             <div className="flex items-center space-x-3">

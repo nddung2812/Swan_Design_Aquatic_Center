@@ -34,7 +34,7 @@ const Duckweeds = () => {
         const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
         const startX = Math.random() * 100; // Random X position (0-100vw)
         const startY = Math.random() * 100; // Random Y position (0-100vh)
-        const animationDuration = 400 + Math.random() * 100; // 400-500 seconds (original speed)
+        const animationDuration = 80 + Math.random() * 40; // 80-120 seconds (slower but still visible)
         const animationDelay = Math.random() * 10; // 0-10 seconds delay
         const opacity = 0.85 + Math.random() * 0.15; // 0.85-1.0 opacity (increased from 0.7-1.0)
         const rotation = Math.random() * 360; // Random initial rotation
@@ -88,7 +88,7 @@ const Duckweeds = () => {
         width={300}
         height={300}
         style={{
-          animation: "float-showcase 400s ease-in-out infinite",
+          animation: "float-showcase 90s ease-in-out infinite",
         }}
       />
 
@@ -99,7 +99,7 @@ const Duckweeds = () => {
         width={300}
         height={300}
         style={{
-          animation: "drift-diagonal 450s linear infinite 2s",
+          animation: "drift-diagonal 100s linear infinite 2s",
         }}
       />
 
@@ -110,7 +110,7 @@ const Duckweeds = () => {
         width={300}
         height={300}
         style={{
-          animation: "float-upward 480s ease-in-out infinite 1s",
+          animation: "float-upward 110s ease-in-out infinite 1s",
         }}
       />
 
@@ -121,7 +121,7 @@ const Duckweeds = () => {
         width={300}
         height={300}
         style={{
-          animation: "spin-float 420s linear infinite 3s",
+          animation: "spin-float 95s linear infinite 3s",
         }}
       />
 
