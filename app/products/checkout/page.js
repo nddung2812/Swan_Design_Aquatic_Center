@@ -67,10 +67,12 @@ export default function CheckoutPage() {
   }, [router]);
 
   const formatPrice = (price) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(price);
+    return (
+      new Intl.NumberFormat("en-AU", {
+        style: "currency",
+        currency: "AUD",
+      }).format(price) + " AUD"
+    );
   };
 
   const getSubtotal = () => {

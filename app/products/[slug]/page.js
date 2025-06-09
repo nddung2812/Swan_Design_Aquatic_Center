@@ -41,7 +41,7 @@ function ProductStructuredData({ product }) {
     offers: {
       "@type": "Offer",
       url: `https://yourdomain.com/products/${product.slug}`,
-      priceCurrency: "USD",
+      priceCurrency: "AUD",
       price: product.price.toString(),
       availability:
         product.stock > 0
@@ -140,10 +140,12 @@ export default function ProductPage({ params }) {
   }, [product]);
 
   const formatPrice = (price) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(price);
+    return (
+      new Intl.NumberFormat("en-AU", {
+        style: "currency",
+        currency: "AUD",
+      }).format(price) + " AUD"
+    );
   };
 
   const getCategoryBadgeColor = (category) => {

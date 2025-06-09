@@ -73,10 +73,12 @@ export default function ProductModal({
   };
 
   const formatPrice = (price) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(price);
+    return (
+      new Intl.NumberFormat("en-AU", {
+        style: "currency",
+        currency: "AUD",
+      }).format(price) + " AUD"
+    );
   };
 
   const getCategoryBadgeColor = (category) => {

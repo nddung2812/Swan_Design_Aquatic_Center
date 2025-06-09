@@ -2,25 +2,26 @@ export const productsData = [
   // Plants Category
   {
     id: 1,
-    name: "Amazon Sword Plant",
-    slug: "amazon-sword-plant",
+    name: "Buce Kegadang",
+    slug: "buce-kegadang",
     category: "plants",
-    price: 15.99,
+    price: 24.99,
     stock: 25,
     images: [
-      "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=600&h=400&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1520637836862-4d197d17c93a?w=600&h=400&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1573160103600-36e12caa5317?w=600&h=400&fit=crop&crop=center",
-      "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=600&h=400&fit=crop&crop=center",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1749469954/best-place-to-buy-bucephalandra-kedagang-v0-5fhaw341fkjc1_ujrt6m",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1749469616/Bucephalandrasp.kedagang3_1024x1024_z7ps3r",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1749469616/kedakang00_ip3ncn",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1749469616/bucephalandra-sp-kedagang-515ee0ba75ad6-768x589_1024x1024_jsq4qq",
     ],
     description:
-      "Large, robust aquatic plant perfect for background placement. Easy to care for and helps maintain water quality.",
-    features: ["Easy care", "Background plant", "Oxygen producer"],
+      "Common Name: Bucephalandra Kegadang Bucephalandra Kegadang is an easy plant, perfect for beginners.  It can be grown submerged or immersed. The plant is very slow growing, with new leaves sprouting from long, thin rhizomes.  It can be propagated by cutting the rhizome and attached to driftwood and rocks using super glue gel or thread",
+    features: ["Easy care", "Background plant", "Small leaves sized 1-2cm"],
     specifications: {
       "Plant Type": "Rooted",
-      "Light Requirements": "Medium to High",
-      "Growth Rate": "Moderate",
+      "Light Requirements": "Low to Medium",
+      "Growth Rate": "Slow",
       "Tank Size": "20+ gallons",
+      pH: "6-8",
     },
   },
   {
