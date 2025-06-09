@@ -6,6 +6,8 @@ import Navbar from "./components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 import dynamic from "next/dynamic";
+import FavoritesPopup from "./components/FavoritesPopup";
+import { getFavorites } from "./utils/favorites";
 
 export const runtime = "edge";
 
@@ -38,6 +40,7 @@ const Home = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [showPlayButton, setShowPlayButton] = useState(false);
   const [componentsLoaded, setComponentsLoaded] = useState(false);
+  const [showFavoritesPopup, setShowFavoritesPopup] = useState(false);
 
   const videoRef = useRef(null);
 
@@ -65,6 +68,14 @@ const Home = () => {
       setComponentsLoaded(true);
     }, 2000);
 
+    // Check for favorites and show popup after components load
+    const favoritesTimer = setTimeout(() => {
+      const favorites = getFavorites();
+      if (favorites.length > 0) {
+        setShowFavoritesPopup(true);
+      }
+    }, 3000); // Show popup 3 seconds after page load
+
     // Try to play video immediately
     if (videoRef.current) {
       videoRef.current.play().catch(() => {
@@ -74,6 +85,7 @@ const Home = () => {
 
     return () => {
       clearTimeout(componentTimer);
+      clearTimeout(favoritesTimer);
     };
   }, []);
 
@@ -183,6 +195,12 @@ const Home = () => {
           <Footer />
         </>
       )}
+
+      {/* Favorites Popup */}
+      <FavoritesPopup
+        isOpen={showFavoritesPopup}
+        onClose={() => setShowFavoritesPopup(false)}
+      />
     </>
   );
 };

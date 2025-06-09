@@ -7,16 +7,21 @@ import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Plus, Minus, Trash2, CreditCard, X } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { productsData } from "../data/products";
+import { useCart } from "@/app/context/CartContext";
+import { toast } from "react-toastify";
 
-export default function Cart({
-  items,
-  onRemove,
-  onUpdateQuantity,
-  totalItems,
-  totalPrice,
-}) {
+export default function Cart() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+
+  // Use global cart context
+  const {
+    cartItems: items,
+    removeFromCart: onRemove,
+    updateCartQuantity: onUpdateQuantity,
+    getTotalItems: totalItems,
+    getTotalPrice: totalPrice,
+  } = useCart();
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat("en-US", {
@@ -38,7 +43,9 @@ export default function Cart({
     const productStock = getProductStock(item.id);
 
     if (item.quantity >= productStock) {
-      alert(`Cannot add more. Maximum stock available: ${productStock}`);
+      toast.warning(
+        `Cannot add more. Maximum stock available: ${productStock}`
+      );
       return;
     }
 

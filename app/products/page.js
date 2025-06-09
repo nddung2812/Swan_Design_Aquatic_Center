@@ -9,29 +9,15 @@ import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
 import { productsData } from "./data/products";
 import Footer from "@/app/components/Footer";
+import { useCart } from "@/app/context/CartContext";
 
 export default function ProductsPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
-  const [cartItems, setCartItems] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState(productsData);
-  const [cartLoaded, setCartLoaded] = useState(false);
 
-  // Load cart from localStorage on component mount
-  useEffect(() => {
-    const savedCart = localStorage.getItem("shopping-cart");
-    if (savedCart) {
-      setCartItems(JSON.parse(savedCart));
-    }
-    setCartLoaded(true); // Mark cart as loaded
-  }, []);
-
-  // Save cart to localStorage whenever cartItems change (only after initial load)
-  useEffect(() => {
-    if (cartLoaded) {
-      localStorage.setItem("shopping-cart", JSON.stringify(cartItems));
-    }
-  }, [cartItems, cartLoaded]);
+  // Use global cart context (only need addToCart for ProductGrid)
+  const { addToCart } = useCart();
 
   // Filter products based on category and search term
   useEffect(() => {
@@ -53,50 +39,6 @@ export default function ProductsPage() {
 
     setFilteredProducts(filtered);
   }, [selectedCategory, searchTerm]);
-
-  const addToCart = (product) => {
-    setCartItems((prevItems) => {
-      const existingItem = prevItems.find((item) => item.id === product.id);
-      if (existingItem) {
-        return prevItems.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-      } else {
-        return [...prevItems, { ...product, quantity: 1 }];
-      }
-    });
-  };
-
-  const removeFromCart = (productId) => {
-    setCartItems((prevItems) =>
-      prevItems.filter((item) => item.id !== productId)
-    );
-  };
-
-  const updateCartQuantity = (productId, newQuantity) => {
-    if (newQuantity === 0) {
-      removeFromCart(productId);
-    } else {
-      setCartItems((prevItems) =>
-        prevItems.map((item) =>
-          item.id === productId ? { ...item, quantity: newQuantity } : item
-        )
-      );
-    }
-  };
-
-  const getTotalItems = () => {
-    return cartItems.reduce((total, item) => total + item.quantity, 0);
-  };
-
-  const getTotalPrice = () => {
-    return cartItems.reduce(
-      (total, item) => total + item.price * item.quantity,
-      0
-    );
-  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -140,13 +82,7 @@ export default function ProductsPage() {
       <Footer />
 
       {/* Fixed Floating Cart Widget */}
-      <Cart
-        items={cartItems}
-        onRemove={removeFromCart}
-        onUpdateQuantity={updateCartQuantity}
-        totalItems={getTotalItems()}
-        totalPrice={getTotalPrice()}
-      />
+      <Cart />
     </div>
   );
 }

@@ -16,9 +16,14 @@ import {
   Heart,
   ChevronRight,
   Eye,
+  Plus,
+  Minus,
 } from "lucide-react";
 import { getProductBySlug, productsData } from "../data/products";
 import Cart from "../components/Cart";
+import { toggleFavorite, isFavorite } from "@/app/utils/favorites";
+import { useCart } from "@/app/context/CartContext";
+import { toast } from "react-toastify";
 
 // JSON-LD structured data component
 function ProductStructuredData({ product }) {
@@ -100,10 +105,20 @@ export default function ProductPage({ params }) {
   const product = getProductBySlug(resolvedParams.slug);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const [cartItems, setCartItems] = useState([]);
-  const [cartLoaded, setCartLoaded] = useState(false);
-  const [isClient, setIsClient] = useState(false);
+  const [isFav, setIsFav] = useState(false);
   const router = useRouter();
+
+  // Use global cart context
+  const {
+    cartItems: globalCartItems,
+    isClient,
+    addToCart: addToCartContext,
+    removeFromCart: removeFromCartContext,
+    updateCartQuantity: updateCartQuantityContext,
+    getCartItemQuantity,
+    getTotalItems: getTotalItemsContext,
+    getTotalPrice: getTotalPriceContext,
+  } = useCart();
 
   // Get related products from the same category (excluding current product)
   const getRelatedProducts = (currentProduct) => {
@@ -117,22 +132,12 @@ export default function ProductPage({ params }) {
 
   const relatedProducts = product ? getRelatedProducts(product) : [];
 
-  // Load cart from localStorage on component mount
+  // Check if product is favorited on mount
   useEffect(() => {
-    setIsClient(true);
-    const savedCart = localStorage.getItem("shopping-cart");
-    if (savedCart) {
-      setCartItems(JSON.parse(savedCart));
+    if (product) {
+      setIsFav(isFavorite(product.id));
     }
-    setCartLoaded(true);
-  }, []);
-
-  // Save cart to localStorage whenever cartItems change (only after initial load)
-  useEffect(() => {
-    if (cartLoaded) {
-      localStorage.setItem("shopping-cart", JSON.stringify(cartItems));
-    }
-  }, [cartItems, cartLoaded]);
+  }, [product]);
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat("en-US", {
@@ -156,126 +161,11 @@ export default function ProductPage({ params }) {
     }
   };
 
-  const addToCart = () => {
-    if (typeof window === "undefined") return; // Server-side rendering guard
-
-    // Get existing cart from localStorage
-    const existingCart = JSON.parse(
-      localStorage.getItem("shopping-cart") || "[]"
-    );
-
-    // Check if product already exists in cart
-    const existingItem = existingCart.find((item) => item.id === product.id);
-    const currentCartQuantity = existingItem ? existingItem.quantity : 0;
-    const totalQuantityAfterAdd = currentCartQuantity + quantity;
-
-    // Validate if total quantity exceeds stock
-    if (totalQuantityAfterAdd > product.stock) {
-      const availableToAdd = product.stock - currentCartQuantity;
-      if (availableToAdd <= 0) {
-        alert(
-          `This item is already at maximum stock in your cart (${product.stock} available)`
-        );
-        return;
-      } else {
-        alert(
-          `Only ${availableToAdd} more can be added to cart. Maximum stock: ${product.stock}`
-        );
-        return;
-      }
-    }
-
-    let updatedCart;
-    if (existingItem) {
-      // Update quantity of existing item
-      updatedCart = existingCart.map((item) =>
-        item.id === product.id
-          ? { ...item, quantity: item.quantity + quantity }
-          : item
-      );
-    } else {
-      // Add new item to cart
-      updatedCart = [...existingCart, { ...product, quantity }];
-    }
-
-    // Save updated cart to localStorage
-    localStorage.setItem("shopping-cart", JSON.stringify(updatedCart));
-
-    // Update cart state
-    setCartItems(updatedCart);
-
-    // Show success message
-    alert(`Added ${quantity} ${product.name}(s) to cart!`);
-  };
-
-  // Get current cart quantity for this product
-  const getCurrentCartQuantity = () => {
-    if (typeof window === "undefined") return 0; // Server-side rendering
-    const existingCart = JSON.parse(
-      localStorage.getItem("shopping-cart") || "[]"
-    );
-    const existingItem = existingCart.find((item) => item.id === product.id);
-    return existingItem ? existingItem.quantity : 0;
-  };
-
-  const currentCartQuantity = isClient ? getCurrentCartQuantity() : 0;
-  const maxSelectableQuantity = product.stock - currentCartQuantity;
-
-  // Cart management functions
-  const addToCartState = (productToAdd) => {
-    setCartItems((prevItems) => {
-      const existingItem = prevItems.find(
-        (item) => item.id === productToAdd.id
-      );
-      if (existingItem) {
-        return prevItems.map((item) =>
-          item.id === productToAdd.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-      } else {
-        return [...prevItems, { ...productToAdd, quantity: 1 }];
-      }
-    });
-  };
-
-  const removeFromCart = (productId) => {
-    setCartItems((prevItems) =>
-      prevItems.filter((item) => item.id !== productId)
-    );
-  };
-
-  const updateCartQuantity = (productId, newQuantity) => {
-    if (newQuantity === 0) {
-      removeFromCart(productId);
-    } else {
-      setCartItems((prevItems) =>
-        prevItems.map((item) =>
-          item.id === productId ? { ...item, quantity: newQuantity } : item
-        )
-      );
-    }
-  };
-
-  const getTotalItems = () => {
-    return cartItems.reduce((total, item) => total + item.quantity, 0);
-  };
-
-  const getTotalPrice = () => {
-    return cartItems.reduce(
-      (total, item) => total + item.price * item.quantity,
-      0
-    );
-  };
-
-  // Ensure quantity doesn't exceed available stock
-  useEffect(() => {
-    if (quantity > maxSelectableQuantity && maxSelectableQuantity > 0) {
-      setQuantity(maxSelectableQuantity);
-    } else if (maxSelectableQuantity <= 0) {
-      setQuantity(1); // Reset to 1 but disable add to cart
-    }
-  }, [maxSelectableQuantity, quantity]);
+  // Get current cart quantity for this product (will update when cart changes)
+  const currentCartQuantity = isClient ? getCartItemQuantity(product.id) : 0;
+  const maxSelectableQuantity = product
+    ? product.stock - currentCartQuantity
+    : 0;
 
   const handleShare = async () => {
     if (navigator.share) {
@@ -291,7 +181,19 @@ export default function ProductPage({ params }) {
     } else {
       // Fallback: copy to clipboard
       navigator.clipboard.writeText(window.location.href);
-      alert("Product link copied to clipboard!");
+      toast.success("Product link copied to clipboard!");
+    }
+  };
+
+  const handleFavorite = () => {
+    if (!product) return;
+    const isNowFavorite = toggleFavorite(product);
+    setIsFav(isNowFavorite);
+
+    if (isNowFavorite) {
+      toast.success("Added to favorites! ❤️");
+    } else {
+      toast.info("Removed from favorites");
     }
   };
 
@@ -394,8 +296,19 @@ export default function ProductPage({ params }) {
                     <Button variant="outline" size="sm" onClick={handleShare}>
                       <Share2 className="w-4 h-4" />
                     </Button>
-                    <Button variant="outline" size="sm">
-                      <Heart className="w-4 h-4" />
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={handleFavorite}
+                      className={`${
+                        isFav
+                          ? "bg-red-50 border-red-300 text-red-600 hover:bg-red-100"
+                          : "hover:bg-gray-50"
+                      }`}
+                    >
+                      <Heart
+                        className={`w-4 h-4 ${isFav ? "fill-current" : ""}`}
+                      />
                     </Button>
                   </div>
                 </div>
@@ -449,38 +362,8 @@ export default function ProductPage({ params }) {
                 </ul>
               </div>
 
-              {/* Quantity and Add to Cart */}
+              {/* Stock Information and Cart Controls */}
               <div className="space-y-4">
-                <div className="flex items-center space-x-4">
-                  <label className="font-medium">Quantity:</label>
-                  <div className="flex items-center border border-gray-300 rounded-md bg-white">
-                    <button
-                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="px-3 py-2 text-gray-700 bg-white hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed font-semibold text-lg"
-                      disabled={quantity <= 1}
-                    >
-                      -
-                    </button>
-                    <span className="px-4 py-2 border-x border-gray-300 bg-white text-gray-900 font-semibold">
-                      {quantity}
-                    </span>
-                    <button
-                      onClick={() =>
-                        setQuantity(
-                          Math.min(maxSelectableQuantity, quantity + 1)
-                        )
-                      }
-                      className="px-3 py-2 text-gray-700 bg-white hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed font-semibold text-lg"
-                      disabled={
-                        quantity >= maxSelectableQuantity ||
-                        maxSelectableQuantity <= 0
-                      }
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-
                 {/* Stock Information */}
                 <div className="text-sm text-gray-500">
                   <div className="flex justify-between items-center">
@@ -497,7 +380,7 @@ export default function ProductPage({ params }) {
                       >
                         Available: {product.stock - currentCartQuantity}
                       </span>
-                      {isClient && maxSelectableQuantity <= 0 && (
+                      {isClient && currentCartQuantity >= product.stock && (
                         <span className="text-red-600 ml-1 block">
                           (Max reached)
                         </span>
@@ -506,8 +389,50 @@ export default function ProductPage({ params }) {
                   </div>
                 </div>
 
+                {/* Quantity Selector */}
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium text-blue-900">
+                      Select Quantity:
+                    </span>
+                    <div className="flex items-center space-x-2">
+                      <button
+                        onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                        className="w-8 h-8 flex items-center justify-center rounded-full bg-white border border-blue-300 text-blue-600 hover:bg-blue-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                        disabled={quantity <= 1}
+                      >
+                        -
+                      </button>
+                      <span className="w-12 text-center font-semibold text-blue-900">
+                        {quantity}
+                      </span>
+                      <button
+                        onClick={() =>
+                          setQuantity(
+                            Math.min(maxSelectableQuantity, quantity + 1)
+                          )
+                        }
+                        className="w-8 h-8 flex items-center justify-center rounded-full bg-white border border-blue-300 text-blue-600 hover:bg-blue-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                        disabled={
+                          quantity >= maxSelectableQuantity ||
+                          maxSelectableQuantity <= 0
+                        }
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <div className="mt-2 text-xs text-blue-700">
+                    Select how many items to add, then click &quot;Add to
+                    Cart&quot;
+                  </div>
+                </div>
+
                 <Button
-                  onClick={addToCart}
+                  onClick={() => {
+                    addToCartContext(product, quantity);
+                    setQuantity(1); // Reset quantity to 1 after adding
+                  }}
                   disabled={product.stock === 0 || maxSelectableQuantity <= 0}
                   className="w-full py-4 text-lg"
                   size="lg"
@@ -631,15 +556,7 @@ export default function ProductPage({ params }) {
       </div>
 
       {/* Fixed Floating Cart Widget */}
-      {product && (
-        <Cart
-          items={cartItems}
-          onRemove={removeFromCart}
-          onUpdateQuantity={updateCartQuantity}
-          totalItems={getTotalItems()}
-          totalPrice={getTotalPrice()}
-        />
-      )}
+      {product && <Cart />}
     </>
   );
 }

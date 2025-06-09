@@ -8,6 +8,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Star, Check } from "lucide-react";
+import { useCart } from "@/app/context/CartContext";
+import { toast } from "react-toastify";
 
 export default function ProductModal({
   product,
@@ -16,6 +18,9 @@ export default function ProductModal({
   onAddToCart,
 }) {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  // Use global cart context
+  const { getCartItemQuantity, addToCart: addToCartContext } = useCart();
 
   // Reset selected image when modal opens with a new product
   useEffect(() => {
@@ -26,53 +31,43 @@ export default function ProductModal({
 
   if (!product) return null;
 
-  // Get current cart quantity for this product
-  const getCurrentCartQuantity = () => {
-    if (typeof window === "undefined") return 0; // Server-side rendering guard
-    const existingCart = JSON.parse(
-      localStorage.getItem("shopping-cart") || "[]"
-    );
-    const existingItem = existingCart.find((item) => item.id === product.id);
-    return existingItem ? existingItem.quantity : 0;
-  };
-
   // Handle add to cart with stock validation
   const handleAddToCart = () => {
-    const currentCartQuantity = getCurrentCartQuantity();
+    const currentCartQuantity = getCartItemQuantity(product.id);
     const totalQuantityAfterAdd = currentCartQuantity + 1;
 
     // Validate if total quantity exceeds stock
     if (totalQuantityAfterAdd > product.stock) {
       if (currentCartQuantity >= product.stock) {
-        alert(
+        toast.warning(
           `This item is already at maximum stock in your cart (${product.stock} available)`
         );
         return;
       } else {
         const availableToAdd = product.stock - currentCartQuantity;
-        alert(
+        toast.warning(
           `Only ${availableToAdd} more can be added to cart. Maximum stock: ${product.stock}`
         );
         return;
       }
     }
 
-    // If validation passes, call the original onAddToCart function and close modal
-    onAddToCart(product);
+    // Use global cart context to add to cart and close modal
+    addToCartContext(product, 1);
     onClose();
   };
 
   // Check if product can be added to cart
   const canAddToCart = () => {
     if (product.stock === 0) return false;
-    const currentCartQuantity = getCurrentCartQuantity();
+    const currentCartQuantity = getCartItemQuantity(product.id);
     return currentCartQuantity < product.stock;
   };
 
   // Get button text based on stock status
   const getAddToCartButtonText = () => {
     if (product.stock === 0) return "Out of Stock";
-    const currentCartQuantity = getCurrentCartQuantity();
+    const currentCartQuantity = getCartItemQuantity(product.id);
     if (currentCartQuantity >= product.stock) return "Max in Cart";
     return "Add to Cart";
   };
@@ -210,7 +205,7 @@ export default function ProductModal({
 
             {/* Cart Status */}
             {(() => {
-              const currentCartQuantity = getCurrentCartQuantity();
+              const currentCartQuantity = getCartItemQuantity(product.id);
               if (currentCartQuantity > 0) {
                 return (
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">

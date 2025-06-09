@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   Card,
@@ -11,10 +11,19 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Eye, Star, ExternalLink } from "lucide-react";
 import ProductModal from "./ProductModal";
+import { useCart } from "@/app/context/CartContext";
+import { toast } from "react-toastify";
 
 export default function ProductGrid({ products, onAddToCart }) {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Use global cart context
+  const {
+    isClient,
+    getCartItemQuantity,
+    addToCart: addToCartContext,
+  } = useCart();
 
   const handleQuickView = (product) => {
     setSelectedProduct(product);
@@ -26,52 +35,44 @@ export default function ProductGrid({ products, onAddToCart }) {
     setSelectedProduct(null);
   };
 
-  // Get current cart quantity for a specific product
-  const getCurrentCartQuantity = (productId) => {
-    if (typeof window === "undefined") return 0; // Server-side rendering guard
-    const existingCart = JSON.parse(
-      localStorage.getItem("shopping-cart") || "[]"
-    );
-    const existingItem = existingCart.find((item) => item.id === productId);
-    return existingItem ? existingItem.quantity : 0;
-  };
-
   // Handle add to cart with stock validation
   const handleAddToCart = (product) => {
-    const currentCartQuantity = getCurrentCartQuantity(product.id);
+    const currentCartQuantity = getCartItemQuantity(product.id);
     const totalQuantityAfterAdd = currentCartQuantity + 1;
 
     // Validate if total quantity exceeds stock
     if (totalQuantityAfterAdd > product.stock) {
       if (currentCartQuantity >= product.stock) {
-        alert(
+        toast.warning(
           `This item is already at maximum stock in your cart (${product.stock} available)`
         );
         return;
       } else {
         const availableToAdd = product.stock - currentCartQuantity;
-        alert(
+        toast.warning(
           `Only ${availableToAdd} more can be added to cart. Maximum stock: ${product.stock}`
         );
         return;
       }
     }
 
-    // If validation passes, call the original onAddToCart function
-    onAddToCart(product);
+    // Use global cart context to add to cart
+    addToCartContext(product, 1);
   };
 
   // Check if product can be added to cart
   const canAddToCart = (product) => {
     if (product.stock === 0) return false;
-    const currentCartQuantity = getCurrentCartQuantity(product.id);
+    if (!isClient) return true; // Allow on server-side
+    const currentCartQuantity = getCartItemQuantity(product.id);
     return currentCartQuantity < product.stock;
   };
 
   // Get button text based on stock status
   const getAddToCartButtonText = (product) => {
     if (product.stock === 0) return "Out of Stock";
-    const currentCartQuantity = getCurrentCartQuantity(product.id);
+    if (!isClient) return "Add to Cart"; // Default text on server-side
+    const currentCartQuantity = getCartItemQuantity(product.id);
     if (currentCartQuantity >= product.stock) return "Max in Cart";
     return "Add to Cart";
   };
@@ -172,11 +173,12 @@ export default function ProductGrid({ products, onAddToCart }) {
               </div>
               <div className="text-sm text-gray-500">
                 {(() => {
-                  const currentCartQuantity = getCurrentCartQuantity(
-                    product.id
-                  );
+                  const currentCartQuantity = isClient
+                    ? getCartItemQuantity(product.id)
+                    : 0;
                   const availableStock = product.stock - currentCartQuantity;
-                  const isAtMaxStock = currentCartQuantity >= product.stock;
+                  const isAtMaxStock =
+                    isClient && currentCartQuantity >= product.stock;
 
                   return (
                     <div className="flex justify-between items-center">

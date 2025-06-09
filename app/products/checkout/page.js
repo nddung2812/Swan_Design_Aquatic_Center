@@ -16,6 +16,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { ArrowLeft, CreditCard, Truck, Mail } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
 
 export default function CheckoutPage() {
   const [cartItems, setCartItems] = useState([]);
@@ -150,7 +151,9 @@ export default function CheckoutPage() {
       setOrderComplete(true);
     } catch (error) {
       console.error("Checkout failed:", error);
-      alert("There was an error processing your order. Please try again.");
+      toast.error(
+        "There was an error processing your order. Please try again."
+      );
     } finally {
       setIsLoading(false);
     }
