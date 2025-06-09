@@ -20,7 +20,7 @@ const Navbar = () => {
       href: "https://duckaroo.com.au/collections/aquarium-designs",
       label: "Gallery",
     },
-    { href: "https://duckaroo.com.au/pages/contact-us", label: "Contact" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (

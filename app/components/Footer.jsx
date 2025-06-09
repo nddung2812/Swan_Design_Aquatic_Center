@@ -16,7 +16,7 @@ const Footer = () => {
         label: "Shop With Us",
         href: "https://duckaroo.com.au/collections/all",
       },
-      { label: "Contact Us", href: "https://duckaroo.com.au/pages/contact-us" },
+      { label: "Contact Us", href: "/contact" },
       { label: "Get Quote", href: "/service" },
     ],
     products: [
