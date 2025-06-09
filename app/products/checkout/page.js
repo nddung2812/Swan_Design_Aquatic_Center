@@ -202,11 +202,12 @@ export default function CheckoutPage() {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="mb-6">
           <Button
-            variant="ghost"
+            variant="outline"
+            size="sm"
             onClick={() => router.push("/products")}
-            className="mb-4"
+            className="mb-4 flex items-center gap-2 hover:bg-blue-50 hover:border-blue-300"
           >
-            <ArrowLeft className="w-4 h-4 mr-2" />
+            <ArrowLeft className="w-4 h-4" />
             Back to Products
           </Button>
           <h1 className="text-3xl font-bold text-gray-900">Checkout</h1>
@@ -415,8 +416,10 @@ export default function CheckoutPage() {
                         className="flex justify-between items-start"
                       >
                         <div className="flex-1">
-                          <h4 className="font-medium text-sm">{item.name}</h4>
-                          <p className="text-xs text-gray-500">
+                          <h4 className="font-medium text-sm text-gray-900">
+                            {item.name}
+                          </h4>
+                          <p className="text-xs text-gray-500 font-medium">
                             Qty: {item.quantity}
                           </p>
                         </div>

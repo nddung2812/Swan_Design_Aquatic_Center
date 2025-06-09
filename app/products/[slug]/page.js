@@ -102,6 +102,7 @@ export default function ProductPage({ params }) {
   const [quantity, setQuantity] = useState(1);
   const [cartItems, setCartItems] = useState([]);
   const [cartLoaded, setCartLoaded] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   const router = useRouter();
 
   // Get related products from the same category (excluding current product)
@@ -118,6 +119,7 @@ export default function ProductPage({ params }) {
 
   // Load cart from localStorage on component mount
   useEffect(() => {
+    setIsClient(true);
     const savedCart = localStorage.getItem("shopping-cart");
     if (savedCart) {
       setCartItems(JSON.parse(savedCart));
@@ -216,8 +218,7 @@ export default function ProductPage({ params }) {
     return existingItem ? existingItem.quantity : 0;
   };
 
-  const currentCartQuantity =
-    typeof window !== "undefined" ? getCurrentCartQuantity() : 0;
+  const currentCartQuantity = isClient ? getCurrentCartQuantity() : 0;
   const maxSelectableQuantity = product.stock - currentCartQuantity;
 
   // Cart management functions
@@ -450,15 +451,15 @@ export default function ProductPage({ params }) {
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
                   <label className="font-medium">Quantity:</label>
-                  <div className="flex items-center border border-gray-300 rounded-md">
+                  <div className="flex items-center border border-gray-300 rounded-md bg-white">
                     <button
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="px-3 py-2 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="px-3 py-2 text-gray-700 bg-white hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed font-semibold text-lg"
                       disabled={quantity <= 1}
                     >
                       -
                     </button>
-                    <span className="px-4 py-2 border-x border-gray-300">
+                    <span className="px-4 py-2 border-x border-gray-300 bg-white text-gray-900 font-semibold">
                       {quantity}
                     </span>
                     <button
@@ -467,7 +468,7 @@ export default function ProductPage({ params }) {
                           Math.min(maxSelectableQuantity, quantity + 1)
                         )
                       }
-                      className="px-3 py-2 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="px-3 py-2 text-gray-700 bg-white hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed font-semibold text-lg"
                       disabled={
                         quantity >= maxSelectableQuantity ||
                         maxSelectableQuantity <= 0
@@ -482,7 +483,7 @@ export default function ProductPage({ params }) {
                 <div className="text-sm text-gray-500">
                   <div className="flex justify-between items-center">
                     <div className="text-blue-600">
-                      In Cart: {currentCartQuantity}
+                      In Cart: {isClient ? currentCartQuantity : 0}
                     </div>
                     <div className="text-right">
                       <span
@@ -494,7 +495,7 @@ export default function ProductPage({ params }) {
                       >
                         Available: {product.stock - currentCartQuantity}
                       </span>
-                      {maxSelectableQuantity <= 0 && (
+                      {isClient && maxSelectableQuantity <= 0 && (
                         <span className="text-red-600 ml-1 block">
                           (Max reached)
                         </span>
@@ -543,10 +544,10 @@ export default function ProductPage({ params }) {
 
           {/* Related Products Section */}
           <div className="mt-12">
-            <h2 className="text-2xl font-bold mb-6">
+            <h2 className="text-2xl font-bold mb-6 text-gray-900">
               You May Also Like
-              <span className="text-sm font-normal text-gray-600 ml-2">
-                ({product.category} category)
+              <span className="text-sm font-normal text-gray-500 ml-2 bg-gray-100 px-2 py-1 rounded-full">
+                {product.category} category
               </span>
             </h2>
             {relatedProducts.length > 0 ? (
@@ -602,7 +603,7 @@ export default function ProductPage({ params }) {
                         asChild
                         variant="outline"
                         size="sm"
-                        className="w-full"
+                        className="w-full bg-white text-gray-900 border-gray-300 hover:bg-gray-50 hover:text-gray-900"
                       >
                         <Link href={`/products/${relatedProduct.slug}`}>
                           <Eye className="w-4 h-4 mr-2" />

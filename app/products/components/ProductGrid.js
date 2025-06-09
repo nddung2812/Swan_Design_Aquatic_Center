@@ -211,7 +211,7 @@ export default function ProductGrid({ products, onAddToCart }) {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="flex-1"
+                  className="flex-1 bg-white text-gray-900 border-gray-300 hover:bg-gray-50 hover:text-gray-900"
                   onClick={() => handleQuickView(product)}
                 >
                   <Eye className="w-4 h-4 mr-1" />
@@ -231,10 +231,11 @@ export default function ProductGrid({ products, onAddToCart }) {
               <div className="w-full">
                 <Link href={`/products/${product.slug}`}>
                   <Button
+                    variant="outline"
                     size="sm"
-                    className="w-full bg-green-600 text-white hover:bg-green-700 border-none"
+                    className="w-full bg-white text-gray-900 border-gray-300 hover:bg-gray-50 hover:text-gray-900"
                   >
-                    <ExternalLink className="w-4 h-4" />
+                    <ExternalLink className="w-4 h-4 mr-2" />
                     View Full Details
                   </Button>
                 </Link>

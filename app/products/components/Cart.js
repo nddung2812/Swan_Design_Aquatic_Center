@@ -181,7 +181,7 @@ export default function Cart({
                                 >
                                   <Minus className="w-3 h-3" />
                                 </Button>
-                                <span className="text-sm font-medium w-8 text-center">
+                                <span className="text-sm font-medium w-8 text-center text-gray-900">
                                   {item.quantity}
                                 </span>
                                 <Button
