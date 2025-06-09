@@ -426,7 +426,7 @@ export default function ProductPage({ params }) {
 
               {/* Description */}
               <div>
-                <h2 className="text-xl font-semibold mb-3">
+                <h2 className="text-xl font-semibold mb-3 text-gray-900">
                   Product Description
                 </h2>
                 <p className="text-gray-600 leading-relaxed text-lg">
@@ -436,7 +436,9 @@ export default function ProductPage({ params }) {
 
               {/* Features */}
               <div>
-                <h2 className="text-xl font-semibold mb-3">Key Features</h2>
+                <h2 className="text-xl font-semibold mb-3 text-gray-900">
+                  Key Features
+                </h2>
                 <ul className="space-y-2">
                   {product.features.map((feature, index) => (
                     <li key={index} className="flex items-center space-x-3">

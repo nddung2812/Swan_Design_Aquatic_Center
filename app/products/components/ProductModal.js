@@ -109,9 +109,9 @@ export default function ProductModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto bg-white text-gray-900">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold">
+          <DialogTitle className="text-2xl font-bold text-gray-900">
             {product.name}
           </DialogTitle>
         </DialogHeader>
@@ -230,7 +230,9 @@ export default function ProductModal({
 
             {/* Description */}
             <div>
-              <h3 className="text-lg font-semibold mb-2">Description</h3>
+              <h3 className="text-lg font-semibold mb-2 text-gray-900">
+                Description
+              </h3>
               <p className="text-gray-600 leading-relaxed">
                 {product.description}
               </p>
@@ -238,7 +240,9 @@ export default function ProductModal({
 
             {/* Features */}
             <div>
-              <h3 className="text-lg font-semibold mb-3">Key Features</h3>
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
+                Key Features
+              </h3>
               <ul className="space-y-2">
                 {product.features.map((feature, index) => (
                   <li key={index} className="flex items-center space-x-2">
@@ -251,7 +255,9 @@ export default function ProductModal({
 
             {/* Specifications */}
             <div>
-              <h3 className="text-lg font-semibold mb-3">Specifications</h3>
+              <h3 className="text-lg font-semibold mb-3 text-gray-900">
+                Specifications
+              </h3>
               <div className="bg-gray-50 rounded-lg p-4">
                 <dl className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {Object.entries(product.specifications).map(
