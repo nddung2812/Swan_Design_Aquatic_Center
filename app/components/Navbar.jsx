@@ -63,13 +63,13 @@ const Navbar = () => {
           <div className="hidden xl:flex items-center space-x-4">
             <Button
               asChild
-              className="bg-gradient-to-br from-[#8044e2] to-[#0f172a] text-white hover:bg-gradient-to-br hover:from-[#506ef8] hover:to-[#0f172a] border-none"
+              className="bg-gradient-to-br from-emerald-500 to-teal-600 text-white hover:bg-gradient-to-br hover:from-emerald-600 hover:to-teal-700 border-none"
             >
               <Link href="/products">Shop Plants</Link>
             </Button>
             <Button
               asChild
-              className="bg-gradient-to-br from-[#10b981] to-[#0f172a] text-white hover:bg-gradient-to-br hover:from-[#34d399] hover:to-[#0f172a] border-none"
+              className="bg-gradient-to-br from-purple-500 to-indigo-600 text-white hover:bg-gradient-to-br hover:from-purple-600 hover:to-indigo-700 border-none"
             >
               <Link href="/service">Service</Link>
             </Button>
@@ -112,13 +112,13 @@ const Navbar = () => {
                 <div className="flex flex-col space-y-4 pt-6 border-t border-white/10">
                   <Button
                     asChild
-                    className="bg-gradient-to-br from-[#8044e2] to-[#0f172a] text-white hover:bg-gradient-to-br hover:from-[#506ef8] hover:to-[#0f172a] border-none"
+                    className="bg-gradient-to-br from-emerald-500 to-teal-600 text-white hover:bg-gradient-to-br hover:from-emerald-600 hover:to-teal-700 border-none"
                   >
                     <Link href="/products">Shop Plants</Link>
                   </Button>
                   <Button
                     asChild
-                    className="bg-gradient-to-br from-[#10b981] to-[#0f172a] text-white hover:bg-gradient-to-br hover:from-[#34d399] hover:to-[#0f172a] border-none"
+                    className="bg-gradient-to-br from-purple-500 to-indigo-600 text-white hover:bg-gradient-to-br hover:from-purple-600 hover:to-indigo-700 border-none"
                   >
                     <Link href="/service">Service</Link>
                   </Button>
