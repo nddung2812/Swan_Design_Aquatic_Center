@@ -79,8 +79,9 @@ export default function HomeBanner() {
           </h1>
 
           <p className="text-xl text-white/80 mb-8 max-w-xl">
-            Brisbane's best aquatic service specialists in fish tank cleaning,
-            setup, removal, and exotic premium plants for your home or office
+            Brisbane&apos;s best aquatic service specialists in fish tank
+            cleaning, setup, removal, and exotic premium plants for your home or
+            office
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">

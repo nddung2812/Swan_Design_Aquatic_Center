@@ -3,6 +3,7 @@
 import { useState, useEffect, use } from "react";
 import { notFound, useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -226,9 +227,11 @@ export default function ProductPage({ params }) {
             <div className="space-y-4">
               {/* Main Image */}
               <div className="relative overflow-hidden rounded-lg bg-white shadow-lg">
-                <img
+                <Image
                   src={product.images[selectedImageIndex]}
                   alt={`${product.name} - Image ${selectedImageIndex + 1}`}
+                  width={600}
+                  height={384}
                   className="w-full h-96 object-cover"
                   onError={(e) => {
                     e.target.src = `https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=600&h=400&fit=crop&crop=center`;
@@ -260,9 +263,11 @@ export default function ProductPage({ params }) {
                         : "border-gray-200 hover:border-gray-300"
                     }`}
                   >
-                    <img
+                    <Image
                       src={image}
                       alt={`${product.name} - Thumbnail ${index + 1}`}
+                      width={200}
+                      height={80}
                       className="w-full h-20 object-cover"
                       onError={(e) => {
                         e.target.src = `https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=200&h=150&fit=crop&crop=center`;
@@ -488,9 +493,11 @@ export default function ProductPage({ params }) {
                   >
                     <div className="relative overflow-hidden rounded-t-lg">
                       <Link href={`/products/${relatedProduct.slug}`}>
-                        <img
+                        <Image
                           src={relatedProduct.images[0]}
                           alt={relatedProduct.name}
+                          width={400}
+                          height={192}
                           className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 cursor-pointer"
                           onError={(e) => {
                             e.target.src = `https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=400&h=300&fit=crop&crop=center`;
