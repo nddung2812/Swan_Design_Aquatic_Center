@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { ArrowRight, Leaf, Fish, Clock, Shield } from "lucide-react";
 import Image from "next/image";
+import { productsData } from "@/app/products/data/products";
 
 const features = [
   {
@@ -174,102 +175,40 @@ export default function HomeBanner() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Featured Product Cards */}
-          <Link href="/products/buce-kegadang">
-            <Card className="group bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="aspect-square relative mb-4 rounded-lg overflow-hidden">
-                  <Image
-                    src="https://res.cloudinary.com/dhvj8x2nq/image/upload/v1749469954/best-place-to-buy-bucephalandra-kedagang-v0-5fhaw341fkjc1_ujrt6m"
-                    alt="Bucephalandra Kegadang"
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-2">
-                  Bucephalandra Kegadang
-                </h3>
-                <p className="text-white/70 mb-4">
-                  Rare aquatic plant perfect for aquascaping
-                </p>
-                <div className="flex justify-between items-center">
-                  <span className="text-emerald-400 font-semibold">
-                    $24.99 AUD
-                  </span>
-                  <Button
-                    variant="ghost"
-                    className="text-white hover:text-emerald-400"
-                  >
-                    View Details
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </Link>
-
-          <Link href="/products/java-moss">
-            <Card className="group bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="aspect-square relative mb-4 rounded-lg overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4"
-                    alt="Java Moss"
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-2">
-                  Java Moss
-                </h3>
-                <p className="text-white/70 mb-4">
-                  Versatile moss for any aquarium setup
-                </p>
-                <div className="flex justify-between items-center">
-                  <span className="text-emerald-400 font-semibold">
-                    $8.99 AUD
-                  </span>
-                  <Button
-                    variant="ghost"
-                    className="text-white hover:text-emerald-400"
-                  >
-                    View Details
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </Link>
-
-          <Link href="/products/anubias-nana">
-            <Card className="group bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="aspect-square relative mb-4 rounded-lg overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7"
-                    alt="Anubias Nana"
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-2">
-                  Anubias Nana
-                </h3>
-                <p className="text-white/70 mb-4">
-                  Compact plant perfect for foreground
-                </p>
-                <div className="flex justify-between items-center">
-                  <span className="text-emerald-400 font-semibold">
-                    $12.99 AUD
-                  </span>
-                  <Button
-                    variant="ghost"
-                    className="text-white hover:text-emerald-400"
-                  >
-                    View Details
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </Link>
+          {/* Featured Product Cards - First 3 Products */}
+          {productsData.slice(0, 3).map((product) => (
+            <Link key={product.id} href={`/products/${product.slug}`}>
+              <Card className="group bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300">
+                <CardContent className="p-6">
+                  <div className="aspect-square relative mb-4 rounded-lg overflow-hidden">
+                    <Image
+                      src={product.images[0]}
+                      alt={product.name}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    {product.name}
+                  </h3>
+                  <p className="text-white/70 mb-4">
+                    {product.description.slice(0, 50)}...
+                  </p>
+                  <div className="flex justify-between items-center">
+                    <span className="text-emerald-400 font-semibold">
+                      ${product.price} AUD
+                    </span>
+                    <Button
+                      variant="ghost"
+                      className="text-white hover:text-emerald-400"
+                    >
+                      View Details
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
         </div>
       </div>
     </main>
