@@ -72,15 +72,15 @@ export default function HomeBanner() {
           </Badge>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            Transform Your Space with
+            Service Your Fish Tank with
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 block mt-2">
               Duckaroo
             </span>
           </h1>
 
           <p className="text-xl text-white/80 mb-8 max-w-xl">
-            Creating stunning aquatic landscapes that bring the tranquility of
-            nature into your home or office
+            Brisbane's best aquatic service specialists in fish tank cleaning,
+            setup, removal, and exotic premium plants for your home or office
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
