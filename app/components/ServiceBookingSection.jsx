@@ -201,7 +201,11 @@ const ServiceBookingSection = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                ref={form}
+                onSubmit={handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 <div className="space-y-4">
                   <div>
                     <Label htmlFor="name" className="text-white">
@@ -291,16 +295,25 @@ const ServiceBookingSection = () => {
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="regular">
-                          Regular Maintenance
+                        <SelectItem value="Tank Cleaning/Maintenance">
+                          Fish Tank Cleaning/Maintenance
                         </SelectItem>
-                        <SelectItem value="emergency">
-                          Emergency Service
+                        <SelectItem value="Pond Cleaning">
+                          Pond Cleaning
                         </SelectItem>
-                        <SelectItem value="setup">New Tank Setup</SelectItem>
-                        <SelectItem value="consultation">
+                        <SelectItem value="Tank Setup">
+                          New Tank Setup
+                        </SelectItem>
+                        <SelectItem value="Pond Setup">
+                          New Pond Setup
+                        </SelectItem>
+                        <SelectItem value="Tank Removal">
+                          Tank Removal
+                        </SelectItem>
+                        <SelectItem value="Consultation">
                           Consultation
                         </SelectItem>
+                        <SelectItem value="Other">Other</SelectItem>
                       </SelectContent>
                     </Select>
                     <input

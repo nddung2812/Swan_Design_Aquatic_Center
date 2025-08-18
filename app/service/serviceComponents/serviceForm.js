@@ -173,40 +173,46 @@ export default function ServiceForm() {
               </SelectTrigger>
               <SelectContent className="bg-white/95 border-2 border-gray-300 backdrop-blur-lg shadow-2xl">
                 <SelectItem
-                  value="tank_cleaning"
+                  value="Tank Cleaning/Maintenance"
                   className="text-gray-900 hover:bg-emerald-100 focus:bg-emerald-100 cursor-pointer"
                 >
-                  Fish Tank Cleaning
+                  Fish Tank Cleaning/Maintenance
                 </SelectItem>
                 <SelectItem
-                  value="pond_cleaning"
+                  value="Pond Cleaning"
                   className="text-gray-900 hover:bg-emerald-100 focus:bg-emerald-100 cursor-pointer"
                 >
                   Pond Cleaning
                 </SelectItem>
                 <SelectItem
-                  value="tank_setup"
+                  value="Tank Setup"
                   className="text-gray-900 hover:bg-emerald-100 focus:bg-emerald-100 cursor-pointer"
                 >
                   New Tank Setup
                 </SelectItem>
                 <SelectItem
-                  value="pond_setup"
+                  value="Pond Setup"
                   className="text-gray-900 hover:bg-emerald-100 focus:bg-emerald-100 cursor-pointer"
                 >
                   New Pond Setup
                 </SelectItem>
                 <SelectItem
-                  value="maintenance"
+                  value="Tank Removal"
                   className="text-gray-900 hover:bg-emerald-100 focus:bg-emerald-100 cursor-pointer"
                 >
-                  Regular Maintenance
+                  Tank Removal
                 </SelectItem>
                 <SelectItem
-                  value="consultation"
+                  value="Consultation"
                   className="text-gray-900 hover:bg-emerald-100 focus:bg-emerald-100 cursor-pointer"
                 >
                   Consultation
+                </SelectItem>
+                <SelectItem
+                  value="Other"
+                  className="text-gray-900 hover:bg-emerald-100 focus:bg-emerald-100 cursor-pointer"
+                >
+                  Other
                 </SelectItem>
               </SelectContent>
             </Select>
