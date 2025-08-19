@@ -28,20 +28,36 @@ import { toast } from "react-toastify";
 
 // JSON-LD structured data component
 function ProductStructuredData({ product }) {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://duckaroo.com.au";
+
+  // Enhanced product structured data with Brisbane location and shipping
   const structuredData = {
     "@context": "https://schema.org/",
     "@type": "Product",
+    "@id": `${baseUrl}/products/${product.slug}#product`,
     name: product.name,
     image: product.images,
     description: product.description,
     sku: product.id.toString(),
     brand: {
       "@type": "Brand",
-      name: "Aquatic Swan Design",
+      name: "Duckaroo Brisbane",
+      description:
+        "Brisbane's premier aquatic plant and aquarium supply specialist",
+    },
+    manufacturer: {
+      "@type": "Organization",
+      name: "Duckaroo Brisbane",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Brisbane",
+        addressRegion: "QLD",
+        addressCountry: "AU",
+      },
     },
     offers: {
       "@type": "Offer",
-      url: `https://yourdomain.com/products/${product.slug}`,
+      url: `${baseUrl}/products/${product.slug}`,
       priceCurrency: "AUD",
       price: product.price.toString(),
       availability:
@@ -50,29 +66,133 @@ function ProductStructuredData({ product }) {
           : "https://schema.org/OutOfStock",
       seller: {
         "@type": "Organization",
-        name: "Aquatic Swan Design",
+        name: "Duckaroo Brisbane",
+        url: baseUrl,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Brisbane",
+          addressRegion: "QLD",
+          addressCountry: "AU",
+        },
       },
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingRate: {
+          "@type": "MonetaryAmount",
+          value: "Free",
+          currency: "AUD",
+        },
+        deliveryTime: {
+          "@type": "ShippingDeliveryTime",
+          handlingTime: {
+            "@type": "QuantitativeValue",
+            minValue: 1,
+            maxValue: 2,
+            unitCode: "DAY",
+          },
+          transitTime: {
+            "@type": "QuantitativeValue",
+            minValue: 2,
+            maxValue: 7,
+            unitCode: "DAY",
+          },
+        },
+        shippingDestination: {
+          "@type": "DefinedRegion",
+          addressCountry: "AU",
+        },
+      },
+      warranty: {
+        "@type": "WarrantyPromise",
+        durationOfWarranty: {
+          "@type": "QuantitativeValue",
+          value: 30,
+          unitCode: "DAY",
+        },
+        warrantyScope: "Live Arrival Guarantee",
+      },
+      priceValidUntil: "2024-12-31",
     },
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.8",
       reviewCount: "127",
+      bestRating: "5",
+      worstRating: "1",
     },
     category: product.category,
-    additionalProperty: Object.entries(product.specifications).map(
-      ([key, value]) => ({
+    ...(product.category === "plants" && {
+      additionalType: "LivePlant",
+      isLivingThing: true,
+    }),
+    additionalProperty: [
+      ...Object.entries(product.specifications).map(([key, value]) => ({
         "@type": "PropertyValue",
         name: key,
         value: value,
-      })
-    ),
+      })),
+      {
+        "@type": "PropertyValue",
+        name: "Shipping Coverage",
+        value: "Australia Wide",
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Live Arrival Guarantee",
+        value: "Yes",
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Origin",
+        value: "Brisbane, Queensland, Australia",
+      },
+    ],
+  };
+
+  // Breadcrumb structured data
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: baseUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Products",
+        item: `${baseUrl}/products`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name:
+          product.category.charAt(0).toUpperCase() + product.category.slice(1),
+        item: `${baseUrl}/products?category=${product.category}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: product.name,
+        item: `${baseUrl}/products/${product.slug}`,
+      },
+    ],
   };
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
+      />
+    </>
   );
 }
 
