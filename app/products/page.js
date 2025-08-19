@@ -56,9 +56,29 @@ export default function ProductsPage() {
                 Home
               </Link>
             </Button>
-            <h1 className="text-2xl md:text-4xl font-bold text-gray-900">
-              Aquarium Centre
+          </div>
+
+          {/* SEO-Optimized Header Section */}
+          <div className="text-center mb-12">
+            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
+              Rare Aquatic Plants & Aquarium Supplies
             </h1>
+            <h2 className="text-xl md:text-2xl text-emerald-600 font-semibold mb-6">
+              Australia Wide Shipping • Live Arrival Guarantee • 100% Customer
+              Satisfaction
+            </h2>
+            <p className="text-lg text-gray-700 max-w-4xl mx-auto mb-8 leading-relaxed">
+              Discover Australia&apos;s premier collection of{" "}
+              <strong>rare Bucephalandra</strong>, <strong>Anubias</strong>, and
+              other exotic aquatic plants. Shipped nationwide from our Brisbane
+              facility with guaranteed live arrival and complete customer
+              satisfaction. Perfect for aquascaping enthusiasts and planted
+              aquarium hobbyists seeking premium quality plants and equipment.
+            </p>
+
+            {/* Key Features */}
+
+            {/* Popular Categories */}
           </div>
 
           <div className="flex flex-col lg:flex-row gap-6 mb-8">
@@ -75,6 +95,161 @@ export default function ProductsPage() {
                 products={filteredProducts}
                 onAddToCart={addToCart}
               />
+            </div>
+          </div>
+
+          <div className="bg-gray-100 p-8 rounded-xl mb-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Featured Plant Categories
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+              <div>
+                <h4 className="font-semibold text-emerald-600 mb-2">
+                  🌿 Bucephalandra Species
+                </h4>
+                <p className="text-sm text-gray-600">
+                  Rare and exotic Bucephalandra varieties including Kegadang and
+                  other sought-after species
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-emerald-600 mb-2">
+                  🍃 Anubias Collection
+                </h4>
+                <p className="text-sm text-gray-600">
+                  Hardy Anubias plants perfect for low-light aquariums and
+                  beginner aquascapers
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-emerald-600 mb-2">
+                  🌱 Aquascaping Plants
+                </h4>
+                <p className="text-sm text-gray-600">
+                  Complete range of foreground, midground, and background
+                  aquatic plants
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-emerald-600 mb-2">
+                  🔧 Equipment & Supplies
+                </h4>
+                <p className="text-sm text-gray-600">
+                  Professional aquascaping tools, CO2 systems, and aquarium
+                  maintenance equipment
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 mb-12">
+            <div className="bg-emerald-50 p-6 rounded-lg border border-emerald-200">
+              <h3 className="text-lg font-semibold text-emerald-800 mb-2">
+                🚚 Australia Wide Shipping
+              </h3>
+              <p className="text-emerald-700">
+                Fast, secure delivery to all Australian states and territories
+              </p>
+            </div>
+            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <h3 className="text-lg font-semibold text-blue-800 mb-2">
+                🌱 Live Arrival Guarantee
+              </h3>
+              <p className="text-blue-700">
+                All plants guaranteed to arrive alive and healthy or full
+                replacement
+              </p>
+            </div>
+            <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
+              <h3 className="text-lg font-semibold text-purple-800 mb-2">
+                ⭐ 100% Satisfaction
+              </h3>
+              <p className="text-purple-700">
+                Complete satisfaction guarantee on every order
+              </p>
+            </div>
+          </div>
+
+          {/* Why Choose Us Section */}
+          <div className="bg-white p-8 rounded-xl shadow-sm border mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">
+              Why Choose Duckaroo for Your Aquatic Plants?
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl font-semibold text-emerald-600 mb-4">
+                  🌿 Rare Plant Specialists
+                </h3>
+                <p className="text-gray-700 mb-4">
+                  We specialize in sourcing and growing the rarest Bucephalandra
+                  species, premium Anubias varieties, and hard-to-find
+                  aquascaping plants. Our Brisbane facility ensures optimal
+                  growing conditions for healthy, vibrant plants.
+                </p>
+                <ul className="text-gray-600 space-y-2">
+                  <li>• Bucephalandra Kegadang and rare species</li>
+                  <li>• Premium Anubias Nana and variants</li>
+                  <li>• Exotic foreground and carpet plants</li>
+                  <li>• Sustainably sourced specimens</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-blue-600 mb-4">
+                  📦 Guaranteed Safe Delivery
+                </h3>
+                <p className="text-gray-700 mb-4">
+                  Our Australia-wide shipping system ensures your plants arrive
+                  in perfect condition. We use specialized packaging techniques
+                  developed over years of experience shipping live aquatic
+                  plants across the continent.
+                </p>
+                <ul className="text-gray-600 space-y-2">
+                  <li>• Live arrival guarantee on all plants</li>
+                  <li>• Insulated packaging for temperature control</li>
+                  <li>• Fast 2-7 day delivery Australia wide</li>
+                  <li>• Full replacement for DOA plants</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Care Information */}
+          <div className="bg-emerald-50 p-8 rounded-xl border border-emerald-200 mb-8">
+            <h2 className="text-2xl font-bold text-emerald-800 text-center mb-6">
+              Expert Plant Care & Aquascaping Support
+            </h2>
+            <p className="text-emerald-700 text-center mb-6 max-w-3xl mx-auto">
+              Every plant comes with detailed care instructions. Our
+              Brisbane-based team provides ongoing support to help you create
+              stunning aquascapes with your Bucephalandra, Anubias, and other
+              aquatic plants.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+              <div>
+                <h4 className="font-semibold text-emerald-800 mb-2">
+                  🔬 Plant Specifications
+                </h4>
+                <p className="text-emerald-700 text-sm">
+                  Detailed lighting, CO2, and water parameter requirements for
+                  each species
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-emerald-800 mb-2">
+                  🎨 Aquascaping Tips
+                </h4>
+                <p className="text-emerald-700 text-sm">
+                  Professional guidance on placement and design techniques
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-emerald-800 mb-2">
+                  📞 Ongoing Support
+                </h4>
+                <p className="text-emerald-700 text-sm">
+                  Brisbane team available for care questions and troubleshooting
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -8,7 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Duckaroo Brisbane | #1 Fish Tank Cleaning, Removal & Aquarium Service QLD",
+  title:
+    "Duckaroo Brisbane | #1 Fish Tank Cleaning, Removal & Aquarium Service QLD",
   description:
     "Brisbane's premier fish tank cleaning & removal service since 2020. Professional aquarium maintenance, tank removal, pond cleaning & plant care. Same-day service available. Call (04) 5766 3939",
   keywords:
@@ -26,7 +27,8 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Duckaroo Brisbane | #1 Fish Tank Cleaning, Removal & Aquarium Service QLD",
+    title:
+      "Duckaroo Brisbane | #1 Fish Tank Cleaning, Removal & Aquarium Service QLD",
     description:
       "Brisbane's premier fish tank cleaning & removal service since 2020. Professional aquarium maintenance, tank removal, pond cleaning & plant care. Same-day service available.",
     url: "https://duckaroo.com.au",
@@ -50,7 +52,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Duckaroo Brisbane | #1 Fish Tank Cleaning, Removal & Aquarium Service QLD",
+    title:
+      "Duckaroo Brisbane | #1 Fish Tank Cleaning, Removal & Aquarium Service QLD",
     description:
       "Brisbane's premier fish tank cleaning & removal service since 2020. Professional aquarium maintenance, tank removal, pond cleaning & plant care. Same-day service available.",
     images: [
