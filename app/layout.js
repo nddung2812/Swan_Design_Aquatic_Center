@@ -8,11 +8,11 @@ import "react-toastify/dist/ReactToastify.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Duckaroo Brisbane | #1 Fish Tank Cleaning & Aquarium Service QLD",
+  title: "Duckaroo Brisbane | #1 Fish Tank Cleaning, Removal & Aquarium Service QLD",
   description:
-    "Brisbane's premier fish tank cleaning service since 2020. Professional aquarium maintenance, pond cleaning & plant care. Same-day service available. Call (04) 5766 3939",
+    "Brisbane's premier fish tank cleaning & removal service since 2020. Professional aquarium maintenance, tank removal, pond cleaning & plant care. Same-day service available. Call (04) 5766 3939",
   keywords:
-    "fish tank cleaning Brisbane, aquarium service QLD, pond maintenance, aquarium cleaning, Brisbane aquatic service, fish tank maintenance",
+    "fish tank cleaning Brisbane, tank removal Brisbane, aquarium service QLD, pond maintenance, aquarium cleaning, Brisbane aquatic service, fish tank maintenance",
   authors: [{ name: "Duckaroo Brisbane" }],
   creator: "Duckaroo Brisbane",
   publisher: "Duckaroo Brisbane",
@@ -26,9 +26,9 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Duckaroo Brisbane | #1 Fish Tank Cleaning & Aquarium Service QLD",
+    title: "Duckaroo Brisbane | #1 Fish Tank Cleaning, Removal & Aquarium Service QLD",
     description:
-      "Brisbane's premier fish tank cleaning service since 2020. Professional aquarium maintenance, pond cleaning & plant care. Same-day service available.",
+      "Brisbane's premier fish tank cleaning & removal service since 2020. Professional aquarium maintenance, tank removal, pond cleaning & plant care. Same-day service available.",
     url: "https://duckaroo.com.au",
     siteName: "Duckaroo Brisbane",
     images: [
@@ -50,9 +50,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Duckaroo Brisbane | #1 Fish Tank Cleaning & Aquarium Service QLD",
+    title: "Duckaroo Brisbane | #1 Fish Tank Cleaning, Removal & Aquarium Service QLD",
     description:
-      "Brisbane's premier fish tank cleaning service since 2020. Professional aquarium maintenance, pond cleaning & plant care. Same-day service available.",
+      "Brisbane's premier fish tank cleaning & removal service since 2020. Professional aquarium maintenance, tank removal, pond cleaning & plant care. Same-day service available.",
     images: [
       {
         url: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&h=630&fit=crop&crop=center",
@@ -207,7 +207,7 @@ export default function RootLayout({ children }) {
               name: "Duckaroo Brisbane",
               alternateName: "Aquatic Swan Design",
               description:
-                "Brisbane's premier fish tank cleaning and aquarium maintenance service since 2020.",
+                "Brisbane's premier fish tank cleaning, removal and aquarium maintenance service since 2020.",
               url: "https://duckaroo.com.au",
               telephone: "+61457663939",
               email: "aquaticswandesign@gmail.com",
@@ -234,6 +234,7 @@ export default function RootLayout({ children }) {
               ],
               serviceType: [
                 "Fish Tank Cleaning",
+                "Tank Removal",
                 "Aquarium Maintenance",
                 "Pond Cleaning",
                 "Aquascaping",
@@ -321,6 +322,15 @@ export default function RootLayout({ children }) {
                       name: "Fish Tank Cleaning",
                       description:
                         "Professional fish tank cleaning and maintenance service",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Tank Removal",
+                      description:
+                        "Safe and professional aquarium tank removal service in Brisbane",
                     },
                   },
                   {
