@@ -32,7 +32,8 @@ export async function generateStaticParams() {
 
 // Generate metadata for SEO
 export async function generateMetadata({ params }) {
-  const blog = getBlogBySlug(params.slug);
+  const resolvedParams = await params;
+  const blog = getBlogBySlug(resolvedParams.slug);
 
   if (!blog) {
     return {
@@ -62,8 +63,9 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function BlogPost({ params }) {
-  const blog = getBlogBySlug(params.slug);
+export default async function BlogPost({ params }) {
+  const resolvedParams = await params;
+  const blog = getBlogBySlug(resolvedParams.slug);
 
   if (!blog) {
     notFound();
