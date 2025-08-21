@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect, useCallback } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,16 +16,24 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
-import { ArrowLeft, CreditCard, Truck, Mail } from "lucide-react";
+import { ArrowLeft, CreditCard, Truck, Mail, Loader2 } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
+import CheckoutForm from "./CheckoutForm";
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+);
 
 export default function CheckoutPage() {
   const [cartItems, setCartItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [orderComplete, setOrderComplete] = useState(false);
   const [orderNumber, setOrderNumber] = useState("");
+  const [clientSecret, setClientSecret] = useState("");
+  const [paymentStep, setPaymentStep] = useState("details"); // "details" or "payment"
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   // Form state
   const [customerInfo, setCustomerInfo] = useState({
@@ -75,90 +85,201 @@ export default function CheckoutPage() {
     );
   };
 
-  const getSubtotal = () => {
+  const getSubtotal = useCallback(() => {
     return cartItems.reduce(
       (total, item) => total + item.price * item.quantity,
       0
     );
-  };
+  }, [cartItems]);
 
-  const getShippingCost = () => {
+  const getShippingCost = useCallback(() => {
     return 15.99; // Standard shipping only
-  };
+  }, []);
 
-  const getTax = () => {
+  const getTax = useCallback(() => {
     const subtotal = getSubtotal();
     // Apply 10% GST (Australia only)
     return subtotal * 0.1;
-  };
+  }, [getSubtotal]);
 
-  const getTotal = () => {
+  const getTotal = useCallback(() => {
     return getSubtotal() + getShippingCost() + getTax();
-  };
+  }, [getSubtotal, getShippingCost, getTax]);
 
   const generateOrderNumber = () => {
     return "AQ" + Date.now().toString().slice(-8);
   };
 
-  const sendConfirmationEmail = async (orderDetails) => {
-    try {
-      const templateParams = {
-        to_email: customerInfo.email,
-        customer_name: `${customerInfo.firstName} ${customerInfo.lastName}`,
-        order_number: orderDetails.orderNumber,
-        order_total: formatPrice(orderDetails.total),
-        items: cartItems
-          .map(
-            (item) =>
-              `${item.name} (Qty: ${item.quantity}) - ${formatPrice(
-                item.price * item.quantity
-              )}`
-          )
-          .join("\n"),
-        shipping_address: `${shippingAddress.address}, ${shippingAddress.city}, ${shippingAddress.state} ${shippingAddress.zipCode}`,
-        shipping_method: "Standard Shipping (5-7 days) - $15.99",
-      };
+  const sendConfirmationEmail = useCallback(
+    async (orderDetails) => {
+      try {
+        const templateParams = {
+          to_email: customerInfo.email,
+          customer_name: `${customerInfo.firstName} ${customerInfo.lastName}`,
+          order_number: orderDetails.orderNumber,
+          order_total: formatPrice(orderDetails.total),
+          items: cartItems
+            .map(
+              (item) =>
+                `${item.name} (Qty: ${item.quantity}) - ${formatPrice(
+                  item.price * item.quantity
+                )}`
+            )
+            .join("\n"),
+          shipping_address: `${shippingAddress.address}, ${shippingAddress.city}, ${shippingAddress.state} ${shippingAddress.zipCode}`,
+          shipping_method: "Standard Shipping (5-7 days) - $15.99",
+        };
 
-      // Note: You'll need to set up EmailJS with your service ID, template ID, and public key
-      await emailjs.send(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
-        templateParams,
-        "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
-      );
+        // Note: You'll need to set up EmailJS with your service ID, template ID, and public key
+        await emailjs.send(
+          "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
+          "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+          templateParams,
+          "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
+        );
+      } catch (error) {
+        console.error("Failed to send confirmation email:", error);
+      }
+    },
+    [customerInfo, cartItems, shippingAddress]
+  );
+
+  const createPaymentIntent = async () => {
+    try {
+      const response = await fetch("/api/create-payment-intent", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          amount: getTotal(),
+          currency: "aud",
+          metadata: {
+            orderNumber: generateOrderNumber(),
+            customerEmail: customerInfo.email,
+            customerName: `${customerInfo.firstName} ${customerInfo.lastName}`,
+            shippingAddress: JSON.stringify(shippingAddress),
+            items: JSON.stringify(
+              cartItems.map((item) => ({
+                name: item.name,
+                quantity: item.quantity,
+                price: item.price,
+              }))
+            ),
+          },
+          shipping: {
+            name: `${customerInfo.firstName} ${customerInfo.lastName}`,
+            phone: customerInfo.phone,
+            address: {
+              line1: shippingAddress.address,
+              city: shippingAddress.city,
+              state: shippingAddress.state,
+              postal_code: shippingAddress.zipCode,
+              country:
+                shippingAddress.country === "Australia"
+                  ? "AU"
+                  : shippingAddress.country,
+            },
+          },
+        }),
+      });
+
+      const data = await response.json();
+      if (data.clientSecret) {
+        setClientSecret(data.clientSecret);
+        setOrderNumber(data.metadata?.orderNumber || generateOrderNumber());
+        setPaymentStep("payment");
+      } else {
+        throw new Error("Failed to create payment intent");
+      }
     } catch (error) {
-      console.error("Failed to send confirmation email:", error);
+      toast.error("Failed to initialize payment. Please try again.");
+      console.error("Payment intent creation failed:", error);
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
+  const handlePaymentSuccess = useCallback(
+    async (paymentIntent) => {
+      try {
+        // Send confirmation email
+        await sendConfirmationEmail({
+          orderNumber: orderNumber,
+          total: getTotal(),
+          paymentId: paymentIntent.id,
+        });
 
-    try {
-      // Simulate payment processing
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+        // Clear cart
+        localStorage.removeItem("shopping-cart");
+        setOrderComplete(true);
+        toast.success("Payment successful! Confirmation email sent.");
+      } catch (error) {
+        console.error("Post-payment processing failed:", error);
+        toast.warning(
+          "Payment successful, but confirmation email failed to send."
+        );
+        setOrderComplete(true);
+      }
+    },
+    [orderNumber, getTotal, sendConfirmationEmail]
+  );
 
-      const newOrderNumber = generateOrderNumber();
-      setOrderNumber(newOrderNumber);
+  const handlePaymentReturn = useCallback(
+    async (paymentIntentId) => {
+      try {
+        const response = await fetch("/api/confirm-payment", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ paymentIntentId }),
+        });
 
-      // Send confirmation email
-      await sendConfirmationEmail({
-        orderNumber: newOrderNumber,
-        total: getTotal(),
-      });
+        const data = await response.json();
+        if (data.status === "succeeded") {
+          await handlePaymentSuccess(data.paymentIntent);
+        }
+      } catch (error) {
+        console.error("Error confirming payment:", error);
+      }
+    },
+    [handlePaymentSuccess]
+  );
 
-      // Clear cart
-      localStorage.removeItem("shopping-cart");
-      setOrderComplete(true);
-    } catch (error) {
-      console.error("Checkout failed:", error);
-      toast.error(
-        "There was an error processing your order. Please try again."
-      );
-    } finally {
-      setIsLoading(false);
+  // Check for payment intent in URL (for return from redirect)
+  useEffect(() => {
+    const paymentIntent = searchParams.get("payment_intent");
+    if (paymentIntent) {
+      // Handle successful payment return
+      handlePaymentReturn(paymentIntent);
     }
+  }, [searchParams, handlePaymentReturn]);
+
+  const handleDetailsSubmit = (e) => {
+    e.preventDefault();
+
+    // Validate required fields
+    if (
+      !customerInfo.firstName ||
+      !customerInfo.lastName ||
+      !customerInfo.email
+    ) {
+      toast.error("Please fill in all required customer information fields.");
+      return;
+    }
+    if (
+      !shippingAddress.address ||
+      !shippingAddress.city ||
+      !shippingAddress.state ||
+      !shippingAddress.zipCode
+    ) {
+      toast.error("Please fill in all required shipping address fields.");
+      return;
+    }
+
+    // Generate order number and create payment intent
+    const newOrderNumber = generateOrderNumber();
+    setOrderNumber(newOrderNumber);
+    createPaymentIntent();
   };
 
   if (orderComplete) {
@@ -217,8 +338,7 @@ export default function CheckoutPage() {
           </Button>
           <h1 className="text-3xl font-bold text-gray-900">Checkout</h1>
         </div>
-
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleDetailsSubmit}>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left Column - Forms */}
             <div className="lg:col-span-2 space-y-6">
@@ -383,25 +503,29 @@ export default function CheckoutPage() {
                 </CardContent>
               </Card>
 
-              {/* Payment Information */}
+              {/* Continue to Payment Button */}
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center">
                     <CreditCard className="w-5 h-5 mr-2" />
-                    Payment Information
+                    Review & Continue
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-center">
-                    <p className="text-blue-800 font-medium">
-                      💳 Stripe Payment Integration
-                    </p>
-                    <p className="text-blue-600 text-sm mt-2">
-                      Payment processing will be integrated with Stripe once you
-                      set up your account. For now, orders will be processed
-                      without payment.
-                    </p>
-                  </div>
+                  <p className="text-gray-600 mb-4">
+                    Please review your order details and shipping information
+                    above, then proceed to payment.
+                  </p>
+                  <Button type="submit" className="w-full" disabled={isLoading}>
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        Setting up payment...
+                      </>
+                    ) : (
+                      "Continue to Payment"
+                    )}
+                  </Button>
                 </CardContent>
               </Card>
             </div>
@@ -459,20 +583,94 @@ export default function CheckoutPage() {
                       </span>
                     </div>
                   </div>
-
-                  <Button
-                    type="submit"
-                    className="w-full"
-                    size="lg"
-                    disabled={isLoading}
-                  >
-                    {isLoading ? "Processing..." : "Place Order"}
-                  </Button>
                 </CardContent>
               </Card>
             </div>
           </div>
         </form>
+        ) : (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Payment Step with Stripe Elements */}
+          {/* Left Column - Payment Form */}
+          <div className="lg:col-span-2">
+            {clientSecret && (
+              <Elements stripe={stripePromise} options={{ clientSecret }}>
+                <CheckoutForm
+                  clientSecret={clientSecret}
+                  total={getTotal()}
+                  onPaymentSuccess={handlePaymentSuccess}
+                  orderNumber={orderNumber}
+                  customerInfo={customerInfo}
+                />
+              </Elements>
+            )}
+
+            <Button
+              onClick={() => setPaymentStep("details")}
+              variant="outline"
+              className="mt-4"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Details
+            </Button>
+          </div>
+
+          {/* Right Column - Order Summary */}
+          <div className="lg:col-span-1">
+            <Card className="sticky top-4">
+              <CardHeader>
+                <CardTitle>Order Summary</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {/* Items */}
+                <div className="space-y-3">
+                  {cartItems.map((item) => (
+                    <div
+                      key={item.id}
+                      className="flex justify-between items-center"
+                    >
+                      <div className="flex-1">
+                        <h4 className="font-medium text-sm">{item.name}</h4>
+                        <p className="text-sm text-gray-500">
+                          Qty: {item.quantity}
+                        </p>
+                      </div>
+                      <span className="font-medium">
+                        {formatPrice(item.price * item.quantity)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <Separator />
+
+                {/* Totals */}
+                <div className="space-y-2">
+                  <div className="flex justify-between">
+                    <span>Subtotal:</span>
+                    <span>{formatPrice(getSubtotal())}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Shipping:</span>
+                    <span>{formatPrice(getShippingCost())}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>GST (10%):</span>
+                    <span>{formatPrice(getTax())}</span>
+                  </div>
+                  <Separator />
+                  <div className="flex justify-between font-bold text-lg">
+                    <span>Total:</span>
+                    <span className="text-blue-600">
+                      {formatPrice(getTotal())}
+                    </span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+        {`}`}
       </div>
     </div>
   );
