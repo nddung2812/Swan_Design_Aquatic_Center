@@ -1,13 +1,13 @@
-import { NextResponse } from 'next/server';
-import Stripe from 'stripe';
+import { NextResponse } from "next/server";
+import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2023-10-16',
+  apiVersion: "2023-10-16",
 });
 
 export async function POST(request) {
   try {
-    const { amount, currency = 'aud', metadata } = await request.json();
+    const { amount, currency = "aud", metadata } = await request.json();
 
     // Create a PaymentIntent with the order amount and currency
     const paymentIntent = await stripe.paymentIntents.create({
@@ -19,15 +19,12 @@ export async function POST(request) {
       },
     });
 
-    return NextResponse.json({ 
+    return NextResponse.json({
       clientSecret: paymentIntent.client_secret,
-      paymentIntentId: paymentIntent.id 
+      paymentIntentId: paymentIntent.id,
     });
   } catch (error) {
-    console.error('Error creating payment intent:', error);
-    return NextResponse.json(
-      { error: error.message },
-      { status: 500 }
-    );
+    console.error("Error creating payment intent:", error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

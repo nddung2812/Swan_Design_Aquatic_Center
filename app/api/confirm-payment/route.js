@@ -1,8 +1,8 @@
-import { NextResponse } from 'next/server';
-import Stripe from 'stripe';
+import { NextResponse } from "next/server";
+import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: '2023-10-16',
+  apiVersion: "2023-10-16",
 });
 
 export async function POST(request) {
@@ -12,15 +12,12 @@ export async function POST(request) {
     // Retrieve the payment intent to check its status
     const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
 
-    return NextResponse.json({ 
+    return NextResponse.json({
       status: paymentIntent.status,
-      paymentIntent: paymentIntent
+      paymentIntent: paymentIntent,
     });
   } catch (error) {
-    console.error('Error confirming payment:', error);
-    return NextResponse.json(
-      { error: error.message },
-      { status: 500 }
-    );
+    console.error("Error confirming payment:", error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

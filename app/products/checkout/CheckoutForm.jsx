@@ -12,12 +12,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CreditCard, Loader2 } from "lucide-react";
 import { toast } from "react-toastify";
 
-export default function CheckoutForm({ 
-  clientSecret, 
-  total, 
-  onPaymentSuccess, 
+export default function CheckoutForm({
+  clientSecret,
+  total,
+  onPaymentSuccess,
   orderNumber,
-  customerInfo 
+  customerInfo,
 }) {
   const stripe = useStripe();
   const elements = useElements();
@@ -36,7 +36,11 @@ export default function CheckoutForm({
       const { error, paymentIntent } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-          return_url: `${window.location.origin}/products/checkout?payment_intent=${clientSecret.split('_secret_')[0]}`,
+          return_url: `${
+            window.location.origin
+          }/products/checkout?payment_intent=${
+            clientSecret.split("_secret_")[0]
+          }`,
           receipt_email: customerInfo.email,
         },
         redirect: "if_required",
@@ -70,12 +74,12 @@ export default function CheckoutForm({
           {/* Address Element for billing address */}
           <div>
             <h3 className="text-lg font-medium mb-3">Billing Address</h3>
-            <AddressElement 
+            <AddressElement
               options={{
-                mode: 'billing',
+                mode: "billing",
                 defaultValues: {
                   name: `${customerInfo.firstName} ${customerInfo.lastName}`,
-                }
+                },
               }}
             />
           </div>
@@ -83,9 +87,9 @@ export default function CheckoutForm({
           {/* Payment Element for card details */}
           <div>
             <h3 className="text-lg font-medium mb-3">Payment Details</h3>
-            <PaymentElement 
+            <PaymentElement
               options={{
-                layout: "tabs"
+                layout: "tabs",
               }}
             />
           </div>
@@ -96,9 +100,7 @@ export default function CheckoutForm({
               <span>Total:</span>
               <span className="text-blue-600">${total.toFixed(2)} AUD</span>
             </div>
-            <p className="text-sm text-gray-600 mt-1">
-              Order #{orderNumber}
-            </p>
+            <p className="text-sm text-gray-600 mt-1">Order #{orderNumber}</p>
           </div>
 
           {/* Submit Button */}
