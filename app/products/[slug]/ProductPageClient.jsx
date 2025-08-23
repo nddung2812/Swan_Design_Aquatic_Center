@@ -48,9 +48,10 @@ function ProductStructuredData({ product }) {
       url: `https://duckaroo.com.au/products/${product.slug}`,
       priceCurrency: "AUD",
       price: product.price,
-      availability: product.stock > 0
-        ? "https://schema.org/InStock"
-        : "https://schema.org/OutOfStock",
+      availability:
+        product.stock > 0
+          ? "https://schema.org/InStock"
+          : "https://schema.org/OutOfStock",
       itemCondition: "https://schema.org/NewCondition",
       seller: {
         "@type": "Organization",
