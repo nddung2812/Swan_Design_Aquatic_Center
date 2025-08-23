@@ -26,7 +26,7 @@ export const productsData = [
   },
   {
     id: 2,
-    name: "Amamzon Frogbit X 5",
+    name: "Amazon Frogbit X 5",
     slug: "amazon-frogbit",
     category: "plants",
     price: 5.5,
