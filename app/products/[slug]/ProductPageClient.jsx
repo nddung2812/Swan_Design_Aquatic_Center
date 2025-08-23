@@ -48,7 +48,7 @@ function ProductStructuredData({ product }) {
       url: `https://duckaroo.com.au/products/${product.slug}`,
       priceCurrency: "AUD",
       price: product.price,
-      availability: product.inStock
+      availability: product.stock > 0
         ? "https://schema.org/InStock"
         : "https://schema.org/OutOfStock",
       itemCondition: "https://schema.org/NewCondition",
@@ -334,15 +334,15 @@ export default function ProductPageClient({ product }) {
               <div className="flex items-center gap-2">
                 <div
                   className={`w-3 h-3 rounded-full ${
-                    product.inStock ? "bg-green-500" : "bg-red-500"
+                    product.stock > 0 ? "bg-green-500" : "bg-red-500"
                   }`}
                 />
                 <span
                   className={`font-medium ${
-                    product.inStock ? "text-green-700" : "text-red-700"
+                    product.stock > 0 ? "text-green-700" : "text-red-700"
                   }`}
                 >
-                  {product.inStock ? "In Stock" : "Out of Stock"}
+                  {product.stock > 0 ? "In Stock" : "Out of Stock"}
                 </span>
               </div>
 
@@ -377,7 +377,7 @@ export default function ProductPageClient({ product }) {
                 <div className="flex gap-3">
                   <Button
                     onClick={handleAddToCart}
-                    disabled={!product.inStock}
+                    disabled={product.stock <= 0}
                     className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg"
                   >
                     <ShoppingCart className="w-5 h-5 mr-2" />

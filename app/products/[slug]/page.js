@@ -61,7 +61,7 @@ export async function generateMetadata({ params }) {
     other: {
       "product:price:amount": product.price,
       "product:price:currency": "AUD",
-      "product:availability": product.inStock ? "in stock" : "out of stock",
+      "product:availability": product.stock > 0 ? "in stock" : "out of stock",
       "product:condition": "new",
       "product:retailer": "Duckaroo Brisbane",
       "product:category": product.category,
