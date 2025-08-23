@@ -130,12 +130,12 @@ export default function CheckoutPage() {
           shipping_method: "Standard Shipping (5-7 days) - $15.99",
         };
 
-        // Note: You'll need to set up EmailJS with your service ID, template ID, and public key
+        // Send confirmation email using EmailJS
         await emailjs.send(
-          "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
-          "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+          "service_nyo9717", // EmailJS service ID
+          "template_0xpbklp", // EmailJS template ID for order confirmation
           templateParams,
-          "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
+          "PlnxkEthyMpuKG_kJ" // EmailJS public key
         );
       } catch (error) {
         console.error("Failed to send confirmation email:", error);
