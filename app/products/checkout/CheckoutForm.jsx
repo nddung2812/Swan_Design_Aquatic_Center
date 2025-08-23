@@ -106,7 +106,7 @@ export default function CheckoutForm({
         console.error("Payment failed:", error);
       } else if (paymentIntent && paymentIntent.status === "succeeded") {
         toast.success("Payment successful!");
-        onPaymentSuccess(paymentIntent);
+        onPaymentSuccess(paymentIntent, billingAddress);
       }
     } catch (err) {
       toast.error("An unexpected error occurred.");
@@ -259,13 +259,6 @@ export default function CheckoutForm({
             <PaymentElement
               options={{
                 layout: "tabs",
-                wallets: {
-                  applePay: "auto",
-                  googlePay: "auto",
-                },
-                fields: {
-                  billingDetails: "never",
-                },
               }}
             />
           </div>

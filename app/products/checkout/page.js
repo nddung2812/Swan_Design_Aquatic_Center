@@ -112,6 +112,30 @@ function CheckoutPageContent() {
     return "AQ" + Date.now().toString().slice(-8);
   };
 
+  const formatAddress = (address) => {
+    const parts = [address.address];
+
+    // Add suburb if it exists
+    if (address.suburb) {
+      parts.push(address.suburb);
+    }
+
+    // Add city only if it's different from suburb
+    if (
+      address.city &&
+      address.city.toLowerCase() !== address.suburb?.toLowerCase()
+    ) {
+      parts.push(address.city);
+    }
+
+    // Add state and zipCode
+    if (address.state && address.zipCode) {
+      parts.push(`${address.state} ${address.zipCode}`);
+    }
+
+    return parts.join(", ");
+  };
+
   const sendConfirmationEmail = useCallback(
     async (orderDetails) => {
       try {
@@ -128,7 +152,10 @@ function CheckoutPageContent() {
                 )}`
             )
             .join("\n"),
-          shipping_address: `${shippingAddress.address}, ${shippingAddress.suburb}, ${shippingAddress.city}, ${shippingAddress.state} ${shippingAddress.zipCode}`,
+          shipping_address: formatAddress(shippingAddress),
+          billing_address: orderDetails.billingAddress
+            ? formatAddress(orderDetails.billingAddress)
+            : "Same as shipping address",
           shipping_method: "Standard Shipping (5-7 days) - $15.00",
         };
 
@@ -213,13 +240,14 @@ function CheckoutPageContent() {
   };
 
   const handlePaymentSuccess = useCallback(
-    async (paymentIntent) => {
+    async (paymentIntent, billingAddressData = null) => {
       try {
         // Send confirmation email
         await sendConfirmationEmail({
           orderNumber: orderNumber,
           total: getTotal(),
           paymentId: paymentIntent.id,
+          billingAddress: billingAddressData,
         });
 
         // Clear cart

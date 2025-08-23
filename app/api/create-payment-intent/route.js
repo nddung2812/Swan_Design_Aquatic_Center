@@ -46,9 +46,7 @@ export async function POST(request) {
       },
       automatic_payment_methods: {
         enabled: true,
-        allow_redirects: "never",
       },
-      payment_method_types: ["card", "apple_pay", "google_pay"],
       // Set receipt email for automatic Stripe receipts
       receipt_email: metadata.customerEmail,
       // Add description for better tracking
