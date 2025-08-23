@@ -259,6 +259,13 @@ export default function CheckoutForm({
             <PaymentElement
               options={{
                 layout: "tabs",
+                wallets: {
+                  applePay: "auto",
+                  googlePay: "auto",
+                },
+                fields: {
+                  billingDetails: "never",
+                },
               }}
             />
           </div>
