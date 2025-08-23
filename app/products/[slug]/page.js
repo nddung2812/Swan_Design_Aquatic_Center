@@ -107,20 +107,7 @@ export default function ProductPage({ params }) {
       notFound();
     }
 
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-emerald-50 p-8">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
-          <p className="text-gray-600 mb-4">{product.description}</p>
-          <div className="text-2xl font-bold text-blue-600">
-            ${product.price.toFixed(2)} AUD
-          </div>
-          <div className="mt-4">
-            Stock: {product.stock > 0 ? "In Stock" : "Out of Stock"}
-          </div>
-        </div>
-      </div>
-    );
+    return <ProductPageClient product={product} />;
   } catch (error) {
     console.error("Error in ProductPage:", error);
     notFound();
