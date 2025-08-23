@@ -36,6 +36,7 @@ const Footer = () => {
     company: [
       { label: "About Us", href: "/about-us" },
       { label: "Blogs", href: "/blogs" },
+      { label: "Shipping Policy", href: "/shipping-policy" },
       {
         label: "Gallery",
         href: "https://duckaroo.com.au/collections/aquarium-designs",
@@ -153,8 +154,10 @@ const Footer = () => {
                   <Link
                     href={link.href}
                     className="text-white/70 hover:text-purple-400 transition-colors duration-200"
-                    target="_blank"
-                    rel="noreferrer"
+                    {...(link.href.startsWith("http") && {
+                      target: "_blank",
+                      rel: "noreferrer",
+                    })}
                   >
                     {link.label}
                   </Link>

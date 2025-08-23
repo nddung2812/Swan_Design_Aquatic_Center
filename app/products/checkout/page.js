@@ -21,6 +21,13 @@ import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
 import CheckoutForm from "./CheckoutForm";
 
+// Validate Stripe publishable key
+if (!process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
+  console.error(
+    "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY environment variable is not set"
+  );
+}
+
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
 );
@@ -45,6 +52,7 @@ export default function CheckoutPage() {
 
   const [shippingAddress, setShippingAddress] = useState({
     address: "",
+    suburb: "",
     city: "",
     state: "",
     zipCode: "",
@@ -96,15 +104,9 @@ export default function CheckoutPage() {
     return 15.99; // Standard shipping only
   }, []);
 
-  const getTax = useCallback(() => {
-    const subtotal = getSubtotal();
-    // Apply 10% GST (Australia only)
-    return subtotal * 0.1;
-  }, [getSubtotal]);
-
   const getTotal = useCallback(() => {
-    return getSubtotal() + getShippingCost() + getTax();
-  }, [getSubtotal, getShippingCost, getTax]);
+    return getSubtotal() + getShippingCost();
+  }, [getSubtotal, getShippingCost]);
 
   const generateOrderNumber = () => {
     return "AQ" + Date.now().toString().slice(-8);
@@ -126,7 +128,7 @@ export default function CheckoutPage() {
                 )}`
             )
             .join("\n"),
-          shipping_address: `${shippingAddress.address}, ${shippingAddress.city}, ${shippingAddress.state} ${shippingAddress.zipCode}`,
+          shipping_address: `${shippingAddress.address}, ${shippingAddress.suburb}, ${shippingAddress.city}, ${shippingAddress.state} ${shippingAddress.zipCode}`,
           shipping_method: "Standard Shipping (5-7 days) - $15.99",
         };
 
@@ -145,6 +147,7 @@ export default function CheckoutPage() {
   );
 
   const createPaymentIntent = async () => {
+    setIsLoading(true);
     try {
       const response = await fetch("/api/create-payment-intent", {
         method: "POST",
@@ -184,17 +187,28 @@ export default function CheckoutPage() {
         }),
       });
 
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(
+          errorData.error || `HTTP error! status: ${response.status}`
+        );
+      }
+
       const data = await response.json();
       if (data.clientSecret) {
         setClientSecret(data.clientSecret);
         setOrderNumber(data.metadata?.orderNumber || generateOrderNumber());
         setPaymentStep("payment");
       } else {
-        throw new Error("Failed to create payment intent");
+        throw new Error(data.error || "Failed to create payment intent");
       }
     } catch (error) {
-      toast.error("Failed to initialize payment. Please try again.");
       console.error("Payment intent creation failed:", error);
+      toast.error(
+        `Failed to initialize payment: ${error.message || "Please try again."}`
+      );
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -268,6 +282,7 @@ export default function CheckoutPage() {
     }
     if (
       !shippingAddress.address ||
+      !shippingAddress.suburb ||
       !shippingAddress.city ||
       !shippingAddress.state ||
       !shippingAddress.zipCode
@@ -311,7 +326,7 @@ export default function CheckoutPage() {
                 <Button
                   variant="outline"
                   onClick={() => router.push("/")}
-                  className="w-full"
+                  className="w-full bg-white hover:bg-gray-50 border-gray-300 text-gray-700 hover:text-gray-900"
                 >
                   Return to Home
                 </Button>
@@ -338,196 +353,318 @@ export default function CheckoutPage() {
           </Button>
           <h1 className="text-3xl font-bold text-gray-900">Checkout</h1>
         </div>
-        <form onSubmit={handleDetailsSubmit}>
+
+        {paymentStep === "details" ? (
+          <form onSubmit={handleDetailsSubmit}>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* Left Column - Forms */}
+              <div className="lg:col-span-2 space-y-6">
+                {/* Customer Information */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Customer Information</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="firstName">First Name</Label>
+                        <Input
+                          id="firstName"
+                          required
+                          value={customerInfo.firstName}
+                          onChange={(e) =>
+                            setCustomerInfo({
+                              ...customerInfo,
+                              firstName: e.target.value,
+                            })
+                          }
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="lastName">Last Name</Label>
+                        <Input
+                          id="lastName"
+                          required
+                          value={customerInfo.lastName}
+                          onChange={(e) =>
+                            setCustomerInfo({
+                              ...customerInfo,
+                              lastName: e.target.value,
+                            })
+                          }
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <Label htmlFor="email">Email</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        required
+                        value={customerInfo.email}
+                        onChange={(e) =>
+                          setCustomerInfo({
+                            ...customerInfo,
+                            email: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="phone">Phone Number</Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        value={customerInfo.phone}
+                        onChange={(e) =>
+                          setCustomerInfo({
+                            ...customerInfo,
+                            phone: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Shipping Address */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center">
+                      <Truck className="w-5 h-5 mr-2" />
+                      Shipping Address
+                      <span
+                        className="hidden sm:inline-block ml-2 text-red-500 text-sm cursor-help relative group"
+                        title="Shipping to WA, NT and TAS is not available due to regulations."
+                      >
+                        *
+                        <div className="absolute left-full ml-2 top-0 transform-none text-red-500 text-sm font-light opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 whitespace-nowrap">
+                          Shipping to WA, NT and TAS is not available due to
+                          regulations.
+                        </div>
+                      </span>
+                    </CardTitle>
+                    <div className="sm:hidden mt-2">
+                      <span
+                        className="text-red-500 text-xs font-light"
+                        title="Shipping to WA, NT and TAS is not available due to regulations."
+                      >
+                        * Shipping to WA, NT and TAS is not available due to
+                        regulations.
+                      </span>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div>
+                      <Label htmlFor="address">Address</Label>
+                      <Input
+                        id="address"
+                        required
+                        value={shippingAddress.address}
+                        onChange={(e) =>
+                          setShippingAddress({
+                            ...shippingAddress,
+                            address: e.target.value,
+                          })
+                        }
+                        placeholder="Enter your full address"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="suburb">Suburb</Label>
+                      <Input
+                        id="suburb"
+                        required
+                        value={shippingAddress.suburb}
+                        onChange={(e) =>
+                          setShippingAddress({
+                            ...shippingAddress,
+                            suburb: e.target.value,
+                          })
+                        }
+                        placeholder="Enter suburb"
+                      />
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      <div>
+                        <Label htmlFor="city">City</Label>
+                        <Input
+                          id="city"
+                          required
+                          value={shippingAddress.city}
+                          onChange={(e) =>
+                            setShippingAddress({
+                              ...shippingAddress,
+                              city: e.target.value,
+                            })
+                          }
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="state">State</Label>
+                        <Input
+                          id="state"
+                          required
+                          value={shippingAddress.state}
+                          onChange={(e) =>
+                            setShippingAddress({
+                              ...shippingAddress,
+                              state: e.target.value,
+                            })
+                          }
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="zipCode">Postcode</Label>
+                        <Input
+                          id="zipCode"
+                          required
+                          value={shippingAddress.zipCode}
+                          onChange={(e) =>
+                            setShippingAddress({
+                              ...shippingAddress,
+                              zipCode: e.target.value,
+                            })
+                          }
+                        />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Shipping Options */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Shipping Options</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Select
+                      value={shippingOption}
+                      onValueChange={setShippingOption}
+                    >
+                      <SelectTrigger>
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="standard">
+                          Standard Shipping (5-7 days) - $15.99
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </CardContent>
+                </Card>
+
+                {/* Continue to Payment Button */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center">
+                      <CreditCard className="w-5 h-5 mr-2" />
+                      Review & Continue
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 mb-4">
+                      Please review your order details and shipping information
+                      above, then proceed to payment.
+                    </p>
+                    <Button
+                      type="submit"
+                      className="w-full"
+                      disabled={isLoading}
+                    >
+                      {isLoading ? (
+                        <>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          Setting up payment...
+                        </>
+                      ) : (
+                        "Continue to Payment"
+                      )}
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Right Column - Order Summary */}
+              <div className="lg:col-span-1">
+                <Card className="sticky top-4">
+                  <CardHeader>
+                    <CardTitle>Order Summary</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    {/* Items */}
+                    <div className="space-y-3">
+                      {cartItems.map((item) => (
+                        <div
+                          key={item.id}
+                          className="flex justify-between items-start"
+                        >
+                          <div className="flex-1">
+                            <h4 className="font-medium text-sm text-gray-900">
+                              {item.name}
+                            </h4>
+                            <p className="text-xs text-gray-500 font-medium">
+                              Qty: {item.quantity}
+                            </p>
+                          </div>
+                          <span className="font-medium">
+                            {formatPrice(item.price * item.quantity)}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <Separator />
+
+                    {/* Totals */}
+                    <div className="space-y-2">
+                      <div className="flex justify-between">
+                        <span>Subtotal:</span>
+                        <span>{formatPrice(getSubtotal())}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Shipping:</span>
+                        <span>{formatPrice(getShippingCost())}</span>
+                      </div>
+                      <Separator />
+                      <div className="flex justify-between font-bold text-lg">
+                        <span>Total:</span>
+                        <span className="text-blue-600">
+                          {formatPrice(getTotal())}
+                        </span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </form>
+        ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Column - Forms */}
-            <div className="lg:col-span-2 space-y-6">
-              {/* Customer Information */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>Customer Information</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="firstName">First Name</Label>
-                      <Input
-                        id="firstName"
-                        required
-                        value={customerInfo.firstName}
-                        onChange={(e) =>
-                          setCustomerInfo({
-                            ...customerInfo,
-                            firstName: e.target.value,
-                          })
-                        }
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="lastName">Last Name</Label>
-                      <Input
-                        id="lastName"
-                        required
-                        value={customerInfo.lastName}
-                        onChange={(e) =>
-                          setCustomerInfo({
-                            ...customerInfo,
-                            lastName: e.target.value,
-                          })
-                        }
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      required
-                      value={customerInfo.email}
-                      onChange={(e) =>
-                        setCustomerInfo({
-                          ...customerInfo,
-                          email: e.target.value,
-                        })
-                      }
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="phone">Phone Number</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      value={customerInfo.phone}
-                      onChange={(e) =>
-                        setCustomerInfo({
-                          ...customerInfo,
-                          phone: e.target.value,
-                        })
-                      }
-                    />
-                  </div>
-                </CardContent>
-              </Card>
+            {/* Payment Step with Stripe Elements */}
+            {/* Left Column - Payment Form */}
+            <div className="lg:col-span-2">
+              {clientSecret && (
+                <Elements stripe={stripePromise} options={{ clientSecret }}>
+                  <CheckoutForm
+                    clientSecret={clientSecret}
+                    total={getTotal()}
+                    onPaymentSuccess={handlePaymentSuccess}
+                    orderNumber={orderNumber}
+                    customerInfo={customerInfo}
+                    shippingAddress={shippingAddress}
+                  />
+                </Elements>
+              )}
 
-              {/* Shipping Address */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <Truck className="w-5 h-5 mr-2" />
-                    Shipping Address
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <Label htmlFor="address">Address</Label>
-                    <Input
-                      id="address"
-                      required
-                      value={shippingAddress.address}
-                      onChange={(e) =>
-                        setShippingAddress({
-                          ...shippingAddress,
-                          address: e.target.value,
-                        })
-                      }
-                      placeholder="Enter your full address"
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div>
-                      <Label htmlFor="city">City</Label>
-                      <Input
-                        id="city"
-                        required
-                        value={shippingAddress.city}
-                        onChange={(e) =>
-                          setShippingAddress({
-                            ...shippingAddress,
-                            city: e.target.value,
-                          })
-                        }
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="state">State</Label>
-                      <Input
-                        id="state"
-                        required
-                        value={shippingAddress.state}
-                        onChange={(e) =>
-                          setShippingAddress({
-                            ...shippingAddress,
-                            state: e.target.value,
-                          })
-                        }
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="zipCode">Postcode</Label>
-                      <Input
-                        id="zipCode"
-                        required
-                        value={shippingAddress.zipCode}
-                        onChange={(e) =>
-                          setShippingAddress({
-                            ...shippingAddress,
-                            zipCode: e.target.value,
-                          })
-                        }
-                      />
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Shipping Options */}
-              <Card>
-                <CardHeader>
-                  <CardTitle>Shipping Options</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <Select
-                    value={shippingOption}
-                    onValueChange={setShippingOption}
-                  >
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="standard">
-                        Standard Shipping (5-7 days) - $15.99
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
-                </CardContent>
-              </Card>
-
-              {/* Continue to Payment Button */}
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <CreditCard className="w-5 h-5 mr-2" />
-                    Review & Continue
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 mb-4">
-                    Please review your order details and shipping information
-                    above, then proceed to payment.
-                  </p>
-                  <Button type="submit" className="w-full" disabled={isLoading}>
-                    {isLoading ? (
-                      <>
-                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                        Setting up payment...
-                      </>
-                    ) : (
-                      "Continue to Payment"
-                    )}
-                  </Button>
-                </CardContent>
-              </Card>
+              <Button
+                onClick={() => setPaymentStep("details")}
+                variant="outline"
+                className="mt-4"
+              >
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Details
+              </Button>
             </div>
 
             {/* Right Column - Order Summary */}
@@ -542,13 +679,11 @@ export default function CheckoutPage() {
                     {cartItems.map((item) => (
                       <div
                         key={item.id}
-                        className="flex justify-between items-start"
+                        className="flex justify-between items-center"
                       >
                         <div className="flex-1">
-                          <h4 className="font-medium text-sm text-gray-900">
-                            {item.name}
-                          </h4>
-                          <p className="text-xs text-gray-500 font-medium">
+                          <h4 className="font-medium text-sm">{item.name}</h4>
+                          <p className="text-sm text-gray-500">
                             Qty: {item.quantity}
                           </p>
                         </div>
@@ -571,10 +706,6 @@ export default function CheckoutPage() {
                       <span>Shipping:</span>
                       <span>{formatPrice(getShippingCost())}</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span>GST (10%):</span>
-                      <span>{formatPrice(getTax())}</span>
-                    </div>
                     <Separator />
                     <div className="flex justify-between font-bold text-lg">
                       <span>Total:</span>
@@ -587,90 +718,7 @@ export default function CheckoutPage() {
               </Card>
             </div>
           </div>
-        </form>
-        ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Payment Step with Stripe Elements */}
-          {/* Left Column - Payment Form */}
-          <div className="lg:col-span-2">
-            {clientSecret && (
-              <Elements stripe={stripePromise} options={{ clientSecret }}>
-                <CheckoutForm
-                  clientSecret={clientSecret}
-                  total={getTotal()}
-                  onPaymentSuccess={handlePaymentSuccess}
-                  orderNumber={orderNumber}
-                  customerInfo={customerInfo}
-                />
-              </Elements>
-            )}
-
-            <Button
-              onClick={() => setPaymentStep("details")}
-              variant="outline"
-              className="mt-4"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Details
-            </Button>
-          </div>
-
-          {/* Right Column - Order Summary */}
-          <div className="lg:col-span-1">
-            <Card className="sticky top-4">
-              <CardHeader>
-                <CardTitle>Order Summary</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {/* Items */}
-                <div className="space-y-3">
-                  {cartItems.map((item) => (
-                    <div
-                      key={item.id}
-                      className="flex justify-between items-center"
-                    >
-                      <div className="flex-1">
-                        <h4 className="font-medium text-sm">{item.name}</h4>
-                        <p className="text-sm text-gray-500">
-                          Qty: {item.quantity}
-                        </p>
-                      </div>
-                      <span className="font-medium">
-                        {formatPrice(item.price * item.quantity)}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                <Separator />
-
-                {/* Totals */}
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <span>Subtotal:</span>
-                    <span>{formatPrice(getSubtotal())}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Shipping:</span>
-                    <span>{formatPrice(getShippingCost())}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>GST (10%):</span>
-                    <span>{formatPrice(getTax())}</span>
-                  </div>
-                  <Separator />
-                  <div className="flex justify-between font-bold text-lg">
-                    <span>Total:</span>
-                    <span className="text-blue-600">
-                      {formatPrice(getTotal())}
-                    </span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-        {`}`}
+        )}
       </div>
     </div>
   );
