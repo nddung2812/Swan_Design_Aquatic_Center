@@ -116,7 +116,7 @@ export default function ShippingPolicyPage() {
               {/* Contact Information */}
               <div className="text-center pt-6 border-t border-slate-600/50">
                 <p className="text-slate-300 mb-4">
-                  Questions about shipping? We're here to help!
+                  Questions about shipping? We&apos;re here to help!
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a
