@@ -101,7 +101,7 @@ function CheckoutPageContent() {
   }, [cartItems]);
 
   const getShippingCost = useCallback(() => {
-    return 15.99; // Standard shipping only
+    return 15.0; // Standard shipping only
   }, []);
 
   const getTotal = useCallback(() => {
@@ -129,7 +129,7 @@ function CheckoutPageContent() {
             )
             .join("\n"),
           shipping_address: `${shippingAddress.address}, ${shippingAddress.suburb}, ${shippingAddress.city}, ${shippingAddress.state} ${shippingAddress.zipCode}`,
-          shipping_method: "Standard Shipping (5-7 days) - $15.99",
+          shipping_method: "Standard Shipping (5-7 days) - $15.00",
         };
 
         // Send confirmation email using EmailJS
@@ -547,7 +547,7 @@ function CheckoutPageContent() {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="standard">
-                          Standard Shipping (5-7 days) - $15.99
+                          Standard Shipping (5-7 days) - $15.00
                         </SelectItem>
                       </SelectContent>
                     </Select>
