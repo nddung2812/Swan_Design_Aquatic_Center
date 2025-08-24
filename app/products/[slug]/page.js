@@ -9,14 +9,16 @@ export async function generateMetadata({ params }) {
   if (!product) {
     return {
       title: "Product Not Found | Duckaroo Brisbane",
-      description: "The requested product could not be found. Browse our collection of premium aquatic plants, equipment and accessories.",
+      description:
+        "The requested product could not be found. Browse our collection of premium aquatic plants, equipment and accessories.",
     };
   }
 
   // Use product description and first image for meta
-  const metaDescription = product.description.length > 155 
-    ? `${product.description.substring(0, 155)}...` 
-    : product.description;
+  const metaDescription =
+    product.description.length > 155
+      ? `${product.description.substring(0, 155)}...`
+      : product.description;
 
   return {
     title: `${product.name} - Premium ${product.category} | Duckaroo Brisbane`,

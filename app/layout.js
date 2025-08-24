@@ -22,7 +22,7 @@ export const metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://duckaroo.com.au"),
+  metadataBase: new URL("https://aquaticswandesign.com.au"),
   alternates: {
     canonical: "/",
   },
@@ -31,20 +31,14 @@ export const metadata = {
       "Duckaroo Brisbane | #1 Fish Tank Cleaning, Removal & Aquarium Service QLD",
     description:
       "Brisbane's premier fish tank cleaning & removal service since 2020. Professional aquarium maintenance, tank removal, pond cleaning & plant care. Same-day service available.",
-    url: "https://duckaroo.com.au",
-    siteName: "Duckaroo Brisbane",
+    url: "https://aquaticswandesign.com.au",
+    siteName: "Aquatic Swan Design",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&h=630&fit=crop&crop=center",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg",
         width: 1200,
         height: 630,
-        alt: "Professional Aquarium Cleaning Service Brisbane - Duckaroo",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=1200&h=630&fit=crop&crop=center",
-        width: 1200,
-        height: 630,
-        alt: "Aquascaping and Plant Care Services Brisbane",
+        alt: "Duckaroo Brisbane - Professional Aquarium & Fish Tank Cleaning Service",
       },
     ],
     locale: "en_AU",
@@ -58,8 +52,8 @@ export const metadata = {
       "Brisbane's premier fish tank cleaning & removal service since 2020. Professional aquarium maintenance, tank removal, pond cleaning & plant care. Same-day service available.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&h=630&fit=crop&crop=center",
-        alt: "Professional Aquarium Cleaning Service Brisbane - Duckaroo",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg",
+        alt: "Duckaroo Brisbane - Professional Aquarium & Fish Tank Cleaning Service",
       },
     ],
   },
@@ -110,7 +104,7 @@ export const metadata = {
     "business:contact_data:country_name": "Australia",
     "business:contact_data:email": "aquaticswandesign@gmail.com",
     "business:contact_data:phone_number": "+61457663939",
-    "business:contact_data:website": "https://duckaroo.com.au",
+    "business:contact_data:website": "https://aquaticswandesign.com.au",
   },
 };
 
@@ -206,12 +200,12 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "@id": "https://duckaroo.com.au/#business",
+              "@id": "https://aquaticswandesign.com.au/#business",
               name: "Duckaroo Brisbane",
               alternateName: "Aquatic Swan Design",
               description:
                 "Brisbane's premier fish tank cleaning, removal and aquarium maintenance service since 2020.",
-              url: "https://duckaroo.com.au",
+              url: "https://aquaticswandesign.com.au",
               telephone: "+61457663939",
               email: "aquaticswandesign@gmail.com",
               address: {
@@ -248,10 +242,9 @@ export default function RootLayout({ children }) {
               paymentAccepted: "Cash, Credit Card, Bank Transfer",
               openingHours: "Mo-Su 08:00-18:00",
               image: [
-                "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&h=630&fit=crop&crop=center",
-                "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=1200&h=630&fit=crop&crop=center",
+                "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg",
               ],
-              sameAs: ["https://duckaroo.com.au"],
+              sameAs: ["https://aquaticswandesign.com.au"],
               aggregateRating: {
                 "@type": "AggregateRating",
                 ratingValue: "4.9",
@@ -290,7 +283,7 @@ export default function RootLayout({ children }) {
               provider: {
                 "@type": "LocalBusiness",
                 name: "Duckaroo",
-                "@id": "https://duckaroo.com.au/#organization",
+                "@id": "https://aquaticswandesign.com.au/#organization",
               },
               areaServed: {
                 "@type": "State",
