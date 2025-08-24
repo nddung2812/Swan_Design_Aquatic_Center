@@ -35,7 +35,7 @@ export const metadata = {
     siteName: "Aquatic Swan Design",
     images: [
       {
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg?v=2",
         width: 1200,
         height: 630,
         alt: "Duckaroo Brisbane - Professional Aquarium & Fish Tank Cleaning Service",
@@ -52,7 +52,7 @@ export const metadata = {
       "Brisbane's premier fish tank cleaning & removal service since 2020. Professional aquarium maintenance, tank removal, pond cleaning & plant care. Same-day service available.",
     images: [
       {
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg?v=2",
         alt: "Duckaroo Brisbane - Professional Aquarium & Fish Tank Cleaning Service",
       },
     ],
@@ -242,7 +242,7 @@ export default function RootLayout({ children }) {
               paymentAccepted: "Cash, Credit Card, Bank Transfer",
               openingHours: "Mo-Su 08:00-18:00",
               image: [
-                "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg",
+                "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg?v=2",
               ],
               sameAs: ["https://aquaticswandesign.com.au"],
               aggregateRating: {
@@ -388,6 +388,49 @@ export default function RootLayout({ children }) {
               ],
             }),
           }}
+        />
+
+        {/* Explicit Open Graph Tags for Social Media */}
+        <meta
+          property="og:title"
+          content="Duckaroo Brisbane | #1 Fish Tank Cleaning, Removal & Aquarium Service QLD"
+        />
+        <meta
+          property="og:description"
+          content="Brisbane's premier fish tank cleaning & removal service since 2020. Professional aquarium maintenance, tank removal, pond cleaning & plant care. Same-day service available."
+        />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg?v=2"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+          property="og:image:alt"
+          content="Duckaroo Brisbane - Professional Aquarium & Fish Tank Cleaning Service"
+        />
+        <meta property="og:url" content="https://aquaticswandesign.com.au" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Aquatic Swan Design" />
+        <meta property="og:locale" content="en_AU" />
+
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Duckaroo Brisbane | #1 Fish Tank Cleaning, Removal & Aquarium Service QLD"
+        />
+        <meta
+          name="twitter:description"
+          content="Brisbane's premier fish tank cleaning & removal service since 2020. Professional aquarium maintenance, tank removal, pond cleaning & plant care. Same-day service available."
+        />
+        <meta
+          name="twitter:image"
+          content="https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg?v=2"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="Duckaroo Brisbane - Professional Aquarium & Fish Tank Cleaning Service"
         />
 
         {/* Additional Meta Tags */}
