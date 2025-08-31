@@ -1,4 +1,5 @@
 import { getAllProductSlugs } from "./products/data/products";
+import { blogs } from "../data/blogs";
 
 export default function sitemap() {
   const baseUrl =
@@ -65,6 +66,14 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
+  // Blog pages
+  const blogPages = blogs.map((blog) => ({
+    url: `${baseUrl}/blogs/${blog.slug}`,
+    lastModified: new Date(blog.publishDate),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   // Category pages
   const categoryPages = [
     "plants",
@@ -78,5 +87,5 @@ export default function sitemap() {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...productPages, ...categoryPages];
+  return [...staticPages, ...productPages, ...blogPages, ...categoryPages];
 }
