@@ -1,7 +1,8 @@
 import { getAllProductSlugs } from "./products/data/products";
 
 export default function sitemap() {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://yourdomain.com";
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL || "https://aquaticswandesign.com.au";
   const productSlugs = getAllProductSlugs();
 
   // Static pages
