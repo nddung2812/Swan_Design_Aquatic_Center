@@ -8,52 +8,55 @@ import { productsData } from "@/app/products/data/products";
 
 const features = [
   {
-    title: "Expert Service",
-    description: "Professional aquascaping and maintenance",
+    title: "Expert Fish Tank Cleaning Service",
+    description: "Professional fish tank cleaning & maintenance",
     icon: <Leaf className="h-5 w-5" />,
   },
   {
-    title: "Premium Plants",
-    description: "High-quality aquatic plants",
+    title: "Premium Aquatic Solutions",
+    description: "High-quality fish tank cleaning service",
     icon: <Fish className="h-5 w-5" />,
   },
   {
-    title: "Brisbane Wide",
-    description: "Service available across Brisbane",
+    title: "Brisbane Wide Service",
+    description: "Fish tank cleaning service across Brisbane",
     icon: <Clock className="h-5 w-5" />,
   },
   {
-    title: "Satisfaction Guaranteed",
-    description: "100% customer satisfaction",
+    title: "100% Satisfaction Guaranteed",
+    description: "Professional fish tank cleaning service",
     icon: <Shield className="h-5 w-5" />,
   },
 ];
 
 const services = [
   {
-    title: "Aquascaping",
-    description: "Professional design and setup of your aquarium landscape",
+    title: "Fish Tank Cleaning Service",
+    description:
+      "Professional fish tank cleaning service and aquascaping design",
     icon: <Leaf className="h-6 w-6" />,
     href: "/service",
     color: "from-emerald-500 to-emerald-600",
   },
   {
-    title: "Maintenance",
-    description: "Regular care and upkeep to keep your aquarium thriving",
+    title: "Aquarium Maintenance",
+    description:
+      "Regular fish tank cleaning service to keep aquariums thriving",
     icon: <Fish className="h-6 w-6" />,
     href: "/service",
     color: "from-teal-500 to-teal-600",
   },
   {
-    title: "Plant Care",
-    description: "Expert advice and care for your aquatic plants",
+    title: "Professional Setup",
+    description: "Expert fish tank cleaning service and aquarium setup",
     icon: <Clock className="h-6 w-6" />,
     href: "/service",
     color: "from-cyan-500 to-cyan-600",
   },
   {
-    title: "Fish Health",
-    description: "Comprehensive care and health monitoring for your fish",
+    title: "Complete Care Solutions",
+    description:
+      "Comprehensive fish tank cleaning service and fish health monitoring",
     icon: <Shield className="h-6 w-6" />,
     href: "/service",
     color: "from-blue-500 to-blue-600",
@@ -68,20 +71,25 @@ export default function HomeBanner() {
         {/* Left Column - Text Content */}
         <div className="flex flex-col justify-center">
           <Badge className="mb-6 bg-emerald-500/30 border-emerald-400 text-emerald-100 w-fit">
-            Brisbane&apos;s #1 Aquatic Center
+            Brisbane&apos;s #1 Fish Tank Cleaning Service
           </Badge>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            Service Your Fish Tank with
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 block mt-2">
-              Duckaroo
-            </span>
+            Brisbane&apos;s #1 Fish Tank Cleaning Service
           </h1>
 
           <p className="text-xl text-white/80 mb-8 max-w-xl">
-            Brisbane&apos;s best aquatic service specialists in fish tank
-            cleaning, setup, removal, and exotic premium plants for your home or
-            office
+            Looking for reliable{" "}
+            <strong className="text-emerald-300">
+              fish tank cleaning service
+            </strong>{" "}
+            in Brisbane? We&apos;re Brisbane&apos;s premier{" "}
+            <strong className="text-emerald-300">
+              fish tank cleaning service
+            </strong>{" "}
+            specialists, offering professional aquarium maintenance, setup,
+            removal, and premium aquatic plants for your home or office. Trust
+            our expert fish tank cleaning service for crystal-clear results.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -167,10 +175,14 @@ export default function HomeBanner() {
       <div className="w-full max-w-7xl mx-auto mb-16 pt-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Featured Products
+            Featured Products for Fish Tank Cleaning Service
           </h2>
           <p className="text-white/70 max-w-2xl mx-auto">
-            Discover our hand-picked selection of premium aquatic plants and
+            Enhance your{" "}
+            <strong className="text-emerald-300">
+              fish tank cleaning service
+            </strong>{" "}
+            experience with our premium aquatic plants and professional-grade
             supplies
           </p>
         </div>

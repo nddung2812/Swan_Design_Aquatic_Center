@@ -1,50 +1,50 @@
 export const metadata = {
   title:
-    "Professional Fish Tank & Aquarium Cleaning Services Brisbane | Duckaroo - Same Day Service",
+    "Fish Tank Cleaning Service Brisbane | Professional Aquarium Maintenance | Duckaroo",
   description:
-    "★★★★★ Expert fish tank cleaning, aquarium maintenance & pond services in Brisbane. Certified technicians, same-day service, 100% guarantee. Servicing all Brisbane suburbs, Gold Coast & QLD. Call (07) XXX-XXXX",
+    "★★★★★ Premium fish tank cleaning service in Brisbane. Expert aquarium maintenance, pond cleaning & setup services. Professional technicians, same-day service across all Brisbane areas. Book your fish tank cleaning service today!",
   keywords: [
-    "fish tank cleaning Brisbane",
+    "fish tank cleaning service",
+    "fish tank cleaning service Brisbane",
+    "professional fish tank cleaning service",
     "aquarium cleaning service Brisbane",
-    "professional aquarium maintenance Brisbane",
+    "Brisbane fish tank cleaning service",
+    "fish tank maintenance Brisbane",
+    "aquarium maintenance service Brisbane",
     "pond cleaning Brisbane",
     "fish tank setup Brisbane",
-    "aquarium technician Brisbane",
-    "emergency tank cleaning Brisbane",
-    "same day aquarium service Brisbane",
-    "certified aquarium specialist Brisbane",
-    "fish tank maintenance Gold Coast",
-    "aquarium cleaning Southside Brisbane",
-    "pond maintenance Northside Brisbane",
-    "aquatic consultation Brisbane",
-    "fish tank repair Brisbane",
-    "aquarium installation Brisbane",
+    "emergency fish tank cleaning service Brisbane",
+    "same day fish tank cleaning service",
+    "certified fish tank cleaning Brisbane",
+    "residential fish tank cleaning service",
+    "commercial fish tank cleaning service",
+    "affordable fish tank cleaning service Brisbane",
   ].join(", "),
   openGraph: {
     title:
-      "Professional Fish Tank & Aquarium Cleaning Services Brisbane | Duckaroo",
+      "Fish Tank Cleaning Service Brisbane | Professional Aquarium Maintenance | Duckaroo",
     description:
-      "★★★★★ Expert fish tank cleaning, aquarium maintenance & pond services in Brisbane. Same-day service across all Brisbane suburbs.",
-    url: "https://duckaroo.com.au/service",
+      "★★★★★ Premium fish tank cleaning service in Brisbane. Expert aquarium maintenance, pond cleaning & setup services across all Brisbane areas.",
+    url: "https://aquaticswandesign.com.au/service",
     type: "website",
     images: [
       {
         url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1739712678/duckaroo-service-brisbane.jpg",
         width: 1200,
         height: 630,
-        alt: "Professional Fish Tank Cleaning Services Brisbane - Duckaroo",
+        alt: "Fish Tank Cleaning Service Brisbane - Professional Aquarium Maintenance",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Professional Fish Tank & Aquarium Cleaning Services Brisbane | Duckaroo",
+      "Fish Tank Cleaning Service Brisbane | Professional Aquarium Maintenance | Duckaroo",
     description:
-      "★★★★★ Expert fish tank cleaning, aquarium maintenance & pond services in Brisbane. Same-day service available.",
+      "★★★★★ Premium fish tank cleaning service in Brisbane. Professional technicians, same-day service available.",
   },
   alternates: {
-    canonical: "https://duckaroo.com.au/service",
+    canonical: "https://aquaticswandesign.com.au/service",
   },
   robots: {
     index: true,
@@ -62,10 +62,10 @@ export default function ServiceLayout({ children }) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
-            name: "Duckaroo Fish Tank & Aquarium Cleaning Services",
+            name: "Duckaroo Fish Tank Cleaning Service Brisbane",
             description:
-              "Professional fish tank cleaning, aquarium maintenance, and pond services in Brisbane, Queensland",
-            url: "https://duckaroo.com.au/service",
+              "Premium fish tank cleaning service, aquarium maintenance, and pond services across all Brisbane areas, Queensland",
+            url: "https://aquaticswandesign.com.au/service",
             telephone: "(04) 57663939",
             email: "aquaticswandesign@gmail.com",
             address: {
@@ -91,9 +91,9 @@ export default function ServiceLayout({ children }) {
                   "@type": "Offer",
                   itemOffered: {
                     "@type": "Service",
-                    name: "Fish Tank Cleaning Brisbane",
+                    name: "Fish Tank Cleaning Service Brisbane",
                     description:
-                      "Professional fish tank cleaning service for residential and commercial aquariums in Brisbane",
+                      "Premium fish tank cleaning service for residential and commercial aquariums across all Brisbane areas",
                   },
                   priceRange: "$$",
                   availability: "https://schema.org/InStock",

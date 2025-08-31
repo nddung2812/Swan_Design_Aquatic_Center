@@ -90,18 +90,27 @@ export default function BlogsPage() {
         <section className="pt-24 pb-12 px-4 relative">
           <div className="max-w-7xl mx-auto text-center">
             <Badge className="mb-6 bg-emerald-500/20 border-emerald-400 text-emerald-300 text-lg px-6 py-2">
-              Expert Aquarium Guides
+              Fish Tank Cleaning Service Expert Guides
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Aquarium
+              Fish Tank Cleaning Service
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 block mt-2">
-                Care Blog
+                Expert Blog
               </span>
             </h1>
             <p className="text-xl text-white/80 mb-8 max-w-3xl mx-auto">
-              Expert tips, guides, and tutorials for aquarium care, fish health,
-              plant maintenance, and aquascaping from Brisbane&apos;s aquatic
-              specialists.
+              Professional{" "}
+              <strong className="text-emerald-300">
+                fish tank cleaning service
+              </strong>{" "}
+              tips, expert aquarium maintenance guides, and comprehensive care
+              tutorials from Brisbane&apos;s premier{" "}
+              <strong className="text-emerald-300">
+                fish tank cleaning service
+              </strong>{" "}
+              specialists. Learn proper fish tank cleaning service techniques,
+              aquarium care, fish health, and aquascaping from our experienced
+              team.
             </p>
           </div>
         </section>
@@ -111,7 +120,7 @@ export default function BlogsPage() {
           <section className="px-4 mb-12">
             <div className="max-w-7xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
-                Featured Articles
+                Featured Fish Tank Cleaning Service Articles
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {featuredBlogs.slice(0, 3).map((blog) => (

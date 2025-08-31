@@ -5,15 +5,11 @@ import { Badge } from "@/components/ui/badge";
 import {
   Award,
   Users,
-  Clock,
   MapPin,
   Phone,
   Mail,
   Star,
   CheckCircle,
-  Droplets,
-  Fish,
-  Leaf,
 } from "lucide-react";
 
 const AboutBanner = () => {
@@ -57,7 +53,7 @@ const AboutBanner = () => {
           variant="outline"
           className="mb-6 bg-emerald-500/20 border-emerald-400 text-emerald-300 text-lg px-6 py-2"
         >
-          Brisbane&apos;s #1 Aquarium Service Since 2020
+          Brisbane&apos;s #1 Fish Tank Cleaning Service Since 2010
         </Badge>
 
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
@@ -69,20 +65,28 @@ const AboutBanner = () => {
 
         <div className="text-xl md:text-2xl text-white/80 mb-8 max-w-4xl mx-auto leading-relaxed space-y-4">
           <p>
-            <strong className="text-emerald-300">Duckaroo</strong> has been
-            Brisbane&apos;s premier
-            <strong> fish tank cleaning</strong> and{" "}
-            <strong>aquarium maintenance service</strong> since 2020. We
-            specialize in creating and maintaining stunning aquatic environments
+            Looking for a reliable{" "}
+            <strong className="text-emerald-300">
+              fish tank cleaning service
+            </strong>{" "}
+            or{" "}
+            <strong className="text-emerald-300">
+              aquarium cleaning service near me
+            </strong>
+            ?<strong className="text-emerald-300"> Duckaroo</strong> has been
+            Brisbane&apos;s premier <strong>fish tank cleaning service</strong>{" "}
+            since 2010, providing professional aquarium cleaning service near me
             across Brisbane, Gold Coast, and all Queensland areas.
           </p>
 
           <p>
-            From <strong>professional aquarium cleaning</strong> in Brisbane CBD
-            to
-            <strong> pond maintenance</strong> in Southside Brisbane, our
-            experienced aquatic specialists deliver exceptional service with
-            same-day availability and 100% satisfaction guarantee.
+            Our experienced <strong>fish tank cleaning service</strong> team
+            specializes in
+            <strong>aquarium cleaning service near me</strong> solutions, from
+            Brisbane CBD to Southside Brisbane. Whether you need routine fish
+            tank cleaning service or emergency aquarium cleaning service near
+            me, we deliver exceptional results with same-day availability and
+            100% satisfaction guarantee.
           </p>
         </div>
 
@@ -165,17 +169,19 @@ const AboutBanner = () => {
               across Queensland.
             </p>
             <p>
-              What started as weekend <strong>fish tank cleaning</strong>{" "}
-              services has grown into Brisbane&apos;s most trusted{" "}
-              <strong>aquarium maintenance company</strong>, serving over 1000+
-              satisfied customers from Brisbane CBD to Gold Coast and everywhere
-              in between.
+              What started as weekend{" "}
+              <strong>fish tank cleaning service</strong> solutions has grown
+              into Brisbane&apos;s most trusted{" "}
+              <strong>aquarium cleaning service near me</strong>, serving over
+              1000+ satisfied customers from Brisbane CBD to Gold Coast and
+              everywhere in between.
             </p>
             <p>
               Our team of experienced aquatic specialists combines 15+ years of
               experience with cutting-edge techniques to deliver exceptional{" "}
-              <strong>aquarium cleaning</strong>, maintenance, and design
-              services that exceed expectations every time.
+              <strong>fish tank cleaning service</strong> and{" "}
+              <strong>aquarium cleaning service near me</strong> solutions that
+              exceed expectations every time.
             </p>
           </div>
         </div>
@@ -208,7 +214,7 @@ const AboutBanner = () => {
       <div className="max-w-6xl mx-auto">
         <Card className="bg-white/15 backdrop-blur-md border border-white/20">
           <CardContent className="p-8">
-            <h2 className="text-2xl font-bold text-white mb-6 text-emerald-300 text-center">
+            <h2 className="text-2xl font-bold text-emerald-300 mb-6 text-center">
               Why Choose Duckaroo for Brisbane Aquarium Services?
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-white/80 text-sm space-y-0 leading-relaxed">
@@ -220,11 +226,11 @@ const AboutBanner = () => {
                   better than anyone else.
                 </p>
                 <p>
-                  <strong>Comprehensive Services:</strong> From routine{" "}
-                  <strong>fish tank cleaning</strong> to emergency aquarium
-                  repairs, <strong>pond maintenance</strong>, and custom
-                  aquascaping design - we&apos;re your one-stop solution for all
-                  aquatic needs.
+                  <strong>Comprehensive Fish Tank Cleaning Service:</strong>{" "}
+                  From routine <strong>fish tank cleaning service</strong> to
+                  emergency <strong>aquarium cleaning service near me</strong>,
+                  pond maintenance, and custom aquascaping design - we&apos;re
+                  your local one-stop solution for all aquatic service needs.
                 </p>
                 <p>
                   <strong>Experienced Professionals:</strong> Our team has
@@ -247,10 +253,12 @@ const AboutBanner = () => {
                   committed to exceeding your expectations on every visit.
                 </p>
                 <p>
-                  <strong>Emergency Support:</strong> Aquarium emergencies
-                  don&apos;t wait for business hours. That&apos;s why we offer
-                  24/7 emergency <strong>fish tank cleaning</strong> and
-                  maintenance services across Brisbane and surrounding areas.
+                  <strong>Emergency Support:</strong> When you need{" "}
+                  <strong>aquarium cleaning service near me</strong> urgently,
+                  we&apos;re here 24/7. We offer emergency{" "}
+                  <strong>fish tank cleaning service</strong> and maintenance
+                  across Brisbane and surrounding areas, because aquarium
+                  emergencies don&apos;t wait for business hours.
                 </p>
               </div>
             </div>

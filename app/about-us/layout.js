@@ -1,31 +1,32 @@
 export const metadata = {
   title:
-    "About Duckaroo - Brisbane's #1 Aquarium & Fish Tank Cleaning Service Since 2010",
+    "About Duckaroo | Fish Tank Cleaning Service & Aquarium Cleaning Service Near Me Brisbane",
   description:
-    "Learn about Duckaroo, Brisbane's premier fish tank cleaning and aquarium maintenance service since 2010. 15+ years experience, 1000+ happy customers, 5-star rated service across Brisbane, Gold Coast & QLD.",
+    "Looking for fish tank cleaning service or aquarium cleaning service near me? Duckaroo is Brisbane's premier fish tank cleaning service since 2010. 15+ years experience, 1000+ happy customers, professional aquarium cleaning service near me across Brisbane, Gold Coast & QLD.",
   keywords: [
-    "about duckaroo",
-    "brisbane aquarium service",
-    "fish tank cleaning brisbane",
-    "aquarium maintenance brisbane",
-    "pond cleaning brisbane",
-    "aquarium company brisbane",
-    "fish tank service brisbane",
-    "aquatic services brisbane",
-    "aquarium technicians brisbane",
-    "pond maintenance brisbane",
-    "aquascaping brisbane",
-    "emergency aquarium service",
-    "brisbane aquarium experts",
-    "gold coast aquarium service",
-    "queensland fish tank cleaning",
+    "fish tank cleaning service",
+    "aquarium cleaning service near me",
+    "fish tank cleaning service Brisbane",
+    "aquarium cleaning service near me Brisbane",
+    "professional fish tank cleaning service",
+    "local aquarium cleaning service near me",
+    "Brisbane fish tank cleaning service",
+    "best aquarium cleaning service near me",
+    "about duckaroo fish tank cleaning service",
+    "aquarium maintenance service near me",
+    "pond cleaning service Brisbane",
+    "emergency fish tank cleaning service",
+    "residential fish tank cleaning service",
+    "commercial aquarium cleaning service near me",
+    "affordable fish tank cleaning service Brisbane",
   ],
 
   openGraph: {
-    title: "About Duckaroo - Brisbane's #1 Aquarium Service Since 2010",
+    title:
+      "About Duckaroo | Fish Tank Cleaning Service & Aquarium Cleaning Service Near Me Brisbane",
     description:
-      "Discover why 1000+ Brisbane customers trust Duckaroo for fish tank cleaning, aquarium maintenance & pond services. 15+ years experience, 5-star rated, same-day service available.",
-    url: "https://duckaroo.com.au/about-us",
+      "Premier fish tank cleaning service & aquarium cleaning service near me in Brisbane. 1000+ customers trust our professional fish tank cleaning service. 15+ years experience, 5-star rated.",
+    url: "https://aquaticswandesign.com.au/about-us",
     siteName: "Duckaroo Aquatic Services",
     images: [
       {
@@ -41,9 +42,9 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "About Duckaroo - Brisbane's #1 Aquarium Service",
+    title: "About Duckaroo | Fish Tank Cleaning Service Near Me Brisbane",
     description:
-      "15+ years experience in fish tank cleaning & aquarium maintenance across Brisbane, Gold Coast & QLD. 1000+ happy customers, 5-star rated service.",
+      "Professional fish tank cleaning service & aquarium cleaning service near me. 15+ years experience across Brisbane, Gold Coast & QLD. 1000+ happy customers.",
     images: [
       "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1739712659/swan-logo-transparent_rphcfl",
     ],
@@ -62,7 +63,7 @@ export const metadata = {
   },
 
   alternates: {
-    canonical: "https://duckaroo.com.au/about-us",
+    canonical: "https://aquaticswandesign.com.au/about-us",
   },
 
   verification: {
@@ -84,7 +85,7 @@ export const metadata = {
     "business:contact_data:country_name": "Australia",
     "business:contact_data:postal_code": "4000",
     "business:contact_data:phone_number": "(04) 57663939",
-    "business:contact_data:website": "https://duckaroo.com.au",
+    "business:contact_data:website": "https://aquaticswandesign.com.au",
   },
 };
 
@@ -98,15 +99,15 @@ export default function AboutUsLayout({ children }) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "AboutPage",
-            "@id": "https://duckaroo.com.au/about-us",
+            "@id": "https://aquaticswandesign.com.au/about-us",
             mainEntity: {
               "@type": "LocalBusiness",
-              "@id": "https://duckaroo.com.au/#organization",
-              name: "Duckaroo",
-              alternateName: "Duckaroo Aquatic Services",
+              "@id": "https://aquaticswandesign.com.au/#organization",
+              name: "Duckaroo Fish Tank Cleaning Service",
+              alternateName: "Duckaroo Aquarium Cleaning Service Near Me",
               description:
-                "Brisbane's premier fish tank cleaning and aquarium maintenance service since 2010. Serving Brisbane, Gold Coast, and Queensland with professional aquatic services.",
-              url: "https://duckaroo.com.au",
+                "Brisbane's premier fish tank cleaning service and aquarium cleaning service near me since 2010. Professional fish tank cleaning service serving Brisbane, Gold Coast, and Queensland.",
+              url: "https://aquaticswandesign.com.au",
               telephone: "(04) 5766 3939",
               email: "aquaticswandesign@gmail.com",
               foundingDate: "2010",
@@ -146,12 +147,12 @@ export default function AboutUsLayout({ children }) {
                 },
               ],
               serviceType: [
-                "Fish Tank Cleaning",
-                "Aquarium Maintenance",
-                "Pond Cleaning",
-                "Aquarium Installation",
-                "Emergency Aquarium Service",
-                "Aquascaping Design",
+                "Fish Tank Cleaning Service",
+                "Aquarium Cleaning Service Near Me",
+                "Professional Fish Tank Cleaning Service",
+                "Aquarium Maintenance Service",
+                "Pond Cleaning Service",
+                "Emergency Fish Tank Cleaning Service",
               ],
               aggregateRating: {
                 "@type": "AggregateRating",
@@ -200,18 +201,18 @@ export default function AboutUsLayout({ children }) {
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Fish Tank Cleaning",
+                      name: "Fish Tank Cleaning Service",
                       description:
-                        "Professional fish tank cleaning services across Brisbane",
+                        "Professional fish tank cleaning service and aquarium cleaning service near me across Brisbane",
                     },
                   },
                   {
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Aquarium Maintenance",
+                      name: "Aquarium Cleaning Service Near Me",
                       description:
-                        "Regular aquarium maintenance and care services",
+                        "Local aquarium cleaning service near me with regular maintenance and care",
                     },
                   },
                   {
