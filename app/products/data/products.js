@@ -66,52 +66,52 @@ export const productsData = [
       "Tank Size": "10+ gallons",
     },
   },
-  // {
-  //   id: 4,
-  //   name: "Vallisneria Spiralis",
-  //   slug: "vallisneria-spiralis",
-  //   category: "plants",
-  //   price: 9.99,
-  //   stock: 35,
-  //   images: [
-  //     "https://images.unsplash.com/photo-1573160103600-36e12caa5317?w=600&h=400&fit=crop&crop=center",
-  //     "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=600&h=400&fit=crop&crop=center",
-  //     "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=600&h=400&fit=crop&crop=center",
-  //     "https://images.unsplash.com/photo-1520637836862-4d197d17c93a?w=600&h=400&fit=crop&crop=center",
-  //   ],
-  //   description:
-  //     "Tall, grass-like plant that creates beautiful underwater meadows. Great for natural aquascaping.",
-  //   features: ["Fast growing", "Tall background plant", "Natural look"],
-  //   specifications: {
-  //     "Plant Type": "Rooted",
-  //     "Light Requirements": "Medium",
-  //     "Growth Rate": "Fast",
-  //     "Tank Size": "20+ gallons",
-  //   },
-  // },
-  // {
-  //   id: 5,
-  //   name: "Dwarf Baby Tears",
-  //   slug: "dwarf-baby-tears",
-  //   category: "plants",
-  //   price: 18.99,
-  //   stock: 20,
-  //   images: [
-  //     "https://images.unsplash.com/photo-1520637836862-4d197d17c93a?w=600&h=400&fit=crop&crop=center",
-  //     "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop&crop=center",
-  //     "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=600&h=400&fit=crop&crop=center",
-  //     "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=600&h=400&fit=crop&crop=center",
-  //   ],
-  //   description:
-  //     "Carpet plant that creates lush green foregrounds. Requires CO2 supplementation for best results.",
-  //   features: ["Carpeting plant", "Vibrant green", "CO2 beneficial"],
-  //   specifications: {
-  //     "Plant Type": "Carpeting",
-  //     "Light Requirements": "High",
-  //     "Growth Rate": "Moderate to Fast",
-  //     "Tank Size": "10+ gallons",
-  //   },
-  // },
+  {
+    id: 4,
+    name: "Rotala rotundifolia(Pink baby tears)",
+    slug: "rotala-rotundifolia",
+    category: "plants",
+    price: 8.5,
+    stock: 9,
+    images: [
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756904517/rotala-pink1739097849_lxdcup.jpg",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756904516/822762743_750x810_srpapf.webp",
+    ],
+    description:
+      "Rotala rotundifolia is a popular aquarium plant of the rotala genus and loosestrife family, which it shares with other well known aquatic plants. Its Latin name 'Rotundifolia' literally means 'round leaves'. Rotundifolia is commonly mistaken for Rotala indica, another popular aquatic plant. It is also known as: Rotala Rotundifolia is a stem plant that thrives in wet, marshy, and aquatic environments and is a staple of aquaculture projects. The wild variety is found semi-immersed as a vigorous growing weed of rice paddies across southern Asia including China and Taiwan and can even be found in southern Europe. Use in aquascaping has led to it being introduced in the US, wherein in some regions, it has an invasive character.",
+    features: ["Fast growing", "Tall background plant", "Natural look"],
+    specifications: {
+      "Plant Type": "Rooted",
+      "Light Requirements": "Medium to High",
+      "Growth Rate": "Moderate to Fast",
+      "Tank Size": "30+ gallons",
+    },
+  },
+  {
+    id: 5,
+    name: "Albino Blue Topaz Guppy PAIR",
+    slug: "albino-blue-topaz-guppy-sold-as-a-pair-male-and-female",
+    category: "livestock",
+    price: 89,
+    stock: 3,
+    images: [
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756905591/Sd8ddf0b556b04623bc2e6333b6c94e01g.jpg_720x720q80_b5pj2k.jpg",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756905165/71122BA7-DBE3-4B54-B4BA-65232756F18D_1024x1024_2x_fa31b968-95cb-4e7f-95c6-1957f6ee4c47_750x810_ujcaig.webp",
+    ],
+    description:
+      "The Albino Blue Topaz Guppy is one of many unique varieties of Poecilia reticulata guppy developed through years of careful, selective breeding. Though guppies are typically known for their vibrant coloration, the male Albino Blue Topaz features an exciting blue-orange coloration on the face, dorsal fin, and tail fin. This fresh, exciting coloration makes the Albino Blue Topaz stand out and is relished by guppy enthusiasts and any freshwater aquarium hobbyist interested in unusual and distinct fish. The guppy (poecilia reticulata) is one of the most beautiful and easy to keep fish of all times. A great tropical fish for freshwater aquarium fish beginners, the Guppy is a very hardy tropical fish that is also a very prolific breeder. The male guppy is easy to distinguish from the female guppy because the male is usually more colorful with extremely colorful and large caudal fins (tails). The female is usually larger, thicker bodied, with less color and a smaller cuadal fin (tail). They are livebearers which means that the babies are free swimming at birth. At each birth, the female can have anywhere between 4 and 60 or more babies. If left in a community tank, the guppy fry will be quickly eaten if not secured in a breeding net or breeder's box. Sadly, even the guppy parents will partake in the baby guppy feast. Please be responsible and have a plan for what to do with the guppy fry. If you're not interested in breeding them they should do just fine when kept as all males or all females. Mix the sexes and you will most likely have babies. If knowing that the larger fish in the tank are having a feast (as they would in the wild) on the baby guppies bothers you then only keep all males or all females. You may sometimes see some aggression amongst the males but nothing too out of hand. Also, keep in mind that female guppies can be pregnant when you buy them from the store. Look for the gravid spot by the anal vent or a bulging in the belly area. The Albino Blue Topaz requires an aquarium of at least 10 gallons in size. It is a very peaceful fish and should be housed with tankmates of similar temperament. Though the Albino Blue Topaz is a hardy fish tolerant of small changes in water parameters, care should be taken to keep water temperature, pH, and nutrient levels in check. This hardy and energetic fish makes an excellent fish for beginning hobbyists. Guppies are relatively easy to breed even for the beginning aquarists. If you are interested in breeding guppies, the ideal aquarium should have a covering of floating plants and a breeding box to protect the fry. Adults may eat the fry if left to fend for themselves without the breeding box. The fry should be fed brine shrimp, micro food, and pulverized flakes. The Albino Blue Topaz is an omnivore and requires both algae-based foods as well as meaty foods. An algae-based flake food, along with freeze-dried bloodworms, tubifex, and brine shrimp will provide guppies with the proper nutrition.",
+    features: [
+      "1-2 years live span",
+      "Beginner friendly",
+      "Blue and orange coloration",
+    ],
+    specifications: {
+      Food: "They will accept most fish food including vitamin enriched flakes, frozen, freeze-dried, and live foods. Try to give them a variety of foods for optimum health and coloration. Feeding them live or frozen foods every once in a while should do wonders for their activity levels and general well being.",
+      "Care Level": "Medium",
+      "Growth Rate": "Slow to Moderate",
+      "Tank Size": "Any",
+    },
+  },
 
   // // Probiotics Category
   // {
@@ -478,15 +478,46 @@ export const productsData = [
   //     "Temperature Range": "32-95°F",
   //     Power: "110V AC",
   //   },
+
   // },
 ];
 
 export const categories = [
-  { id: "all", name: "All Products", count: 20 },
-  { id: "plants", name: "Plants", count: 5 },
-  { id: "probiotics", name: "Probiotics", count: 5 },
-  { id: "accessories", name: "Accessories", count: 5 },
-  { id: "equipment", name: "Equipment", count: 5 },
+  {
+    id: "all",
+    name: "All Products",
+    count: productsData.length,
+  },
+  {
+    id: "plants",
+    name: "Plants",
+    count: productsData.filter((product) => product.category === "plants")
+      .length,
+  },
+  {
+    id: "livestock",
+    name: "Livestock",
+    count: productsData.filter((product) => product.category === "livestock")
+      .length,
+  },
+  {
+    id: "probiotics",
+    name: "Probiotics",
+    count: productsData.filter((product) => product.category === "probiotics")
+      .length,
+  },
+  {
+    id: "accessories",
+    name: "Accessories",
+    count: productsData.filter((product) => product.category === "accessories")
+      .length,
+  },
+  {
+    id: "equipment",
+    name: "Equipment",
+    count: productsData.filter((product) => product.category === "equipment")
+      .length,
+  },
 ];
 
 // Helper function to get product by slug

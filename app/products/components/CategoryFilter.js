@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Leaf, Droplet, Wrench, Settings, Search, X } from "lucide-react";
+import { Leaf, Droplet, Wrench, Settings, Search, X, Fish } from "lucide-react";
 import { categories } from "../data/products";
 
 export default function CategoryFilter({
@@ -19,6 +19,8 @@ export default function CategoryFilter({
     switch (categoryId) {
       case "plants":
         return <Leaf className="w-5 h-5" />;
+      case "livestock":
+        return <Fish className="w-5 h-5" />;
       case "probiotics":
         return <Droplet className="w-5 h-5" />;
       case "accessories":
@@ -34,6 +36,8 @@ export default function CategoryFilter({
     switch (categoryId) {
       case "plants":
         return "text-green-600 hover:text-green-700 hover:bg-green-50";
+      case "livestock":
+        return "text-teal-600 hover:text-teal-700 hover:bg-teal-50";
       case "probiotics":
         return "text-blue-600 hover:text-blue-700 hover:bg-blue-50";
       case "accessories":
@@ -50,6 +54,8 @@ export default function CategoryFilter({
       switch (categoryId) {
         case "plants":
           return "bg-green-100 text-green-800 border-green-300";
+        case "livestock":
+          return "bg-teal-100 text-teal-800 border-teal-300";
         case "probiotics":
           return "bg-blue-100 text-blue-800 border-blue-300";
         case "accessories":

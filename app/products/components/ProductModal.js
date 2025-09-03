@@ -85,6 +85,8 @@ export default function ProductModal({
     switch (category) {
       case "plants":
         return "bg-green-100 text-green-800";
+      case "livestock":
+        return "bg-teal-100 text-teal-800";
       case "probiotics":
         return "bg-blue-100 text-blue-800";
       case "accessories":
