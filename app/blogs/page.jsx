@@ -266,7 +266,7 @@ function FeaturedBlogCard({ blog }) {
       <div className="relative h-48">
         <Image
           src={blog.image}
-          alt={blog.title}
+          alt={blog.imageAlt || blog.title}
           fill
           className="object-cover group-hover:scale-110 transition-transform duration-300"
         />
@@ -315,7 +315,7 @@ function BlogCard({ blog, viewMode, formatDate, getCategoryInfo }) {
             <div className="w-32 h-24 bg-white/20 rounded-lg flex-shrink-0 overflow-hidden">
               <Image
                 src={blog.image}
-                alt={blog.title}
+                alt={blog.imageAlt || blog.title}
                 width={128}
                 height={96}
                 className="w-full h-full object-cover"
@@ -365,7 +365,7 @@ function BlogCard({ blog, viewMode, formatDate, getCategoryInfo }) {
       <div className="relative h-48">
         <Image
           src={blog.image}
-          alt={blog.title}
+          alt={blog.imageAlt || blog.title}
           fill
           className="object-cover group-hover:scale-110 transition-transform duration-300"
         />

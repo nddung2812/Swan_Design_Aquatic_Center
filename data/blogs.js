@@ -31,6 +31,7 @@ export const blogs = [
       "Learn the essential steps for maintaining a crystal-clear aquarium in Brisbane's unique climate conditions.",
     image:
       "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop&crop=center",
+    imageAlt: "Clean aquarium with crystal clear water showing proper maintenance and filtration system in Brisbane conditions",
     category: "aquarium-care",
     author: "Duckaroo Team",
     publishDate: "2024-01-15",
@@ -59,6 +60,7 @@ export const blogs = [
       "Discover how to successfully grow and maintain beautiful Bucephalandra plants in your aquarium.",
     image:
       "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg",
+    imageAlt: "Vibrant green Bucephalandra aquatic plants with rounded leaves growing on driftwood in planted aquarium",
     category: "plant-care",
     author: "Plant Specialist",
     publishDate: "2024-01-10",
@@ -87,6 +89,7 @@ export const blogs = [
       "Identify, prevent, and treat the most common fish diseases to keep your aquatic pets healthy and thriving.",
     image:
       "https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=800&h=600&fit=crop&crop=center",
+    imageAlt: "Healthy colorful tropical fish swimming in well-maintained aquarium demonstrating proper fish health care",
     category: "fish-health",
     author: "Aquatic Health Expert",
     publishDate: "2024-01-05",
@@ -120,6 +123,7 @@ export const blogs = [
       "Compare different types of aquarium filters and learn which system works best for your specific tank setup.",
     image:
       "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756906679/best-small-fish-tank-filter_c3egvr.jpg",
+    imageAlt: "Modern aquarium filter system showing mechanical and biological filtration components for water quality maintenance",
     category: "equipment",
     author: "Equipment Specialist",
     publishDate: "2024-01-01",
@@ -153,6 +157,7 @@ export const blogs = [
       "Master the art of aquascaping with professional techniques to create stunning natural underwater landscapes.",
     image:
       "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=800&h=600&fit=crop&crop=center",
+    imageAlt: "Beautiful natural aquascape layout featuring driftwood, rocks, and aquatic plants creating underwater landscape",
     category: "aquascaping",
     author: "Aquascape Designer",
     publishDate: "2023-12-28",
@@ -186,6 +191,7 @@ export const blogs = [
       "Explore the diverse world of Anubias plants and learn how to successfully grow different varieties in your aquarium.",
     image:
       "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop&crop=center",
+    imageAlt: "Various Anubias plant varieties with broad green leaves attached to driftwood in aquarium setup",
     category: "plant-care",
     author: "Plant Expert",
     publishDate: "2023-12-25",
@@ -214,6 +220,7 @@ export const blogs = [
       "Keep your outdoor pond healthy year-round with this comprehensive seasonal maintenance guide tailored for Brisbane's climate.",
     image:
       "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=600&fit=crop&crop=center",
+    imageAlt: "Well-maintained outdoor pond with koi fish and aquatic plants in Brisbane garden setting",
     category: "aquarium-care",
     author: "Pond Specialist",
     publishDate: "2023-12-20",
@@ -242,6 +249,7 @@ export const blogs = [
       "Learn how to choose and set up LED lighting systems for optimal plant growth and stunning visual effects.",
     image:
       "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center",
+    imageAlt: "Modern LED lighting system illuminating lush planted aquarium with various aquatic plants and optimal growth conditions",
     category: "equipment",
     author: "Lighting Expert",
     publishDate: "2023-12-15",
@@ -275,6 +283,7 @@ export const blogs = [
       "Master the nitrogen cycle and learn how to properly cycle your new aquarium for healthy fish and stable water conditions.",
     image:
       "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center",
+    imageAlt: "New aquarium setup during cycling process with clear water and basic equipment for establishing beneficial bacteria",
     category: "aquarium-care",
     author: "Aquarium Expert",
     publishDate: "2023-12-10",
@@ -308,6 +317,7 @@ export const blogs = [
       "Discover how CO2 injection can transform your planted aquarium and learn the proper setup techniques for optimal results.",
     image:
       "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=800&h=600&fit=crop&crop=center",
+    imageAlt: "Planted aquarium with CO2 injection system showing healthy plant growth and bubble counter equipment",
     category: "equipment",
     author: "CO2 Specialist",
     publishDate: "2023-12-05",
@@ -331,6 +341,41 @@ export const blogs = [
       metaTitle: "CO2 Injection Guide | Setup & Benefits for Planted Tanks",
       metaDescription:
         "Complete CO2 injection guide for planted aquariums. Learn setup, benefits, safety, and optimal levels for explosive plant growth.",
+    },
+  },
+  {
+    id: 11,
+    slug: "aquascaping-tools-essentials-guide",
+    title: "What Aquascaping tools do you all like?",
+    description:
+      "Discover the essential aquascaping tools you actually need and creative alternatives that won't break the bank.",
+    image:
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756907300/2_b38f7904-b909-4039-b3e1-22da376607ff_587x_nu97yx.webp",
+    imageAlt: "Collection of essential aquascaping tools including tweezers, scissors, and maintenance equipment for planted tanks",
+    category: "aquascaping",
+    author: "Aquascape Enthusiast",
+    publishDate: "2024-01-23",
+    readTime: "5 min read",
+    featured: false,
+    content: [
+      "When I first started aquascaping, the range of tools available was tiny—and anything I could find was super expensive. So I kept things simple and made do with what I had. Over time, I realized that you don't actually need a massive collection of gear to maintain a healthy, beautiful aquascape. Here's what I use:",
+      "Long tweezers and long scissors – These are the two tools I reach for the most. The tweezers make planting and repositioning easy, while the scissors are perfect for trimming stems and maintaining shape.",
+      "Bent tweezers – I own them, but honestly, they rarely see any action.",
+      "Back when tools were harder to come by, I had to improvise. My go-to hack? A chopstick. I still use it sometimes for raking gravel in tight spots where my hand just won't work. Simple, effective, and free.",
+      "Other than the basics, here's what I keep around: Slim gravel vacuum, Turkey baster (great for spot-cleaning debris), Glass scourer and toothbrush (algae patrol!), Net, Water change jug that works a bit like a colander.",
+      "And that's it! Nothing fancy, just practical tools that get the job done.",
+      "I'd love to hear what other aquascapers are using. Do you keep it minimal like me, or do you go all-in with the full toolset? Drop a comment and share your must-have items!",
+    ],
+    tags: [
+      "aquascaping tools",
+      "essential equipment",
+      "budget aquascaping",
+      "diy aquarium tools",
+    ],
+    seo: {
+      metaTitle: "Essential Aquascaping Tools Guide | Budget-Friendly Options",
+      metaDescription:
+        "Discover the must-have aquascaping tools that won't break the bank. Learn about essential tweezers, scissors, and creative DIY alternatives.",
     },
   },
 ];

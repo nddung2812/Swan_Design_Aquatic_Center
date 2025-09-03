@@ -185,14 +185,32 @@ export default async function BlogPost({ params }) {
             </div>
 
             {/* Featured Image */}
-            <div className="relative h-64 md:h-96 rounded-xl overflow-hidden mb-8">
+            <div className="relative h-64 md:h-96 rounded-xl overflow-hidden mb-8 group cursor-pointer bg-gradient-to-br from-white/5 to-white/10 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <Image
                 src={blog.image}
-                alt={blog.title}
+                alt={blog.imageAlt || blog.title}
                 fill
-                className="object-cover"
+                className="object-cover scale-110 group-hover:object-contain group-hover:scale-100 transition-all duration-700 ease-in-out"
                 priority
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-700"></div>
+              <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200">
+                <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
+                  <svg
+                    className="w-5 h-5 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                    />
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
         </header>
@@ -306,7 +324,7 @@ function RelatedBlogCard({ blog }) {
       <div className="relative h-48">
         <Image
           src={blog.image}
-          alt={blog.title}
+          alt={blog.imageAlt || blog.title}
           fill
           className="object-cover group-hover:scale-110 transition-transform duration-300"
         />
