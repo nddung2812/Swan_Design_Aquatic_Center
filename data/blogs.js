@@ -58,7 +58,7 @@ export const blogs = [
     description:
       "Discover how to successfully grow and maintain beautiful Bucephalandra plants in your aquarium.",
     image:
-      "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=800&h=600&fit=crop&crop=center",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg",
     category: "plant-care",
     author: "Plant Specialist",
     publishDate: "2024-01-10",
@@ -119,7 +119,7 @@ export const blogs = [
     description:
       "Compare different types of aquarium filters and learn which system works best for your specific tank setup.",
     image:
-      "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756906679/best-small-fish-tank-filter_c3egvr.jpg",
     category: "equipment",
     author: "Equipment Specialist",
     publishDate: "2024-01-01",
