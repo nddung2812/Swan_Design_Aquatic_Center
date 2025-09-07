@@ -11,6 +11,125 @@ import { productsData } from "./data/products";
 import Footer from "@/app/components/Footer";
 import { useCart } from "@/app/context/CartContext";
 
+// JSON-LD structured data component for the products listing page
+function ProductsListingStructuredData({ products, selectedCategory }) {
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL || "https://aquaticswandesign.com.au";
+
+  // Organization structured data
+  const organizationData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Duckaroo - Swan Design Aquatic Center",
+    url: baseUrl,
+    description:
+      "Brisbane's premier aquatic plant and aquarium supply specialist",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Brisbane",
+      addressRegion: "QLD",
+      addressCountry: "AU",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "Customer Service",
+      areaServed: "AU",
+    },
+  };
+
+  // Breadcrumb structured data
+  const breadcrumbData = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: baseUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Products",
+        item: `${baseUrl}/products`,
+      },
+    ],
+  };
+
+  // Collection page structured data
+  const collectionPageData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name:
+      selectedCategory === "all"
+        ? "Premium Aquatic Plants & Aquarium Supplies"
+        : `${
+            selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)
+          } - Aquatic Plants & Supplies`,
+    description:
+      selectedCategory === "all"
+        ? "Discover Australia's premier collection of rare Bucephalandra, Anubias, and other exotic aquatic plants. Shipped nationwide from our Brisbane facility."
+        : `Premium ${selectedCategory} for aquascaping enthusiasts. Australia-wide shipping with live arrival guarantee.`,
+    url:
+      selectedCategory === "all"
+        ? `${baseUrl}/products`
+        : `${baseUrl}/products?category=${selectedCategory}`,
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: products.length,
+      itemListElement: products.slice(0, 10).map((product, index) => ({
+        "@type": "Product",
+        position: index + 1,
+        name: product.name,
+        url: `${baseUrl}/products/${product.slug}`,
+        image: product.images[0],
+        description: product.description.substring(0, 160) + "...",
+        offers: {
+          "@type": "Offer",
+          price: product.price.toString(),
+          priceCurrency: "AUD",
+          availability:
+            product.stock > 0
+              ? "https://schema.org/InStock"
+              : "https://schema.org/OutOfStock",
+          url: `${baseUrl}/products/${product.slug}`,
+          seller: {
+            "@type": "Organization",
+            name: "Duckaroo - Swan Design Aquatic Center",
+          },
+        },
+        aggregateRating: product.reviews
+          ? {
+              "@type": "AggregateRating",
+              ratingValue: product.reviews.rating,
+              reviewCount: product.reviews.count,
+              bestRating: "5",
+              worstRating: "1",
+            }
+          : undefined,
+      })),
+    },
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageData) }}
+      />
+    </>
+  );
+}
+
 export default function ProductsPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
@@ -42,6 +161,10 @@ export default function ProductsPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <ProductsListingStructuredData
+        products={filteredProducts}
+        selectedCategory={selectedCategory}
+      />
       <div className="flex-grow bg-gray-50 pt-8">
         <div className="container mx-auto px-4 py-8">
           <div className="flex items-center gap-4 mb-8">

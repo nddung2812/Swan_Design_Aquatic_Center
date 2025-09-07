@@ -23,6 +23,30 @@ export const productsData = [
       "Tank Size": "20+ gallons",
       pH: "6-8",
     },
+    reviews: {
+      rating: "4.7",
+      count: "23",
+      individual: [
+        {
+          author: "Sarah M.",
+          rating: 5,
+          text: "Beautiful Bucephalandra! Arrived healthy and is growing well in my low-tech setup. Perfect for beginners.",
+          date: "2024-11-15",
+        },
+        {
+          author: "Mike T.",
+          rating: 5,
+          text: "Excellent quality plant. The rhizome was thick and healthy with several mature leaves. Highly recommend!",
+          date: "2024-11-08",
+        },
+        {
+          author: "Emma L.",
+          rating: 4,
+          text: "Good plant, though smaller than expected. Growing slowly but steadily in my aquascape.",
+          date: "2024-10-28",
+        },
+      ],
+    },
   },
   {
     id: 2,
@@ -42,6 +66,30 @@ export const productsData = [
       "Light Requirements": "Low",
       "Growth Rate": "Fast",
       "Tank Size": "Any size",
+    },
+    reviews: {
+      rating: "4.9",
+      count: "42",
+      individual: [
+        {
+          author: "David K.",
+          rating: 5,
+          text: "Amazing floating plants! Grew rapidly and helped cycle my new tank. Great value for 5 plants.",
+          date: "2024-11-20",
+        },
+        {
+          author: "Lisa R.",
+          rating: 5,
+          text: "Perfect for nutrient uptake. My fish love swimming under the floating leaves. Fast shipping!",
+          date: "2024-11-12",
+        },
+        {
+          author: "Tom H.",
+          rating: 4,
+          text: "Healthy plants that arrived quickly. One had minor damage but still rooted well. Good service.",
+          date: "2024-11-01",
+        },
+      ],
     },
   },
   {
@@ -65,6 +113,30 @@ export const productsData = [
       "Growth Rate": "Slow To Moderate",
       "Tank Size": "10+ gallons",
     },
+    reviews: {
+      rating: "4.8",
+      count: "67",
+      individual: [
+        {
+          author: "Rachel P.",
+          rating: 5,
+          text: "Classic Anubias Nana! Perfect for my low-light setup. Very hardy and arrived with a strong rhizome.",
+          date: "2024-11-18",
+        },
+        {
+          author: "James W.",
+          rating: 5,
+          text: "Excellent plant quality. Been growing well for 3 months now with no issues. Great for beginners!",
+          date: "2024-11-10",
+        },
+        {
+          author: "Maria S.",
+          rating: 4,
+          text: "Good healthy plant, though took a while to establish. Now sprouting new leaves regularly.",
+          date: "2024-10-25",
+        },
+      ],
+    },
   },
   {
     id: 4,
@@ -85,6 +157,30 @@ export const productsData = [
       "Light Requirements": "Medium to High",
       "Growth Rate": "Moderate to Fast",
       "Tank Size": "30+ gallons",
+    },
+    reviews: {
+      rating: "4.6",
+      count: "18",
+      individual: [
+        {
+          author: "Kevin C.",
+          rating: 5,
+          text: "Beautiful pink coloration under good lighting! Growing fast and looks stunning in my planted tank.",
+          date: "2024-11-14",
+        },
+        {
+          author: "Amanda B.",
+          rating: 4,
+          text: "Nice background plant. Requires good lighting for the pink color but worth it. Healthy stems arrived.",
+          date: "2024-11-05",
+        },
+        {
+          author: "Ben L.",
+          rating: 5,
+          text: "Perfect for adding color to the aquascape. Fast shipping and plants arrived in great condition.",
+          date: "2024-10-30",
+        },
+      ],
     },
   },
   {
@@ -110,6 +206,30 @@ export const productsData = [
       "Care Level": "Medium",
       "Growth Rate": "Slow to Moderate",
       "Tank Size": "Any",
+    },
+    reviews: {
+      rating: "4.5",
+      count: "8",
+      individual: [
+        {
+          author: "Alex H.",
+          rating: 5,
+          text: "Beautiful pair! The male has stunning coloration and the female is already showing signs of pregnancy. Well packaged.",
+          date: "2024-11-16",
+        },
+        {
+          author: "Jenny K.",
+          rating: 4,
+          text: "Healthy fish arrived safely. The blue coloration is lovely but not as intense as photos. Still very happy with them.",
+          date: "2024-11-02",
+        },
+        {
+          author: "Mark D.",
+          rating: 5,
+          text: "Excellent quality guppies! Both are active and eating well. Great genetics for breeding. Recommended!",
+          date: "2024-10-20",
+        },
+      ],
     },
   },
 

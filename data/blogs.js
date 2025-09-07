@@ -31,7 +31,8 @@ export const blogs = [
       "Learn the essential steps for maintaining a crystal-clear aquarium in Brisbane's unique climate conditions.",
     image:
       "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop&crop=center",
-    imageAlt: "Clean aquarium with crystal clear water showing proper maintenance and filtration system in Brisbane conditions",
+    imageAlt:
+      "Clean aquarium with crystal clear water showing proper maintenance and filtration system in Brisbane conditions",
     category: "aquarium-care",
     author: "Duckaroo Team",
     publishDate: "2024-01-15",
@@ -60,7 +61,8 @@ export const blogs = [
       "Discover how to successfully grow and maintain beautiful Bucephalandra plants in your aquarium.",
     image:
       "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg",
-    imageAlt: "Vibrant green Bucephalandra aquatic plants with rounded leaves growing on driftwood in planted aquarium",
+    imageAlt:
+      "Vibrant green Bucephalandra aquatic plants with rounded leaves growing on driftwood in planted aquarium",
     category: "plant-care",
     author: "Plant Specialist",
     publishDate: "2024-01-10",
@@ -89,7 +91,8 @@ export const blogs = [
       "Identify, prevent, and treat the most common fish diseases to keep your aquatic pets healthy and thriving.",
     image:
       "https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=800&h=600&fit=crop&crop=center",
-    imageAlt: "Healthy colorful tropical fish swimming in well-maintained aquarium demonstrating proper fish health care",
+    imageAlt:
+      "Healthy colorful tropical fish swimming in well-maintained aquarium demonstrating proper fish health care",
     category: "fish-health",
     author: "Aquatic Health Expert",
     publishDate: "2024-01-05",
@@ -123,7 +126,8 @@ export const blogs = [
       "Compare different types of aquarium filters and learn which system works best for your specific tank setup.",
     image:
       "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756906679/best-small-fish-tank-filter_c3egvr.jpg",
-    imageAlt: "Modern aquarium filter system showing mechanical and biological filtration components for water quality maintenance",
+    imageAlt:
+      "Modern aquarium filter system showing mechanical and biological filtration components for water quality maintenance",
     category: "equipment",
     author: "Equipment Specialist",
     publishDate: "2024-01-01",
@@ -157,7 +161,8 @@ export const blogs = [
       "Master the art of aquascaping with professional techniques to create stunning natural underwater landscapes.",
     image:
       "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=800&h=600&fit=crop&crop=center",
-    imageAlt: "Beautiful natural aquascape layout featuring driftwood, rocks, and aquatic plants creating underwater landscape",
+    imageAlt:
+      "Beautiful natural aquascape layout featuring driftwood, rocks, and aquatic plants creating underwater landscape",
     category: "aquascaping",
     author: "Aquascape Designer",
     publishDate: "2023-12-28",
@@ -191,7 +196,8 @@ export const blogs = [
       "Explore the diverse world of Anubias plants and learn how to successfully grow different varieties in your aquarium.",
     image:
       "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop&crop=center",
-    imageAlt: "Various Anubias plant varieties with broad green leaves attached to driftwood in aquarium setup",
+    imageAlt:
+      "Various Anubias plant varieties with broad green leaves attached to driftwood in aquarium setup",
     category: "plant-care",
     author: "Plant Expert",
     publishDate: "2023-12-25",
@@ -220,7 +226,8 @@ export const blogs = [
       "Keep your outdoor pond healthy year-round with this comprehensive seasonal maintenance guide tailored for Brisbane's climate.",
     image:
       "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=600&fit=crop&crop=center",
-    imageAlt: "Well-maintained outdoor pond with koi fish and aquatic plants in Brisbane garden setting",
+    imageAlt:
+      "Well-maintained outdoor pond with koi fish and aquatic plants in Brisbane garden setting",
     category: "aquarium-care",
     author: "Pond Specialist",
     publishDate: "2023-12-20",
@@ -249,7 +256,8 @@ export const blogs = [
       "Learn how to choose and set up LED lighting systems for optimal plant growth and stunning visual effects.",
     image:
       "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center",
-    imageAlt: "Modern LED lighting system illuminating lush planted aquarium with various aquatic plants and optimal growth conditions",
+    imageAlt:
+      "Modern LED lighting system illuminating lush planted aquarium with various aquatic plants and optimal growth conditions",
     category: "equipment",
     author: "Lighting Expert",
     publishDate: "2023-12-15",
@@ -283,7 +291,8 @@ export const blogs = [
       "Master the nitrogen cycle and learn how to properly cycle your new aquarium for healthy fish and stable water conditions.",
     image:
       "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center",
-    imageAlt: "New aquarium setup during cycling process with clear water and basic equipment for establishing beneficial bacteria",
+    imageAlt:
+      "New aquarium setup during cycling process with clear water and basic equipment for establishing beneficial bacteria",
     category: "aquarium-care",
     author: "Aquarium Expert",
     publishDate: "2023-12-10",
@@ -317,7 +326,8 @@ export const blogs = [
       "Discover how CO2 injection can transform your planted aquarium and learn the proper setup techniques for optimal results.",
     image:
       "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=800&h=600&fit=crop&crop=center",
-    imageAlt: "Planted aquarium with CO2 injection system showing healthy plant growth and bubble counter equipment",
+    imageAlt:
+      "Planted aquarium with CO2 injection system showing healthy plant growth and bubble counter equipment",
     category: "equipment",
     author: "CO2 Specialist",
     publishDate: "2023-12-05",
@@ -351,7 +361,8 @@ export const blogs = [
       "Discover the essential aquascaping tools you actually need and creative alternatives that won't break the bank.",
     image:
       "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756907300/2_b38f7904-b909-4039-b3e1-22da376607ff_587x_nu97yx.webp",
-    imageAlt: "Collection of essential aquascaping tools including tweezers, scissors, and maintenance equipment for planted tanks",
+    imageAlt:
+      "Collection of essential aquascaping tools including tweezers, scissors, and maintenance equipment for planted tanks",
     category: "aquascaping",
     author: "Aquascape Enthusiast",
     publishDate: "2024-01-23",

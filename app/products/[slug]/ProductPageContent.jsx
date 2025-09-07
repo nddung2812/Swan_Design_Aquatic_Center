@@ -28,7 +28,8 @@ import { toast } from "react-toastify";
 
 // JSON-LD structured data component
 function ProductStructuredData({ product }) {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://duckaroo.com.au";
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL || "https://aquaticswandesign.com.au";
 
   // Enhanced product structured data with Brisbane location and shipping
   const structuredData = {
@@ -57,30 +58,51 @@ function ProductStructuredData({ product }) {
     },
     offers: {
       "@type": "Offer",
+      "@id": `${baseUrl}/products/${product.slug}#offer`,
       url: `${baseUrl}/products/${product.slug}`,
       priceCurrency: "AUD",
       price: product.price.toString(),
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        price: product.price.toString(),
+        priceCurrency: "AUD",
+        valueAddedTaxIncluded: true,
+      },
       availability:
         product.stock > 0
           ? "https://schema.org/InStock"
           : "https://schema.org/OutOfStock",
+      itemCondition: "https://schema.org/NewCondition",
+      validFrom: "2024-01-01",
+      priceValidUntil: "2025-12-31",
       seller: {
         "@type": "Organization",
-        name: "Duckaroo Brisbane",
+        "@id": `${baseUrl}#organization`,
+        name: "Duckaroo - Swan Design Aquatic Center",
         url: baseUrl,
+        logo: `${baseUrl}/swan-favicon.png`,
         address: {
           "@type": "PostalAddress",
           addressLocality: "Brisbane",
           addressRegion: "QLD",
           addressCountry: "AU",
         },
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "Customer Service",
+          areaServed: "AU",
+        },
       },
       shippingDetails: {
         "@type": "OfferShippingDetails",
         shippingRate: {
           "@type": "MonetaryAmount",
-          value: "Free",
+          value: "0.00",
           currency: "AUD",
+        },
+        shippingDestination: {
+          "@type": "DefinedRegion",
+          addressCountry: "AU",
         },
         deliveryTime: {
           "@type": "ShippingDeliveryTime",
@@ -97,10 +119,15 @@ function ProductStructuredData({ product }) {
             unitCode: "DAY",
           },
         },
-        shippingDestination: {
-          "@type": "DefinedRegion",
-          addressCountry: "AU",
-        },
+      },
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy",
+        applicableCountry: "AU",
+        returnPolicyCategory:
+          "https://schema.org/MerchantReturnFiniteReturnWindow",
+        merchantReturnDays: 30,
+        returnMethod: "https://schema.org/ReturnByMail",
+        returnFees: "https://schema.org/FreeReturn",
       },
       warranty: {
         "@type": "WarrantyPromise",
@@ -111,15 +138,31 @@ function ProductStructuredData({ product }) {
         },
         warrantyScope: "Live Arrival Guarantee",
       },
-      priceValidUntil: "2024-12-31",
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "127",
+      ratingValue: product.reviews?.rating || "4.5",
+      reviewCount: product.reviews?.count || "1",
       bestRating: "5",
       worstRating: "1",
     },
+    review:
+      product.reviews?.individual?.map((review, index) => ({
+        "@type": "Review",
+        "@id": `${baseUrl}/products/${product.slug}#review${index + 1}`,
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: review.rating.toString(),
+          bestRating: "5",
+          worstRating: "1",
+        },
+        author: {
+          "@type": "Person",
+          name: review.author,
+        },
+        reviewBody: review.text,
+        datePublished: review.date,
+      })) || [],
     category: product.category,
     ...(product.category === "plants" && {
       additionalType: "LivePlant",
@@ -413,10 +456,19 @@ export default function ProductPageContent({ params }) {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center text-yellow-500">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-current" />
+                      <Star
+                        key={i}
+                        className={`w-5 h-5 ${
+                          i <
+                          Math.floor(parseFloat(product.reviews?.rating || "5"))
+                            ? "fill-current text-yellow-500"
+                            : "text-gray-300"
+                        }`}
+                      />
                     ))}
                     <span className="ml-2 text-gray-600">
-                      (4.8) · 127 reviews
+                      ({product.reviews?.rating || "5.0"}) ·{" "}
+                      {product.reviews?.count || "1"} reviews
                     </span>
                   </div>
                   <div className="flex items-center space-x-2">
