@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -8,14 +11,44 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
 
 const Navbar = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Handle click outside to close dropdown (desktop only)
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    if (dropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownOpen]);
+
   const navItems = [
     { href: "/", label: "Home" },
     { href: "/products", label: "Products" },
     { href: "/service", label: "Service" },
-    { href: "/blogs", label: "Blogs" },
+    {
+      label: "Blogs",
+      dropdown: [
+        { href: "/blogs", label: "All Blogs" },
+        {
+          href: "/how-to-setup-your-first-aquarium",
+          label: "Aquarium Setup Guide",
+        },
+      ],
+    },
     {
       href: "https://duckaroo.com.au/collections/aquarium-designs",
       label: "Gallery",
@@ -44,19 +77,53 @@ const Navbar = () => {
 
           {/* Desktop Navigation - Only show on XL screens (1280px+) */}
           <div className="hidden xl:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="text-white/90 hover:text-purple-400 transition-colors duration-200 font-medium"
-                {...(item.href.startsWith("http") && {
-                  target: "_blank",
-                  rel: "noreferrer",
-                })}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              if (item.dropdown) {
+                return (
+                  <div key={item.label} className="relative" ref={dropdownRef}>
+                    <button
+                      className="text-white/90 hover:text-purple-400 transition-colors duration-200 font-medium flex items-center space-x-1"
+                      onMouseEnter={() => setDropdownOpen(true)}
+                    >
+                      <span>{item.label}</span>
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform duration-200 ${
+                          dropdownOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    {dropdownOpen && (
+                      <div className="absolute top-full left-0 mt-2 min-w-[220px] bg-black/95 backdrop-blur-md border border-white/10 rounded-lg shadow-xl z-50">
+                        <div className="py-2">
+                          {item.dropdown.map((dropdownItem) => (
+                            <Link
+                              key={dropdownItem.href}
+                              href={dropdownItem.href}
+                              className="block px-4 py-3 text-white/90 hover:text-purple-400 hover:bg-white/5 transition-all duration-200 font-medium"
+                            >
+                              {dropdownItem.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="text-white/90 hover:text-purple-400 transition-colors duration-200 font-medium"
+                  {...(item.href.startsWith("http") && {
+                    target: "_blank",
+                    rel: "noreferrer",
+                  })}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Desktop CTA Buttons - Only show on XL screens (1280px+) */}
@@ -96,19 +163,53 @@ const Navbar = () => {
                 </SheetTitle>
               </SheetHeader>
               <div className="flex flex-col space-y-6 mt-8">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className="text-white/90 hover:text-purple-400 transition-colors duration-200 font-medium text-lg"
-                    {...(item.href.startsWith("http") && {
-                      target: "_blank",
-                      rel: "noreferrer",
-                    })}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+                {navItems.map((item) => {
+                  if (item.dropdown) {
+                    return (
+                      <div key={item.label} className="space-y-2">
+                        <button
+                          onClick={() =>
+                            setMobileDropdownOpen(!mobileDropdownOpen)
+                          }
+                          className="text-white/90 hover:text-purple-400 transition-colors duration-200 font-medium text-lg flex items-center justify-between w-full"
+                        >
+                          <span>{item.label}</span>
+                          <ChevronDown
+                            className={`h-4 w-4 transition-transform duration-200 ${
+                              mobileDropdownOpen ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+                        {mobileDropdownOpen && (
+                          <div className="pl-4 space-y-3 border-l-2 border-purple-400/30 animate-in slide-in-from-top-2 duration-200">
+                            {item.dropdown.map((dropdownItem) => (
+                              <Link
+                                key={dropdownItem.href}
+                                href={dropdownItem.href}
+                                className="block text-white/80 hover:text-purple-400 transition-colors duration-200 font-medium"
+                              >
+                                {dropdownItem.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  }
+                  return (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className="text-white/90 hover:text-purple-400 transition-colors duration-200 font-medium text-lg"
+                      {...(item.href.startsWith("http") && {
+                        target: "_blank",
+                        rel: "noreferrer",
+                      })}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
                 <div className="flex flex-col space-y-4 pt-6 border-t border-white/10">
                   <Button
                     asChild
