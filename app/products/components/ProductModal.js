@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import {
   Dialog,
   DialogContent,
@@ -120,13 +121,15 @@ export default function ProductModal({
           <div className="space-y-4">
             {/* Main Image */}
             <div className="relative overflow-hidden rounded-lg">
-              <img
+              <Image
                 src={productImages[selectedImageIndex]}
                 alt={`${product.name} - Image ${selectedImageIndex + 1}`}
+                width={600}
+                height={320}
                 className="w-full h-80 object-cover"
-                onError={(e) => {
-                  e.target.src = `https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=600&h=400&fit=crop&crop=center`;
-                }}
+                loading="lazy"
+                quality={85}
+                sizes="(max-width: 768px) 100vw, 600px"
               />
               <Badge
                 className={`absolute top-4 left-4 ${getCategoryBadgeColor(
@@ -155,13 +158,15 @@ export default function ProductModal({
                         : "border-gray-200 hover:border-gray-300"
                     }`}
                   >
-                    <img
+                    <Image
                       src={image}
                       alt={`${product.name} - Thumbnail ${index + 1}`}
+                      width={200}
+                      height={80}
                       className="w-full h-20 object-cover"
-                      onError={(e) => {
-                        e.target.src = `https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=200&h=150&fit=crop&crop=center`;
-                      }}
+                      loading="lazy"
+                      quality={70}
+                      sizes="200px"
                     />
                     {selectedImageIndex === index && (
                       <div className="absolute inset-0 bg-blue-500 bg-opacity-20 flex items-center justify-center">

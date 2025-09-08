@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -127,16 +128,18 @@ export default function ProductGrid({ products, onAddToCart }) {
             <CardHeader className="p-0">
               <div className="relative overflow-hidden rounded-t-lg">
                 <Link href={`/products/${product.slug}`}>
-                  <img
+                  <Image
                     src={
                       product.images?.[0] ||
                       "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=400&h=300&fit=crop&crop=center"
                     }
                     alt={product.name}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 cursor-pointer"
-                    onError={(e) => {
-                      e.target.src = `https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=400&h=300&fit=crop&crop=center`;
-                    }}
+                    width={400}
+                    height={192}
+                    className="w-full h-48 object-cover md:group-hover:scale-105 md:transition-transform md:duration-300 cursor-pointer"
+                    loading="lazy"
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </Link>
                 <Badge

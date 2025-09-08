@@ -125,16 +125,7 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://duckaroo.com.au" />
         <link rel="dns-prefetch" href="https://duckaroo.com.au" />
 
-        {/* Critical font preload */}
-        <link
-          rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-          as="style"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-        />
+        {/* Font optimization handled by Next.js font system */}
 
         {/* Critical CSS for immediate LCP rendering - Mobile Optimized */}
         <style

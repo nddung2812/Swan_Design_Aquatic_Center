@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Plus, Minus, Trash2, CreditCard, X } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { productsData } from "../data/products";
 import { useCart } from "@/app/context/CartContext";
 import { toast } from "react-toastify";
@@ -140,16 +141,17 @@ export default function Cart() {
                             key={item.id}
                             className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg"
                           >
-                            <img
+                            <Image
                               src={
                                 item.images?.[0] ||
                                 "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=100&h=100&fit=crop&crop=center"
                               }
                               alt={item.name}
+                              width={64}
+                              height={64}
                               className="w-16 h-16 object-cover rounded"
-                              onError={(e) => {
-                                e.target.src = `https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=100&h=100&fit=crop&crop=center`;
-                              }}
+                              loading="lazy"
+                              quality={75}
                             />
                             <div className="flex-1 min-w-0">
                               <h4 className="font-medium text-sm truncate">
