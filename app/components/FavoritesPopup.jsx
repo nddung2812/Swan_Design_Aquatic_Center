@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { X, Heart, ShoppingBag, Star } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { getFavorites, clearFavorites } from "@/app/utils/favorites";
 
 const FavoritesPopup = ({ isOpen, onClose }) => {
@@ -122,13 +123,15 @@ const FavoritesPopup = ({ isOpen, onClose }) => {
                       className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-200"
                     >
                       <div className="relative overflow-hidden rounded-t-lg">
-                        <img
+                        <Image
                           src={item.image}
                           alt={item.name}
-                          className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
-                          onError={(e) => {
-                            e.target.src = `https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=400&h=300&fit=crop&crop=center`;
-                          }}
+                          width={400}
+                          height={128}
+                          className="w-full h-32 object-cover md:group-hover:scale-105 md:transition-transform md:duration-300"
+                          loading="lazy"
+                          quality={80}
+                          sizes="(max-width: 768px) 100vw, 400px"
                         />
                         <div className="absolute top-2 left-2">
                           <Badge className="bg-red-500 text-white text-xs">

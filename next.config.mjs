@@ -50,7 +50,7 @@ const nextConfig = {
     optimizeCss: false,
   },
   webpack: (config, { dev, isServer }) => {
-    // Completely disable CSS optimization to avoid SCSS parsing issues
+    // Only disable CSS optimization to avoid SCSS parsing issues, but keep JS minification
     if (!dev) {
       config.optimization.minimizer = config.optimization.minimizer.filter(
         (plugin) =>
@@ -58,7 +58,7 @@ const nextConfig = {
           plugin.constructor.name !== "OptimizeCssAssetsWebpackPlugin"
       );
 
-      // Disable CSS optimization entirely
+      // Disable CSS optimization entirely to avoid CSS syntax errors
       config.optimization.minimize = false;
     }
 
