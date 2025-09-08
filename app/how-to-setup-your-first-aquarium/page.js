@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, lazy, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
@@ -11,11 +11,13 @@ function AquariumGuideBanner() {
   return (
     <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
       <Image
-        src="https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757335537/bucephalandra_bush_oyiznj"
+        src="https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto,w_800,h_400,c_fill/v1757335537/bucephalandra_bush_oyiznj"
         alt="Beautiful planted aquarium setup guide - The Ultimate Beginner's Guide"
         fill
         className="object-cover"
         priority
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+        quality={85}
       />
       <div className="absolute inset-0 bg-black bg-opacity-40" />
       <div className="absolute inset-0 flex items-center justify-center">
@@ -47,12 +49,15 @@ function ImageSection() {
           rel="noopener noreferrer"
           className="group"
         >
-          <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105 cursor-pointer">
+          <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-lg md:transition-transform md:duration-300 md:group-hover:scale-105 cursor-pointer">
             <Image
-              src="https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756906679/best-small-fish-tank-filter_c3egvr"
+              src="https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto,w_600,h_400,c_fill/v1756906679/best-small-fish-tank-filter_c3egvr"
               alt="Essential aquarium equipment including filter, heater, and lighting"
               fill
-              className="object-cover transition-transform duration-300 group-hover:scale-110"
+              className="object-cover md:transition-transform md:duration-300 md:group-hover:scale-110"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={80}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent group-hover:from-black/60" />
             <div className="absolute bottom-4 left-4 text-white">
@@ -70,12 +75,15 @@ function ImageSection() {
           rel="noopener noreferrer"
           className="group"
         >
-          <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-lg transition-transform duration-300 group-hover:scale-105 cursor-pointer">
+          <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden shadow-lg md:transition-transform md:duration-300 md:group-hover:scale-105 cursor-pointer">
             <Image
-              src="https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757336118/different-types-of-guppy-rainbow-fish_panpilai-paipa_Shutterstock-3-1_rvoint"
+              src="https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto,w_600,h_400,c_fill/v1757336118/different-types-of-guppy-rainbow-fish_panpilai-paipa_Shutterstock-3-1_rvoint"
               alt="Beginner-friendly fish species including bettas, guppies, and tetras"
               fill
-              className="object-cover transition-transform duration-300 group-hover:scale-110"
+              className="object-cover md:transition-transform md:duration-300 md:group-hover:scale-110"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={80}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent group-hover:from-black/60" />
             <div className="absolute bottom-4 left-4 text-white">
@@ -100,43 +108,54 @@ function ImageSection() {
 function TableOfContents() {
   const [activeSection, setActiveSection] = useState("");
 
-  const sections = useMemo(() => [
-    { id: "introduction", title: "Introduction & Nitrogen Cycle" },
-    { id: "step1", title: "Find Local Resources" },
-    { id: "step2", title: "Decide on Setup Type" },
-    { id: "step3", title: "Choose Your Fish" },
-    { id: "step4", title: "Select Plants" },
-    { id: "step5", title: "Tanks & Stands" },
-    { id: "step6", title: "Filters" },
-    { id: "step7", title: "Heaters" },
-    { id: "step8", title: "Lighting" },
-    { id: "step9", title: "Miscellaneous Equipment" },
-    { id: "step10", title: "Setting Up Your Tank" },
-    { id: "step11", title: "Cycling Your Tank" },
-    { id: "step12", title: "Adding Fish & Plants" },
-    { id: "step13", title: "Monitoring" },
-    { id: "step14", title: "Feeding & Maintenance" },
-    { id: "samples", title: "Sample Setups" },
-  ], []);
+  const sections = useMemo(
+    () => [
+      { id: "introduction", title: "Introduction & Nitrogen Cycle" },
+      { id: "step1", title: "Find Local Resources" },
+      { id: "step2", title: "Decide on Setup Type" },
+      { id: "step3", title: "Choose Your Fish" },
+      { id: "step4", title: "Select Plants" },
+      { id: "step5", title: "Tanks & Stands" },
+      { id: "step6", title: "Filters" },
+      { id: "step7", title: "Heaters" },
+      { id: "step8", title: "Lighting" },
+      { id: "step9", title: "Miscellaneous Equipment" },
+      { id: "step10", title: "Setting Up Your Tank" },
+      { id: "step11", title: "Cycling Your Tank" },
+      { id: "step12", title: "Adding Fish & Plants" },
+      { id: "step13", title: "Monitoring" },
+      { id: "step14", title: "Feeding & Maintenance" },
+      { id: "samples", title: "Sample Setups" },
+    ],
+    []
+  );
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100;
+    let ticking = false;
 
-      for (const section of sections) {
-        const element = document.getElementById(section.id);
-        if (
-          element &&
-          element.offsetTop <= scrollPosition &&
-          element.offsetTop + element.offsetHeight > scrollPosition
-        ) {
-          setActiveSection(section.id);
-          break;
-        }
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollPosition = window.scrollY + 100;
+
+          for (const section of sections) {
+            const element = document.getElementById(section.id);
+            if (
+              element &&
+              element.offsetTop <= scrollPosition &&
+              element.offsetTop + element.offsetHeight > scrollPosition
+            ) {
+              setActiveSection(section.id);
+              break;
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [sections]);
 
@@ -175,8 +194,8 @@ function GuideContent() {
           <p className="text-gray-200">
             Setting up an aquarium can be a daunting task, and the vast majority
             of issues people run into could have been prevented with research.
-            If you&apos;ve made it to this page, congratulations, you have already
-            taken the first step towards responsible fish keeping.
+            If you&apos;ve made it to this page, congratulations, you have
+            already taken the first step towards responsible fish keeping.
           </p>
         </div>
 
@@ -230,7 +249,9 @@ function GuideContent() {
               <li>Find locally owned fish stores (not Petco or Petsmart)</li>
               <li>Visit on weekdays or when business is slow</li>
               <li>Ask employees about local groups and area-specific advice</li>
-              <li>Take notes on fish you like, but don&apos;t buy anything yet</li>
+              <li>
+                Take notes on fish you like, but don&apos;t buy anything yet
+              </li>
             </ul>
           </div>
         </div>
@@ -305,7 +326,10 @@ function GuideContent() {
               <strong>aqadvisor.com</strong> - Calculate tank capacity and
               compatibility
             </li>
-            <li>Search &quot;beginner friendly fish&quot; for species recommendations</li>
+            <li>
+              Search &quot;beginner friendly fish&quot; for species
+              recommendations
+            </li>
             <li>Avoid fish requiring live foods or extreme pH requirements</li>
           </ul>
         </div>
@@ -457,8 +481,8 @@ function GuideContent() {
         </h2>
         <div className="bg-gray-800/30 p-6 rounded-lg">
           <p className="mb-4">
-            Heaters maintain proper temperatures for cold-blooded fish. They&apos;re
-            the most failure-prone equipment, so invest in quality.
+            Heaters maintain proper temperatures for cold-blooded fish.
+            They&apos;re the most failure-prone equipment, so invest in quality.
           </p>
           <div className="bg-gray-800 p-4 rounded border-l-4 border-blue-500">
             <h4 className="font-bold text-blue-200 mb-2">Important Notes:</h4>
@@ -753,8 +777,8 @@ function GuideContent() {
                 minutes
               </li>
               <li>
-                <strong>Species-specific food:</strong> Research your fish&apos;s
-                dietary needs
+                <strong>Species-specific food:</strong> Research your
+                fish&apos;s dietary needs
               </li>
               <li>
                 <strong>Overfeeding risks:</strong> Bloating, illness, water
@@ -918,8 +942,8 @@ function GuideContent() {
           </h2>
           <p className="text-gray-200 mb-4">
             This guide should be enough to get you started in fishkeeping.
-            Remember that the hobby is full of different opinions, and there&apos;s
-            always more to learn.
+            Remember that the hobby is full of different opinions, and
+            there&apos;s always more to learn.
           </p>
           <div className="bg-gray-800 p-4 rounded border-l-4 border-blue-500">
             <h4 className="font-bold text-blue-200 mb-2">Keep Learning:</h4>
@@ -952,7 +976,24 @@ export default function AquariumGuidePage() {
 
         <div className="max-w-6xl mx-auto px-4 py-12">
           <TableOfContents />
-          <GuideContent />
+          <Suspense
+            fallback={
+              <div className="space-y-8 animate-pulse">
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <div key={i} className="bg-gray-800/30 p-6 rounded-lg">
+                    <div className="h-8 bg-gray-700 rounded mb-4 w-3/4"></div>
+                    <div className="space-y-3">
+                      <div className="h-4 bg-gray-700 rounded w-full"></div>
+                      <div className="h-4 bg-gray-700 rounded w-5/6"></div>
+                      <div className="h-4 bg-gray-700 rounded w-4/5"></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            }
+          >
+            <GuideContent />
+          </Suspense>
         </div>
       </main>
 

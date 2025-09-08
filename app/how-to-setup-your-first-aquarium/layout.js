@@ -26,7 +26,7 @@ export const metadata = {
     type: "article",
     images: [
       {
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1739712678/aquarium-setup-guide-banner.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757335537/bucephalandra_bush_oyiznj",
         width: 1200,
         height: 630,
         alt: "Complete Beginner's Guide to Setting Up Your First Aquarium",
@@ -52,6 +52,11 @@ export const metadata = {
 export default function AquariumGuideLayout({ children }) {
   return (
     <>
+      {/* Performance optimizations */}
+      <link rel="preconnect" href="https://res.cloudinary.com" />
+      <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+      <link rel="preconnect" href="https://duckaroo.com.au" />
+
       {/* Article structured data */}
       <script
         type="application/ld+json"

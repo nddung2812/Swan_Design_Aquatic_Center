@@ -151,10 +151,10 @@ export default function HomeBanner() {
               target="_blank"
               rel="noreferrer"
             >
-              <Card className="group bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
+              <Card className="group bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 md:transition-all md:duration-300 md:hover:scale-[1.02] cursor-pointer">
                 <CardContent className="p-6 flex items-center gap-6">
                   <div
-                    className={`flex-shrink-0 p-4 rounded-xl bg-gradient-to-r ${service.color} text-white group-hover:scale-110 transition-transform duration-300`}
+                    className={`flex-shrink-0 p-4 rounded-xl bg-gradient-to-r ${service.color} text-white md:group-hover:scale-110 md:transition-transform md:duration-300`}
                   >
                     {service.icon}
                   </div>
@@ -191,14 +191,17 @@ export default function HomeBanner() {
           {/* Featured Product Cards - First 3 Products */}
           {productsData.slice(0, 3).map((product) => (
             <Link key={product.id} href={`/products/${product.slug}`}>
-              <Card className="group bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300">
+              <Card className="group bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 md:transition-all md:duration-300">
                 <CardContent className="p-6">
                   <div className="aspect-square relative mb-4 rounded-lg overflow-hidden">
                     <Image
                       src={product.images[0]}
                       alt={product.name}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="object-cover md:group-hover:scale-110 md:transition-transform md:duration-300"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      quality={80}
                     />
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-2">

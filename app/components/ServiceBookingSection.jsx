@@ -1,7 +1,6 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -85,7 +84,9 @@ const ServiceBookingSection = () => {
     setSubmitStatus({ type: "", message: "" });
 
     try {
-      const result = await emailjs.sendForm(
+      // Dynamically import emailjs only when needed
+      const emailjsModule = await import("@emailjs/browser");
+      const result = await emailjsModule.default.sendForm(
         "service_nyo9717", // EmailJS service ID
         "template_lqh6rse", // EmailJS template ID
         form.current,

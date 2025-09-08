@@ -63,10 +63,10 @@ const Home = () => {
   };
 
   useEffect(() => {
-    // Delay loading heavy components until after LCP
+    // Delay loading heavy components until after LCP - reduced for better perceived performance
     const componentTimer = setTimeout(() => {
       setComponentsLoaded(true);
-    }, 2000);
+    }, 1000);
 
     // Check for favorites and show popup after components load
     const favoritesTimer = setTimeout(() => {

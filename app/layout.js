@@ -122,6 +122,8 @@ export default function RootLayout({ children }) {
         {/* Critical resource hints for performance */}
         <link rel="preconnect" href="https://res.cloudinary.com" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+        <link rel="preconnect" href="https://duckaroo.com.au" />
+        <link rel="dns-prefetch" href="https://duckaroo.com.au" />
 
         {/* Critical font preload */}
         <link
