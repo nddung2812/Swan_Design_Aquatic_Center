@@ -142,6 +142,43 @@ export default function ServiceLayout({ children }) {
           }),
         }}
       />
+
+      {/* Service FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "How often should I clean my fish tank in Brisbane?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "For optimal fish health, we recommend professional tank cleaning every 2-4 weeks depending on tank size, fish load, and filtration system. Brisbane's climate may require more frequent cleaning due to higher temperatures.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Do you provide same-day aquarium cleaning in Brisbane?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes! Duckaroo offers same-day emergency aquarium cleaning services across Brisbane, Gold Coast, and surrounding areas. Contact us for urgent tank maintenance needs.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "What areas in Brisbane do you service?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "We service all Brisbane areas including CBD, Southside, Northside, Eastern & Western suburbs, Bayside, plus Logan, Ipswich, and Gold Coast regions.",
+                },
+              },
+            ],
+          }),
+        }}
+      />
       {children}
     </>
   );
