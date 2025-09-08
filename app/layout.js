@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
+import LazyAnalytics from "./components/LazyAnalytics";
 import { CartProvider } from "./context/CartContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -424,8 +424,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className={inter.className}>
-        <GoogleTagManager gtmId="GTM-NQQBXXPZ" />
-        <GoogleAnalytics gaId="G-DMVQ6Y0D0S" />
+        <LazyAnalytics />
         <CartProvider>
           {children}
           <ToastContainer
