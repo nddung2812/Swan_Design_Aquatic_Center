@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
@@ -21,7 +21,7 @@ function AquariumGuideBanner() {
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center text-white px-4">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            The Ultimate Beginner's Guide
+            The Ultimate Beginner&apos;s Guide
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl font-semibold">
             to Your First Aquarium
@@ -100,7 +100,7 @@ function ImageSection() {
 function TableOfContents() {
   const [activeSection, setActiveSection] = useState("");
 
-  const sections = [
+  const sections = useMemo(() => [
     { id: "introduction", title: "Introduction & Nitrogen Cycle" },
     { id: "step1", title: "Find Local Resources" },
     { id: "step2", title: "Decide on Setup Type" },
@@ -117,7 +117,7 @@ function TableOfContents() {
     { id: "step13", title: "Monitoring" },
     { id: "step14", title: "Feeding & Maintenance" },
     { id: "samples", title: "Sample Setups" },
-  ];
+  ], []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -175,7 +175,7 @@ function GuideContent() {
           <p className="text-gray-200">
             Setting up an aquarium can be a daunting task, and the vast majority
             of issues people run into could have been prevented with research.
-            If you've made it to this page, congratulations, you have already
+            If you&apos;ve made it to this page, congratulations, you have already
             taken the first step towards responsible fish keeping.
           </p>
         </div>
@@ -230,7 +230,7 @@ function GuideContent() {
               <li>Find locally owned fish stores (not Petco or Petsmart)</li>
               <li>Visit on weekdays or when business is slow</li>
               <li>Ask employees about local groups and area-specific advice</li>
-              <li>Take notes on fish you like, but don't buy anything yet</li>
+              <li>Take notes on fish you like, but don&apos;t buy anything yet</li>
             </ul>
           </div>
         </div>
@@ -305,7 +305,7 @@ function GuideContent() {
               <strong>aqadvisor.com</strong> - Calculate tank capacity and
               compatibility
             </li>
-            <li>Search "beginner friendly fish" for species recommendations</li>
+            <li>Search &quot;beginner friendly fish&quot; for species recommendations</li>
             <li>Avoid fish requiring live foods or extreme pH requirements</li>
           </ul>
         </div>
@@ -361,7 +361,7 @@ function GuideContent() {
               </li>
               <li>
                 <strong>Buy new if possible</strong> - Petco/Petsmart have
-                "dollar per gallon" sales
+                &quot;dollar per gallon&quot; sales
               </li>
               <li>
                 <strong>Used tanks:</strong> Check Craigslist/Facebook
@@ -457,7 +457,7 @@ function GuideContent() {
         </h2>
         <div className="bg-gray-800/30 p-6 rounded-lg">
           <p className="mb-4">
-            Heaters maintain proper temperatures for cold-blooded fish. They're
+            Heaters maintain proper temperatures for cold-blooded fish. They&apos;re
             the most failure-prone equipment, so invest in quality.
           </p>
           <div className="bg-gray-800 p-4 rounded border-l-4 border-blue-500">
@@ -607,7 +607,7 @@ function GuideContent() {
                 <li>
                   <strong>Time: 3-7 days</strong>
                 </li>
-                <li>Don't rinse the used media!</li>
+                <li>Don&apos;t rinse the used media!</li>
               </ul>
             </div>
 
@@ -753,7 +753,7 @@ function GuideContent() {
                 minutes
               </li>
               <li>
-                <strong>Species-specific food:</strong> Research your fish's
+                <strong>Species-specific food:</strong> Research your fish&apos;s
                 dietary needs
               </li>
               <li>
@@ -875,7 +875,7 @@ function GuideContent() {
                 <li>• 2 Hikari sponge filters (small)</li>
                 <li>• Tetra Whisper 40 air pump</li>
                 <li>• EHEIM Jager heater</li>
-                <li>• Finnex Stingray 30" light</li>
+                <li>• Finnex Stingray 30&quot; light</li>
                 <li>• Pool filter sand</li>
                 <li>• Glass lid</li>
               </ul>
@@ -897,7 +897,7 @@ function GuideContent() {
                 <li>• 40-gallon breeder tank + stand</li>
                 <li>• AquaClear 50 + sponge filter</li>
                 <li>• EHEIM Jager heater</li>
-                <li>• Nicrew Classic 30-36" light</li>
+                <li>• Nicrew Classic 30-36&quot; light</li>
                 <li>• Python water changer system</li>
                 <li>• Pool filter sand + decorations</li>
               </ul>
@@ -914,11 +914,11 @@ function GuideContent() {
       <section className="mb-12">
         <div className="bg-blue-900/30 p-8 rounded-lg shadow-lg">
           <h2 className="text-2xl font-bold text-white mb-4">
-            You're Ready to Begin!
+            You&apos;re Ready to Begin!
           </h2>
           <p className="text-gray-200 mb-4">
             This guide should be enough to get you started in fishkeeping.
-            Remember that the hobby is full of different opinions, and there's
+            Remember that the hobby is full of different opinions, and there&apos;s
             always more to learn.
           </p>
           <div className="bg-gray-800 p-4 rounded border-l-4 border-blue-500">
@@ -926,7 +926,7 @@ function GuideContent() {
             <ul className="list-disc list-inside space-y-1 text-gray-200">
               <li>Join local fishkeeping groups</li>
               <li>Continue researching your specific fish species</li>
-              <li>Don't be afraid to ask questions</li>
+              <li>Don&apos;t be afraid to ask questions</li>
               <li>
                 Start with the sample setups and modify as you gain experience
               </li>
