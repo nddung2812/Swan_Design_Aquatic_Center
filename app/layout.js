@@ -129,6 +129,7 @@ export default function RootLayout({ children }) {
 
         {/* Critical CSS for immediate LCP rendering - Mobile Optimized */}
         <style
+          type="text/css"
           dangerouslySetInnerHTML={{
             __html: `
               /* Force immediate text rendering */

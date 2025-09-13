@@ -389,6 +389,47 @@ export const blogs = [
         "Discover the must-have aquascaping tools that won't break the bank. Learn about essential tweezers, scissors, and creative DIY alternatives.",
     },
   },
+  {
+    id: 12,
+    slug: "saltwater-aquarium-setup-guide-avoiding-mistakes",
+    title: "Saltwater Aquarium Setup: Avoiding Common Mistakes",
+    description:
+      "Learn the essential steps for setting up a saltwater aquarium correctly from the start, including sump systems, equipment choices, and avoiding costly mistakes.",
+    image:
+      "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center",
+    imageAlt:
+      "Beautiful saltwater aquarium with coral, fish, and proper equipment setup showing professional marine tank design",
+    category: "aquarium-care",
+    author: "Marine Aquarium Expert",
+    publishDate: "2024-01-30",
+    readTime: "12 min read",
+    featured: true,
+    content: [
+      "Setting up a saltwater aquarium doesn't have to be hard - it's just more expensive to start things right. The problem is people make a lot of mistakes going in and set themselves up for disaster. With proper planning and the right equipment choices, you can avoid the common pitfalls that lead to failed marine tanks.",
+      "When setting up the tank, make sure you include a sump. It doesn't have to be sold as a 'sump' as those can be quite pricey. A regular fish tank works just fine. My 110 gallon sump actually is wood, and is built into the stand of the 125 that I bought. I just used EPDM pond liner for waterproofing to keep it simple and cheap.",
+      "I use no filter sock or any kind of filter media. Just lots of dry rock in both tanks (and sand in display) and two 1300 gallon per hour power heads in the display, 2 in the sump, and 2 700 gallon per hour Rio Plus pumps, which is a brand that I've found to be quieter and more reliable than most without breaking the bank. I also got a skimmer, though this isn't completely necessary up front. It will save you money in the long run though with less water changes.",
+      "Then I have a beananimal overflow which sounds complicated at first but it really isn't. For power heads I bought the egg shaped ones on eBay. It's like 2 for $20 or something. They've worked fine for years. The ones in store that are $100 are super overpriced, that's more expensive than processors that go into phones.",
+      "DO NOT GET live rock. I think this is the leading cause for people's failure. I've done it for an ex when I first got into saltwater. Sure it's fun to see the little creatures but you bring in way more bad things than good. All you need is dry rock and just put food in there and mix it around in the sand and beneficial bacteria will start growing, just like freshwater.",
+      "You'll need to wait like a month for it to cycle but there is no hair algae, no cyanide, no fish or coral killing invertebrates. You get to decide what your safe clean up crew is and only have to fight off the small amount that your fish and clean up crew bring in. Quarantining them will help prevent bringing these in even further, along with disease.",
+      "If you want the rock to look nice, get 'Real Reef' rock. I did and am satisfied with it after having it for years. There's a guy who made a big thread and some YouTube videos about his who had the rock paint flake off, but in the thread people discovered he scrubbed it hard with a wire brush before putting it in, so yeah don't do that.",
+      "Then it's just a matter of choosing a good stocking list that's light, and not stressing out fish by putting ones that need a lot of swim space (like tangs) in small tanks or the stress will lead to disease, like any other animal.",
+      "Now that things are setup, the difference between this and freshwater is negligible. I have to run the RO/DI into a 37 gallon tank (which has a small power head and heater) after each water change (which runs while I play video games) and then put salt mix in. Then twice a month I change the water by submersible pumping it from the 37 to the main tank, after having pumped water from that into the tub.",
+      "I also empty and rinse the skimmer cup when doing this. I also top off the sump once a week by literally running hose from the RO/DI straight to the sump. With my large system, any temperature difference etc is going to be evened out before it hits the fish. RO/DI filters make the water coming out very slow, I think mine is 75 gallons per day.",
+      "I only have a few hermits and a baby porcupine pufferfish (the species that only gets 9\", though I do plan on upgrading before she gets that size). You do have to buy a $25 refractometer on eBay to measure the salt level but that's not really that hard. The key is starting with quality equipment and avoiding the common mistakes that doom so many marine aquarium attempts.",
+    ],
+    tags: [
+      "saltwater aquarium",
+      "marine tank setup",
+      "sump system",
+      "dry rock vs live rock",
+      "equipment guide",
+    ],
+    seo: {
+      metaTitle: "Saltwater Aquarium Setup Guide | Avoid Costly Mistakes",
+      metaDescription:
+        "Complete guide to setting up your first saltwater aquarium right. Learn about sump systems, dry rock benefits, equipment choices, and avoiding common mistakes.",
+    },
+  },
 ];
 
 // Helper functions
