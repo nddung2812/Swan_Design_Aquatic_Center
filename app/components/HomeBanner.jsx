@@ -13,8 +13,8 @@ const features = [
     icon: <Leaf className="h-5 w-5" />,
   },
   {
-    title: "Premium Aquatic Solutions",
-    description: "High-quality fish tank cleaning service",
+    title: "Premium Salt Water Tank Service",
+    description: "Expert saltwater aquarium maintenance & marine tank care",
     icon: <Fish className="h-5 w-5" />,
   },
   {
@@ -54,9 +54,9 @@ const services = [
     color: "from-cyan-500 to-cyan-600",
   },
   {
-    title: "Complete Care Solutions",
+    title: "Salt Water Tank Service",
     description:
-      "Comprehensive fish tank cleaning service and fish health monitoring",
+      "Professional saltwater aquarium maintenance, marine tank setup and salt water fish care",
     icon: <Shield className="h-6 w-6" />,
     href: "/service",
     color: "from-blue-500 to-blue-600",
@@ -87,9 +87,14 @@ export default function HomeBanner() {
             <strong className="text-emerald-300">
               fish tank cleaning service
             </strong>{" "}
-            specialists, offering professional aquarium maintenance, setup,
-            removal, and premium aquatic plants for your home or office. Trust
-            our expert fish tank cleaning service for crystal-clear results.
+            specialists, offering professional aquarium maintenance,{" "}
+            <strong className="text-blue-300">salt water tank service</strong>,
+            setup, removal, and premium aquatic plants for your home or office.
+            Trust our expert fish tank cleaning and{" "}
+            <strong className="text-blue-300">
+              saltwater aquarium specialists
+            </strong>{" "}
+            for crystal-clear results.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">

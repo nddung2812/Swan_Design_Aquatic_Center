@@ -126,67 +126,6 @@ export default function RootLayout({ children }) {
         <link rel="dns-prefetch" href="https://duckaroo.com.au" />
 
         {/* Font optimization handled by Next.js font system */}
-
-        {/* Critical CSS for immediate LCP rendering - Mobile Optimized */}
-        <style
-          type="text/css"
-          dangerouslySetInnerHTML={{
-            __html: `
-              /* Force immediate text rendering */
-              * {
-                font-synthesis: none !important;
-                text-rendering: optimizeSpeed !important;
-              }
-
-              /* Critical hero styles with mobile-first approach */
-              .hero-title {
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-                font-weight: 700 !important;
-                line-height: 1.1 !important;
-                color: white !important;
-                text-align: center !important;
-                font-display: swap !important;
-                font-size: clamp(2rem, 8vw, 4rem) !important;
-                margin-bottom: 1.5rem !important;
-              }
-
-              .hero-subtitle {
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
-                font-weight: 400 !important;
-                line-height: 1.5 !important;
-                color: rgba(255, 255, 255, 0.8) !important;
-                text-align: center !important;
-                font-display: swap !important;
-                font-size: clamp(1.125rem, 4vw, 1.5rem) !important;
-                max-width: 42rem !important;
-                margin: 0 auto 2rem auto !important;
-              }
-
-              .hero-gradient-text {
-                background: linear-gradient(to right, #34d399, #14b8a6) !important;
-                -webkit-background-clip: text !important;
-                -webkit-text-fill-color: transparent !important;
-                background-clip: text !important;
-                display: block !important;
-                margin-top: 0.5rem !important;
-                padding-bottom: 0.5rem !important;
-              }
-
-              /* Mobile-specific optimizations */
-              @media (max-width: 768px) {
-                .hero-title {
-                  font-size: 2.5rem !important;
-                  line-height: 1.2 !important;
-                }
-                .hero-subtitle {
-                  font-size: 1.25rem !important;
-                  line-height: 1.4 !important;
-                  padding: 0 1rem !important;
-                }
-              }
-            `,
-          }}
-        />
         {/* Structured Data for Local Business */}
         <script
           type="application/ld+json"
