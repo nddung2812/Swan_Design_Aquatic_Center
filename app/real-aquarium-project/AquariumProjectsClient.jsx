@@ -31,18 +31,19 @@ const projects = [
     rating: 5,
     client: "Corporate Office Brisbane",
     media: [
-      { 
-        type: "video", 
+      {
+        type: "video",
         url: "https://res.cloudinary.com/dhvj8x2nq/video/upload/q_auto:good,w_1280,h_720/v1739712678/koifish_feh63y.mp4",
-        thumbnail: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop&crop=center"
+        thumbnail:
+          "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop&crop=center",
       },
-      { 
-        type: "image", 
-        url: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center" 
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center",
       },
-      { 
-        type: "image", 
-        url: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=800&h=600&fit=crop&crop=center" 
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=800&h=600&fit=crop&crop=center",
       },
     ],
     tags: ["Office Aquarium", "Professional Cleaning", "Aquascaping"],
@@ -58,18 +59,19 @@ const projects = [
     rating: 5,
     client: "Residential Home",
     media: [
-      { 
-        type: "image", 
-        url: "https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=800&h=600&fit=crop&crop=center" 
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=800&h=600&fit=crop&crop=center",
       },
-      { 
-        type: "video", 
+      {
+        type: "video",
         url: "https://res.cloudinary.com/dhvj8x2nq/video/upload/q_auto:good,w_1280,h_720/v1739712678/koifish_feh63y.mp4",
-        thumbnail: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop&crop=center"
+        thumbnail:
+          "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop&crop=center",
       },
-      { 
-        type: "image", 
-        url: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop&crop=center" 
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop&crop=center",
       },
     ],
     tags: ["Saltwater Tank", "Reef Setup", "Marine Fish"],
@@ -85,18 +87,19 @@ const projects = [
     rating: 5,
     client: "Family Home",
     media: [
-      { 
-        type: "image", 
-        url: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=800&h=600&fit=crop&crop=center" 
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=800&h=600&fit=crop&crop=center",
       },
-      { 
-        type: "image", 
-        url: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center" 
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop&crop=center",
       },
-      { 
-        type: "video", 
+      {
+        type: "video",
         url: "https://res.cloudinary.com/dhvj8x2nq/video/upload/q_auto:good,w_1280,h_720/v1739712678/koifish_feh63y.mp4",
-        thumbnail: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop&crop=center"
+        thumbnail:
+          "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop&crop=center",
       },
     ],
     tags: ["Planted Tank", "CO2 System", "Aquascaping"],
@@ -112,18 +115,19 @@ const projects = [
     rating: 5,
     client: "Residential Rescue",
     media: [
-      { 
-        type: "image", 
-        url: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop&crop=center" 
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=600&fit=crop&crop=center",
       },
-      { 
-        type: "image", 
-        url: "https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=800&h=600&fit=crop&crop=center" 
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=800&h=600&fit=crop&crop=center",
       },
-      { 
-        type: "video", 
+      {
+        type: "video",
         url: "https://res.cloudinary.com/dhvj8x2nq/video/upload/q_auto:good,w_1280,h_720/v1739712678/koifish_feh63y.mp4",
-        thumbnail: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=800&h=600&fit=crop&crop=center"
+        thumbnail:
+          "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=800&h=600&fit=crop&crop=center",
       },
     ],
     tags: ["Emergency Service", "Tank Recovery", "Fish Health"],
@@ -160,12 +164,21 @@ export default function AquariumProjectsClient() {
     }
   };
 
-  const MediaItem = ({ media, className = "", onClick, showPlayIcon = false, badge = null }) => {
-    const isVideo = media.type === 'video';
-    const mediaUrl = isVideo ? (media.thumbnail || media.url) : media.url;
+  const MediaItem = ({
+    media,
+    className = "",
+    onClick,
+    showPlayIcon = false,
+    badge = null,
+  }) => {
+    const isVideo = media.type === "video";
+    const mediaUrl = isVideo ? media.thumbnail || media.url : media.url;
 
     return (
-      <div className={`relative group cursor-pointer overflow-hidden rounded-lg ${className}`} onClick={onClick}>
+      <div
+        className={`relative group cursor-pointer overflow-hidden rounded-lg ${className}`}
+        onClick={onClick}
+      >
         <div className="relative w-full h-full">
           <Image
             src={mediaUrl}
@@ -174,7 +187,7 @@ export default function AquariumProjectsClient() {
             className="object-cover group-hover:scale-105 transition-transform duration-300"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-          
+
           {/* Video Play Button Overlay */}
           {isVideo && (
             <div className="absolute inset-0 flex items-center justify-center">
@@ -186,15 +199,15 @@ export default function AquariumProjectsClient() {
 
           {/* General hover overlay */}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-            <Eye className={`${isVideo ? 'w-5 h-5' : 'w-6 h-6'} text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+            <Eye
+              className={`${
+                isVideo ? "w-5 h-5" : "w-6 h-6"
+              } text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+            />
           </div>
 
           {/* Badge overlay */}
-          {badge && (
-            <div className="absolute bottom-2 right-2">
-              {badge}
-            </div>
-          )}
+          {badge && <div className="absolute bottom-2 right-2">{badge}</div>}
         </div>
       </div>
     );
@@ -343,23 +356,34 @@ export default function AquariumProjectsClient() {
                       >
                         <div className="relative aspect-[16/9] w-full">
                           <Image
-                            src={project.media[0].type === 'video' ? (project.media[0].thumbnail || project.media[0].url) : project.media[0].url}
+                            src={
+                              project.media[0].type === "video"
+                                ? project.media[0].thumbnail ||
+                                  project.media[0].url
+                                : project.media[0].url
+                            }
                             alt={`${project.name} - Main Image`}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-300"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
                           />
                           {/* Video Play Button Overlay */}
-                          {project.media[0].type === 'video' && (
+                          {project.media[0].type === "video" && (
                             <div className="absolute inset-0 flex items-center justify-center">
                               <div className="bg-black/60 backdrop-blur-sm rounded-full p-4 group-hover:bg-black/80 transition-all duration-300">
                                 <Play className="w-12 h-12 text-white fill-white" />
                               </div>
                             </div>
                           )}
-                          
+
                           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                            <Eye className={`${project.media[0].type === 'video' ? 'w-5 h-5' : 'w-6 h-6'} text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                            <Eye
+                              className={`${
+                                project.media[0].type === "video"
+                                  ? "w-5 h-5"
+                                  : "w-6 h-6"
+                              } text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                            />
                           </div>
                           {/* Main Image Badge */}
                           <div className="absolute top-3 left-3">
@@ -388,10 +412,16 @@ export default function AquariumProjectsClient() {
                                   ? "aspect-[16/9]" // Landscape for every 3rd media
                                   : "aspect-square" // Square for others
                               } w-full group cursor-pointer overflow-hidden rounded-lg`}
-                              onClick={() => openLightbox(project, mediaIndex + 1)}
+                              onClick={() =>
+                                openLightbox(project, mediaIndex + 1)
+                              }
                             >
                               <Image
-                                src={media.type === 'video' ? (media.thumbnail || media.url) : media.url}
+                                src={
+                                  media.type === "video"
+                                    ? media.thumbnail || media.url
+                                    : media.url
+                                }
                                 alt={`${project.name} - Media ${
                                   mediaIndex + 2
                                 }`}
@@ -399,9 +429,9 @@ export default function AquariumProjectsClient() {
                                 className="object-cover group-hover:scale-105 transition-transform duration-300"
                                 sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
                               />
-                              
+
                               {/* Video Play Button Overlay */}
-                              {media.type === 'video' && (
+                              {media.type === "video" && (
                                 <div className="absolute inset-0 flex items-center justify-center">
                                   <div className="bg-black/60 backdrop-blur-sm rounded-full p-2 group-hover:bg-black/80 transition-all duration-300">
                                     <Play className="w-6 h-6 text-white fill-white" />
@@ -410,12 +440,19 @@ export default function AquariumProjectsClient() {
                               )}
 
                               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                                <Eye className={`${media.type === 'video' ? 'w-4 h-4' : 'w-5 h-5'} text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                                <Eye
+                                  className={`${
+                                    media.type === "video"
+                                      ? "w-4 h-4"
+                                      : "w-5 h-5"
+                                  } text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                                />
                               </div>
                               {/* Media Counter */}
                               <div className="absolute bottom-2 right-2">
                                 <Badge className="bg-black/70 backdrop-blur-sm border-none text-white text-xs">
-                                  {media.type === 'video' ? '📹' : '📸'} {mediaIndex + 2}/{project.media.length}
+                                  {media.type === "video" ? "📹" : "📸"}{" "}
+                                  {mediaIndex + 2}/{project.media.length}
                                 </Badge>
                               </div>
                             </div>
@@ -507,7 +544,7 @@ export default function AquariumProjectsClient() {
 
             {/* Media Content */}
             <div className="relative aspect-video w-full">
-              {selectedMedia.media[currentMediaIndex].type === 'video' ? (
+              {selectedMedia.media[currentMediaIndex].type === "video" ? (
                 <video
                   src={selectedMedia.media[currentMediaIndex].url}
                   controls
@@ -535,7 +572,10 @@ export default function AquariumProjectsClient() {
                 {selectedMedia.name}
               </h3>
               <p className="text-white/70">
-                {selectedMedia.media[currentMediaIndex].type === 'video' ? '📹 Video' : '📸 Image'} {currentMediaIndex + 1} of {selectedMedia.media.length}
+                {selectedMedia.media[currentMediaIndex].type === "video"
+                  ? "📹 Video"
+                  : "📸 Image"}{" "}
+                {currentMediaIndex + 1} of {selectedMedia.media.length}
               </p>
             </div>
           </div>
