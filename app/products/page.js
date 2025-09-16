@@ -89,6 +89,7 @@ function ProductsListingStructuredData({ products, selectedCategory }) {
           "@type": "Offer",
           price: product.price.toString(),
           priceCurrency: "AUD",
+          priceValidUntil: "2025-12-31",
           availability:
             product.stock > 0
               ? "https://schema.org/InStock"
