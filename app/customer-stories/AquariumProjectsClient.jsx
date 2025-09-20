@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -27,6 +27,10 @@ export default function AquariumProjectsClient() {
   const [showPlayButton, setShowPlayButton] = useState(false);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
+  const [mouseStart, setMouseStart] = useState(null);
+  const [mouseEnd, setMouseEnd] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const videoRef = useRef(null);
 
@@ -35,26 +39,34 @@ export default function AquariumProjectsClient() {
     setCurrentMediaIndex(mediaIndex);
   };
 
-  const closeLightbox = () => {
+  const closeLightbox = useCallback(() => {
     setSelectedMedia(null);
     setCurrentMediaIndex(0);
-  };
+  }, []);
 
-  const nextMedia = () => {
-    if (selectedMedia) {
-      setCurrentMediaIndex((prev) =>
-        prev === selectedMedia.media.length - 1 ? 0 : prev + 1
-      );
+  const nextMedia = useCallback(() => {
+    if (selectedMedia && !isTransitioning) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentMediaIndex((prev) =>
+          prev === selectedMedia.media.length - 1 ? 0 : prev + 1
+        );
+        setTimeout(() => setIsTransitioning(false), 150);
+      }, 75);
     }
-  };
+  }, [selectedMedia, isTransitioning]);
 
-  const prevMedia = () => {
-    if (selectedMedia) {
-      setCurrentMediaIndex((prev) =>
-        prev === 0 ? selectedMedia.media.length - 1 : prev - 1
-      );
+  const prevMedia = useCallback(() => {
+    if (selectedMedia && !isTransitioning) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentMediaIndex((prev) =>
+          prev === 0 ? selectedMedia.media.length - 1 : prev - 1
+        );
+        setTimeout(() => setIsTransitioning(false), 150);
+      }, 75);
     }
-  };
+  }, [selectedMedia, isTransitioning]);
 
   // Touch event handlers for swipe functionality
   const onTouchStart = (e) => {
@@ -76,6 +88,44 @@ export default function AquariumProjectsClient() {
     if (isRightSwipe && selectedMedia) {
       prevMedia();
     }
+  };
+
+  // Mouse event handlers for drag functionality
+  const onMouseDown = (e) => {
+    setMouseEnd(null);
+    setMouseStart(e.clientX);
+    setIsDragging(true);
+    e.preventDefault(); // Prevent text selection
+  };
+
+  const onMouseMove = (e) => {
+    if (isDragging) {
+      setMouseEnd(e.clientX);
+    }
+  };
+
+  const onMouseUp = () => {
+    if (isDragging && mouseStart !== null && mouseEnd !== null) {
+      const distance = mouseStart - mouseEnd;
+      const isLeftDrag = distance > 50;
+      const isRightDrag = distance < -50;
+
+      if (isLeftDrag && selectedMedia) {
+        nextMedia();
+      }
+      if (isRightDrag && selectedMedia) {
+        prevMedia();
+      }
+    }
+    setIsDragging(false);
+    setMouseStart(null);
+    setMouseEnd(null);
+  };
+
+  const onMouseLeave = () => {
+    setIsDragging(false);
+    setMouseStart(null);
+    setMouseEnd(null);
   };
 
   const MediaItem = ({
@@ -173,7 +223,7 @@ export default function AquariumProjectsClient() {
 
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
-  }, [selectedMedia]);
+  }, [selectedMedia, nextMedia, prevMedia, closeLightbox]);
 
   return (
     <>
@@ -522,10 +572,16 @@ export default function AquariumProjectsClient() {
         {selectedMedia && (
           <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
             <div
-              className="relative max-w-4xl w-full"
+              className={`relative max-w-4xl w-full cursor-grab ${
+                isDragging ? "cursor-grabbing" : ""
+              }`}
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
+              onMouseDown={onMouseDown}
+              onMouseMove={onMouseMove}
+              onMouseUp={onMouseUp}
+              onMouseLeave={onMouseLeave}
             >
               {/* Close Button */}
               <button
@@ -554,7 +610,13 @@ export default function AquariumProjectsClient() {
               )}
 
               {/* Media Content - Swipe enabled for mobile navigation */}
-              <div className="relative aspect-video w-full select-none">
+              <div
+                className={`relative aspect-video w-full select-none transition-all duration-300 ${
+                  isTransitioning
+                    ? "opacity-50 scale-95"
+                    : "opacity-100 scale-100"
+                }`}
+              >
                 {selectedMedia.media[currentMediaIndex].type === "video" ? (
                   <video
                     src={selectedMedia.media[currentMediaIndex].url}
@@ -592,7 +654,7 @@ export default function AquariumProjectsClient() {
                 </p>
                 {selectedMedia.media.length > 1 && (
                   <p className="text-white/50 text-xs mt-2">
-                    Swipe left/right or use arrow keys to navigate
+                    Swipe, drag, or use arrow keys to navigate
                   </p>
                 )}
               </div>

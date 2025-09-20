@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import HomeBanner from "./components/HomeBanner";
 import ServiceBookingSection from "./components/ServiceBookingSection";
 import Navbar from "./components/Navbar";
@@ -57,6 +57,12 @@ const Home = () => {
   const [showFavoritesPopup, setShowFavoritesPopup] = useState(false);
   const [selectedMedia, setSelectedMedia] = useState(null);
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const [mouseStart, setMouseStart] = useState(null);
+  const [mouseEnd, setMouseEnd] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const videoRef = useRef(null);
 
@@ -69,26 +75,34 @@ const Home = () => {
     setCurrentMediaIndex(mediaIndex);
   };
 
-  const closeLightbox = () => {
+  const closeLightbox = useCallback(() => {
     setSelectedMedia(null);
     setCurrentMediaIndex(0);
-  };
+  }, []);
 
-  const nextMedia = () => {
-    if (selectedMedia) {
-      setCurrentMediaIndex((prev) =>
-        prev === selectedMedia.media.length - 1 ? 0 : prev + 1
-      );
+  const nextMedia = useCallback(() => {
+    if (selectedMedia && !isTransitioning) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentMediaIndex((prev) =>
+          prev === selectedMedia.media.length - 1 ? 0 : prev + 1
+        );
+        setTimeout(() => setIsTransitioning(false), 150);
+      }, 75);
     }
-  };
+  }, [selectedMedia, isTransitioning]);
 
-  const prevMedia = () => {
-    if (selectedMedia) {
-      setCurrentMediaIndex((prev) =>
-        prev === 0 ? selectedMedia.media.length - 1 : prev - 1
-      );
+  const prevMedia = useCallback(() => {
+    if (selectedMedia && !isTransitioning) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentMediaIndex((prev) =>
+          prev === 0 ? selectedMedia.media.length - 1 : prev - 1
+        );
+        setTimeout(() => setIsTransitioning(false), 150);
+      }, 75);
     }
-  };
+  }, [selectedMedia, isTransitioning]);
 
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString("en-AU", {
@@ -96,6 +110,66 @@ const Home = () => {
       month: "long",
       day: "numeric",
     });
+  };
+
+  // Touch event handlers for swipe functionality
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe && selectedMedia) {
+      nextMedia();
+    }
+    if (isRightSwipe && selectedMedia) {
+      prevMedia();
+    }
+  };
+
+  // Mouse event handlers for drag functionality
+  const onMouseDown = (e) => {
+    setMouseEnd(null);
+    setMouseStart(e.clientX);
+    setIsDragging(true);
+    e.preventDefault();
+  };
+
+  const onMouseMove = (e) => {
+    if (isDragging) {
+      setMouseEnd(e.clientX);
+    }
+  };
+
+  const onMouseUp = () => {
+    if (isDragging && mouseStart !== null && mouseEnd !== null) {
+      const distance = mouseStart - mouseEnd;
+      const isLeftDrag = distance > 50;
+      const isRightDrag = distance < -50;
+
+      if (isLeftDrag && selectedMedia) {
+        nextMedia();
+      }
+      if (isRightDrag && selectedMedia) {
+        prevMedia();
+      }
+    }
+    setIsDragging(false);
+    setMouseStart(null);
+    setMouseEnd(null);
+  };
+
+  const onMouseLeave = () => {
+    setIsDragging(false);
+    setMouseStart(null);
+    setMouseEnd(null);
   };
 
   const handleVideoPlay = () => {
@@ -138,6 +212,24 @@ const Home = () => {
       clearTimeout(favoritesTimer);
     };
   }, []);
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (selectedMedia) {
+        if (e.key === "ArrowLeft") {
+          prevMedia();
+        } else if (e.key === "ArrowRight") {
+          nextMedia();
+        } else if (e.key === "Escape") {
+          closeLightbox();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
+  }, [selectedMedia, nextMedia, prevMedia, closeLightbox]);
 
   return (
     <>
@@ -441,7 +533,18 @@ const Home = () => {
       {/* Lightbox Modal */}
       {selectedMedia && (
         <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
-          <div className="relative max-w-4xl w-full">
+          <div
+            className={`relative max-w-4xl w-full cursor-grab ${
+              isDragging ? "cursor-grabbing" : ""
+            }`}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+            onMouseDown={onMouseDown}
+            onMouseMove={onMouseMove}
+            onMouseUp={onMouseUp}
+            onMouseLeave={onMouseLeave}
+          >
             {/* Close Button */}
             <button
               onClick={closeLightbox}
@@ -468,8 +571,14 @@ const Home = () => {
               </>
             )}
 
-            {/* Media Content */}
-            <div className="relative aspect-video w-full">
+            {/* Media Content - Swipe enabled for mobile navigation */}
+            <div
+              className={`relative aspect-video w-full select-none transition-all duration-300 ${
+                isTransitioning
+                  ? "opacity-50 scale-95"
+                  : "opacity-100 scale-100"
+              }`}
+            >
               {selectedMedia.media[currentMediaIndex].type === "video" ? (
                 <video
                   src={selectedMedia.media[currentMediaIndex].url}
@@ -503,6 +612,11 @@ const Home = () => {
                   : "📸 Image"}{" "}
                 {currentMediaIndex + 1} of {selectedMedia.media.length}
               </p>
+              {selectedMedia.media.length > 1 && (
+                <p className="text-white/50 text-xs mt-2">
+                  Swipe, drag, or use arrow keys to navigate
+                </p>
+              )}
             </div>
           </div>
         </div>
