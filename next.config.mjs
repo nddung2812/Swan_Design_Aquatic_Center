@@ -44,6 +44,11 @@ const nextConfig = {
         destination: "/about-us",
         permanent: true,
       },
+      {
+        source: "/real-aquarium-project",
+        destination: "/customer-stories",
+        permanent: true, // 301 redirect for SEO
+      },
     ];
   },
   experimental: {
