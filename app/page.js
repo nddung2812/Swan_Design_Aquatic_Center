@@ -176,7 +176,7 @@ const Home = () => {
         <>
           {/* Background Music */}
           <ReactHowler
-            src="https://res.cloudinary.com/dhvj8x2nq/video/upload/v1739712674/bluedream_hjtsse.mp3"
+            src="https://res.cloudinary.com/dhvj8x2nq/video/upload/v1758351101/Pulsar_-_The_Grey_Room___Density_Time_yblk12.mp3"
             preload={false}
             playing={music}
             volume={0.4}
