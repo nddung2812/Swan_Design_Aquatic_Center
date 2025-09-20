@@ -39,6 +39,12 @@ export default function sitemap() {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/customer-stories`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/blogs`,
       lastModified: new Date(),
       changeFrequency: "weekly",

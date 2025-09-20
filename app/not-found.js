@@ -38,27 +38,53 @@ export default function NotFound() {
       label: "Products",
       icon: <Fish className="w-4 h-4" />,
     },
+    {
+      href: "/service",
+      label: "Services",
+      icon: <Clock className="w-4 h-4" />,
+    },
+    {
+      href: "/customer-stories",
+      label: "Customer Stories",
+      icon: <Waves className="w-4 h-4" />,
+    },
     { href: "/blogs", label: "Blog", icon: <Waves className="w-4 h-4" /> },
+    {
+      href: "/about-us",
+      label: "About Us",
+      icon: <Fish className="w-4 h-4" />,
+    },
     {
       href: "/contact",
       label: "Contact",
       icon: <MapPin className="w-4 h-4" />,
     },
+    {
+      href: "/shipping-policy",
+      label: "Shipping",
+      icon: <Clock className="w-4 h-4" />,
+    },
   ];
 
   const recentPages = [
     {
-      title: "Aquarium Plant Care Guide",
-      href: "/blogs/plant-care",
-      time: "2 min read",
+      title: "Customer Success Stories",
+      href: "/customer-stories",
+      time: "View Projects",
     },
-    { title: "Premium Aquatic Products", href: "/products", time: "Browse" },
     {
       title: "Fish Tank Cleaning Service",
       href: "/service",
       time: "Get Quote",
     },
+    { title: "Premium Aquatic Products", href: "/products", time: "Browse" },
+    {
+      title: "Aquarium Setup Guide",
+      href: "/how-to-setup-your-first-aquarium",
+      time: "Learn More",
+    },
     { title: "About Our Team", href: "/about-us", time: "Learn More" },
+    { title: "Blog & Guides", href: "/blogs", time: "Read More" },
   ];
 
   return (
@@ -165,7 +191,7 @@ export default function NotFound() {
                     <Waves className="w-5 h-5 text-blue-400" />
                     Quick Navigation
                   </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
                     {quickLinks.map((link, index) => (
                       <Link
                         key={index}
