@@ -9,11 +9,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title:
-    "Fish Tank Cleaning Service Brisbane | Professional Aquarium Maintenance | Duckaroo #1",
+    "Fish Tank Cleaning Service Brisbane & Gold Coast | Professional Aquarium Maintenance | Duckaroo #1",
   description:
-    "Brisbane's premier fish tank cleaning service since 2010. Professional fish tank cleaning service, aquarium maintenance, tank removal & setup. Expert fish tank cleaning service specialists. Same-day service available. Call (04) 5766 3939",
+    "Brisbane & Gold Coast's premier fish tank cleaning service since 2010. Professional fish tank cleaning service, aquarium maintenance, tank removal & setup. Expert fish tank cleaning service specialists. Same-day service available. Call (04) 5766 3939",
   keywords:
-    "fish tank cleaning service, fish tank cleaning service Brisbane, professional fish tank cleaning service, Brisbane fish tank cleaning service, aquarium maintenance service, fish tank cleaning specialists, same day fish tank cleaning service, residential fish tank cleaning service, commercial fish tank cleaning service",
+    "fish tank cleaning service, fish tank cleaning service Brisbane, fish tank cleaning service Gold Coast, professional fish tank cleaning service, Brisbane fish tank cleaning service, Gold Coast fish tank cleaning service, aquarium maintenance service, fish tank cleaning specialists, same day fish tank cleaning service, residential fish tank cleaning service, commercial fish tank cleaning service",
   authors: [{ name: "Duckaroo Brisbane" }],
   creator: "Duckaroo Brisbane",
   publisher: "Duckaroo Brisbane",
@@ -28,9 +28,9 @@ export const metadata = {
   },
   openGraph: {
     title:
-      "Fish Tank Cleaning Service Brisbane | Professional Aquarium Maintenance | Duckaroo #1",
+      "Fish Tank Cleaning Service Brisbane & Gold Coast | Professional Aquarium Maintenance | Duckaroo #1",
     description:
-      "Brisbane's premier fish tank cleaning service since 2010. Professional fish tank cleaning service, aquarium maintenance, tank removal & setup. Expert fish tank cleaning service specialists. Same-day service available.",
+      "Brisbane & Gold Coast's premier fish tank cleaning service since 2010. Professional fish tank cleaning service, aquarium maintenance, tank removal & setup. Expert fish tank cleaning service specialists. Same-day service available.",
     url: "https://aquaticswandesign.com.au",
     siteName: "Duckaroo Fish Tank Cleaning Service Brisbane",
     images: [
@@ -47,9 +47,9 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Fish Tank Cleaning Service Brisbane | Professional Aquarium Maintenance | Duckaroo #1",
+      "Fish Tank Cleaning Service Brisbane & Gold Coast | Professional Aquarium Maintenance | Duckaroo #1",
     description:
-      "Brisbane's premier fish tank cleaning service since 2010. Professional fish tank cleaning service, aquarium maintenance, tank removal & setup. Expert fish tank cleaning service specialists.",
+      "Brisbane & Gold Coast's premier fish tank cleaning service since 2010. Professional fish tank cleaning service, aquarium maintenance, tank removal & setup. Expert fish tank cleaning service specialists.",
     images: [
       {
         url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg?v=2",
@@ -79,7 +79,7 @@ export const metadata = {
   },
   category: "business",
   classification: "Aquarium Services",
-  coverage: "Brisbane, Queensland, Australia",
+  coverage: "Brisbane, Gold Coast, Queensland, Australia",
   distribution: "global",
   rating: "general",
   referrer: "origin-when-cross-origin",
@@ -134,10 +134,11 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "@id": "https://aquaticswandesign.com.au/#business",
-              name: "Duckaroo Fish Tank Cleaning Service Brisbane",
-              alternateName: "Brisbane Premier Fish Tank Cleaning Service",
+              name: "Duckaroo Fish Tank Cleaning Service Brisbane & Gold Coast",
+              alternateName:
+                "Brisbane & Gold Coast Premier Fish Tank Cleaning Service",
               description:
-                "Brisbane's premier fish tank cleaning service and aquarium maintenance specialists since 2010. Professional fish tank cleaning service across Brisbane.",
+                "Brisbane & Gold Coast's premier fish tank cleaning service and aquarium maintenance specialists since 2010. Professional fish tank cleaning service across Brisbane & Gold Coast.",
               url: "https://aquaticswandesign.com.au",
               telephone: "+61457663939",
               email: "aquaticswandesign@gmail.com",
@@ -289,11 +290,11 @@ export default function RootLayout({ children }) {
         {/* Explicit Open Graph Tags for Social Media */}
         <meta
           property="og:title"
-          content="Duckaroo Brisbane | #1 Fish Tank Cleaning, Removal & Aquarium Service QLD"
+          content="Duckaroo Brisbane & Gold Coast | #1 Fish Tank Cleaning, Removal & Aquarium Service QLD"
         />
         <meta
           property="og:description"
-          content="Brisbane's premier fish tank cleaning & removal service since 2020. Professional aquarium maintenance, tank removal, pond cleaning & plant care. Same-day service available."
+          content="Brisbane & Gold Coast's premier fish tank cleaning & removal service since 2020. Professional aquarium maintenance, tank removal, pond cleaning & plant care. Same-day service available."
         />
         <meta
           property="og:image"
@@ -314,11 +315,11 @@ export default function RootLayout({ children }) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Duckaroo Brisbane | #1 Fish Tank Cleaning, Removal & Aquarium Service QLD"
+          content="Duckaroo Brisbane & Gold Coast | #1 Fish Tank Cleaning, Removal & Aquarium Service QLD"
         />
         <meta
           name="twitter:description"
-          content="Brisbane's premier fish tank cleaning & removal service since 2020. Professional aquarium maintenance, tank removal, pond cleaning & plant care. Same-day service available."
+          content="Brisbane & Gold Coast's premier fish tank cleaning & removal service since 2020. Professional aquarium maintenance, tank removal, pond cleaning & plant care. Same-day service available."
         />
         <meta
           name="twitter:image"

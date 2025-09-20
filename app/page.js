@@ -324,8 +324,8 @@ const Home = () => {
                 </h2>
                 <p className="text-white/70 max-w-2xl mx-auto">
                   Browse our portfolio of successful aquarium projects across
-                  Brisbane. Each project showcases our commitment to excellence
-                  in fish tank cleaning and maintenance.
+                  Brisbane & Gold Coast. Each project showcases our commitment
+                  to excellence in fish tank cleaning and maintenance.
                 </p>
               </div>
 

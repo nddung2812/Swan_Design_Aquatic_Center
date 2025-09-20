@@ -2,15 +2,16 @@ import AquariumProjectsClient from "./AquariumProjectsClient";
 
 export const metadata = {
   title:
-    "Customer Stories Brisbane | Fish Tank Cleaning Success Stories | Duckaroo",
+    "Customer Stories Brisbane & Gold Coast | Fish Tank Cleaning Success Stories | Duckaroo",
   description:
-    "Read real customer success stories and see stunning aquarium transformations from Brisbane's #1 fish tank cleaning service. Discover why customers trust Duckaroo for professional tank maintenance.",
+    "Read real customer success stories and see stunning aquarium transformations from Brisbane & Gold Coast's #1 fish tank cleaning service. Discover why customers trust Duckaroo for professional tank maintenance.",
   keywords:
-    "customer stories Brisbane, client testimonials, fish tank cleaning reviews, customer success stories, aquarium transformation stories, professional fish tank service testimonials, Brisbane aquarium cleaning reviews",
+    "customer stories Brisbane, customer stories Gold Coast, client testimonials, fish tank cleaning reviews, customer success stories, aquarium transformation stories, professional fish tank service testimonials, Brisbane aquarium cleaning reviews, Gold Coast aquarium cleaning reviews",
   openGraph: {
-    title: "Customer Stories Brisbane | Fish Tank Cleaning Success Stories",
+    title:
+      "Customer Stories Brisbane & Gold Coast | Fish Tank Cleaning Success Stories",
     description:
-      "Read real customer success stories and see stunning aquarium transformations. Discover why Brisbane customers choose Duckaroo for professional fish tank cleaning services.",
+      "Read real customer success stories and see stunning aquarium transformations. Discover why Brisbane & Gold Coast customers choose Duckaroo for professional fish tank cleaning services.",
     url: "https://aquaticswandesign.com.au/customer-stories",
     siteName: "Duckaroo Brisbane Fish Tank Cleaning Service",
     images: [
@@ -26,9 +27,10 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Customer Stories Brisbane | Fish Tank Cleaning Success Stories",
+    title:
+      "Customer Stories Brisbane & Gold Coast | Fish Tank Cleaning Success Stories",
     description:
-      "Read real customer success stories and see stunning aquarium transformations by Brisbane's premier fish tank cleaning service. Stories that speak for themselves.",
+      "Read real customer success stories and see stunning aquarium transformations by Brisbane & Gold Coast's premier fish tank cleaning service. Stories that speak for themselves.",
     images: [
       "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772254/IMG_1383_2_waxakf.jpg",
     ],

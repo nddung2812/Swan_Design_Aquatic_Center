@@ -1,30 +1,40 @@
 export const metadata = {
   title:
-    "Fish Tank Cleaning Service Brisbane | Professional Aquarium Maintenance | Duckaroo",
+    "Fish Tank Cleaning Service Brisbane & Gold Coast | Professional Aquarium Maintenance | Duckaroo",
   description:
-    "★★★★★ Premium fish tank cleaning service in Brisbane. Expert aquarium maintenance, pond cleaning & setup services. Professional technicians, same-day service across all Brisbane areas. Book your fish tank cleaning service today!",
+    "★★★★★ Premium fish tank cleaning service in Brisbane & Gold Coast. Expert aquarium maintenance, pond cleaning & setup services. Professional technicians, same-day service across all Brisbane & Gold Coast areas. Book your fish tank cleaning service today!",
   keywords: [
     "fish tank cleaning service",
     "fish tank cleaning service Brisbane",
+    "fish tank cleaning service Gold Coast",
     "professional fish tank cleaning service",
     "aquarium cleaning service Brisbane",
+    "aquarium cleaning service Gold Coast",
     "Brisbane fish tank cleaning service",
+    "Gold Coast fish tank cleaning service",
     "fish tank maintenance Brisbane",
+    "fish tank maintenance Gold Coast",
     "aquarium maintenance service Brisbane",
+    "aquarium maintenance service Gold Coast",
     "pond cleaning Brisbane",
+    "pond cleaning Gold Coast",
     "fish tank setup Brisbane",
+    "fish tank setup Gold Coast",
     "emergency fish tank cleaning service Brisbane",
+    "emergency fish tank cleaning service Gold Coast",
     "same day fish tank cleaning service",
     "certified fish tank cleaning Brisbane",
+    "certified fish tank cleaning Gold Coast",
     "residential fish tank cleaning service",
     "commercial fish tank cleaning service",
     "affordable fish tank cleaning service Brisbane",
+    "affordable fish tank cleaning service Gold Coast",
   ].join(", "),
   openGraph: {
     title:
-      "Fish Tank Cleaning Service Brisbane | Professional Aquarium Maintenance | Duckaroo",
+      "Fish Tank Cleaning Service Brisbane & Gold Coast | Professional Aquarium Maintenance | Duckaroo",
     description:
-      "★★★★★ Premium fish tank cleaning service in Brisbane. Expert aquarium maintenance, pond cleaning & setup services across all Brisbane areas.",
+      "★★★★★ Premium fish tank cleaning service in Brisbane & Gold Coast. Expert aquarium maintenance, pond cleaning & setup services across all Brisbane & Gold Coast areas.",
     url: "https://aquaticswandesign.com.au/service",
     type: "website",
     images: [
@@ -39,9 +49,9 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Fish Tank Cleaning Service Brisbane | Professional Aquarium Maintenance | Duckaroo",
+      "Fish Tank Cleaning Service Brisbane & Gold Coast | Professional Aquarium Maintenance | Duckaroo",
     description:
-      "★★★★★ Premium fish tank cleaning service in Brisbane. Professional technicians, same-day service available.",
+      "★★★★★ Premium fish tank cleaning service in Brisbane & Gold Coast. Professional technicians, same-day service available.",
   },
   alternates: {
     canonical: "https://aquaticswandesign.com.au/service",
@@ -62,9 +72,9 @@ export default function ServiceLayout({ children }) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
-            name: "Duckaroo Fish Tank Cleaning Service Brisbane",
+            name: "Duckaroo Fish Tank Cleaning Service Brisbane & Gold Coast",
             description:
-              "Premium fish tank cleaning service, aquarium maintenance, and pond services across all Brisbane areas, Queensland",
+              "Premium fish tank cleaning service, aquarium maintenance, and pond services across all Brisbane & Gold Coast areas, Queensland",
             url: "https://aquaticswandesign.com.au/service",
             telephone: "(04) 57663939",
             email: "aquaticswandesign@gmail.com",
@@ -91,9 +101,9 @@ export default function ServiceLayout({ children }) {
                   "@type": "Offer",
                   itemOffered: {
                     "@type": "Service",
-                    name: "Fish Tank Cleaning Service Brisbane",
+                    name: "Fish Tank Cleaning Service Brisbane & Gold Coast",
                     description:
-                      "Premium fish tank cleaning service for residential and commercial aquariums across all Brisbane areas",
+                      "Premium fish tank cleaning service for residential and commercial aquariums across all Brisbane & Gold Coast areas",
                   },
                   priceRange: "$$",
                   availability: "https://schema.org/InStock",
@@ -102,7 +112,7 @@ export default function ServiceLayout({ children }) {
                   "@type": "Offer",
                   itemOffered: {
                     "@type": "Service",
-                    name: "Aquarium Maintenance Brisbane",
+                    name: "Aquarium Maintenance Brisbane & Gold Coast",
                     description:
                       "Regular aquarium maintenance and water quality management services",
                   },
@@ -113,7 +123,7 @@ export default function ServiceLayout({ children }) {
                   "@type": "Offer",
                   itemOffered: {
                     "@type": "Service",
-                    name: "Pond Cleaning Brisbane",
+                    name: "Pond Cleaning Brisbane & Gold Coast",
                     description:
                       "Professional pond cleaning and maintenance services for outdoor water features",
                   },
@@ -126,7 +136,7 @@ export default function ServiceLayout({ children }) {
                     "@type": "Service",
                     name: "Emergency Tank Service",
                     description:
-                      "24/7 emergency fish tank cleaning and repair services across Brisbane",
+                      "24/7 emergency fish tank cleaning and repair services across Brisbane & Gold Coast",
                   },
                   priceRange: "$$$",
                   availability: "https://schema.org/InStock",

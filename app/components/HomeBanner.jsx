@@ -18,8 +18,8 @@ const features = [
     icon: <Fish className="h-5 w-5" />,
   },
   {
-    title: "Brisbane Wide Service",
-    description: "Fish tank cleaning service across Brisbane",
+    title: "Brisbane & Gold Coast Wide Service",
+    description: "Fish tank cleaning service across Brisbane & Gold Coast",
     icon: <Clock className="h-5 w-5" />,
   },
   {
@@ -71,11 +71,11 @@ export default function HomeBanner() {
         {/* Left Column - Text Content */}
         <div className="flex flex-col justify-center">
           <Badge className="mb-6 bg-emerald-500/30 border-emerald-400 text-emerald-100 w-fit">
-            Brisbane&apos;s #1 Fish Tank Cleaning Service
+            Brisbane & Gold Coast&apos;s #1 Fish Tank Cleaning Service
           </Badge>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            Brisbane&apos;s #1 Fish Tank Cleaning Service
+            Brisbane & Gold Coast&apos;s #1 Fish Tank Cleaning Service
           </h1>
 
           <p className="text-xl text-white/80 mb-8 max-w-xl">
@@ -83,7 +83,8 @@ export default function HomeBanner() {
             <strong className="text-emerald-300">
               fish tank cleaning service
             </strong>{" "}
-            in Brisbane? We&apos;re Brisbane&apos;s premier{" "}
+            in Brisbane & Gold Coast? We&apos;re Brisbane & Gold Coast&apos;s
+            premier{" "}
             <strong className="text-emerald-300">
               fish tank cleaning service
             </strong>{" "}

@@ -299,7 +299,8 @@ export default function AquariumProjectsClient() {
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-teal-900/20"></div>
           <div className="relative max-w-7xl mx-auto text-center">
             <Badge className="mb-6 bg-emerald-500/30 border-emerald-400 text-emerald-100">
-              Real Results From Brisbane&apos;s #1 Fish Tank Service
+              Real Results From Brisbane & Gold Coast&apos;s #1 Fish Tank
+              Service
             </Badge>
 
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
@@ -545,8 +546,9 @@ export default function AquariumProjectsClient() {
               Ready to Transform Your Aquarium?
             </h2>
             <p className="text-xl text-white/80 mb-8">
-              Join hundreds of satisfied Brisbane customers who trust our
-              professional fish tank cleaning and maintenance services.
+              Join hundreds of satisfied Brisbane & Gold Coast customers who
+              trust our professional fish tank cleaning and maintenance
+              services.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
