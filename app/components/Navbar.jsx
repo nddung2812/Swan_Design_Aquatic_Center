@@ -50,8 +50,8 @@ const Navbar = () => {
       ],
     },
     {
-      href: "https://duckaroo.com.au/collections/aquarium-designs",
-      label: "Gallery",
+      href: "/customer-stories",
+      label: "Customer Stories",
     },
     { href: "/contact", label: "Contact" },
     { href: "/about-us", label: "About" },

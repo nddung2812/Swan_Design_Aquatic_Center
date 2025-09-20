@@ -43,14 +43,14 @@ const services = [
     description:
       "Regular fish tank cleaning service to keep aquariums thriving",
     icon: <Fish className="h-6 w-6" />,
-    href: "/service",
+    href: "#service-booking",
     color: "from-teal-500 to-teal-600",
   },
   {
-    title: "Professional Setup",
-    description: "Expert fish tank cleaning service and aquarium setup",
+    title: "Customer Success Stories",
+    description: "See real results from our expert fish tank cleaning service",
     icon: <Clock className="h-6 w-6" />,
-    href: "/service",
+    href: "#customer-success-stories",
     color: "from-cyan-500 to-cyan-600",
   },
   {
@@ -153,8 +153,17 @@ export default function HomeBanner() {
             <Link
               key={index}
               href={service.href}
-              target="_blank"
-              rel="noreferrer"
+              target={service.href.startsWith("#") ? "_self" : "_blank"}
+              rel={service.href.startsWith("#") ? "" : "noreferrer"}
+              onClick={(e) => {
+                if (service.href.startsWith("#")) {
+                  e.preventDefault();
+                  const element = document.querySelector(service.href);
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }
+              }}
             >
               <Card className="group bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 md:transition-all md:duration-300 md:hover:scale-[1.02] cursor-pointer">
                 <CardContent className="p-6 flex items-center gap-6">

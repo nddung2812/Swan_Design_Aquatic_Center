@@ -118,7 +118,7 @@ export default function AquariumProjectsClient() {
           </Badge>
 
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Real Aquarium Projects
+            Customer Success Stories
           </h1>
 
           <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8">
@@ -162,7 +162,7 @@ export default function AquariumProjectsClient() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Customer Success Stories
+              Our Success Stories
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
               Browse our portfolio of successful aquarium projects across

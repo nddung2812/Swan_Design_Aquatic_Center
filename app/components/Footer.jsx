@@ -38,8 +38,8 @@ const Footer = () => {
       { label: "Blogs", href: "/blogs" },
       { label: "Shipping Policy", href: "/shipping-policy" },
       {
-        label: "Gallery",
-        href: "https://duckaroo.com.au/collections/aquarium-designs",
+        label: "Customer Stories",
+        href: "/customer-stories",
       },
     ],
   };
