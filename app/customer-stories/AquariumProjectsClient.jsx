@@ -25,6 +25,8 @@ export default function AquariumProjectsClient() {
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [showPlayButton, setShowPlayButton] = useState(false);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
   const videoRef = useRef(null);
 
@@ -51,6 +53,28 @@ export default function AquariumProjectsClient() {
       setCurrentMediaIndex((prev) =>
         prev === 0 ? selectedMedia.media.length - 1 : prev - 1
       );
+    }
+  };
+
+  // Touch event handlers for swipe functionality
+  const onTouchStart = (e) => {
+    setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe && selectedMedia) {
+      nextMedia();
+    }
+    if (isRightSwipe && selectedMedia) {
+      prevMedia();
     }
   };
 
@@ -132,6 +156,24 @@ export default function AquariumProjectsClient() {
       });
     }
   }, []);
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (selectedMedia) {
+        if (e.key === "ArrowLeft") {
+          prevMedia();
+        } else if (e.key === "ArrowRight") {
+          nextMedia();
+        } else if (e.key === "Escape") {
+          closeLightbox();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
+  }, [selectedMedia]);
 
   return (
     <>
@@ -479,7 +521,12 @@ export default function AquariumProjectsClient() {
         {/* Lightbox Modal */}
         {selectedMedia && (
           <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
-            <div className="relative max-w-4xl w-full">
+            <div
+              className="relative max-w-4xl w-full"
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
               {/* Close Button */}
               <button
                 onClick={closeLightbox}
@@ -506,8 +553,8 @@ export default function AquariumProjectsClient() {
                 </>
               )}
 
-              {/* Media Content */}
-              <div className="relative aspect-video w-full">
+              {/* Media Content - Swipe enabled for mobile navigation */}
+              <div className="relative aspect-video w-full select-none">
                 {selectedMedia.media[currentMediaIndex].type === "video" ? (
                   <video
                     src={selectedMedia.media[currentMediaIndex].url}
@@ -543,6 +590,11 @@ export default function AquariumProjectsClient() {
                     : "📸 Image"}{" "}
                   {currentMediaIndex + 1} of {selectedMedia.media.length}
                 </p>
+                {selectedMedia.media.length > 1 && (
+                  <p className="text-white/50 text-xs mt-2">
+                    Swipe left/right or use arrow keys to navigate
+                  </p>
+                )}
               </div>
             </div>
           </div>
