@@ -68,65 +68,93 @@ export default function AquariumProjectsClient() {
     }
   }, [selectedMedia, isTransitioning]);
 
-  // Touch event handlers for swipe functionality
-  const onTouchStart = (e) => {
-    setTouchEnd(null); // otherwise the swipe is fired even with usual touch events
-    setTouchStart(e.targetTouches[0].clientX);
-  };
+  // Optimized touch event handlers for swipe functionality
+  const onTouchStart = useCallback(
+    (e) => {
+      if (!selectedMedia) return;
+      setTouchEnd(null);
+      setTouchStart(e.targetTouches[0].clientX);
+    },
+    [selectedMedia]
+  );
 
-  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+  const onTouchMove = useCallback(
+    (e) => {
+      if (!selectedMedia || !touchStart) return;
+      // Throttle touch move events for performance
+      if (e.timeStamp - (onTouchMove.lastUpdate || 0) < 16) return; // ~60fps
+      onTouchMove.lastUpdate = e.timeStamp;
+      setTouchEnd(e.targetTouches[0].clientX);
+    },
+    [selectedMedia, touchStart]
+  );
 
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
+  const onTouchEnd = useCallback(() => {
+    if (!touchStart || !touchEnd || !selectedMedia) return;
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > 50;
     const isRightSwipe = distance < -50;
 
-    if (isLeftSwipe && selectedMedia) {
+    if (isLeftSwipe) {
       nextMedia();
-    }
-    if (isRightSwipe && selectedMedia) {
+    } else if (isRightSwipe) {
       prevMedia();
     }
-  };
 
-  // Mouse event handlers for drag functionality
-  const onMouseDown = (e) => {
-    setMouseEnd(null);
-    setMouseStart(e.clientX);
-    setIsDragging(true);
-    e.preventDefault(); // Prevent text selection
-  };
+    // Clean up
+    setTouchStart(null);
+    setTouchEnd(null);
+  }, [touchStart, touchEnd, selectedMedia, nextMedia, prevMedia]);
 
-  const onMouseMove = (e) => {
-    if (isDragging) {
+  // Optimized mouse event handlers for drag functionality
+  const onMouseDown = useCallback(
+    (e) => {
+      if (!selectedMedia) return;
+      setMouseEnd(null);
+      setMouseStart(e.clientX);
+      setIsDragging(true);
+      e.preventDefault(); // Prevent text selection
+    },
+    [selectedMedia]
+  );
+
+  const onMouseMove = useCallback(
+    (e) => {
+      if (!isDragging || !selectedMedia || !mouseStart) return;
+      // Throttle mouse move events for performance
+      if (e.timeStamp - (onMouseMove.lastUpdate || 0) < 16) return; // ~60fps
+      onMouseMove.lastUpdate = e.timeStamp;
       setMouseEnd(e.clientX);
-    }
-  };
+    },
+    [isDragging, selectedMedia, mouseStart]
+  );
 
-  const onMouseUp = () => {
-    if (isDragging && mouseStart !== null && mouseEnd !== null) {
+  const onMouseUp = useCallback(() => {
+    if (!isDragging || !selectedMedia) return;
+
+    if (mouseStart !== null && mouseEnd !== null) {
       const distance = mouseStart - mouseEnd;
       const isLeftDrag = distance > 50;
       const isRightDrag = distance < -50;
 
-      if (isLeftDrag && selectedMedia) {
+      if (isLeftDrag) {
         nextMedia();
-      }
-      if (isRightDrag && selectedMedia) {
+      } else if (isRightDrag) {
         prevMedia();
       }
     }
-    setIsDragging(false);
-    setMouseStart(null);
-    setMouseEnd(null);
-  };
 
-  const onMouseLeave = () => {
+    // Clean up
     setIsDragging(false);
     setMouseStart(null);
     setMouseEnd(null);
-  };
+  }, [isDragging, selectedMedia, mouseStart, mouseEnd, nextMedia, prevMedia]);
+
+  const onMouseLeave = useCallback(() => {
+    setIsDragging(false);
+    setMouseStart(null);
+    setMouseEnd(null);
+  }, []);
 
   const MediaItem = ({
     media,
@@ -207,21 +235,25 @@ export default function AquariumProjectsClient() {
     }
   }, []);
 
-  // Keyboard navigation for lightbox
+  // Keyboard navigation for lightbox - optimized
   useEffect(() => {
+    if (!selectedMedia) return;
+
     const handleKeyPress = (e) => {
-      if (selectedMedia) {
-        if (e.key === "ArrowLeft") {
-          prevMedia();
-        } else if (e.key === "ArrowRight") {
-          nextMedia();
-        } else if (e.key === "Escape") {
-          closeLightbox();
-        }
+      // Only handle specific keys to avoid unnecessary processing
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        prevMedia();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        nextMedia();
+      } else if (e.key === "Escape") {
+        e.preventDefault();
+        closeLightbox();
       }
     };
 
-    window.addEventListener("keydown", handleKeyPress);
+    window.addEventListener("keydown", handleKeyPress, { passive: false });
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [selectedMedia, nextMedia, prevMedia, closeLightbox]);
 

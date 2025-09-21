@@ -95,65 +95,93 @@ const Home = () => {
     });
   };
 
-  // Touch event handlers for swipe functionality
-  const onTouchStart = (e) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-  };
+  // Optimized touch event handlers for swipe functionality
+  const onTouchStart = useCallback(
+    (e) => {
+      if (!selectedMedia) return;
+      setTouchEnd(null);
+      setTouchStart(e.targetTouches[0].clientX);
+    },
+    [selectedMedia]
+  );
 
-  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+  const onTouchMove = useCallback(
+    (e) => {
+      if (!selectedMedia || !touchStart) return;
+      // Throttle touch move events for performance
+      if (e.timeStamp - (onTouchMove.lastUpdate || 0) < 16) return; // ~60fps
+      onTouchMove.lastUpdate = e.timeStamp;
+      setTouchEnd(e.targetTouches[0].clientX);
+    },
+    [selectedMedia, touchStart]
+  );
 
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
+  const onTouchEnd = useCallback(() => {
+    if (!touchStart || !touchEnd || !selectedMedia) return;
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > 50;
     const isRightSwipe = distance < -50;
 
-    if (isLeftSwipe && selectedMedia) {
+    if (isLeftSwipe) {
       nextMedia();
-    }
-    if (isRightSwipe && selectedMedia) {
+    } else if (isRightSwipe) {
       prevMedia();
     }
-  };
 
-  // Mouse event handlers for drag functionality
-  const onMouseDown = (e) => {
-    setMouseEnd(null);
-    setMouseStart(e.clientX);
-    setIsDragging(true);
-    e.preventDefault();
-  };
+    // Clean up
+    setTouchStart(null);
+    setTouchEnd(null);
+  }, [touchStart, touchEnd, selectedMedia, nextMedia, prevMedia]);
 
-  const onMouseMove = (e) => {
-    if (isDragging) {
+  // Optimized mouse event handlers for drag functionality
+  const onMouseDown = useCallback(
+    (e) => {
+      if (!selectedMedia) return;
+      setMouseEnd(null);
+      setMouseStart(e.clientX);
+      setIsDragging(true);
+      e.preventDefault();
+    },
+    [selectedMedia]
+  );
+
+  const onMouseMove = useCallback(
+    (e) => {
+      if (!isDragging || !selectedMedia || !mouseStart) return;
+      // Throttle mouse move events for performance
+      if (e.timeStamp - (onMouseMove.lastUpdate || 0) < 16) return; // ~60fps
+      onMouseMove.lastUpdate = e.timeStamp;
       setMouseEnd(e.clientX);
-    }
-  };
+    },
+    [isDragging, selectedMedia, mouseStart]
+  );
 
-  const onMouseUp = () => {
-    if (isDragging && mouseStart !== null && mouseEnd !== null) {
+  const onMouseUp = useCallback(() => {
+    if (!isDragging || !selectedMedia) return;
+
+    if (mouseStart !== null && mouseEnd !== null) {
       const distance = mouseStart - mouseEnd;
       const isLeftDrag = distance > 50;
       const isRightDrag = distance < -50;
 
-      if (isLeftDrag && selectedMedia) {
+      if (isLeftDrag) {
         nextMedia();
-      }
-      if (isRightDrag && selectedMedia) {
+      } else if (isRightDrag) {
         prevMedia();
       }
     }
-    setIsDragging(false);
-    setMouseStart(null);
-    setMouseEnd(null);
-  };
 
-  const onMouseLeave = () => {
+    // Clean up
     setIsDragging(false);
     setMouseStart(null);
     setMouseEnd(null);
-  };
+  }, [isDragging, selectedMedia, mouseStart, mouseEnd, nextMedia, prevMedia]);
+
+  const onMouseLeave = useCallback(() => {
+    setIsDragging(false);
+    setMouseStart(null);
+    setMouseEnd(null);
+  }, []);
 
   const handleVideoPlay = () => {
     if (videoRef.current) {
@@ -170,18 +198,37 @@ const Home = () => {
   };
 
   useEffect(() => {
-    // Delay loading heavy components until after LCP - reduced for better perceived performance
-    const componentTimer = setTimeout(() => {
-      setComponentsLoaded(true);
-    }, 1000);
+    // Use requestIdleCallback for non-critical component loading
+    const componentTimer = window.requestIdleCallback
+      ? window.requestIdleCallback(
+          () => {
+            setComponentsLoaded(true);
+          },
+          { timeout: 1000 }
+        )
+      : setTimeout(() => {
+          setComponentsLoaded(true);
+        }, 500);
 
     // Check for favorites and show popup after components load
     const favoritesTimer = setTimeout(() => {
-      const favorites = getFavorites();
-      if (favorites.length > 0) {
-        setShowFavoritesPopup(true);
-      }
-    }, 3000); // Show popup 3 seconds after page load
+      window.requestIdleCallback
+        ? window.requestIdleCallback(
+            () => {
+              const favorites = getFavorites();
+              if (favorites.length > 0) {
+                setShowFavoritesPopup(true);
+              }
+            },
+            { timeout: 2000 }
+          )
+        : setTimeout(() => {
+            const favorites = getFavorites();
+            if (favorites.length > 0) {
+              setShowFavoritesPopup(true);
+            }
+          }, 100);
+    }, 3000);
 
     // Try to play video immediately
     if (videoRef.current) {
@@ -191,26 +238,34 @@ const Home = () => {
     }
 
     return () => {
-      clearTimeout(componentTimer);
+      if (window.requestIdleCallback) {
+        window.cancelIdleCallback(componentTimer);
+      } else {
+        clearTimeout(componentTimer);
+      }
       clearTimeout(favoritesTimer);
     };
   }, []);
 
-  // Keyboard navigation for lightbox
+  // Keyboard navigation for lightbox - optimized
   useEffect(() => {
+    if (!selectedMedia) return;
+
     const handleKeyPress = (e) => {
-      if (selectedMedia) {
-        if (e.key === "ArrowLeft") {
-          prevMedia();
-        } else if (e.key === "ArrowRight") {
-          nextMedia();
-        } else if (e.key === "Escape") {
-          closeLightbox();
-        }
+      // Only handle specific keys to avoid unnecessary processing
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        prevMedia();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        nextMedia();
+      } else if (e.key === "Escape") {
+        e.preventDefault();
+        closeLightbox();
       }
     };
 
-    window.addEventListener("keydown", handleKeyPress);
+    window.addEventListener("keydown", handleKeyPress, { passive: false });
     return () => window.removeEventListener("keydown", handleKeyPress);
   }, [selectedMedia, nextMedia, prevMedia, closeLightbox]);
 
