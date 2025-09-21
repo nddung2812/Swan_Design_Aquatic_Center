@@ -132,26 +132,33 @@ const AboutBanner = () => {
         </div>
       </div>
 
-      {/* Achievements Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
-        {achievements.map((achievement, index) => (
-          <Card
-            key={index}
-            className="group bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 cursor-pointer"
-          >
-            <CardContent className="p-6 text-center">
-              <div
-                className={`inline-flex p-4 rounded-full bg-gradient-to-r ${achievement.color} mb-4 text-white group-hover:scale-110 transition-transform duration-300`}
-              >
-                {achievement.icon}
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">
-                {achievement.title}
-              </h3>
-              <p className="text-white/70">{achievement.description}</p>
-            </CardContent>
-          </Card>
-        ))}
+      {/* Our Achievements Section */}
+      <div className="max-w-6xl mx-auto mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8">
+          Our <span className="text-emerald-400">Achievements</span>
+        </h2>
+
+        {/* Achievements Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {achievements.map((achievement, index) => (
+            <Card
+              key={index}
+              className="group bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 cursor-pointer"
+            >
+              <CardContent className="p-6 text-center">
+                <div
+                  className={`inline-flex p-4 rounded-full bg-gradient-to-r ${achievement.color} mb-4 text-white group-hover:scale-110 transition-transform duration-300`}
+                >
+                  {achievement.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {achievement.title}
+                </h3>
+                <p className="text-white/70">{achievement.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
 
       {/* Our Story Section */}
@@ -187,9 +194,9 @@ const AboutBanner = () => {
         </div>
 
         <div className="space-y-6">
-          <h3 className="text-2xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Our <span className="text-emerald-400">Services</span>
-          </h3>
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {services.map((service, index) => (
               <div key={index} className="flex items-center space-x-3">

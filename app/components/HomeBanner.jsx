@@ -74,7 +74,7 @@ export default function HomeBanner() {
             Brisbane & Gold Coast&apos;s #1 Fish Tank Cleaning Service
           </Badge>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             Brisbane & Gold Coast&apos;s #1 Fish Tank Cleaning Service
           </h1>
 
@@ -130,21 +130,30 @@ export default function HomeBanner() {
             </Button>
           </div>
 
-          {/* Features Grid */}
-          <div className="grid grid-cols-2 gap-6">
-            {features.map((feature, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <div className="p-2 rounded-lg bg-emerald-500/20 text-emerald-400">
-                  {feature.icon}
+          {/* Features Section */}
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-white mb-6 text-center">
+              Why Choose Our Fish Tank Cleaning Service
+            </h2>
+
+            {/* Features Grid */}
+            <div className="grid grid-cols-2 gap-6">
+              {features.map((feature, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <div className="p-2 rounded-lg bg-emerald-500/20 text-emerald-400">
+                    {feature.icon}
+                  </div>
+                  <div>
+                    <div className="text-white font-semibold mb-1">
+                      {feature.title}
+                    </div>
+                    <p className="text-white/70 text-sm">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-white font-semibold mb-1">
-                    {feature.title}
-                  </h3>
-                  <p className="text-white/70 text-sm">{feature.description}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
