@@ -12,43 +12,43 @@ export const projects = [
     media: [
       {
         type: "video",
-        url: "https://res.cloudinary.com/dhvj8x2nq/video/upload/v1757772273/IMG_2769_in1pf3.mov",
+        url: "https://res.cloudinary.com/dhvj8x2nq/video/upload/f_auto,q_auto/v1757772273/IMG_2769_in1pf3.mov",
         thumbnail:
-          "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772262/IMG_2767_dreclk.jpg",
+          "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772262/IMG_2767_dreclk.jpg",
       },
       {
         type: "video",
-        url: "https://res.cloudinary.com/dhvj8x2nq/video/upload/v1757772284/IMG_1626_nrc4jz.mov",
+        url: "https://res.cloudinary.com/dhvj8x2nq/video/upload/f_auto,q_auto/v1757772284/IMG_1626_nrc4jz.mov",
         thumbnail:
-          "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772267/IMG_5498_qexbga.jpg",
+          "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772267/IMG_5498_qexbga.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772264/IMG_1381_pseihh.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772264/IMG_1381_pseihh.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772267/IMG_5498_qexbga.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772264/IMG_5498_2_nrn9wm.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772271/IMG_1394_blvvzo.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772271/IMG_1394_blvvzo.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772258/IMG_1395_u3nrn0.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772258/IMG_1395_u3nrn0.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772250/ac5d75de-d34e-4fb7-b40f-70064b918f79_pxacub.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772250/ac5d75de-d34e-4fb7-b40f-70064b918f79_pxacub.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772249/60855a8e-6d1f-4d4f-a304-8a0bd13f613c_z66afu.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772249/60855a8e-6d1f-4d4f-a304-8a0bd13f613c_z66afu.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772245/040c3df9-a9c8-404c-a240-25b9bf309880_ttxqtb.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772245/040c3df9-a9c8-404c-a240-25b9bf309880_ttxqtb.jpg",
       },
     ],
     tags: ["Home Aquarium", "Professional Cleaning", "Aquascaping"],
@@ -66,19 +66,19 @@ export const projects = [
     media: [
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772246/235f0ec0-c026-4335-9ca9-b6ddff1263ac_kwwbnh.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772246/235f0ec0-c026-4335-9ca9-b6ddff1263ac_kwwbnh.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772245/3eda1bea-5918-4db4-ae75-8a80be475900_looie3.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772245/3eda1bea-5918-4db4-ae75-8a80be475900_looie3.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772247/3eda1bea-5918-4db4-ae75-8a80be475900_1_db5v1h.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772247/3eda1bea-5918-4db4-ae75-8a80be475900_1_db5v1h.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772249/1708f70c-3c0a-4c3a-832d-f3e107ff0766_ir94ok.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772249/1708f70c-3c0a-4c3a-832d-f3e107ff0766_ir94ok.jpg",
       },
     ],
     tags: ["Saltwater Tank", "Reef Setup", "Marine Fish"],
@@ -96,35 +96,35 @@ export const projects = [
     media: [
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772251/e6001e5f-fdbb-4f9d-bb8b-ac866da4fe80_wh2asi.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772251/e6001e5f-fdbb-4f9d-bb8b-ac866da4fe80_wh2asi.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772250/c4cdfa2f-a4fe-4711-86ae-8ddafdccf2fd_eihby1.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772250/c4cdfa2f-a4fe-4711-86ae-8ddafdccf2fd_eihby1.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772252/BC952050-E100-41CD-A9AF-5DF652D9E89A_wxrkcv.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772252/BC952050-E100-41CD-A9AF-5DF652D9E89A_wxrkcv.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772255/IMG_1383_rgahsj.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772255/IMG_1383_rgahsj.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772251/e1d8bbec-1cd0-42a2-89d6-f454ee7d0065_qaqspm.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772251/e1d8bbec-1cd0-42a2-89d6-f454ee7d0065_qaqspm.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772248/3f1fd834-a22c-46e9-a25f-8721b581a6c0_zngtki.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772248/3f1fd834-a22c-46e9-a25f-8721b581a6c0_zngtki.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772260/IMG_2623_fva0ru.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772260/IMG_2623_fva0ru.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772256/IMG_1382_hf8lwg.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772256/IMG_1382_hf8lwg.jpg",
       },
     ],
     tags: ["Planted Tank", "CO2 System", "Aquascaping"],
@@ -142,31 +142,31 @@ export const projects = [
     media: [
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772245/9f238c63-2598-4d0c-96e8-47a706f2a3e9_d9eczo.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772245/9f238c63-2598-4d0c-96e8-47a706f2a3e9_d9eczo.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772245/1b0f0bfc-4124-4d0a-bccd-65a9103d5da9_lwwjyz.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772245/1b0f0bfc-4124-4d0a-bccd-65a9103d5da9_lwwjyz.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772249/9f7c773d-ef91-4450-810a-e377c0eb513c_saq34l.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772249/9f7c773d-ef91-4450-810a-e377c0eb513c_saq34l.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772248/7c5442bf-e25b-45cf-973b-a64e6199ebfd_gknkfh.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772248/7c5442bf-e25b-45cf-973b-a64e6199ebfd_gknkfh.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772245/2cdb7f65-be92-4369-9519-dd81bfa2bb41_i6g0ta.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772245/2cdb7f65-be92-4369-9519-dd81bfa2bb41_i6g0ta.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772250/777e7a05-b79c-436b-badc-e42a7ef928f7_hakqso.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772250/777e7a05-b79c-436b-badc-e42a7ef928f7_hakqso.jpg",
       },
       {
         type: "image",
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772259/IMG_2622_hh7t0r.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772259/IMG_2622_hh7t0r.jpg",
       },
     ],
     tags: ["Emergency Service", "Tank Recovery", "Fish Health"],

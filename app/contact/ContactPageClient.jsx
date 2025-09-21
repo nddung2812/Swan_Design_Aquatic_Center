@@ -7,10 +7,6 @@ import { Play } from "lucide-react";
 import dynamic from "next/dynamic";
 
 // Lazy load heavy components to improve LCP
-const ReactHowler = dynamic(() => import("react-howler"), {
-  ssr: false,
-  loading: () => null,
-});
 
 const Duckweeds = dynamic(() => import("../components/Duckweeds"), {
   ssr: false,
@@ -22,25 +18,12 @@ const Footer = dynamic(() => import("../components/Footer"), {
   loading: () => null,
 });
 
-const MusicControlButton = dynamic(
-  () => import("../components/MusicControlButton"),
-  {
-    ssr: false,
-    loading: () => null,
-  }
-);
-
 export default function ContactPageClient() {
-  const [music, setMusic] = useState(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [showPlayButton, setShowPlayButton] = useState(false);
   const [componentsLoaded, setComponentsLoaded] = useState(false);
 
   const videoRef = useRef(null);
-
-  const handleMusic = () => {
-    setMusic(!music);
-  };
 
   const handleVideoPlay = () => {
     if (videoRef.current) {
@@ -162,18 +145,6 @@ export default function ContactPageClient() {
       {/* Heavy components - Load after LCP */}
       {componentsLoaded && (
         <>
-          {/* Background Music */}
-          <ReactHowler
-            src="https://res.cloudinary.com/dhvj8x2nq/video/upload/v1739712674/bluedream_hjtsse.mp3"
-            preload={false}
-            playing={music}
-            volume={0.4}
-            loop={true}
-          />
-
-          {/* Music Control Button */}
-          <MusicControlButton music={music} onToggleMusic={handleMusic} />
-
           {/* Floating Elements - Desktop only */}
           <div className="hidden xl:block">
             <Duckweeds />

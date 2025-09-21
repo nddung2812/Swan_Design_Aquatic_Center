@@ -8,10 +8,10 @@ export const productsData = [
     price: 24.99,
     stock: 25,
     images: [
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1749469954/best-place-to-buy-bucephalandra-kedagang-v0-5fhaw341fkjc1_ujrt6m",
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1749469616/Bucephalandrasp.kedagang3_1024x1024_z7ps3r",
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1749469616/kedakang00_ip3ncn",
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1749469616/bucephalandra-sp-kedagang-515ee0ba75ad6-768x589_1024x1024_jsq4qq",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1749469954/best-place-to-buy-bucephalandra-kedagang-v0-5fhaw341fkjc1_ujrt6m",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1749469616/Bucephalandrasp.kedagang3_1024x1024_z7ps3r",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1749469616/kedakang00_ip3ncn",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1749469616/bucephalandra-sp-kedagang-515ee0ba75ad6-768x589_1024x1024_jsq4qq",
     ],
     description:
       "Bucephalandra Kegadang is an easy plant, perfect for beginners.  It can be grown submerged or immersed. The plant is very slow growing, with new leaves sprouting from long, thin rhizomes.  It can be propagated by cutting the rhizome and attached to driftwood and rocks using super glue gel or thread",
@@ -56,7 +56,7 @@ export const productsData = [
     price: 5.5,
     stock: 40,
     images: [
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1755522376/s-l1600_750x810_wyyssi.webp",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1755522376/s-l1600_750x810_wyyssi.webp",
     ],
     description:
       "Amazon Frogbit is a great floating plant for newly setup aquarium as your natural ammonia and nitrate filter. They are quite fast to multiply especially during warmer weather which can also be used in outdoor pond. May have some algae/ snails. Portion: 5 plants per portion.",
@@ -100,9 +100,9 @@ export const productsData = [
     price: 15.0,
     stock: 30,
     images: [
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1755522754/Anu_nana_1_nrkqxt.webp",
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1755522754/Anu_nana_2_fqb9yr.webp",
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1755522753/Anu_nana_3_qyztgq.avif",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1755522754/Anu_nana_1_nrkqxt.webp",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1755522754/Anu_nana_2_fqb9yr.webp",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1755522753/Anu_nana_3_qyztgq.avif",
     ],
     description:
       "Anubias Nana Petite is one of the most sought-after Anubias. Like any other Anubias, its an extremely easy plant to grow and can survive a wide range of water parameters. They can grow in both aquariums and terrariums either submerged or emersed. Anubias Nana Petite is a flowering plant that grows best when the rhizome is attached to a hard surface such as wood or stones. They have low to medium light requirements and can benefit from regular fertilization. CO2 is not necessary but can promote faster growth and more robust leaves. Since it's a slow grower, the leaves are susceptible to algae growth if placed under high lighting. Propagation is easy and straightforward; simply cut or pull apart rhizomes to be replanted.",
@@ -146,8 +146,8 @@ export const productsData = [
     price: 8.5,
     stock: 9,
     images: [
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756904517/rotala-pink1739097849_lxdcup.jpg",
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756904516/822762743_750x810_srpapf.webp",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756904517/rotala-pink1739097849_lxdcup.jpg",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756904516/822762743_750x810_srpapf.webp",
     ],
     description:
       "Rotala rotundifolia is a popular aquarium plant of the rotala genus and loosestrife family, which it shares with other well known aquatic plants. Its Latin name 'Rotundifolia' literally means 'round leaves'. Rotundifolia is commonly mistaken for Rotala indica, another popular aquatic plant. It is also known as: Rotala Rotundifolia is a stem plant that thrives in wet, marshy, and aquatic environments and is a staple of aquaculture projects. The wild variety is found semi-immersed as a vigorous growing weed of rice paddies across southern Asia including China and Taiwan and can even be found in southern Europe. Use in aquascaping has led to it being introduced in the US, wherein in some regions, it has an invasive character.",
@@ -191,8 +191,8 @@ export const productsData = [
     price: 89,
     stock: 3,
     images: [
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756905591/Sd8ddf0b556b04623bc2e6333b6c94e01g.jpg_720x720q80_b5pj2k.jpg",
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756905165/71122BA7-DBE3-4B54-B4BA-65232756F18D_1024x1024_2x_fa31b968-95cb-4e7f-95c6-1957f6ee4c47_750x810_ujcaig.webp",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756905591/Sd8ddf0b556b04623bc2e6333b6c94e01g.jpg_720x720q80_b5pj2k.jpg",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756905165/71122BA7-DBE3-4B54-B4BA-65232756F18D_1024x1024_2x_fa31b968-95cb-4e7f-95c6-1957f6ee4c47_750x810_ujcaig.webp",
     ],
     description:
       "The Albino Blue Topaz Guppy is one of many unique varieties of Poecilia reticulata guppy developed through years of careful, selective breeding. Though guppies are typically known for their vibrant coloration, the male Albino Blue Topaz features an exciting blue-orange coloration on the face, dorsal fin, and tail fin. This fresh, exciting coloration makes the Albino Blue Topaz stand out and is relished by guppy enthusiasts and any freshwater aquarium hobbyist interested in unusual and distinct fish. The guppy (poecilia reticulata) is one of the most beautiful and easy to keep fish of all times. A great tropical fish for freshwater aquarium fish beginners, the Guppy is a very hardy tropical fish that is also a very prolific breeder. The male guppy is easy to distinguish from the female guppy because the male is usually more colorful with extremely colorful and large caudal fins (tails). The female is usually larger, thicker bodied, with less color and a smaller cuadal fin (tail). They are livebearers which means that the babies are free swimming at birth. At each birth, the female can have anywhere between 4 and 60 or more babies. If left in a community tank, the guppy fry will be quickly eaten if not secured in a breeding net or breeder's box. Sadly, even the guppy parents will partake in the baby guppy feast. Please be responsible and have a plan for what to do with the guppy fry. If you're not interested in breeding them they should do just fine when kept as all males or all females. Mix the sexes and you will most likely have babies. If knowing that the larger fish in the tank are having a feast (as they would in the wild) on the baby guppies bothers you then only keep all males or all females. You may sometimes see some aggression amongst the males but nothing too out of hand. Also, keep in mind that female guppies can be pregnant when you buy them from the store. Look for the gravid spot by the anal vent or a bulging in the belly area. The Albino Blue Topaz requires an aquarium of at least 10 gallons in size. It is a very peaceful fish and should be housed with tankmates of similar temperament. Though the Albino Blue Topaz is a hardy fish tolerant of small changes in water parameters, care should be taken to keep water temperature, pH, and nutrient levels in check. This hardy and energetic fish makes an excellent fish for beginning hobbyists. Guppies are relatively easy to breed even for the beginning aquarists. If you are interested in breeding guppies, the ideal aquarium should have a covering of floating plants and a breeding box to protect the fry. Adults may eat the fry if left to fend for themselves without the breeding box. The fry should be fed brine shrimp, micro food, and pulverized flakes. The Albino Blue Topaz is an omnivore and requires both algae-based foods as well as meaty foods. An algae-based flake food, along with freeze-dried bloodworms, tubifex, and brine shrimp will provide guppies with the proper nutrition.",

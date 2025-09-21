@@ -26,7 +26,7 @@ export const metadata = {
     type: "article",
     images: [
       {
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757335537/bucephalandra_bush_oyiznj",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757335537/bucephalandra_bush_oyiznj",
         width: 1200,
         height: 630,
         alt: "Complete Beginner's Guide to Setting Up Your First Aquarium",
@@ -68,7 +68,7 @@ export default function AquariumGuideLayout({ children }) {
             description:
               "Complete step-by-step guide for setting up your first aquarium, covering equipment selection, fish selection, nitrogen cycle, and maintenance.",
             image:
-              "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1739712678/aquarium-setup-guide-banner.jpg",
+              "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1739712678/aquarium-setup-guide-banner.jpg",
             author: {
               "@type": "Organization",
               name: "Duckaroo Brisbane",
@@ -111,7 +111,7 @@ export default function AquariumGuideLayout({ children }) {
             description:
               "Step-by-step guide to setting up your first aquarium for beginners",
             image:
-              "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1739712678/aquarium-setup-guide-banner.jpg",
+              "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1739712678/aquarium-setup-guide-banner.jpg",
             totalTime: "P3D",
             estimatedCost: {
               "@type": "MonetaryAmount",

@@ -32,7 +32,7 @@ export const metadata = {
     description:
       "Read real customer success stories and see stunning aquarium transformations by Brisbane & Gold Coast's premier fish tank cleaning service. Stories that speak for themselves.",
     images: [
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1757772254/IMG_1383_2_waxakf.jpg",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757772254/IMG_1383_2_waxakf.jpg",
     ],
     creator: "@AquaticSwanDesign",
   },

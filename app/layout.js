@@ -35,7 +35,7 @@ export const metadata = {
     siteName: "Duckaroo Fish Tank Cleaning Service Brisbane",
     images: [
       {
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg?v=2",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756014363/meta_f0bqpw.jpg?v=2",
         width: 1200,
         height: 630,
         alt: "Duckaroo Brisbane - Professional Fish Tank Cleaning Service & Aquarium Maintenance",
@@ -52,7 +52,7 @@ export const metadata = {
       "Brisbane & Gold Coast's premier fish tank cleaning service since 2010. Professional fish tank cleaning service, aquarium maintenance, tank removal & setup. Expert fish tank cleaning service specialists.",
     images: [
       {
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg?v=2",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756014363/meta_f0bqpw.jpg?v=2",
         alt: "Duckaroo Brisbane - Professional Fish Tank Cleaning Service & Aquarium Maintenance",
       },
     ],
@@ -176,7 +176,7 @@ export default function RootLayout({ children }) {
               paymentAccepted: "Cash, Credit Card, Bank Transfer",
               openingHours: "Mo-Su 08:00-18:00",
               image: [
-                "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg?v=2",
+                "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756014363/meta_f0bqpw.jpg?v=2",
               ],
               sameAs: ["https://aquaticswandesign.com.au"],
               aggregateRating: {
@@ -298,7 +298,7 @@ export default function RootLayout({ children }) {
         />
         <meta
           property="og:image"
-          content="https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg?v=2"
+          content="https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756014363/meta_f0bqpw.jpg?v=2"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -323,7 +323,7 @@ export default function RootLayout({ children }) {
         />
         <meta
           name="twitter:image"
-          content="https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg?v=2"
+          content="https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756014363/meta_f0bqpw.jpg?v=2"
         />
         <meta
           name="twitter:image:alt"

@@ -26,10 +26,6 @@ import { projects } from "./customer-stories/clientdata";
 export const runtime = "edge";
 
 // Lazy load heavy components to improve LCP
-const ReactHowler = dynamic(() => import("react-howler"), {
-  ssr: false,
-  loading: () => null,
-});
 
 const Duckweeds = dynamic(() => import("./components/Duckweeds"), {
   ssr: false,
@@ -41,16 +37,7 @@ const Footer = dynamic(() => import("./components/Footer"), {
   loading: () => null,
 });
 
-const MusicControlButton = dynamic(
-  () => import("./components/MusicControlButton"),
-  {
-    ssr: false,
-    loading: () => null,
-  }
-);
-
 const Home = () => {
-  const [music, setMusic] = useState(true);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [showPlayButton, setShowPlayButton] = useState(false);
   const [componentsLoaded, setComponentsLoaded] = useState(false);
@@ -65,10 +52,6 @@ const Home = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   const videoRef = useRef(null);
-
-  const handleMusic = () => {
-    setMusic(!music);
-  };
 
   const openLightbox = (project, mediaIndex) => {
     setSelectedMedia(project);
@@ -308,7 +291,7 @@ const Home = () => {
       {/* Main Content - Critical for LCP */}
       <div className="min-h-screen relative overflow-x-hidden w-full max-w-[2560px] mx-auto">
         <main className="relative z-10 w-full overflow-x-hidden">
-          <HomeBanner setMusic={setMusic} music={music} />
+          <HomeBanner />
           <ServiceBookingSection />
 
           {/* Customer Success Stories Section */}
@@ -409,6 +392,7 @@ const Home = () => {
                                 alt={`${project.name} - Main Image`}
                                 fill
                                 className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                loading="lazy"
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
                               />
                               {/* Video Play Button Overlay */}
@@ -461,6 +445,7 @@ const Home = () => {
                                     }`}
                                     fill
                                     className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                    loading="lazy"
                                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                                   />
 
@@ -502,18 +487,6 @@ const Home = () => {
       {/* Heavy components - Load after LCP */}
       {componentsLoaded && (
         <>
-          {/* Background Music */}
-          <ReactHowler
-            src="https://res.cloudinary.com/dhvj8x2nq/video/upload/v1758351101/Pulsar_-_The_Grey_Room___Density_Time_yblk12.mp3"
-            preload={false}
-            playing={music}
-            volume={0.4}
-            loop={true}
-          />
-
-          {/* Music Control Button */}
-          <MusicControlButton music={music} onToggleMusic={handleMusic} />
-
           {/* Floating Elements - Desktop only */}
           <div className="hidden xl:block">
             <Duckweeds />

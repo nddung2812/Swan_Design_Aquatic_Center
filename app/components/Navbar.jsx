@@ -69,6 +69,7 @@ const Navbar = () => {
               width={60}
               height={60}
               className="w-14 h-14 md:w-16 md:h-16"
+              priority
             />
             <span className="text-white font-bold text-xl hidden sm:block">
               Aquatic Swan Design

@@ -39,7 +39,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1739712678/duckaroo-service-brisbane.jpg",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1739712678/duckaroo-service-brisbane.jpg",
         width: 1200,
         height: 630,
         alt: "Fish Tank Cleaning Service Brisbane - Professional Aquarium Maintenance",

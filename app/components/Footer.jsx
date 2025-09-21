@@ -184,6 +184,8 @@ const Footer = () => {
               width={201}
               height={22}
               className="opacity-70"
+              loading="lazy"
+              sizes="201px"
             />
           </div>
         </div>

@@ -60,7 +60,7 @@ export const blogs = [
     description:
       "Discover how to successfully grow and maintain beautiful Bucephalandra plants in your aquarium.",
     image:
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756014363/meta_f0bqpw.jpg",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756014363/meta_f0bqpw.jpg",
     imageAlt:
       "Vibrant green Bucephalandra aquatic plants with rounded leaves growing on driftwood in planted aquarium",
     category: "plant-care",
@@ -125,7 +125,7 @@ export const blogs = [
     description:
       "Compare different types of aquarium filters and learn which system works best for your specific tank setup.",
     image:
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756906679/best-small-fish-tank-filter_c3egvr.jpg",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756906679/best-small-fish-tank-filter_c3egvr.jpg",
     imageAlt:
       "Modern aquarium filter system showing mechanical and biological filtration components for water quality maintenance",
     category: "equipment",
@@ -360,7 +360,7 @@ export const blogs = [
     description:
       "Discover the essential aquascaping tools you actually need and creative alternatives that won't break the bank.",
     image:
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1756907300/2_b38f7904-b909-4039-b3e1-22da376607ff_587x_nu97yx.webp",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756907300/2_b38f7904-b909-4039-b3e1-22da376607ff_587x_nu97yx.webp",
     imageAlt:
       "Collection of essential aquascaping tools including tweezers, scissors, and maintenance equipment for planted tanks",
     category: "aquascaping",

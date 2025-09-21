@@ -25,7 +25,7 @@ export const metadata = {
     title:
       "About Duckaroo | Fish Tank Cleaning Service & Aquarium Cleaning Service Near Me Brisbane",
     description:
-      "Premier fish tank cleaning service & aquarium cleaning service near me in Brisbane. 1000+ customers trust our professional fish tank cleaning service. 15+ years experience, 5-star rated.",
+      "Premier fish tank cleaning service & aquarium cleaning service near me in Brisbane and Gold Coast. 1000+ customers trust our professional fish tank cleaning service. 15+ years experience, 5-star rated.",
     url: "https://aquaticswandesign.com.au/about-us",
     siteName: "Duckaroo Aquatic Services",
     images: [

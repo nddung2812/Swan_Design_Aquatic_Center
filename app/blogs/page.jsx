@@ -269,6 +269,8 @@ function FeaturedBlogCard({ blog }) {
           alt={blog.imageAlt || blog.title}
           fill
           className="object-cover group-hover:scale-110 transition-transform duration-300"
+          loading="lazy"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
         <div className="absolute top-4 left-4">
           <Badge
@@ -368,6 +370,8 @@ function BlogCard({ blog, viewMode, formatDate, getCategoryInfo }) {
           alt={blog.imageAlt || blog.title}
           fill
           className="object-cover group-hover:scale-110 transition-transform duration-300"
+          loading="lazy"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
         <div className="absolute top-4 left-4">
           <Badge

@@ -437,6 +437,7 @@ export default function AquariumProjectsClient() {
                               alt={`${project.name} - Main Image`}
                               fill
                               className="object-cover group-hover:scale-105 transition-transform duration-300"
+                              loading="lazy"
                               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
                             />
                             {/* Video Play Button Overlay */}
@@ -489,6 +490,7 @@ export default function AquariumProjectsClient() {
                                   }`}
                                   fill
                                   className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                  loading="lazy"
                                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                                 />
 

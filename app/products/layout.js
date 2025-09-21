@@ -26,13 +26,13 @@ export const metadata = {
     siteName: "Duckaroo Brisbane",
     images: [
       {
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1749469954/best-place-to-buy-bucephalandra-kedagang-v0-5fhaw341fkjc1_ujrt6m",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1749469954/best-place-to-buy-bucephalandra-kedagang-v0-5fhaw341fkjc1_ujrt6m",
         width: 1200,
         height: 630,
         alt: "Premium Bucephalandra and Anubias Plants - Duckaroo Brisbane",
       },
       {
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1755522754/Anu_nana_1_nrkqxt.webp",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1755522754/Anu_nana_1_nrkqxt.webp",
         width: 1200,
         height: 630,
         alt: "Rare Aquatic Plants and Aquascaping Supplies Australia",
@@ -49,7 +49,7 @@ export const metadata = {
       "Australia Wide Shipping Aquatic Rare Bucephalandra & Other Rarer Plants • Live Arrival Guarantee • 100% Customer Satisfaction Guarantee.",
     images: [
       {
-        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1749469954/best-place-to-buy-bucephalandra-kedagang-v0-5fhaw341fkjc1_ujrt6m",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1749469954/best-place-to-buy-bucephalandra-kedagang-v0-5fhaw341fkjc1_ujrt6m",
         alt: "Premium Bucephalandra and Anubias Plants - Duckaroo Brisbane",
       },
     ],
@@ -96,7 +96,7 @@ export default function ProductsLayout({ children }) {
               "Australia's premier online store for rare aquatic plants including Bucephalandra, Anubias, and aquascaping supplies with live arrival guarantee.",
             url: "https://duckaroo.com.au/products",
             image:
-              "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1749469954/best-place-to-buy-bucephalandra-kedagang-v0-5fhaw341fkjc1_ujrt6m",
+              "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1749469954/best-place-to-buy-bucephalandra-kedagang-v0-5fhaw341fkjc1_ujrt6m",
             address: {
               "@type": "PostalAddress",
               addressLocality: "Brisbane",
