@@ -72,15 +72,22 @@ function CheckoutPageContent() {
 
   // Load cart from localStorage
   useEffect(() => {
-    const savedCart = localStorage.getItem("shopping-cart");
-    if (savedCart) {
-      const parsedCart = JSON.parse(savedCart);
-      setCartItems(parsedCart);
-      if (parsedCart.length === 0) {
+    if (typeof window !== "undefined") {
+      const savedCart = localStorage.getItem("shopping-cart");
+      if (savedCart) {
+        try {
+          const parsedCart = JSON.parse(savedCart);
+          setCartItems(parsedCart);
+          if (parsedCart.length === 0) {
+            router.push("/products");
+          }
+        } catch (error) {
+          // Handle parsing errors silently and redirect
+          router.push("/products");
+        }
+      } else {
         router.push("/products");
       }
-    } else {
-      router.push("/products");
     }
   }, [router]);
 
@@ -251,7 +258,9 @@ function CheckoutPageContent() {
         });
 
         // Clear cart
-        localStorage.removeItem("shopping-cart");
+        if (typeof window !== "undefined") {
+          localStorage.removeItem("shopping-cart");
+        }
         setOrderComplete(true);
         toast.success("Payment successful! Confirmation email sent.");
       } catch (error) {
@@ -570,7 +579,7 @@ function CheckoutPageContent() {
                       value={shippingOption}
                       onValueChange={setShippingOption}
                     >
-                      <SelectTrigger>
+                      <SelectTrigger aria-label="Select shipping option">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>

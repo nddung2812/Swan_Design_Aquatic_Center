@@ -292,7 +292,10 @@ const ServiceBookingSection = () => {
                       onValueChange={(value) => setValue("service", value)}
                       defaultValue=""
                     >
-                      <SelectTrigger className="bg-white/10 border-white/20 text-white">
+                      <SelectTrigger 
+                        className="bg-white/10 border-white/20 text-white"
+                        aria-label="Select service type"
+                      >
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                       <SelectContent>

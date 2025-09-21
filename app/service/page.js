@@ -32,8 +32,7 @@ export default function Service() {
         .then(() => {
           setShowPlayButton(false);
         })
-        .catch((error) => {
-          console.log("Video autoplay failed:", error);
+        .catch(() => {
           setShowPlayButton(true);
         });
     }

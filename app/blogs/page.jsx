@@ -155,7 +155,10 @@ export default function BlogsPage() {
                     value={selectedCategory}
                     onValueChange={setSelectedCategory}
                   >
-                    <SelectTrigger className="bg-white/20 border-white/30 text-white">
+                    <SelectTrigger 
+                      className="bg-white/20 border-white/30 text-white"
+                      aria-label="Select blog category"
+                    >
                       <SelectValue placeholder="Category" />
                     </SelectTrigger>
                     <SelectContent>
@@ -170,7 +173,10 @@ export default function BlogsPage() {
 
                   {/* Sort */}
                   <Select value={sortBy} onValueChange={setSortBy}>
-                    <SelectTrigger className="bg-white/20 border-white/30 text-white">
+                    <SelectTrigger 
+                      className="bg-white/20 border-white/30 text-white"
+                      aria-label="Sort blog posts"
+                    >
                       <SelectValue placeholder="Sort by" />
                     </SelectTrigger>
                     <SelectContent>

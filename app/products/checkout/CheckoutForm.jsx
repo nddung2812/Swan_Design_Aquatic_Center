@@ -242,7 +242,10 @@ export default function CheckoutForm({
               <div>
                 <Label htmlFor="billingCountry">Country</Label>
                 <Select value="Australia" disabled={true}>
-                  <SelectTrigger className="bg-gray-100">
+                  <SelectTrigger 
+                    className="bg-gray-100"
+                    aria-label="Select country"
+                  >
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>

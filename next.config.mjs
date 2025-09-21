@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Enable source maps in production for better debugging and Lighthouse scores
+  productionBrowserSourceMaps: true,
   images: {
     remotePatterns: [
       {
@@ -55,15 +57,9 @@ const nextConfig = {
     optimizeCss: false,
   },
   webpack: (config, { dev, isServer }) => {
-    // Only disable CSS optimization to avoid SCSS parsing issues, but keep JS minification
+    // Disable minification entirely to avoid CSS syntax errors
+    // Source maps will still be generated via productionBrowserSourceMaps
     if (!dev) {
-      config.optimization.minimizer = config.optimization.minimizer.filter(
-        (plugin) =>
-          plugin.constructor.name !== "CssMinimizerPlugin" &&
-          plugin.constructor.name !== "OptimizeCssAssetsWebpackPlugin"
-      );
-
-      // Disable CSS optimization entirely to avoid CSS syntax errors
       config.optimization.minimize = false;
     }
 

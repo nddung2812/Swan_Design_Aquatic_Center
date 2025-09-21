@@ -20,7 +20,7 @@ export const getFavorites = () => {
     const value = cookieValue.split("=")[1];
     return JSON.parse(decodeURIComponent(value));
   } catch (error) {
-    console.error("Error reading favorites cookie:", error);
+    // Silently handle cookie parsing errors
     return [];
   }
 };
@@ -36,7 +36,7 @@ export const saveFavorites = (favorites) => {
     const cookieValue = encodeURIComponent(JSON.stringify(favorites));
     document.cookie = `${FAVORITES_COOKIE_NAME}=${cookieValue}; expires=${expiry.toUTCString()}; path=/; SameSite=Lax`;
   } catch (error) {
-    console.error("Error saving favorites cookie:", error);
+    // Silently handle cookie saving errors
   }
 };
 

@@ -19,20 +19,24 @@ export const CartProvider = ({ children }) => {
   // Load cart from localStorage on mount
   useEffect(() => {
     setIsClient(true);
-    const savedCart = localStorage.getItem("shopping-cart");
-    if (savedCart) {
-      try {
-        setCartItems(JSON.parse(savedCart));
-      } catch (error) {
-        console.error("Error loading cart from localStorage:", error);
-        setCartItems([]);
+
+    // Only access localStorage if we're on the client
+    if (typeof window !== "undefined") {
+      const savedCart = localStorage.getItem("shopping-cart");
+      if (savedCart) {
+        try {
+          setCartItems(JSON.parse(savedCart));
+        } catch (error) {
+          // Silently handle parsing errors and reset cart
+          setCartItems([]);
+        }
       }
     }
   }, []);
 
   // Save cart to localStorage whenever cartItems change (only after initial load)
   useEffect(() => {
-    if (isClient) {
+    if (isClient && typeof window !== "undefined") {
       localStorage.setItem("shopping-cart", JSON.stringify(cartItems));
 
       // Dispatch custom event to notify other components

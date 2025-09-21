@@ -168,7 +168,10 @@ export default function ServiceForm() {
               Service Type *
             </Label>
             <Select onValueChange={(value) => setValue("service", value)}>
-              <SelectTrigger className="bg-white/25 border-2 border-white/40 text-white focus:border-emerald-400 focus:bg-white/30 focus:ring-2 focus:ring-emerald-400/50">
+              <SelectTrigger 
+                className="bg-white/25 border-2 border-white/40 text-white focus:border-emerald-400 focus:bg-white/30 focus:ring-2 focus:ring-emerald-400/50"
+                aria-label="Select service type"
+              >
                 <SelectValue placeholder="Select a service" />
               </SelectTrigger>
               <SelectContent className="bg-white/95 border-2 border-gray-300 backdrop-blur-lg shadow-2xl">

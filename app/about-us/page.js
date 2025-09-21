@@ -33,8 +33,7 @@ export default function AboutUs() {
         .then(() => {
           setShowPlayButton(false);
         })
-        .catch((error) => {
-          console.log("Video autoplay failed:", error);
+        .catch(() => {
           setShowPlayButton(true);
         });
     }
