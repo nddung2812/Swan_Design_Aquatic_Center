@@ -234,94 +234,94 @@ export const productsData = [
   },
 
   // Probiotics Category
-  {
-    id: 6,
-    name: "API Quick Start",
-    slug: "api-quick-start",
-    category: "probiotics",
-    price: 14.99,
-    stock: 50,
-    images: [
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756906200/api-quick-start-sample.jpg",
-    ],
-    description:
-      "Beneficial bacteria supplement that immediately starts the aquarium cycle and reduces fish stress. Contains live, nitrifying bacteria to establish biological filtration in new aquariums instantly.",
-    features: [
-      "Instant cycle",
-      "Reduces ammonia",
-      "Safe for fish",
-      "Live bacteria formula",
-    ],
-    specifications: {
-      Volume: "16 fl oz",
-      Treats: "Up to 960 gallons",
-      Type: "Liquid bacteria",
-      "Shelf Life": "3 years",
-      pH: "6.0-8.5",
-    },
-    reviews: {
-      rating: "4.4",
-      count: "156",
-      individual: [
-        {
-          author: "Steve M.",
-          rating: 5,
-          text: "Excellent product! My tank cycled in just 3 days with no fish stress. Highly recommend for new setups.",
-          date: "2024-11-20",
-        },
-        {
-          author: "Anna K.",
-          rating: 4,
-          text: "Good bacteria starter. Worked well but took about a week to see full effects. Still happy with results.",
-          date: "2024-11-15",
-        },
-      ],
-    },
-  },
-  {
-    id: 7,
-    name: "Seachem Stability",
-    slug: "seachem-stability",
-    category: "probiotics",
-    price: 12.99,
-    stock: 45,
-    images: [
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756906300/seachem-stability-sample.jpg",
-    ],
-    description:
-      "Concentrated blend of bacteria designed to rapidly establish biological filtration in new aquariums. Non-sulfur based formula won't cloud water.",
-    features: [
-      "Non-sulfur based",
-      "Will not cloud water",
-      "Rapidly establishes biofilter",
-      "Professional grade",
-    ],
-    specifications: {
-      Volume: "17 fl oz",
-      Treats: "Up to 4,000 gallons",
-      Type: "Bacterial blend",
-      "Shelf Life": "4 years",
-      pH: "5.0-9.0",
-    },
-    reviews: {
-      rating: "4.6",
-      count: "203",
-      individual: [
-        {
-          author: "Mike R.",
-          rating: 5,
-          text: "Best bacteria supplement I've used. Crystal clear water and perfect cycle every time.",
-          date: "2024-11-18",
-        },
-        {
-          author: "Linda P.",
-          rating: 4,
-          text: "Works as advertised. Great for emergency tank setups. A bit pricey but worth it.",
-          date: "2024-11-12",
-        },
-      ],
-    },
-  },
+  // {
+  //   id: 6,
+  //   name: "API Quick Start",
+  //   slug: "api-quick-start",
+  //   category: "probiotics",
+  //   price: 14.99,
+  //   stock: 50,
+  //   images: [
+  //     "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756906200/api-quick-start-sample.jpg",
+  //   ],
+  //   description:
+  //     "Beneficial bacteria supplement that immediately starts the aquarium cycle and reduces fish stress. Contains live, nitrifying bacteria to establish biological filtration in new aquariums instantly.",
+  //   features: [
+  //     "Instant cycle",
+  //     "Reduces ammonia",
+  //     "Safe for fish",
+  //     "Live bacteria formula",
+  //   ],
+  //   specifications: {
+  //     Volume: "16 fl oz",
+  //     Treats: "Up to 960 gallons",
+  //     Type: "Liquid bacteria",
+  //     "Shelf Life": "3 years",
+  //     pH: "6.0-8.5",
+  //   },
+  //   reviews: {
+  //     rating: "4.4",
+  //     count: "156",
+  //     individual: [
+  //       {
+  //         author: "Steve M.",
+  //         rating: 5,
+  //         text: "Excellent product! My tank cycled in just 3 days with no fish stress. Highly recommend for new setups.",
+  //         date: "2024-11-20",
+  //       },
+  //       {
+  //         author: "Anna K.",
+  //         rating: 4,
+  //         text: "Good bacteria starter. Worked well but took about a week to see full effects. Still happy with results.",
+  //         date: "2024-11-15",
+  //       },
+  //     ],
+  //   },
+  // },
+  // {
+  //   id: 7,
+  //   name: "Seachem Stability",
+  //   slug: "seachem-stability",
+  //   category: "probiotics",
+  //   price: 12.99,
+  //   stock: 45,
+  //   images: [
+  //     "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756906300/seachem-stability-sample.jpg",
+  //   ],
+  //   description:
+  //     "Concentrated blend of bacteria designed to rapidly establish biological filtration in new aquariums. Non-sulfur based formula won't cloud water.",
+  //   features: [
+  //     "Non-sulfur based",
+  //     "Will not cloud water",
+  //     "Rapidly establishes biofilter",
+  //     "Professional grade",
+  //   ],
+  //   specifications: {
+  //     Volume: "17 fl oz",
+  //     Treats: "Up to 4,000 gallons",
+  //     Type: "Bacterial blend",
+  //     "Shelf Life": "4 years",
+  //     pH: "5.0-9.0",
+  //   },
+  //   reviews: {
+  //     rating: "4.6",
+  //     count: "203",
+  //     individual: [
+  //       {
+  //         author: "Mike R.",
+  //         rating: 5,
+  //         text: "Best bacteria supplement I've used. Crystal clear water and perfect cycle every time.",
+  //         date: "2024-11-18",
+  //       },
+  //       {
+  //         author: "Linda P.",
+  //         rating: 4,
+  //         text: "Works as advertised. Great for emergency tank setups. A bit pricey but worth it.",
+  //         date: "2024-11-12",
+  //       },
+  //     ],
+  //   },
+  // },
   // {
   //   id: 8,
   //   name: "Fluval Cycle",
@@ -397,133 +397,133 @@ export const productsData = [
   // },
 
   // Accessories Category
-  {
-    id: 11,
-    name: "Aquascaping Tool Set",
-    slug: "aquascaping-tool-set",
-    category: "accessories",
-    price: 34.99,
-    stock: 20,
-    images: [
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756906400/aquascaping-tools-sample.jpg",
-    ],
-    description:
-      "Professional 5-piece stainless steel tool set for planting and maintaining aquascapes. Includes curved scissors, straight scissors, tweezers, substrate spatula, and trimming scissors.",
-    features: [
-      "Stainless steel",
-      "Professional grade",
-      "5-piece set",
-      "Ergonomic design",
-    ],
-    specifications: {
-      Material: "Stainless Steel",
-      Pieces: "5 tools",
-      Length: "10-12 inches",
-      Use: "Planting & maintenance",
-      Coating: "Anti-corrosion",
-    },
-    reviews: {
-      rating: "4.7",
-      count: "89",
-      individual: [
-        {
-          author: "Jake L.",
-          rating: 5,
-          text: "Excellent quality tools! Perfect for detailed aquascaping work. Well worth the investment.",
-          date: "2024-11-17",
-        },
-        {
-          author: "Sophie K.",
-          rating: 4,
-          text: "Good tools, though the scissors could be a bit sharper. Overall satisfied with the purchase.",
-          date: "2024-11-08",
-        },
-      ],
-    },
-  },
-  {
-    id: 12,
-    name: "CO2 Indicator Solution",
-    slug: "co2-indicator-solution",
-    category: "accessories",
-    price: 8.99,
-    stock: 60,
-    images: [
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756906500/co2-indicator-sample.jpg",
-    ],
-    description:
-      "Color-changing solution that monitors CO2 levels in planted aquariums for optimal plant growth. Changes from blue (low CO2) to green (optimal) to yellow (high CO2).",
-    features: ["Color-changing", "Easy to read", "Long-lasting", "Non-toxic"],
-    specifications: {
-      Volume: "15ml",
-      Duration: "4-6 weeks",
-      Type: "pH indicator",
-      Range: "5-50 ppm CO2",
-      Colors: "Blue/Green/Yellow",
-    },
-    reviews: {
-      rating: "4.3",
-      count: "124",
-      individual: [
-        {
-          author: "Paul N.",
-          rating: 4,
-          text: "Useful tool for monitoring CO2. Color changes are clear and easy to interpret.",
-          date: "2024-11-19",
-        },
-        {
-          author: "Carol M.",
-          rating: 4,
-          text: "Works well for the price. Helped me dial in my CO2 levels perfectly.",
-          date: "2024-11-11",
-        },
-      ],
-    },
-  },
-  {
-    id: 13,
-    name: "Digital pH Meter",
-    slug: "digital-ph-meter",
-    category: "accessories",
-    price: 29.99,
-    stock: 35,
-    images: [
-      "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756906600/ph-meter-sample.jpg",
-    ],
-    description:
-      "Accurate digital pH meter with automatic temperature compensation for precise water testing. Features large LCD display and auto-calibration function.",
-    features: [
-      "Digital display",
-      "Auto calibration",
-      "Temperature compensation",
-      "Waterproof design",
-    ],
-    specifications: {
-      Accuracy: "±0.01 pH",
-      Range: "0.00-14.00 pH",
-      Power: "2 x 1.5V batteries",
-      Waterproof: "IP67 rated",
-      Display: "Large LCD",
-    },
-    reviews: {
-      rating: "4.5",
-      count: "76",
-      individual: [
-        {
-          author: "Mark T.",
-          rating: 5,
-          text: "Very accurate and easy to use. Auto-calibration feature is fantastic. Highly recommend!",
-          date: "2024-11-16",
-        },
-        {
-          author: "Nancy R.",
-          rating: 4,
-          text: "Good meter for the price. Accurate readings and the waterproof design is a plus.",
-          date: "2024-11-09",
-        },
-      ],
-    },
-  },
+  // {
+  //   id: 11,
+  //   name: "Aquascaping Tool Set",
+  //   slug: "aquascaping-tool-set",
+  //   category: "accessories",
+  //   price: 34.99,
+  //   stock: 20,
+  //   images: [
+  //     "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756906400/aquascaping-tools-sample.jpg",
+  //   ],
+  //   description:
+  //     "Professional 5-piece stainless steel tool set for planting and maintaining aquascapes. Includes curved scissors, straight scissors, tweezers, substrate spatula, and trimming scissors.",
+  //   features: [
+  //     "Stainless steel",
+  //     "Professional grade",
+  //     "5-piece set",
+  //     "Ergonomic design",
+  //   ],
+  //   specifications: {
+  //     Material: "Stainless Steel",
+  //     Pieces: "5 tools",
+  //     Length: "10-12 inches",
+  //     Use: "Planting & maintenance",
+  //     Coating: "Anti-corrosion",
+  //   },
+  //   reviews: {
+  //     rating: "4.7",
+  //     count: "89",
+  //     individual: [
+  //       {
+  //         author: "Jake L.",
+  //         rating: 5,
+  //         text: "Excellent quality tools! Perfect for detailed aquascaping work. Well worth the investment.",
+  //         date: "2024-11-17",
+  //       },
+  //       {
+  //         author: "Sophie K.",
+  //         rating: 4,
+  //         text: "Good tools, though the scissors could be a bit sharper. Overall satisfied with the purchase.",
+  //         date: "2024-11-08",
+  //       },
+  //     ],
+  //   },
+  // },
+  // {
+  //   id: 12,
+  //   name: "CO2 Indicator Solution",
+  //   slug: "co2-indicator-solution",
+  //   category: "accessories",
+  //   price: 8.99,
+  //   stock: 60,
+  //   images: [
+  //     "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756906500/co2-indicator-sample.jpg",
+  //   ],
+  //   description:
+  //     "Color-changing solution that monitors CO2 levels in planted aquariums for optimal plant growth. Changes from blue (low CO2) to green (optimal) to yellow (high CO2).",
+  //   features: ["Color-changing", "Easy to read", "Long-lasting", "Non-toxic"],
+  //   specifications: {
+  //     Volume: "15ml",
+  //     Duration: "4-6 weeks",
+  //     Type: "pH indicator",
+  //     Range: "5-50 ppm CO2",
+  //     Colors: "Blue/Green/Yellow",
+  //   },
+  //   reviews: {
+  //     rating: "4.3",
+  //     count: "124",
+  //     individual: [
+  //       {
+  //         author: "Paul N.",
+  //         rating: 4,
+  //         text: "Useful tool for monitoring CO2. Color changes are clear and easy to interpret.",
+  //         date: "2024-11-19",
+  //       },
+  //       {
+  //         author: "Carol M.",
+  //         rating: 4,
+  //         text: "Works well for the price. Helped me dial in my CO2 levels perfectly.",
+  //         date: "2024-11-11",
+  //       },
+  //     ],
+  //   },
+  // },
+  // {
+  //   id: 13,
+  //   name: "Digital pH Meter",
+  //   slug: "digital-ph-meter",
+  //   category: "accessories",
+  //   price: 29.99,
+  //   stock: 35,
+  //   images: [
+  //     "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756906600/ph-meter-sample.jpg",
+  //   ],
+  //   description:
+  //     "Accurate digital pH meter with automatic temperature compensation for precise water testing. Features large LCD display and auto-calibration function.",
+  //   features: [
+  //     "Digital display",
+  //     "Auto calibration",
+  //     "Temperature compensation",
+  //     "Waterproof design",
+  //   ],
+  //   specifications: {
+  //     Accuracy: "±0.01 pH",
+  //     Range: "0.00-14.00 pH",
+  //     Power: "2 x 1.5V batteries",
+  //     Waterproof: "IP67 rated",
+  //     Display: "Large LCD",
+  //   },
+  //   reviews: {
+  //     rating: "4.5",
+  //     count: "76",
+  //     individual: [
+  //       {
+  //         author: "Mark T.",
+  //         rating: 5,
+  //         text: "Very accurate and easy to use. Auto-calibration feature is fantastic. Highly recommend!",
+  //         date: "2024-11-16",
+  //       },
+  //       {
+  //         author: "Nancy R.",
+  //         rating: 4,
+  //         text: "Good meter for the price. Accurate readings and the waterproof design is a plus.",
+  //         date: "2024-11-09",
+  //       },
+  //     ],
+  //   },
+  // },
   // {
   //   id: 14,
   //   name: "Aquarium Gravel Vacuum",
