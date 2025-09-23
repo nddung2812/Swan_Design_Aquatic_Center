@@ -75,6 +75,11 @@ function ProductStructuredData({ product }) {
       itemCondition: "https://schema.org/NewCondition",
       validFrom: "2024-01-01",
       priceValidUntil: "2025-12-31",
+      acceptedPaymentMethod: [
+        "http://purl.org/goodrelations/v1#PayPal",
+        "http://purl.org/goodrelations/v1#ByBankTransferInAdvance",
+        "http://purl.org/goodrelations/v1#ByInvoice",
+      ],
       seller: {
         "@type": "Organization",
         "@id": `${baseUrl}#organization`,
