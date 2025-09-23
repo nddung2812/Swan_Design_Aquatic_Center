@@ -39,6 +39,12 @@ export default function sitemap() {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/aquatic-specialists-gold-coast`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/customer-stories`,
       lastModified: new Date(),
       changeFrequency: "weekly",

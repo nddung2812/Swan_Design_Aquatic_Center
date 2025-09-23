@@ -143,7 +143,7 @@ export default function ServiceForm() {
 
           <div className="space-y-2">
             <Label htmlFor="location" className="text-white font-semibold">
-              Brisbane Location *
+              Location *
             </Label>
             <Input
               type="text"
@@ -168,7 +168,7 @@ export default function ServiceForm() {
               Service Type *
             </Label>
             <Select onValueChange={(value) => setValue("service", value)}>
-              <SelectTrigger 
+              <SelectTrigger
                 className="bg-white/25 border-2 border-white/40 text-white focus:border-emerald-400 focus:bg-white/30 focus:ring-2 focus:ring-emerald-400/50"
                 aria-label="Select service type"
               >

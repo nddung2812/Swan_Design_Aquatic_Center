@@ -267,7 +267,7 @@ const ServiceBookingSection = () => {
 
                   <div>
                     <Label htmlFor="location" className="text-white">
-                      Brisbane Location
+                      Location
                     </Label>
                     <Input
                       id="location"
@@ -292,7 +292,7 @@ const ServiceBookingSection = () => {
                       onValueChange={(value) => setValue("service", value)}
                       defaultValue=""
                     >
-                      <SelectTrigger 
+                      <SelectTrigger
                         className="bg-white/10 border-white/20 text-white"
                         aria-label="Select service type"
                       >

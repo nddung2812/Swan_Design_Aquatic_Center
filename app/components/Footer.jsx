@@ -18,6 +18,7 @@ const Footer = () => {
       },
       { label: "Contact Us", href: "/contact" },
       { label: "Get Quote", href: "/service" },
+      { label: "Gold Coast Service", href: "/aquatic-specialists-gold-coast" },
     ],
     products: [
       {
