@@ -237,7 +237,7 @@ export const productsData = [
     name: "Buce Helena",
     slug: "buce-helena",
     category: "plants",
-    price: 24.99,
+    price: 30,
     stock: 15,
     images: [
       "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1763640075/Helena_750x810_ztipkx.webp",
@@ -253,8 +253,34 @@ export const productsData = [
       pH: "6-8",
     },
     reviews: {
-      rating: "0",
-      count: "0",
+      rating: "5",
+      count: "15",
+      individual: [],
+    },
+  },
+  {
+    id: 7,
+    name: "Anubias Panda",
+    slug: "anubias-panda",
+    category: "plants",
+    price: 79,
+    stock: 8,
+    images: [
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1763640673/pan10809_154343_750x810_qtfapt.webp",
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1763640673/1yzpmbxjldn71_1024x1024_fqngnc.webp",
+    ],
+    description:
+      "Anubias Panda, also known as Anubias White Panda is a variant of the commonly seen Anubias species. Its extremely unique coloring was derived from the normal green Anubias population through the use of very particular selection. It is rarer than Anubias White or Anubias Pinto. This specific variant of the Anubias plant is also slow growing but requires more light than its other Anubias counterparts in order to thrive. Similar in size to Anubias Nana Petite, Pinto makes for an uncommon but unique addition to any planted aquarium from nano tanks to larger standard sized tanks. Their interesting coloration provides a wonderful contrast and pop of color against darker aquascaping stones, aquarium driftwood and other aquatic plants.\n\nPortion: This listing is for 1 plant with around 4-5 leaves. It is not for the entire mother clump (Mother clump available on request). The mother clump photos are showing how they look like after being grown for a long time.\n\nM size - around 6-8 cm plant height\nL size - around 10- 15 cm plant height",
+    features: ["Rare variant", "Unique coloring", "Slow growing", "High contrast"],
+    specifications: {
+      "Plant Type": "Anubias",
+      "Light Requirements": "Medium to High",
+      "Growth Rate": "Slow",
+      "Tank Size": "Any size",
+    },
+    reviews: {
+      rating: "5",
+      count: "15",
       individual: [],
     },
   },
