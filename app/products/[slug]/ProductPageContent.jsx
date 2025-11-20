@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import { notFound, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -269,9 +269,8 @@ function Breadcrumb({ product }) {
 }
 
 export default function ProductPageContent({ params }) {
-  // Unwrap the params Promise using React.use()
-  const resolvedParams = use(params);
-  const product = getProductBySlug(resolvedParams.slug);
+  // params is already a plain object, no need to unwrap
+  const product = getProductBySlug(params.slug);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [isFav, setIsFav] = useState(false);
@@ -427,11 +426,10 @@ export default function ProductPageContent({ params }) {
                   <button
                     key={index}
                     onClick={() => setSelectedImageIndex(index)}
-                    className={`relative overflow-hidden rounded-md border-2 transition-all duration-200 ${
-                      selectedImageIndex === index
-                        ? "border-blue-500 ring-2 ring-blue-200"
-                        : "border-gray-200 hover:border-gray-300"
-                    }`}
+                    className={`relative overflow-hidden rounded-md border-2 transition-all duration-200 ${selectedImageIndex === index
+                      ? "border-blue-500 ring-2 ring-blue-200"
+                      : "border-gray-200 hover:border-gray-300"
+                      }`}
                   >
                     <Image
                       src={image}
@@ -467,12 +465,11 @@ export default function ProductPageContent({ params }) {
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className={`w-5 h-5 ${
-                          i <
+                        className={`w-5 h-5 ${i <
                           Math.floor(parseFloat(product.reviews?.rating || "5"))
-                            ? "fill-current text-yellow-500"
-                            : "text-gray-300"
-                        }`}
+                          ? "fill-current text-yellow-500"
+                          : "text-gray-300"
+                          }`}
                       />
                     ))}
                     <span className="ml-2 text-gray-600">
@@ -488,11 +485,10 @@ export default function ProductPageContent({ params }) {
                       variant="outline"
                       size="sm"
                       onClick={handleFavorite}
-                      className={`${
-                        isFav
-                          ? "bg-red-50 border-red-300 text-red-600 hover:bg-red-100"
-                          : "hover:bg-gray-50"
-                      }`}
+                      className={`${isFav
+                        ? "bg-red-50 border-red-300 text-red-600 hover:bg-red-100"
+                        : "hover:bg-gray-50"
+                        }`}
                     >
                       <Heart
                         className={`w-4 h-4 ${isFav ? "fill-current" : ""}`}
@@ -510,14 +506,12 @@ export default function ProductPageContent({ params }) {
               {/* Stock Status */}
               <div className="flex items-center space-x-2">
                 <div
-                  className={`w-3 h-3 rounded-full ${
-                    product.stock > 0 ? "bg-green-500" : "bg-red-500"
-                  }`}
+                  className={`w-3 h-3 rounded-full ${product.stock > 0 ? "bg-green-500" : "bg-red-500"
+                    }`}
                 ></div>
                 <span
-                  className={`font-medium ${
-                    product.stock > 0 ? "text-green-600" : "text-red-600"
-                  }`}
+                  className={`font-medium ${product.stock > 0 ? "text-green-600" : "text-red-600"
+                    }`}
                 >
                   {product.stock > 0
                     ? `${product.stock} in stock`
@@ -629,8 +623,8 @@ export default function ProductPageContent({ params }) {
                   {product.stock === 0
                     ? "Out of Stock"
                     : maxSelectableQuantity <= 0
-                    ? "Maximum Stock in Cart"
-                    : `Add ${quantity} to Cart - ${formatPrice(
+                      ? "Maximum Stock in Cart"
+                      : `Add ${quantity} to Cart - ${formatPrice(
                         product.price * quantity
                       )}`}
                 </Button>
