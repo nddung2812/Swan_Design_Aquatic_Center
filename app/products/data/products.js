@@ -232,6 +232,32 @@ export const productsData = [
       ],
     },
   },
+  {
+    id: 6,
+    name: "Buce Helena",
+    slug: "buce-helena",
+    category: "plants",
+    price: 24.99,
+    stock: 15,
+    images: [
+      "https://res.cloudinary.com/dhvj8x2nq/image/upload/v1763640075/Helena_750x810_ztipkx.webp",
+    ],
+    description:
+      "Bucephalandra Helena is an easy plant, perfect for beginners. It can be grown submerged or immersed. The plant is very slow growing, with new leaves sprouting from long, thin rhizomes. It can be propagated by cutting the rhizome and attached to driftwood and rocks using super glue gel or thread.\n\nPortion: This listing is for 1 plant with around 5+ leaves. It is not for the entire mother clump (Mother clump available on request). The mother clump photos are showing how they look like after being grown for a long time.\n\nNotes: Bucephalandra is an epiphytic aquarium plant so it can be attached to aquarium hardscape. Do not plant Bucephalandra in substrate and cover the rhizome. This will cause it to melt and rot. Bucephalandra’s final size, coloration and growth rate are dependent upon the condition of the aquarium. Photos are a representation of what you will receive and may vary. Do not make drastic changes to the aquarium. Unstable parameters will result in melt and rotting of the aquarium plant. CO2 injection will yield better growth. Please research appropriately to ensure your plant thrives. Endemic To: Borneo",
+    features: ["Easy care", "Small leaves sized 1-2cm", "Epiphytic"],
+    specifications: {
+      "Plant Type": "Rhizome",
+      "Light Requirements": "Low to Medium",
+      "Growth Rate": "Slow",
+      "Tank Size": "10+ gallons",
+      pH: "6-8",
+    },
+    reviews: {
+      rating: "0",
+      count: "0",
+      individual: [],
+    },
+  },
 
   // Probiotics Category
   // {
