@@ -4,7 +4,8 @@ import ProductPageContent from "./ProductPageContent";
 
 // Generate metadata for SEO using product data
 export async function generateMetadata({ params }) {
-  const product = getProductBySlug(params.slug);
+  const { slug } = await params;
+  const product = getProductBySlug(slug);
 
   if (!product) {
     return {
@@ -54,12 +55,15 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProductPage({ params }) {
-  const product = getProductBySlug(params.slug);
+export default async function ProductPage({ params }) {
+  const { slug } = await params;
+  const product = getProductBySlug(slug);
 
   if (!product) {
     notFound();
   }
 
-  return <ProductPageContent params={params} />;
+  // Pass the resolved params to the client component if needed, or just the slug
+  // Since ProductPageContent likely expects params prop, we can pass a plain object
+  return <ProductPageContent params={{ slug }} />;
 }

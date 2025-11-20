@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import ProductGrid from "./components/ProductGrid";
 import CategoryFilter from "./components/CategoryFilter";
@@ -64,9 +64,8 @@ function ProductsListingStructuredData({ products, selectedCategory }) {
     name:
       selectedCategory === "all"
         ? "Premium Aquatic Plants & Aquarium Supplies"
-        : `${
-            selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)
-          } - Aquatic Plants & Supplies`,
+        : `${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)
+        } - Aquatic Plants & Supplies`,
     description:
       selectedCategory === "all"
         ? "Discover Australia's premier collection of rare Bucephalandra, Anubias, and other exotic aquatic plants. Shipped nationwide from our Brisbane facility."
@@ -102,12 +101,12 @@ function ProductsListingStructuredData({ products, selectedCategory }) {
         },
         aggregateRating: product.reviews
           ? {
-              "@type": "AggregateRating",
-              ratingValue: product.reviews.rating,
-              reviewCount: product.reviews.count,
-              bestRating: "5",
-              worstRating: "1",
-            }
+            "@type": "AggregateRating",
+            ratingValue: product.reviews.rating,
+            reviewCount: product.reviews.count,
+            bestRating: "5",
+            worstRating: "1",
+          }
           : undefined,
       })),
     },
@@ -135,6 +134,9 @@ export default function ProductsPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredProducts, setFilteredProducts] = useState(productsData);
+  const [displayCount, setDisplayCount] = useState(9);
+  const ITEMS_PER_BATCH = 9;
+  const loadMoreRef = useRef(null);
 
   // Use global cart context (only need addToCart for ProductGrid)
   const { addToCart } = useCart();
@@ -158,7 +160,39 @@ export default function ProductsPage() {
     }
 
     setFilteredProducts(filtered);
+    setDisplayCount(ITEMS_PER_BATCH); // Reset display count on filter change
   }, [selectedCategory, searchTerm]);
+
+  // Infinite scroll observer
+  const handleObserver = useCallback(
+    (entries) => {
+      const target = entries[0];
+      if (target.isIntersecting && displayCount < filteredProducts.length) {
+        // Add small delay for better UX (optional)
+        setTimeout(() => {
+          setDisplayCount((prev) => prev + ITEMS_PER_BATCH);
+        }, 500);
+      }
+    },
+    [displayCount, filteredProducts.length]
+  );
+
+  useEffect(() => {
+    const option = {
+      root: null,
+      rootMargin: "20px",
+      threshold: 0,
+    };
+    const observer = new IntersectionObserver(handleObserver, option);
+    if (loadMoreRef.current) observer.observe(loadMoreRef.current);
+
+    return () => {
+      if (loadMoreRef.current) observer.unobserve(loadMoreRef.current);
+    };
+  }, [handleObserver]);
+
+  const visibleProducts = filteredProducts.slice(0, displayCount);
+  const hasMore = displayCount < filteredProducts.length;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -216,9 +250,19 @@ export default function ProductsPage() {
             </div>
             <div className="lg:w-3/4">
               <ProductGrid
-                products={filteredProducts}
+                products={visibleProducts}
                 onAddToCart={addToCart}
               />
+
+              {/* Infinite Scroll Sentinel */}
+              {hasMore && (
+                <div
+                  ref={loadMoreRef}
+                  className="flex justify-center items-center py-8"
+                >
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-600"></div>
+                </div>
+              )}
             </div>
           </div>
 
