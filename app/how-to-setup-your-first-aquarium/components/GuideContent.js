@@ -169,7 +169,7 @@ export default function GuideContent() {
                     </div>
 
                     <InfoCard title="The Golden Rule" type="warning">
-                        <strong>Never add fish immediately!</strong> You must "cycle" the tank first to build up these beneficial bacteria. This takes 4-8 weeks, or 1 week with seeded media.
+                        <strong>Never add fish immediately!</strong> You must &quot;cycle&quot; the tank first to build up these beneficial bacteria. This takes 4-8 weeks, or 1 week with seeded media.
                     </InfoCard>
 
                     <div className="flex justify-center mt-4">
@@ -253,7 +253,7 @@ export default function GuideContent() {
                         <div className="relative">
                             <span className="absolute -left-[41px] top-0 flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white">2</span>
                             <h3 className="text-lg font-bold text-white mb-2">Hardscape & Planting</h3>
-                            <p className="text-gray-400 text-sm">Add rocks, wood, and plants. <span className="text-blue-300">Epiphytes</span> like Anubias and Java Fern are best for beginners—glue or tie them to rocks, don't bury them!</p>
+                            <p className="text-gray-400 text-sm">Add rocks, wood, and plants. <span className="text-blue-300">Epiphytes</span> like Anubias and Java Fern are best for beginners—glue or tie them to rocks, don&apos;t bury them!</p>
                         </div>
                         <div className="relative">
                             <span className="absolute -left-[41px] top-0 flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-xs font-bold text-white">3</span>
