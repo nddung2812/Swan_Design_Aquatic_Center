@@ -56,6 +56,7 @@ const nextConfig = {
   },
   experimental: {
     optimizeCss: false,
+    turbopack: {},
   },
   webpack: (config, { dev, isServer }) => {
     // Disable minification entirely to avoid CSS syntax errors
