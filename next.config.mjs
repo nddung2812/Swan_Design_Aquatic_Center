@@ -56,8 +56,8 @@ const nextConfig = {
   },
   experimental: {
     optimizeCss: false,
-    turbopack: {},
   },
+  turbopack: {},
   webpack: (config, { dev, isServer }) => {
     // Disable minification entirely to avoid CSS syntax errors
     // Source maps will still be generated via productionBrowserSourceMaps
