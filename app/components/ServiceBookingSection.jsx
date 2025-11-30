@@ -1,6 +1,6 @@
 "use client";
 import { useForm } from "react-hook-form";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -69,6 +69,7 @@ const brisbaneAreas = [
 const ServiceBookingSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({ type: "", message: "" });
+  const [domain, setDomain] = useState("");
   const form = useRef();
 
   const {
@@ -78,6 +79,12 @@ const ServiceBookingSection = () => {
     setValue,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setDomain(window.location.hostname);
+    }
+  }, []);
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
@@ -344,6 +351,13 @@ const ServiceBookingSection = () => {
                       {...register("message")}
                     />
                   </div>
+
+                  {/* Hidden domain field */}
+                  <input
+                    type="hidden"
+                    name="domain"
+                    value={domain}
+                  />
 
                   <Button
                     type="submit"

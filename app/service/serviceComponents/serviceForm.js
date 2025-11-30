@@ -1,6 +1,6 @@
 "use client";
 import { useForm } from "react-hook-form";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -20,6 +20,7 @@ import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 export default function ServiceForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({ type: "", message: "" });
+  const [domain, setDomain] = useState("");
   const form = useRef();
 
   const {
@@ -29,6 +30,12 @@ export default function ServiceForm() {
     setValue,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setDomain(window.location.hostname);
+    }
+  }, []);
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
@@ -244,6 +251,13 @@ export default function ServiceForm() {
               {...register("message")}
             />
           </div>
+
+          {/* Hidden domain field */}
+          <input
+            type="hidden"
+            name="domain"
+            value={domain}
+          />
 
           <Button
             type="submit"
