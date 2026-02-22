@@ -199,12 +199,12 @@ export default function HomeBanner() {
       <div className="w-full max-w-7xl mx-auto mb-16 pt-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Featured Products for Fish Tank Cleaning Service
+            Featured Products
           </h2>
           <p className="text-white/70 max-w-2xl mx-auto">
             Enhance your{" "}
             <strong className="text-emerald-300">
-              fish tank cleaning service
+              fish tank
             </strong>{" "}
             experience with our premium aquatic plants and professional-grade
             supplies
@@ -213,10 +213,10 @@ export default function HomeBanner() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Featured Product Cards - First 3 Products */}
-          {productsData.slice(0, 3).map((product) => (
-            <Link key={product.id} href={`/products/${product.slug}`}>
-              <Card className="group bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 md:transition-all md:duration-300">
-                <CardContent className="p-6">
+          {[63, 2, 3].map((id) => productsData.find((p) => p.id === id)).filter(Boolean).map((product) => (
+            <Link key={product.id} href={`/products/${product.slug}`} className="flex flex-col">
+              <Card className="group bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 md:transition-all md:duration-300 h-full">
+                <CardContent className="p-6 flex flex-col h-full">
                   <div className="aspect-square relative mb-4 rounded-lg overflow-hidden">
                     <Image
                       src={product.images[0]}
@@ -232,9 +232,9 @@ export default function HomeBanner() {
                     {product.name}
                   </h3>
                   <p className="text-white/70 mb-4">
-                    {product.description.slice(0, 50)}...
+                    {product.description.replace(/<[^>]*>/g, "").slice(0, 50)}...
                   </p>
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center mt-auto">
                     <span className="text-emerald-400 font-semibold">
                       ${product.price} AUD
                     </span>

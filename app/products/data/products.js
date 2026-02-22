@@ -3128,7 +3128,7 @@ export const productsData = [
     "id": 114,
     "name": "Koika BAC M 10ml",
     "slug": "koika-bac-m-10ml",
-    "category": "accessories",
+    "category": "probiotics",
     "price": 16.99,
     "stock": 54,
     "images": [
@@ -3155,7 +3155,7 @@ export const productsData = [
     "id": 115,
     "name": "Koika V-Active 105ml",
     "slug": "koika-v-active-105ml",
-    "category": "accessories",
+    "category": "probiotics",
     "price": 24.99,
     "stock": 49,
     "images": [
@@ -3184,7 +3184,7 @@ export const productsData = [
     "id": 116,
     "name": "Koika PSB 105ml",
     "slug": "koika-psb-105ml",
-    "category": "accessories",
+    "category": "probiotics",
     "price": 24.99,
     "stock": 30,
     "images": [
@@ -3213,7 +3213,7 @@ export const productsData = [
     "id": 117,
     "name": "Koika Clear 105ml",
     "slug": "koika-clear-105ml",
-    "category": "accessories",
+    "category": "probiotics",
     "price": 24.99,
     "stock": 19,
     "images": [
@@ -3242,7 +3242,7 @@ export const productsData = [
     "id": 118,
     "name": "Koika BAC+ 105ml",
     "slug": "koika-bac-105ml",
-    "category": "accessories",
+    "category": "probiotics",
     "price": 24.99,
     "stock": 47,
     "images": [
@@ -3451,12 +3451,6 @@ export const categories = [
     id: "accessories",
     name: "Accessories",
     count: productsData.filter((product) => product.category === "accessories")
-      .length,
-  },
-  {
-    id: "equipment",
-    name: "Equipment",
-    count: productsData.filter((product) => product.category === "equipment")
       .length,
   },
 ];

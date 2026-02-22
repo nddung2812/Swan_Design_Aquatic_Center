@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Leaf, Droplet, Wrench, Settings, Search, X, Fish } from "lucide-react";
+import { Leaf, Droplet, Wrench, Search, X, Fish } from "lucide-react";
 import { categories } from "../data/products";
 
 export default function CategoryFilter({
@@ -25,8 +25,6 @@ export default function CategoryFilter({
         return <Droplet className="w-5 h-5" />;
       case "accessories":
         return <Wrench className="w-5 h-5" />;
-      case "equipment":
-        return <Settings className="w-5 h-5" />;
       default:
         return null;
     }
@@ -42,8 +40,6 @@ export default function CategoryFilter({
         return "text-blue-600 hover:text-blue-700 hover:bg-blue-50";
       case "accessories":
         return "text-purple-600 hover:text-purple-700 hover:bg-purple-50";
-      case "equipment":
-        return "text-orange-600 hover:text-orange-700 hover:bg-orange-50";
       default:
         return "text-gray-600 hover:text-gray-700 hover:bg-gray-50";
     }
@@ -60,8 +56,6 @@ export default function CategoryFilter({
           return "bg-blue-100 text-blue-800 border-blue-300";
         case "accessories":
           return "bg-purple-100 text-purple-800 border-purple-300";
-        case "equipment":
-          return "bg-orange-100 text-orange-800 border-orange-300";
         case "all":
           return "bg-gray-100 text-gray-800 border-gray-300";
         default:
