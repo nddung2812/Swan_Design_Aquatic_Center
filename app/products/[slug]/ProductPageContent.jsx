@@ -697,10 +697,9 @@ export default function ProductPageContent({ params }) {
                           {relatedProduct.name}
                         </h3>
                       </Link>
-                      <div
-                        className="text-gray-600 text-sm mb-3 line-clamp-2"
-                        dangerouslySetInnerHTML={{ __html: relatedProduct.description }}
-                      />
+                      <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                        {relatedProduct.description.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim()}
+                      </p>
                       <div className="flex items-center justify-between mb-3">
                         <span className="text-xl font-bold text-blue-600">
                           {formatPrice(relatedProduct.price)}
