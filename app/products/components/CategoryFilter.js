@@ -66,7 +66,7 @@ export default function CategoryFilter({
   };
 
   return (
-    <Card className="sticky top-4">
+    <Card className="lg:sticky lg:top-4">
       <CardHeader>
         <CardTitle className="text-lg font-semibold">Search & Filter</CardTitle>
       </CardHeader>
