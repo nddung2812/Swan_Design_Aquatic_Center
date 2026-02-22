@@ -398,8 +398,8 @@ export default function ProductPageContent({ params }) {
                   src={product.images[selectedImageIndex]}
                   alt={`${product.name} - Image ${selectedImageIndex + 1}`}
                   width={600}
-                  height={384}
-                  className="w-full h-96 object-cover"
+                  height={520}
+                  className="w-full h-[520px] object-cover"
                   priority
                   sizes="(max-width: 768px) 100vw, 600px"
                   onError={(e) => {
@@ -673,8 +673,8 @@ export default function ProductPageContent({ params }) {
                           src={relatedProduct.images[0]}
                           alt={relatedProduct.name}
                           width={400}
-                          height={192}
-                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                          height={280}
+                          className="w-full h-[280px] object-cover group-hover:scale-105 transition-transform duration-300 cursor-pointer"
                           loading="lazy"
                           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           onError={(e) => {
