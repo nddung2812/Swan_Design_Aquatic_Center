@@ -122,6 +122,8 @@ export default function RootLayout({ children }) {
         {/* Critical resource hints for performance */}
         <link rel="preconnect" href="https://res.cloudinary.com" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+        <link rel="preconnect" href="https://cdn.shopify.com" />
+        <link rel="dns-prefetch" href="https://cdn.shopify.com" />
         <link rel="preconnect" href="https://duckaroo.com.au" />
         <link rel="dns-prefetch" href="https://duckaroo.com.au" />
 
@@ -347,7 +349,6 @@ export default function RootLayout({ children }) {
         <meta name="ICBM" content="-27.4698, 153.0251" />
 
         {/* Preconnect for performance */}
-        <link rel="preconnect" href="https://res.cloudinary.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

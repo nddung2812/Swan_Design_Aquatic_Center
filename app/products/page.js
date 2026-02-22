@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import Link from "next/link";
 import ProductGrid from "./components/ProductGrid";
 import CategoryFilter from "./components/CategoryFilter";
@@ -88,7 +88,7 @@ function ProductsListingStructuredData({ products, selectedCategory }) {
           "@type": "Offer",
           price: product.price.toString(),
           priceCurrency: "AUD",
-          priceValidUntil: "2025-12-31",
+          priceValidUntil: "2026-12-31",
           availability:
             product.stock > 0
               ? "https://schema.org/InStock"
@@ -135,6 +135,7 @@ export default function ProductsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredProducts, setFilteredProducts] = useState(productsData);
   const [displayCount, setDisplayCount] = useState(9);
+  const [sortBy, setSortBy] = useState("price-asc");
   const ITEMS_PER_BATCH = 9;
   const loadMoreRef = useRef(null);
 
@@ -191,8 +192,23 @@ export default function ProductsPage() {
     };
   }, [handleObserver]);
 
-  const visibleProducts = filteredProducts.slice(0, displayCount);
-  const hasMore = displayCount < filteredProducts.length;
+  useEffect(() => {
+    setDisplayCount(ITEMS_PER_BATCH);
+  }, [sortBy]);
+
+  const sortedProducts = useMemo(() => {
+    return [...filteredProducts].sort((a, b) => {
+      switch (sortBy) {
+        case "price-desc": return b.price - a.price;
+        case "rating-desc": return parseFloat(b.reviews.rating) - parseFloat(a.reviews.rating);
+        case "reviews-desc": return b.reviews.count - a.reviews.count;
+        default: return a.price - b.price; // price-asc
+      }
+    });
+  }, [filteredProducts, sortBy]);
+
+  const visibleProducts = sortedProducts.slice(0, displayCount);
+  const hasMore = displayCount < sortedProducts.length;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -249,6 +265,24 @@ export default function ProductsPage() {
               />
             </div>
             <div className="lg:w-3/4">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-sm text-gray-500">
+                  {filteredProducts.length} product{filteredProducts.length !== 1 ? "s" : ""}
+                </span>
+                <div className="flex items-center gap-2">
+                  <label className="text-sm text-gray-600 whitespace-nowrap">Sort by:</label>
+                  <select
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value)}
+                    className="text-sm text-gray-900 border border-gray-300 rounded-md px-3 py-1.5 bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer"
+                  >
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                    <option value="rating-desc">Highest Rated</option>
+                    <option value="reviews-desc">Most Reviewed</option>
+                  </select>
+                </div>
+              </div>
               <ProductGrid
                 products={visibleProducts}
                 onAddToCart={addToCart}

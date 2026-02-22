@@ -104,6 +104,12 @@ export default function ProductGrid({ products, onAddToCart }) {
     }
   };
 
+  // Helper to strip HTML tags for card description
+  const stripHtml = (html) => {
+    if (!html) return "";
+    return html.replace(/<[^>]*>?/gm, "").replace(/\s+/g, " ").trim();
+  };
+
   if (products.length === 0) {
     return (
       <div className="text-center py-12">
@@ -164,7 +170,7 @@ export default function ProductGrid({ products, onAddToCart }) {
                 </CardTitle>
               </Link>
               <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-                {product.description}
+                {stripHtml(product.description)}
               </p>
               <div className="flex items-center justify-between mb-2">
                 <span className="text-2xl font-bold text-blue-600">

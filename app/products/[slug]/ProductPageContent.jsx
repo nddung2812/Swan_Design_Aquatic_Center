@@ -524,9 +524,10 @@ export default function ProductPageContent({ params }) {
                 <h2 className="text-xl font-semibold mb-3 text-gray-900">
                   Product Description
                 </h2>
-                <p className="text-gray-600 leading-relaxed text-lg">
-                  {product.description}
-                </p>
+                <div
+                  className="text-gray-600 leading-relaxed text-lg product-description"
+                  dangerouslySetInnerHTML={{ __html: product.description }}
+                />
               </div>
 
               {/* Features */}
@@ -696,9 +697,10 @@ export default function ProductPageContent({ params }) {
                           {relatedProduct.name}
                         </h3>
                       </Link>
-                      <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-                        {relatedProduct.description}
-                      </p>
+                      <div
+                        className="text-gray-600 text-sm mb-3 line-clamp-2"
+                        dangerouslySetInnerHTML={{ __html: relatedProduct.description }}
+                      />
                       <div className="flex items-center justify-between mb-3">
                         <span className="text-xl font-bold text-blue-600">
                           {formatPrice(relatedProduct.price)}

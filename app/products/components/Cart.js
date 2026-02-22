@@ -152,6 +152,9 @@ export default function Cart() {
                               className="w-16 h-16 object-cover rounded"
                               loading="lazy"
                               quality={75}
+                              onError={(e) => {
+                                e.target.src = "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=100&h=100&fit=crop&crop=center";
+                              }}
                             />
                             <div className="flex-1 min-w-0">
                               <h4 className="font-medium text-sm truncate">

@@ -15,11 +15,17 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  // Use product description and first image for meta
+  // Function to strip HTML tags for metadata
+  const stripHtml = (html) => {
+    if (!html) return "";
+    return html.replace(/<[^>]*>?/gm, "").replace(/\s+/g, " ").trim();
+  };
+
+  const plainDescription = stripHtml(product.description);
   const metaDescription =
-    product.description.length > 155
-      ? `${product.description.substring(0, 155)}...`
-      : product.description;
+    plainDescription.length > 155
+      ? `${plainDescription.substring(0, 155)}...`
+      : plainDescription;
 
   return {
     title: `${product.name} - Premium ${product.category} | Duckaroo Brisbane`,

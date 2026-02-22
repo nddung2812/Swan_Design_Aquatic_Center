@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Enable source maps in production for better debugging and Lighthouse scores
-  productionBrowserSourceMaps: true,
+  productionBrowserSourceMaps: false,
+  compress: true,
+  poweredByHeader: false,
   images: {
     remotePatterns: [
       {
@@ -25,6 +26,12 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.shopify.com",
         port: "",
         pathname: "/**",
       },
@@ -59,12 +66,6 @@ const nextConfig = {
   },
   turbopack: {},
   webpack: (config, { dev, isServer }) => {
-    // Disable minification entirely to avoid CSS syntax errors
-    // Source maps will still be generated via productionBrowserSourceMaps
-    if (!dev) {
-      config.optimization.minimize = false;
-    }
-
     // Force CSS files to be processed as standard CSS, not SCSS
     config.module.rules.forEach((rule) => {
       if (rule.test && rule.test.toString().includes("css")) {

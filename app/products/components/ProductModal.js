@@ -130,6 +130,9 @@ export default function ProductModal({
                 loading="lazy"
                 quality={85}
                 sizes="(max-width: 768px) 100vw, 600px"
+                onError={(e) => {
+                  e.target.src = "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=600&h=400&fit=crop&crop=center";
+                }}
               />
               <Badge
                 className={`absolute top-4 left-4 ${getCategoryBadgeColor(
@@ -152,11 +155,10 @@ export default function ProductModal({
                   <button
                     key={index}
                     onClick={() => handleImageSelect(index)}
-                    className={`relative overflow-hidden rounded-md border-2 transition-all duration-200 ${
-                      selectedImageIndex === index
+                    className={`relative overflow-hidden rounded-md border-2 transition-all duration-200 ${selectedImageIndex === index
                         ? "border-blue-500 ring-2 ring-blue-200"
                         : "border-gray-200 hover:border-gray-300"
-                    }`}
+                      }`}
                   >
                     <Image
                       src={image}
@@ -167,6 +169,9 @@ export default function ProductModal({
                       loading="lazy"
                       quality={70}
                       sizes="200px"
+                      onError={(e) => {
+                        e.target.src = "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=200&h=80&fit=crop&crop=center";
+                      }}
                     />
                     {selectedImageIndex === index && (
                       <div className="absolute inset-0 bg-blue-500 bg-opacity-20 flex items-center justify-center">
@@ -197,14 +202,12 @@ export default function ProductModal({
             {/* Stock Status */}
             <div className="flex items-center space-x-2">
               <div
-                className={`w-3 h-3 rounded-full ${
-                  product.stock > 0 ? "bg-green-500" : "bg-red-500"
-                }`}
+                className={`w-3 h-3 rounded-full ${product.stock > 0 ? "bg-green-500" : "bg-red-500"
+                  }`}
               ></div>
               <span
-                className={`font-medium ${
-                  product.stock > 0 ? "text-green-600" : "text-red-600"
-                }`}
+                className={`font-medium ${product.stock > 0 ? "text-green-600" : "text-red-600"
+                  }`}
               >
                 {product.stock > 0
                   ? `${product.stock} in stock`
@@ -237,9 +240,10 @@ export default function ProductModal({
               <h3 className="text-lg font-semibold mb-2 text-gray-900">
                 Description
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                {product.description}
-              </p>
+              <div
+                className="text-gray-600 leading-relaxed product-description"
+                dangerouslySetInnerHTML={{ __html: product.description }}
+              />
             </div>
 
             {/* Features */}
