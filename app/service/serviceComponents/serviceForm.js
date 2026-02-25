@@ -1,7 +1,6 @@
 "use client";
 import { useForm } from "react-hook-form";
-import { useRef, useState, useEffect } from "react";
-import emailjs from "@emailjs/browser";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,52 +13,77 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Badge } from "@/components/ui/badge";
 import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import {
+  MAX_IMAGES,
+  MAX_IMAGE_SIZE_BYTES,
+  getImageValidationError,
+} from "@/lib/serviceRequestValidation";
 
 export default function ServiceForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({ type: "", message: "" });
-  const [domain, setDomain] = useState("");
-  const form = useRef();
 
   const {
     register,
     handleSubmit,
     reset,
     setValue,
+    setError,
+    clearErrors,
     formState: { errors },
   } = useForm();
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setDomain(window.location.hostname);
-    }
-  }, []);
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     setSubmitStatus({ type: "", message: "" });
 
     try {
-      const result = await emailjs.sendForm(
-        "service_nyo9717", // EmailJS service ID
-        "template_lqh6rse", // EmailJS template ID
-        form.current,
-        "PlnxkEthyMpuKG_kJ" // EmailJS public key
-      );
-
-      if (result.text === "OK") {
-        setSubmitStatus({
-          type: "success",
-          message: "Thank you! We will contact you soon.",
-        });
-        reset();
+      const images = Array.from(data.images || []);
+      const imageError = getImageValidationError(images);
+      if (imageError) {
+        setError("images", { type: "manual", message: imageError });
+        setSubmitStatus({ type: "error", message: imageError });
+        return;
       }
+      clearErrors("images");
+
+      const formData = new FormData();
+      formData.append("name", data.name?.trim() || "");
+      formData.append("email", data.email?.trim() || "");
+      formData.append("phone", data.phone?.trim() || "");
+      formData.append("location", data.location?.trim() || "");
+      formData.append("service", data.service?.trim() || "");
+      formData.append("message", data.message?.trim() || "");
+
+      images.forEach((file) => {
+        formData.append("images", file);
+      });
+
+      const response = await fetch("/api/service-requests", {
+        method: "POST",
+        body: formData,
+      });
+
+      const payload = await response.json().catch(() => null);
+      if (!response.ok) {
+        if (payload?.field) {
+          setError(payload.field, { type: "server", message: payload.error });
+        }
+        throw new Error(
+          payload?.error || "Something went wrong. Please try again later."
+        );
+      }
+
+      setSubmitStatus({
+        type: "success",
+        message: "Thank you! We will contact you soon.",
+      });
+      reset();
     } catch (error) {
       setSubmitStatus({
         type: "error",
-        message: "Something went wrong. Please try again later.",
+        message: error.message || "Something went wrong. Please try again later.",
       });
     } finally {
       setIsSubmitting(false);
@@ -77,11 +101,7 @@ export default function ServiceForm() {
         </p>
       </CardHeader>
       <CardContent>
-        <form
-          ref={form}
-          onSubmit={handleSubmit(onSubmit)}
-          className="space-y-6"
-        >
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-2">
             <Label htmlFor="name" className="text-white font-semibold">
               Full Name *
@@ -252,12 +272,32 @@ export default function ServiceForm() {
             />
           </div>
 
-          {/* Hidden domain field */}
-          <input
-            type="hidden"
-            name="domain"
-            value={domain}
-          />
+          <div className="space-y-2">
+            <Label htmlFor="images" className="text-white font-semibold">
+              Upload Images (optional)
+            </Label>
+            <Input
+              type="file"
+              id="images"
+              accept="image/*"
+              multiple
+              className="bg-white/25 border-2 border-white/40 text-white file:mr-4 file:rounded-md file:border-0 file:bg-emerald-600 file:px-3 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-emerald-700"
+              {...register("images", {
+                validate: (value) =>
+                  getImageValidationError(Array.from(value || [])) || true,
+              })}
+            />
+            <p className="text-xs text-white/80">
+              Maximum {MAX_IMAGES} images, up to{" "}
+              {Math.floor(MAX_IMAGE_SIZE_BYTES / (1024 * 1024))}MB each.
+            </p>
+            {errors.images && (
+              <p className="text-red-400 text-sm flex items-center gap-1 font-medium">
+                <AlertCircle className="w-4 h-4" />
+                {errors.images.message}
+              </p>
+            )}
+          </div>
 
           <Button
             type="submit"

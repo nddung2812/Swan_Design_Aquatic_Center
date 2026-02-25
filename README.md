@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Swan Design Aquatic Center
 
-## Getting Started
+Next.js app for aquatic services and ecommerce flows.
 
-First, run the development server:
+## Local development
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment variables
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Create a local env file (for example `.env.local`) with:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+# Existing payment flow variables
+STRIPE_SECRET_KEY=...
+STRIPE_WEBHOOK_SECRET=...
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=...
 
-## Learn More
+# Service request storage
+DATABASE_URL=postgres://... # Neon connection string
+BLOB_READ_WRITE_TOKEN=...   # Vercel Blob read/write token
+SERVICE_REQUESTS_ADMIN_TOKEN=... # Bearer token for admin query endpoint
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Service request image upload feature
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Endpoints
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- `POST /api/service-requests`
+  - Accepts `multipart/form-data` with:
+    - `name`, `email`, `phone`, `location`, `service`, `message`
+    - `images` (0-2 image files, each <= 2MB)
+  - Stores image URLs in Vercel Blob and request metadata in Neon.
 
-## Deploy on Vercel
+- `GET /api/admin/service-requests`
+  - Requires header: `Authorization: Bearer <SERVICE_REQUESTS_ADMIN_TOKEN>`
+  - Supports query params:
+    - `limit` (default 20, max 100)
+    - `cursor` (opaque pagination cursor)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Database migration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Apply:
+
+`/Users/johnnynguyen/Desktop/Swan_Design_Aquatic_Center/db/migrations/20260225_create_service_requests.sql`
+
+in Neon SQL editor (or your migration runner) before testing submissions.
+
+## Manual verification checklist
+
+1. Submit service form with no images.
+2. Submit with 1 valid image (<2MB).
+3. Submit with 2 valid images (<2MB each).
+4. Try 3 images and confirm validation error.
+5. Try an image >2MB and confirm validation error.
+6. Query admin endpoint with a valid Bearer token and verify returned image URLs.
