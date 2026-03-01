@@ -1,6 +1,5 @@
-import Image from "next/image.js";
-import ServiceForm from "./serviceForm.js";
 import { Badge } from "@/components/ui/badge";
+import UnifiedServiceForm from "../../components/UnifiedServiceForm";
 
 const ServiceBanner = () => {
   return (
@@ -75,8 +74,8 @@ const ServiceBanner = () => {
         </div>
 
         {/* Form Section */}
-        <div className="lg:pl-8">
-          <ServiceForm />
+        <div className="lg:pl-8 mt-16">
+          <UnifiedServiceForm />
         </div>
       </div>
     </div>

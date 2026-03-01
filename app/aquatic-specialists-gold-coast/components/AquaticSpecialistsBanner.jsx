@@ -1,72 +1,19 @@
 "use client";
-import { useForm } from "react-hook-form";
-import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
-  CheckCircle,
-  AlertCircle,
-  Loader2,
-  Star,
   MapPin,
   Phone,
   Mail,
   Clock,
-  Send,
-  MessageCircle,
   Fish,
   Waves,
   Shield,
   Users,
 } from "lucide-react";
+import UnifiedServiceForm from "../../components/UnifiedServiceForm";
 
 const AquaticSpecialistsBanner = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState({ type: "", message: "" });
-  const form = useRef();
-
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
-
-  const onSubmit = async (data) => {
-    setIsSubmitting(true);
-    setSubmitStatus({ type: "", message: "" });
-
-    try {
-      const result = await emailjs.sendForm(
-        "service_nyo9717", // EmailJS service ID
-        "template_lqh6rse", // EmailJS template ID
-        form.current,
-        "PlnxkEthyMpuKG_kJ" // EmailJS public key
-      );
-
-      if (result.text === "OK") {
-        setSubmitStatus({
-          type: "success",
-          message:
-            "Thank you for contacting our Gold Coast aquatic specialists! We'll get back to you within 24 hours.",
-        });
-        reset();
-      }
-    } catch (error) {
-      setSubmitStatus({
-        type: "error",
-        message:
-          "Something went wrong. Please call our Gold Coast team directly at (04) 5766 3939 for immediate assistance.",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const contactInfo = [
     {
@@ -182,195 +129,7 @@ const AquaticSpecialistsBanner = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-20">
           {/* Contact Form */}
           <div className="lg:order-2">
-            <Card className="bg-black/60 backdrop-blur-lg border border-white/50 text-white shadow-2xl ring-1 ring-white/20">
-              <CardHeader className="text-center">
-                <CardTitle className="text-2xl md:text-3xl font-bold text-white drop-shadow-lg">
-                  <MessageCircle className="w-8 h-8 inline-block mr-3 text-emerald-400" />
-                  Contact Gold Coast Specialists
-                </CardTitle>
-                <p className="text-white/90 font-medium">
-                  Get your FREE quote from Gold Coast aquatic specialists •
-                  Same-day response
-                </p>
-                <div className="flex justify-center items-center gap-1 mt-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                  <span className="text-yellow-400 font-semibold ml-2">
-                    4.9/5 (247+ Gold Coast reviews)
-                  </span>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <form
-                  ref={form}
-                  onSubmit={handleSubmit(onSubmit)}
-                  className="space-y-6"
-                >
-                  <div className="space-y-2">
-                    <Label htmlFor="name" className="text-white font-semibold">
-                      Full Name *
-                    </Label>
-                    <Input
-                      type="text"
-                      id="name"
-                      name="name"
-                      className="bg-white/25 border border-white/40 text-white placeholder:text-white/70 focus:border-emerald-400 focus:bg-white/30 focus:ring-2 focus:ring-emerald-400/50"
-                      placeholder="Enter your full name"
-                      {...register("name", { required: "Name is required" })}
-                    />
-                    {errors.name && (
-                      <p className="text-red-400 text-sm flex items-center gap-1 font-medium">
-                        <AlertCircle className="w-4 h-4" />
-                        {errors.name.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-white font-semibold">
-                      Email Address *
-                    </Label>
-                    <Input
-                      type="email"
-                      id="email"
-                      name="email"
-                      className="bg-white/25 border border-white/40 text-white placeholder:text-white/70 focus:border-emerald-400 focus:bg-white/30 focus:ring-2 focus:ring-emerald-400/50"
-                      placeholder="your.email@example.com"
-                      {...register("email", {
-                        required: "Email is required",
-                        pattern: {
-                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                          message: "Invalid email address",
-                        },
-                      })}
-                    />
-                    {errors.email && (
-                      <p className="text-red-400 text-sm flex items-center gap-1 font-medium">
-                        <AlertCircle className="w-4 h-4" />
-                        {errors.email.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="phone" className="text-white font-semibold">
-                      Phone Number *
-                    </Label>
-                    <Input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      className="bg-white/25 border border-white/40 text-white placeholder:text-white/70 focus:border-emerald-400 focus:bg-white/30 focus:ring-2 focus:ring-emerald-400/50"
-                      placeholder="(07) XXXX-XXXX"
-                      {...register("phone", {
-                        required: "Phone number is required",
-                      })}
-                    />
-                    {errors.phone && (
-                      <p className="text-red-400 text-sm flex items-center gap-1 font-medium">
-                        <AlertCircle className="w-4 h-4" />
-                        {errors.phone.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label
-                      htmlFor="location"
-                      className="text-white font-semibold"
-                    >
-                      Location *
-                    </Label>
-                    <Input
-                      type="text"
-                      id="location"
-                      name="location"
-                      className="bg-white/25 border border-white/40 text-white placeholder:text-white/70 focus:border-emerald-400 focus:bg-white/30 focus:ring-2 focus:ring-emerald-400/50"
-                      placeholder="e.g., Surfers Paradise, Southport, Broadbeach"
-                      {...register("location", {
-                        required: "Gold Coast location is required",
-                      })}
-                    />
-                    {errors.location && (
-                      <p className="text-red-400 text-sm flex items-center gap-1 font-medium">
-                        <AlertCircle className="w-4 h-4" />
-                        {errors.location.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label
-                      htmlFor="message"
-                      className="text-white font-semibold"
-                    >
-                      Aquatic Service Required *
-                    </Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      className="bg-white/25 border border-white/40 text-white placeholder:text-white/70 focus:border-emerald-400 focus:bg-white/30 focus:ring-2 focus:ring-emerald-400/50 min-h-[120px]"
-                      placeholder="Describe your aquatic needs: fish tank cleaning, pond maintenance, aquarium setup, water quality issues, emergency service, etc."
-                      {...register("message", {
-                        required: "Service details are required",
-                      })}
-                    />
-                    {errors.message && (
-                      <p className="text-red-400 text-sm flex items-center gap-1 font-medium">
-                        <AlertCircle className="w-4 h-4" />
-                        {errors.message.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <Button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white py-6 text-lg font-bold shadow-2xl ring-2 ring-emerald-400/30 hover:ring-emerald-400/50 transition-all duration-300"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                        Contacting Gold Coast Team...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-5 h-5 mr-2" />
-                        Get FREE Gold Coast Quote
-                      </>
-                    )}
-                  </Button>
-
-                  <div className="text-center text-white/70 text-sm">
-                    <p>
-                      ✅ Free quotes • ✅ Same-day service • ✅ Gold Coast
-                      specialists • ✅ No obligation
-                    </p>
-                  </div>
-
-                  {submitStatus.message && (
-                    <div
-                      className={`p-4 rounded-lg flex items-center gap-2 font-medium shadow-lg ${
-                        submitStatus.type === "success"
-                          ? "bg-emerald-500/40 border-2 border-emerald-400 text-emerald-200"
-                          : "bg-red-500/40 border-2 border-red-400 text-red-200"
-                      }`}
-                    >
-                      {submitStatus.type === "success" ? (
-                        <CheckCircle className="w-5 h-5" />
-                      ) : (
-                        <AlertCircle className="w-5 h-5" />
-                      )}
-                      {submitStatus.message}
-                    </div>
-                  )}
-                </form>
-              </CardContent>
-            </Card>
+            <UnifiedServiceForm variant="contact" />
           </div>
 
           {/* Why Choose Us Section */}
