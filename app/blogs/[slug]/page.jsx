@@ -45,20 +45,30 @@ export async function generateMetadata({ params }) {
     title: blog.seo?.metaTitle || `${blog.title} | Duckaroo Brisbane`,
     description: blog.seo?.metaDescription || blog.description,
     keywords: blog.tags.join(", "),
+    alternates: {
+      canonical: `https://aquaticswandesign.com.au/blogs/${resolvedParams.slug}`,
+    },
     openGraph: {
       title: blog.title,
       description: blog.description,
-      images: [blog.image],
+      url: `https://aquaticswandesign.com.au/blogs/${resolvedParams.slug}`,
+      images: [{ url: blog.image, alt: blog.title }],
       type: "article",
       publishedTime: blog.publishDate,
       authors: [blog.author],
       tags: blog.tags,
+      siteName: "Duckaroo",
+      locale: "en_AU",
     },
     twitter: {
       card: "summary_large_image",
       title: blog.title,
       description: blog.description,
       images: [blog.image],
+    },
+    robots: {
+      index: true,
+      follow: true,
     },
   };
 }
@@ -87,26 +97,55 @@ export default async function BlogPost({ params }) {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "@id": `https://aquaticswandesign.com.au/blogs/${blog.slug}#article`,
+    url: `https://aquaticswandesign.com.au/blogs/${blog.slug}`,
     headline: blog.title,
     description: blog.description,
     image: blog.image,
     author: {
       "@type": "Person",
       name: blog.author,
+      url: "https://aquaticswandesign.com.au/about-us",
     },
     publisher: {
       "@type": "Organization",
-      name: "Duckaroo Brisbane",
+      "@id": "https://aquaticswandesign.com.au/#organization",
+      name: "Duckaroo",
       logo: {
         "@type": "ImageObject",
-        url: "https://duckaroo.com.au/logo.png",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1739712659/swan-logo-transparent_rphcfl",
+        width: 400,
+        height: 400,
       },
     },
     datePublished: blog.publishDate,
-    dateModified: blog.publishDate,
+    dateModified: blog.updatedDate || blog.publishDate,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://duckaroo.com.au/blogs/${blog.slug}`,
+      "@id": `https://aquaticswandesign.com.au/blogs/${blog.slug}`,
+    },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://aquaticswandesign.com.au",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Blog",
+          item: "https://aquaticswandesign.com.au/blogs",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: blog.title,
+          item: `https://aquaticswandesign.com.au/blogs/${blog.slug}`,
+        },
+      ],
     },
   };
 

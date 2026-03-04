@@ -63,10 +63,10 @@ export default function sitemap() {
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/products/checkout`,
+      url: `${baseUrl}/how-to-setup-your-first-aquarium`,
       lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.3,
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
   ];
 
@@ -86,18 +86,5 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
-  // Category pages
-  const categoryPages = [
-    "plants",
-    "probiotics",
-    "accessories",
-    "equipment",
-  ].map((category) => ({
-    url: `${baseUrl}/products?category=${category}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly",
-    priority: 0.7,
-  }));
-
-  return [...staticPages, ...productPages, ...blogPages, ...categoryPages];
+  return [...staticPages, ...productPages, ...blogPages];
 }

@@ -13,7 +13,7 @@ export const metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://duckaroo.com.au"),
+  metadataBase: new URL("https://aquaticswandesign.com.au"),
   alternates: {
     canonical: "/products",
   },
@@ -22,7 +22,7 @@ export const metadata = {
       "Rare Aquatic Plants Brisbane | Bucephalandra, Anubias & Live Plants | Duckaroo",
     description:
       "Australia Wide Shipping Aquatic Rare Bucephalandra & Other Rarer Plants • Live Arrival Guarantee • 100% Customer Satisfaction Guarantee. Premium aquarium plants, equipment & accessories.",
-    url: "https://duckaroo.com.au/products",
+    url: "https://aquaticswandesign.com.au/products",
     siteName: "Duckaroo Brisbane",
     images: [
       {
@@ -90,11 +90,11 @@ export default function ProductsLayout({ children }) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Store",
-            "@id": "https://duckaroo.com.au/products#store",
+            "@id": "https://aquaticswandesign.com.au/products#store",
             name: "Duckaroo Aquatic Plant Store",
             description:
               "Australia's premier online store for rare aquatic plants including Bucephalandra, Anubias, and aquascaping supplies with live arrival guarantee.",
-            url: "https://duckaroo.com.au/products",
+            url: "https://aquaticswandesign.com.au/products",
             image:
               "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1749469954/best-place-to-buy-bucephalandra-kedagang-v0-5fhaw341fkjc1_ujrt6m",
             address: {
@@ -134,8 +134,8 @@ export default function ProductsLayout({ children }) {
                   price: "24.99",
                   priceCurrency: "AUD",
                   availability: "https://schema.org/InStock",
-                  url: "https://duckaroo.com.au/products/buce-kegadang",
-                  priceValidUntil: "2025-12-31",
+                  url: "https://aquaticswandesign.com.au/products/buce-kegadang",
+                  priceValidUntil: "2026-12-31",
                   aggregateRating: {
                     "@type": "AggregateRating",
                     ratingValue: "4.7",
@@ -191,8 +191,8 @@ export default function ProductsLayout({ children }) {
                   price: "15.00",
                   priceCurrency: "AUD",
                   availability: "https://schema.org/InStock",
-                  url: "https://duckaroo.com.au/products/anubias-nana",
-                  priceValidUntil: "2025-12-31",
+                  url: "https://aquaticswandesign.com.au/products/anubias-nana",
+                  priceValidUntil: "2026-12-31",
                   aggregateRating: {
                     "@type": "AggregateRating",
                     ratingValue: "4.8",
@@ -212,8 +212,8 @@ export default function ProductsLayout({ children }) {
                   price: "5.50",
                   priceCurrency: "AUD",
                   availability: "https://schema.org/InStock",
-                  url: "https://duckaroo.com.au/products/amazon-frogbit",
-                  priceValidUntil: "2025-12-31",
+                  url: "https://aquaticswandesign.com.au/products/amazon-frogbit",
+                  priceValidUntil: "2026-12-31",
                   aggregateRating: {
                     "@type": "AggregateRating",
                     ratingValue: "4.9",
@@ -233,8 +233,8 @@ export default function ProductsLayout({ children }) {
                   price: "8.50",
                   priceCurrency: "AUD",
                   availability: "https://schema.org/InStock",
-                  url: "https://duckaroo.com.au/products/rotala-rotundifolia",
-                  priceValidUntil: "2025-12-31",
+                  url: "https://aquaticswandesign.com.au/products/rotala-rotundifolia",
+                  priceValidUntil: "2026-12-31",
                   aggregateRating: {
                     "@type": "AggregateRating",
                     ratingValue: "4.6",
@@ -254,8 +254,8 @@ export default function ProductsLayout({ children }) {
                   price: "89.00",
                   priceCurrency: "AUD",
                   availability: "https://schema.org/InStock",
-                  url: "https://duckaroo.com.au/products/albino-blue-topaz-guppy-sold-as-a-pair-male-and-female",
-                  priceValidUntil: "2025-12-31",
+                  url: "https://aquaticswandesign.com.au/products/albino-blue-topaz-guppy-sold-as-a-pair-male-and-female",
+                  priceValidUntil: "2026-12-31",
                   aggregateRating: {
                     "@type": "AggregateRating",
                     ratingValue: "4.5",
@@ -269,7 +269,7 @@ export default function ProductsLayout({ children }) {
               target: {
                 "@type": "EntryPoint",
                 urlTemplate:
-                  "https://duckaroo.com.au/products?search={search_term_string}",
+                  "https://aquaticswandesign.com.au/products?search={search_term_string}",
               },
               "query-input": "required name=search_term_string",
             },
@@ -283,7 +283,7 @@ export default function ProductsLayout({ children }) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "@id": "https://duckaroo.com.au/products#shipping-service",
+            "@id": "https://aquaticswandesign.com.au/products#shipping-service",
             serviceType: "Plant Shipping Service",
             name: "Australia Wide Plant Shipping",
             description:
@@ -298,7 +298,7 @@ export default function ProductsLayout({ children }) {
             },
             availableChannel: {
               "@type": "ServiceChannel",
-              serviceUrl: "https://duckaroo.com.au/products",
+              serviceUrl: "https://aquaticswandesign.com.au/products",
               servicePhone: "+61457663939",
             },
             hasOfferCatalog: {
@@ -338,41 +338,6 @@ export default function ProductsLayout({ children }) {
         }}
       />
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "Do you ship Bucephalandra plants Australia wide?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes! We ship rare Bucephalandra, Anubias, and other aquatic plants nationwide across Australia with our live arrival guarantee. All plants are carefully packaged for safe transport.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "What is your live arrival guarantee?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Our live arrival guarantee ensures that all aquatic plants arrive alive and healthy. If any plants arrive damaged or dead, we provide full replacement or refund with photographic evidence.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Where are your aquatic plants sourced from?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Our rare Bucephalandra, Anubias, and other aquatic plants are sustainably sourced and grown in our Brisbane facility. We specialize in rare and hard-to-find aquascaping plants.",
-                },
-              },
-            ],
-          }),
-        }}
-      />
       {children}
     </>
   );

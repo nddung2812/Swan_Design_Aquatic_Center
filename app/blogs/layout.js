@@ -1,43 +1,46 @@
 export const metadata = {
   title:
-    "Fish Tank Cleaning Service Blog | Expert Aquarium Care Tips | Duckaroo Brisbane",
+    "Aquarium Care Blog | Expert Fish Tank Tips & Guides | Duckaroo Brisbane",
   description:
-    "Expert fish tank cleaning service tips, aquarium maintenance guides, and professional care advice from Brisbane's premier fish tank cleaning service specialists. Learn proper fish tank cleaning service techniques and aquarium care.",
+    "Expert aquarium care guides, fish tank maintenance tips, plant care advice, and aquascaping inspiration from Duckaroo — Brisbane and Gold Coast's professional aquarium service.",
   keywords:
-    "fish tank cleaning service, fish tank cleaning service tips, aquarium cleaning guide, professional fish tank cleaning service, Brisbane fish tank cleaning service, fish tank maintenance, aquarium care blog, fish tank cleaning service advice",
+    "aquarium care blog, fish tank maintenance tips, aquascaping guides, aquarium plant care, Brisbane aquarium experts, fish health guides",
+  metadataBase: new URL("https://aquaticswandesign.com.au"),
+  alternates: {
+    canonical: "https://aquaticswandesign.com.au/blogs",
+  },
   openGraph: {
-    title: "Fish Tank Cleaning Service Blog | Expert Aquarium Care Tips",
+    title: "Aquarium Care Blog | Expert Fish Tank Tips & Guides | Duckaroo",
     description:
-      "Professional fish tank cleaning service tips, aquarium maintenance guides, and expert care advice from Brisbane's premier fish tank cleaning service specialists.",
+      "Expert aquarium care guides, fish health tips, plant care, and aquascaping advice from Brisbane's professional aquarium service specialists.",
+    url: "https://aquaticswandesign.com.au/blogs",
     images: [
       {
         url: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=1200&h=630&fit=crop&crop=center",
         width: 1200,
         height: 630,
-        alt: "Fish Tank Cleaning Service Blog - Expert Tips and Guides",
-      },
-      {
-        url: "https://images.unsplash.com/photo-1520637836862-4d197d17c90a?w=1200&h=630&fit=crop&crop=center",
-        width: 1200,
-        height: 630,
-        alt: "Fish Tank Cleaning Service and Aquascaping Guides",
+        alt: "Duckaroo Aquarium Care Blog - Expert Tips and Guides",
       },
     ],
     type: "website",
-    siteName: "Duckaroo Fish Tank Cleaning Service Brisbane",
+    siteName: "Duckaroo",
     locale: "en_AU",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fish Tank Cleaning Service Blog | Expert Tips & Guides",
+    title: "Aquarium Care Blog | Expert Fish Tank Tips & Guides | Duckaroo",
     description:
-      "Professional fish tank cleaning service tips, aquarium maintenance guides, and expert care advice from Brisbane's fish tank cleaning service specialists.",
+      "Expert aquarium care guides, fish health tips, and aquascaping advice from Brisbane's professional aquarium service.",
     images: [
       {
         url: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=1200&h=630&fit=crop&crop=center",
-        alt: "Fish Tank Cleaning Service Blog - Expert Tips and Guides",
+        alt: "Duckaroo Aquarium Care Blog - Expert Tips and Guides",
       },
     ],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

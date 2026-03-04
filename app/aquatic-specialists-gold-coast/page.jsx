@@ -12,7 +12,7 @@ export const metadata = {
     description:
       "Gold Coast's most trusted aquatic specialists. Professional fish tank cleaning, pond maintenance & aquarium services. Free quotes, same-day service available.",
     url: "https://aquaticswandesign.com.au/aquatic-specialists-gold-coast",
-    siteName: "Duckaroo Brisbane",
+    siteName: "Duckaroo",
     images: [
       {
         url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1739712659/swan-logo-transparent_rphcfl",
@@ -70,5 +70,52 @@ export const metadata = {
 };
 
 export default function AquaticSpecialistsGoldCoastPage() {
-  return <AquaticSpecialistsClient />;
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://aquaticswandesign.com.au/aquatic-specialists-gold-coast#business",
+    name: "Duckaroo Aquatic Specialists Gold Coast",
+    url: "https://aquaticswandesign.com.au/aquatic-specialists-gold-coast",
+    telephone: "+61457663939",
+    email: "aquaticswandesign@gmail.com",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Gold Coast",
+      addressRegion: "QLD",
+      addressCountry: "AU",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: -28.0167,
+      longitude: 153.4,
+    },
+    areaServed: {
+      "@type": "City",
+      name: "Gold Coast",
+      sameAs: "https://en.wikipedia.org/wiki/Gold_Coast,_Queensland",
+    },
+    serviceType: ["Fish Tank Cleaning", "Aquarium Maintenance", "Pond Cleaning", "Aquarium Setup"],
+    parentOrganization: {
+      "@id": "https://aquaticswandesign.com.au/#organization",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "247",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    openingHours: "Mo-Su 08:00-18:00",
+    priceRange: "$$",
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <AquaticSpecialistsClient />
+    </>
+  );
 }

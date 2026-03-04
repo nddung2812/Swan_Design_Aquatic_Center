@@ -68,22 +68,24 @@ export default function AquariumGuideLayout({ children }) {
             description:
               "Complete step-by-step guide for setting up your first aquarium, covering equipment selection, fish selection, nitrogen cycle, and maintenance.",
             image:
-              "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1739712678/aquarium-setup-guide-banner.jpg",
+              "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1757335537/bucephalandra_bush_oyiznj",
             author: {
               "@type": "Organization",
-              name: "Duckaroo Brisbane",
+              "@id": "https://aquaticswandesign.com.au/#organization",
+              name: "Duckaroo",
               url: "https://aquaticswandesign.com.au",
             },
             publisher: {
               "@type": "Organization",
-              name: "Duckaroo Brisbane",
+              "@id": "https://aquaticswandesign.com.au/#organization",
+              name: "Duckaroo",
               logo: {
                 "@type": "ImageObject",
-                url: "https://aquaticswandesign.com.au/swan-favicon.png",
+                url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1739712659/swan-logo-transparent_rphcfl",
               },
             },
             datePublished: "2024-01-15",
-            dateModified: "2024-01-15",
+            dateModified: "2025-06-01",
             mainEntityOfPage: {
               "@type": "WebPage",
               "@id":
@@ -95,83 +97,6 @@ export default function AquariumGuideLayout({ children }) {
               "beginner guide",
               "fish keeping",
               "aquarium equipment",
-            ],
-          }),
-        }}
-      />
-
-      {/* HowTo structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "HowTo",
-            name: "How to Setup Your First Aquarium",
-            description:
-              "Step-by-step guide to setting up your first aquarium for beginners",
-            image:
-              "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1739712678/aquarium-setup-guide-banner.jpg",
-            totalTime: "P3D",
-            estimatedCost: {
-              "@type": "MonetaryAmount",
-              currency: "AUD",
-              value: "200-500",
-            },
-            supply: [
-              {
-                "@type": "HowToSupply",
-                name: "Aquarium Tank",
-              },
-              {
-                "@type": "HowToSupply",
-                name: "Filter System",
-              },
-              {
-                "@type": "HowToSupply",
-                name: "Heater",
-              },
-              {
-                "@type": "HowToSupply",
-                name: "Lighting",
-              },
-            ],
-            step: [
-              {
-                "@type": "HowToStep",
-                name: "Find Local Resources",
-                text: "Visit local fish stores and join hobby groups for expert advice and support.",
-              },
-              {
-                "@type": "HowToStep",
-                name: "Choose Tank Setup",
-                text: "Decide on tank size (minimum 10 gallons) and whether you want live plants.",
-              },
-              {
-                "@type": "HowToStep",
-                name: "Select Fish Species",
-                text: "Research beginner-friendly fish species that suit your tank size and setup.",
-              },
-              {
-                "@type": "HowToStep",
-                name: "Gather Equipment",
-                text: "Purchase tank, filter, heater, lighting, and necessary accessories.",
-              },
-              {
-                "@type": "HowToStep",
-                name: "Setup Tank",
-                text: "Install equipment, add substrate and decorations, fill with dechlorinated water.",
-              },
-              {
-                "@type": "HowToStep",
-                name: "Cycle the Tank",
-                text: "Establish beneficial bacteria colony before adding fish (1-8 weeks).",
-              },
-              {
-                "@type": "HowToStep",
-                name: "Add Fish and Plants",
-                text: "Introduce fish gradually and monitor water parameters closely.",
-              },
             ],
           }),
         }}

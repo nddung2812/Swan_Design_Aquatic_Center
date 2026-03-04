@@ -21,7 +21,7 @@ export const metadata = {
       },
     ],
     type: "website",
-    locale: "en_US",
+    locale: "en_AU",
   },
   twitter: {
     card: "summary_large_image",

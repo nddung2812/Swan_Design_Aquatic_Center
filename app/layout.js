@@ -9,14 +9,14 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title:
-    "Fish Tank Cleaning Service Brisbane & Gold Coast | Professional Aquarium Maintenance | Duckaroo #1",
+    "Fish Tank Cleaning Service Brisbane & Gold Coast | Professional Aquarium Maintenance | Duckaroo",
   description:
-    "Brisbane & Gold Coast's premier fish tank cleaning service since 2010. Professional fish tank cleaning service, aquarium maintenance, tank removal & setup. Expert fish tank cleaning service specialists. Same-day service available. Call (04) 5766 3939",
+    "Duckaroo provides professional fish tank cleaning, aquarium maintenance, pond cleaning, and tank setup across Brisbane and Gold Coast, Queensland. Same-day service available. Call (04) 5766 3939.",
   keywords:
-    "fish tank cleaning service, fish tank cleaning service Brisbane, fish tank cleaning service Gold Coast, professional fish tank cleaning service, Brisbane fish tank cleaning service, Gold Coast fish tank cleaning service, aquarium maintenance service, fish tank cleaning specialists, same day fish tank cleaning service, residential fish tank cleaning service, commercial fish tank cleaning service",
+    "fish tank cleaning service, aquarium maintenance Brisbane, fish tank cleaning Brisbane, aquarium cleaning Gold Coast, pond cleaning Brisbane, tank setup Brisbane, aquarium specialists Queensland",
   authors: [{ name: "Duckaroo Brisbane" }],
-  creator: "Duckaroo Brisbane",
-  publisher: "Duckaroo Brisbane",
+  creator: "Duckaroo",
+  publisher: "Duckaroo",
   formatDetection: {
     email: false,
     address: false,
@@ -28,17 +28,17 @@ export const metadata = {
   },
   openGraph: {
     title:
-      "Fish Tank Cleaning Service Brisbane & Gold Coast | Professional Aquarium Maintenance | Duckaroo #1",
+      "Fish Tank Cleaning Service Brisbane & Gold Coast | Duckaroo",
     description:
-      "Brisbane & Gold Coast's premier fish tank cleaning service since 2010. Professional fish tank cleaning service, aquarium maintenance, tank removal & setup. Expert fish tank cleaning service specialists. Same-day service available.",
+      "Professional fish tank cleaning, aquarium maintenance, pond cleaning and tank setup across Brisbane & Gold Coast. Same-day service available.",
     url: "https://aquaticswandesign.com.au",
-    siteName: "Duckaroo Fish Tank Cleaning Service Brisbane",
+    siteName: "Duckaroo",
     images: [
       {
         url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756014363/meta_f0bqpw.jpg?v=2",
         width: 1200,
         height: 630,
-        alt: "Duckaroo Brisbane - Professional Fish Tank Cleaning Service & Aquarium Maintenance",
+        alt: "Duckaroo - Professional Fish Tank Cleaning Service Brisbane & Gold Coast",
       },
     ],
     locale: "en_AU",
@@ -47,13 +47,13 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Fish Tank Cleaning Service Brisbane & Gold Coast | Professional Aquarium Maintenance | Duckaroo #1",
+      "Fish Tank Cleaning Service Brisbane & Gold Coast | Duckaroo",
     description:
-      "Brisbane & Gold Coast's premier fish tank cleaning service since 2010. Professional fish tank cleaning service, aquarium maintenance, tank removal & setup. Expert fish tank cleaning service specialists.",
+      "Professional fish tank cleaning, aquarium maintenance, and pond services across Brisbane & Gold Coast. Same-day service available.",
     images: [
       {
         url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756014363/meta_f0bqpw.jpg?v=2",
-        alt: "Duckaroo Brisbane - Professional Fish Tank Cleaning Service & Aquarium Maintenance",
+        alt: "Duckaroo - Professional Fish Tank Cleaning Service Brisbane & Gold Coast",
       },
     ],
   },
@@ -68,15 +68,6 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-  },
-  other: {
-    "geo.region": "AU-QLD",
-    "geo.placename": "Brisbane",
-    "geo.position": "-27.4698;153.0251",
-    ICBM: "-27.4698, 153.0251",
-  },
   category: "business",
   classification: "Aquarium Services",
   coverage: "Brisbane, Gold Coast, Queensland, Australia",
@@ -85,8 +76,8 @@ export const metadata = {
   referrer: "origin-when-cross-origin",
   "apple-mobile-web-app-capable": "yes",
   "apple-mobile-web-app-status-bar-style": "default",
-  "apple-mobile-web-app-title": "Duckaroo Brisbane",
-  "application-name": "Duckaroo Brisbane",
+  "apple-mobile-web-app-title": "Duckaroo",
+  "application-name": "Duckaroo",
   "msapplication-TileColor": "#0f172a",
   "theme-color": "#0f172a",
   icons: {
@@ -95,8 +86,12 @@ export const metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
-  // Local Business Schema
+  // Merged geo + business contact meta (duplicate "other" key bug fixed)
   other: {
+    "geo.region": "AU-QLD",
+    "geo.placename": "Brisbane",
+    "geo.position": "-27.4698;153.0251",
+    ICBM: "-27.4698, 153.0251",
     "business:contact_data:street_address": "Brisbane, QLD",
     "business:contact_data:locality": "Brisbane",
     "business:contact_data:region": "Queensland",
@@ -128,6 +123,36 @@ export default function RootLayout({ children }) {
         <link rel="dns-prefetch" href="https://duckaroo.com.au" />
 
         {/* Font optimization handled by Next.js font system */}
+
+        {/* WebSite Schema with SearchAction for Sitelinks Searchbox */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": "https://aquaticswandesign.com.au/#website",
+              url: "https://aquaticswandesign.com.au",
+              name: "Duckaroo",
+              description:
+                "Professional fish tank cleaning, aquarium maintenance, and pond services across Brisbane and Gold Coast, Queensland.",
+              publisher: {
+                "@id": "https://aquaticswandesign.com.au/#organization",
+              },
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate:
+                    "https://aquaticswandesign.com.au/products?search={search_term_string}",
+                },
+                "query-input": "required name=search_term_string",
+              },
+              inLanguage: "en-AU",
+            }),
+          }}
+        />
+
         {/* Structured Data for Local Business */}
         <script
           type="application/ld+json"
@@ -135,12 +160,11 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "@id": "https://aquaticswandesign.com.au/#business",
-              name: "Duckaroo Fish Tank Cleaning Service Brisbane & Gold Coast",
-              alternateName:
-                "Brisbane & Gold Coast Premier Fish Tank Cleaning Service",
+              "@id": "https://aquaticswandesign.com.au/#organization",
+              name: "Duckaroo",
+              alternateName: "Duckaroo Fish Tank Cleaning Service",
               description:
-                "Brisbane & Gold Coast's premier fish tank cleaning service and aquarium maintenance specialists since 2010. Professional fish tank cleaning service across Brisbane & Gold Coast.",
+                "Duckaroo is Brisbane and Gold Coast's professional fish tank cleaning and aquarium maintenance service. We serve residential and commercial clients across Brisbane, Gold Coast, Logan, and Ipswich, Queensland.",
               url: "https://aquaticswandesign.com.au",
               telephone: "+61457663939",
               email: "aquaticswandesign@gmail.com",
@@ -159,19 +183,29 @@ export default function RootLayout({ children }) {
                 {
                   "@type": "City",
                   name: "Brisbane",
+                  sameAs: "https://en.wikipedia.org/wiki/Brisbane",
                 },
                 {
-                  "@type": "State",
-                  name: "Queensland",
+                  "@type": "City",
+                  name: "Gold Coast",
+                  sameAs:
+                    "https://en.wikipedia.org/wiki/Gold_Coast,_Queensland",
+                },
+                {
+                  "@type": "City",
+                  name: "Logan",
+                },
+                {
+                  "@type": "City",
+                  name: "Ipswich",
                 },
               ],
               serviceType: [
-                "Fish Tank Cleaning Service",
-                "Professional Fish Tank Cleaning Service",
-                "Aquarium Maintenance Service",
-                "Fish Tank Removal Service",
-                "Brisbane Fish Tank Cleaning Service",
-                "Emergency Fish Tank Cleaning Service",
+                "Fish Tank Cleaning",
+                "Aquarium Maintenance",
+                "Pond Cleaning",
+                "Tank Removal",
+                "Aquarium Setup",
               ],
               priceRange: "$$",
               currenciesAccepted: "AUD",
@@ -180,7 +214,10 @@ export default function RootLayout({ children }) {
               image: [
                 "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756014363/meta_f0bqpw.jpg?v=2",
               ],
-              sameAs: ["https://aquaticswandesign.com.au"],
+              sameAs: [
+                "https://www.facebook.com/duckaroobrisbane",
+                "https://www.instagram.com/duckaroobrisbane",
+              ],
               aggregateRating: {
                 "@type": "AggregateRating",
                 ratingValue: "4.9",
@@ -215,10 +252,9 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Service",
-              serviceType: "Professional Fish Tank Cleaning Service",
+              serviceType: "Fish Tank Cleaning Service",
               provider: {
                 "@type": "LocalBusiness",
-                name: "Duckaroo Fish Tank Cleaning Service Brisbane",
                 "@id": "https://aquaticswandesign.com.au/#organization",
               },
               areaServed: {
@@ -245,15 +281,15 @@ export default function RootLayout({ children }) {
               },
               hasOfferCatalog: {
                 "@type": "OfferCatalog",
-                name: "Fish Tank Cleaning Service & Aquarium Services",
+                name: "Aquarium & Fish Tank Services",
                 itemListElement: [
                   {
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Fish Tank Cleaning Service",
+                      name: "Fish Tank Cleaning",
                       description:
-                        "Professional fish tank cleaning service and aquarium maintenance specialists in Brisbane",
+                        "Professional fish tank cleaning and aquarium maintenance for residential and commercial clients in Brisbane and Gold Coast",
                     },
                   },
                   {
@@ -262,7 +298,7 @@ export default function RootLayout({ children }) {
                       "@type": "Service",
                       name: "Tank Removal",
                       description:
-                        "Safe and professional aquarium tank removal service in Brisbane",
+                        "Safe and professional aquarium tank removal service in Brisbane and Gold Coast",
                     },
                   },
                   {
@@ -289,64 +325,16 @@ export default function RootLayout({ children }) {
           }}
         />
 
-        {/* Explicit Open Graph Tags for Social Media */}
-        <meta
-          property="og:title"
-          content="Duckaroo Brisbane & Gold Coast | #1 Fish Tank Cleaning, Removal & Aquarium Service QLD"
-        />
-        <meta
-          property="og:description"
-          content="Brisbane & Gold Coast's premier fish tank cleaning & removal service since 2020. Professional aquarium maintenance, tank removal, pond cleaning & plant care. Same-day service available."
-        />
-        <meta
-          property="og:image"
-          content="https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756014363/meta_f0bqpw.jpg?v=2"
-        />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta
-          property="og:image:alt"
-          content="Duckaroo Brisbane - Professional Aquarium & Fish Tank Cleaning Service"
-        />
-        <meta property="og:url" content="https://aquaticswandesign.com.au" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Aquatic Swan Design" />
-        <meta property="og:locale" content="en_AU" />
-
-        {/* Twitter Card Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Duckaroo Brisbane & Gold Coast | #1 Fish Tank Cleaning, Removal & Aquarium Service QLD"
-        />
-        <meta
-          name="twitter:description"
-          content="Brisbane & Gold Coast's premier fish tank cleaning & removal service since 2020. Professional aquarium maintenance, tank removal, pond cleaning & plant care. Same-day service available."
-        />
-        <meta
-          name="twitter:image"
-          content="https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756014363/meta_f0bqpw.jpg?v=2"
-        />
-        <meta
-          name="twitter:image:alt"
-          content="Duckaroo Brisbane - Professional Aquarium & Fish Tank Cleaning Service"
-        />
-
-        {/* Additional Meta Tags */}
-        <meta name="format-detection" content="telephone=yes" />
-        <meta name="HandheldFriendly" content="true" />
-        <meta name="MobileOptimized" content="width" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta
-          name="apple-mobile-web-app-status-bar-style"
-          content="black-translucent"
-        />
-
         {/* Geo Tags */}
         <meta name="geo.region" content="AU-QLD" />
         <meta name="geo.placename" content="Brisbane" />
         <meta name="geo.position" content="-27.4698;153.0251" />
         <meta name="ICBM" content="-27.4698, 153.0251" />
+
+        {/* Additional Meta Tags */}
+        <meta name="format-detection" content="telephone=yes" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="MobileOptimized" content="width" />
 
         {/* Preconnect for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
