@@ -215,8 +215,8 @@ export default function RootLayout({ children }) {
                 "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756014363/meta_f0bqpw.jpg?v=2",
               ],
               sameAs: [
-                "https://www.facebook.com/duckaroobrisbane",
-                "https://www.instagram.com/duckaroobrisbane",
+                "https://www.facebook.com/aquaticswandesign",
+                "https://www.instagram.com/aquatic_swan_design/",
               ],
               aggregateRating: {
                 "@type": "AggregateRating",
@@ -324,12 +324,6 @@ export default function RootLayout({ children }) {
             }),
           }}
         />
-
-        {/* Geo Tags */}
-        <meta name="geo.region" content="AU-QLD" />
-        <meta name="geo.placename" content="Brisbane" />
-        <meta name="geo.position" content="-27.4698;153.0251" />
-        <meta name="ICBM" content="-27.4698, 153.0251" />
 
         {/* Additional Meta Tags */}
         <meta name="format-detection" content="telephone=yes" />

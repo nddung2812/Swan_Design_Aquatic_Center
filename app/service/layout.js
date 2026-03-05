@@ -153,6 +153,59 @@ export default function ServiceLayout({ children }) {
         }}
       />
 
+      {/* FAQ structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "How often should I have my fish tank professionally cleaned?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "For most residential aquariums, professional cleaning every 4-6 weeks is ideal. Heavily stocked tanks, larger aquariums, or tanks with live plants may benefit from monthly service. Duckaroo offers customised maintenance schedules based on your tank's specific needs.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Do you offer fish tank cleaning services in Gold Coast?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes! Duckaroo provides professional fish tank cleaning and aquarium maintenance across all Gold Coast areas including Surfers Paradise, Southport, Robina, Coomera, and Tweed Heads. Same-day service is available in most areas.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "What is included in your fish tank cleaning service?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Our standard fish tank cleaning service includes water testing and parameter adjustment, glass/acrylic cleaning, gravel vacuuming, filter maintenance, partial water change, algae removal, and plant trimming. We bring all equipment and products — you don't need to provide anything.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "How much does fish tank cleaning cost in Brisbane?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Pricing depends on tank size, condition, and service frequency. Duckaroo offers competitive rates for both one-off cleans and regular maintenance contracts. Contact us for a personalised quote — we service Brisbane, Gold Coast, Logan, and Ipswich areas.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Can you set up a new aquarium from scratch?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Absolutely. Duckaroo offers complete aquarium setup services including tank placement, equipment installation, substrate and hardscape design, planting, and initial cycling guidance. We handle everything from a bare tank to a fully planted, cycled aquarium ready for fish.",
+                },
+              },
+            ],
+          }),
+        }}
+      />
+
       {children}
     </>
   );

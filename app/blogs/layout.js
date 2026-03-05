@@ -16,7 +16,7 @@ export const metadata = {
     url: "https://aquaticswandesign.com.au/blogs",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=1200&h=630&fit=crop&crop=center",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756014363/meta_f0bqpw.jpg",
         width: 1200,
         height: 630,
         alt: "Duckaroo Aquarium Care Blog - Expert Tips and Guides",
@@ -33,7 +33,7 @@ export const metadata = {
       "Expert aquarium care guides, fish health tips, and aquascaping advice from Brisbane's professional aquarium service.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=1200&h=630&fit=crop&crop=center",
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756014363/meta_f0bqpw.jpg",
         alt: "Duckaroo Aquarium Care Blog - Expert Tips and Guides",
       },
     ],

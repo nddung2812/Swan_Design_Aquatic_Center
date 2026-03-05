@@ -18,6 +18,14 @@ export const metadata = {
     siteName: "Duckaroo",
     locale: "en_AU",
     type: "website",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dhvj8x2nq/image/upload/f_auto,q_auto/v1756014363/meta_f0bqpw.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Duckaroo Customer Success Stories - Real Aquarium Projects Brisbane & Gold Coast",
+      },
+    ],
   },
   robots: {
     index: true,
@@ -28,6 +36,52 @@ export const metadata = {
 export default function RealAquariumProjectLayout({ children }) {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "@id": "https://aquaticswandesign.com.au/customer-stories",
+            name: "Customer Success Stories | Duckaroo",
+            description:
+              "Real aquarium projects and customer success stories from Duckaroo's fish tank cleaning and aquarium maintenance services across Brisbane and Gold Coast.",
+            url: "https://aquaticswandesign.com.au/customer-stories",
+            publisher: {
+              "@id": "https://aquaticswandesign.com.au/#organization",
+            },
+            mainEntity: {
+              "@type": "ItemList",
+              name: "Aquarium Projects Portfolio",
+              description:
+                "Before and after aquarium cleaning, setup, and maintenance projects by Duckaroo across Brisbane and Gold Coast.",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Residential Aquarium Cleaning — Brisbane",
+                  description:
+                    "Complete fish tank cleaning and water change service for a 200L residential aquarium in Brisbane.",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Office Aquarium Maintenance — Gold Coast",
+                  description:
+                    "Ongoing monthly aquarium maintenance for a commercial office display tank on the Gold Coast.",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: "Planted Tank Setup — Brisbane Northside",
+                  description:
+                    "Full planted aquarium setup including hardscape, substrate, and plant installation for a new 300L tank.",
+                },
+              ],
+            },
+          }),
+        }}
+      />
       <Navbar />
       {children}
       <Footer />

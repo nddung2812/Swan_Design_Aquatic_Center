@@ -15,7 +15,7 @@ export const metadata = {
   },
   metadataBase: new URL("https://aquaticswandesign.com.au"),
   alternates: {
-    canonical: "/products",
+    canonical: "https://aquaticswandesign.com.au/products",
   },
   openGraph: {
     title:
