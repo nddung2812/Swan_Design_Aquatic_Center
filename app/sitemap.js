@@ -1,5 +1,6 @@
 import { getAllProductSlugs } from "./products/data/products";
 import { blogs } from "../data/blogs";
+import { getAllTankSlugs } from "./fish-tank-for-sale-brisbane/data/tanks";
 
 export default function sitemap() {
   const baseUrl =
@@ -86,5 +87,20 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...productPages, ...blogPages];
+  // Fish tank listings
+  const tankSlugs = getAllTankSlugs();
+  const tankListingPage = {
+    url: `${baseUrl}/fish-tank-for-sale-brisbane`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  };
+  const tankDetailPages = tankSlugs.map((slug) => ({
+    url: `${baseUrl}/fish-tank-for-sale-brisbane/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...productPages, ...blogPages, tankListingPage, ...tankDetailPages];
 }
