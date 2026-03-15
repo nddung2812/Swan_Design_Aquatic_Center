@@ -22,6 +22,7 @@ import dynamic from "next/dynamic";
 import FavoritesPopup from "./components/FavoritesPopup";
 import { getFavorites } from "./utils/favorites";
 import { projects } from "./customer-stories/clientdata";
+import { partners } from "../data/partners";
 
 export const runtime = "edge";
 
@@ -347,6 +348,52 @@ const Home = () => {
         <main className="relative z-10 w-full overflow-x-hidden">
           <HomeBanner />
           <ServiceBookingSection />
+
+          {/* Partners Section */}
+          {partners.length > 0 && (
+            <section className="w-full px-4 py-16 relative">
+              <div className="max-w-7xl mx-auto">
+                <div className="text-center mb-10">
+                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                    Our Regular Customers
+                  </h2>
+                  <p className="text-white/60 max-w-xl mx-auto text-sm">
+                    Trusted businesses we regularly service across Brisbane &
+                    Gold Coast.
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+                  {partners.map((partner) => (
+                    <a
+                      key={partner.id}
+                      href={partner.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex flex-col items-center justify-center gap-3 p-4 sm:p-5 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 hover:border-emerald-400/50 transition-all duration-300 w-[calc(50%-8px)] sm:w-44 md:w-52"
+                    >
+                      <div className="w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center overflow-hidden">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={partner.logo.replace(
+                            "/upload/",
+                            "/upload/f_auto,q_auto,w_160,h_160,c_fit/"
+                          )}
+                          alt={`${partner.name} logo`}
+                          width={96}
+                          height={96}
+                          className="object-contain w-full h-full filter brightness-90 group-hover:brightness-110 transition-all duration-300"
+                        />
+                      </div>
+                      <span className="inline-flex items-center justify-center w-full text-white/80 group-hover:text-white text-xs font-semibold px-2 py-1.5 text-center transition-colors duration-300 min-h-[2rem]">
+                        {partner.name}
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
 
           {/* Customer Success Stories Section */}
           <section
